@@ -4,8 +4,8 @@
  import axios from 'axios';
  
  const service = axios.create({
-     baseURL: "http://10.136.211.125:8080", // 服务地址
-    //  baseURL: "http://localhost:8080/", // 本地
+    //  baseURL: "http://10.136.211.125:8080", // 服务地址
+     baseURL: "http://localhost:8080/", // 本地
      timeout: 60000, //设置请求超时时间
      withCredentials: false, //设置跨域是否允许携带凭证(开发环境需要配置，因为要使用跨域；生产环境可能需要将其注释掉！)
      headers: {

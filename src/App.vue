@@ -16,7 +16,7 @@ body {
   margin: 0;
   height: 1024px;
   width: 3584px;
-  background-image: url("./assets/bg.jpg");
+  background-image: url("./assets/bg.png");
   background-repeat: no-repeat;
   background-size: 3584px,1024px;
 }

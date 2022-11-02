@@ -23,6 +23,6 @@ body {
 html {
   height: 1024px;
   width: 100%;
-  background-color: #282c34;
+  background-color: #1d232f;
 }
 </style>

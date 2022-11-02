@@ -20,7 +20,24 @@
         </div>
         <div class="left-top-center">
           <div class="left-top-center-text">原煤量</div>
-          <div class="cityGreenLand-charts" id="cityGreenLand-charts"></div>
+          <img src="../../assets/pie.png" alt="" />
+          <div class="juhua1">巨化集团</div>
+          <div class="juhua">{{ juhua }}%</div>
+          <div class="taisu1">台塑集团</div>
+          <div class="taisu">{{ taisu }}%</div>
+          <div class="huarun1">华润集团</div>
+          <div class="huarun">{{ huarun }}%</div>
+          <div class="huadian1">华电集团</div>
+          <div class="huadian">{{ huadian }}%</div>
+          <div class="datang1">大唐集团</div>
+          <div class="datang">{{ datang }}%</div>
+          <div class="huaneng1">华能集团</div>
+          <div class="huaneng">{{ huaneng }}%</div>
+          <div class="guoneng1">国能集团</div>
+          <div class="guoneng">{{ guoneng }}%</div>
+          <div class="zheneng1">浙能集团</div>
+          <div class="zheneng">{{ zheneng }}%</div>
+          <!-- <div class="cityGreenLand-charts" id="cityGreenLand-charts"></div> -->
         </div>
         <div class="left-top-right">
           <div id="industrialIncrease"></div>
@@ -30,6 +47,7 @@
         <div class="left-footer-left">
           <div id="biao4"></div>
         </div>
+
         <div class="left-footer-center">
           <div id="biao5"></div>
         </div>
@@ -582,23 +600,35 @@
     <div class="main-right">
       <div class="main-right-left">
         <div class="main-right-left-top">
-          <div class="main-right-left-text1">{{ coalMachine }}</div>
-          <div class="main-right-left-text7">{{ coalMachineFunction }}</div>
+          <div class="main-right-left-text1">
+            <span style="color: #fff; font-size: 14px">煤机 </span>
+            {{ coalMachine }}
+            <!-- <span style="color: #fff">运行 </span> {{ coalMachineFunction }} -->
+          </div>
+          <div class="main-right-left-text7">
+            <span style="color: #fff; font-size: 14px">运行 </span>
+            {{ coalMachineFunction }}
+          </div>
           <div class="main-right-left-text2">
-            {{ hpressure }} <span class="wan">台</span>
+            {{ hpressure }}
           </div>
+          <div class="zi2"><span class="wan" style="color: #f7f388;">台 </span><span>高压</span></div>
           <div class="main-right-left-text3">
-            {{ chpressure }} <span class="wan">台</span>
+           {{ chpressure }}
           </div>
+          <div class="zi3"><span class="wan" style="color: #f7f388;">台 </span><span>超高压</span></div>
           <div class="main-right-left-text4">
-            {{ cCritical }}<span class="wan">台</span>
+          {{ cCritical }}
           </div>
+          <div class="zi4"><span class="wan" style="color: #f7f388;">台 </span><span>亚临界</span></div>
           <div class="main-right-left-text5">
-            {{ yCritical }}<span class="wan">台</span>
+            {{ yCritical }}
           </div>
+          <div class="zi5"><span class="wan" style="color: #f7f388;">台 </span><span>超临界</span></div>
           <div class="main-right-left-text6">
-            {{ ccCritical }} <span class="wan">台</span>
+            {{ ccCritical }}
           </div>
+          <div class="zi6"><span class="wan" style="color: #f7f388;">台 </span><span>超超临界</span></div>
         </div>
         <div class="main-right-left-footer">
           <div class="footer-one" id="xindian1"></div>
@@ -609,8 +639,11 @@
       </div>
       <div class="main-right-right">
         <div class="top">
-          <div class="text1">{{ gasMachine }}</div>
-          <div class="text2">{{ gasMachineFunction }}</div>
+          <div class="text1">
+            <span style="color: #fff">煤机 </span> {{ gasMachine}}
+            <!-- <span style="color: #fff"> 运行 </span>{{ gasMachineFunction }} -->
+          </div>
+          <div class="text2"><span style="color: #fff"> 运行 </span>{{ gasMachineFunction }}</div>
           <div class="text3">
             <span class="text11">{{ rqjz }}</span
             ><span class="tai">台</span>
@@ -1359,6 +1392,14 @@ export default {
       option: {},
       tableData: [],
       currentIndex: 1,
+      juhua: 0,
+      taisu: 0,
+      huarun: 0,
+      huadian: 0,
+      datang: 0,
+      huaneng: 0,
+      guoneng: 0,
+      zheneng: 0,
     };
   },
   created() {},
@@ -1401,7 +1442,6 @@ export default {
       }, 2000);
     },
     getPie3D(pieData, internalDiameterRatio, opacity = 0.8) {
-      console.log(pieData);
       //internalDiameterRatio:透明的空心占比
       let that = this;
       let series = [];
@@ -1690,17 +1730,25 @@ export default {
       let num = [];
       // 集团名称
       let xData = [];
+      let xxData = [];
       let fxData = [];
       // 平均煤耗
       var mydata = [];
+      var xxmydata = [];
       // 本日汽机热耗率
       var qjrhl1 = [];
+      var qjrhl11 = [];
       // 去年同日汽机热耗率
       var qjrhl2 = [];
+      var qjrhl22 = [];
       // 本日厂用电率
       var cydl1 = [];
       var fcydl1 = [];
       var fcydl2 = [];
+      var fmydata = [];
+      var fqjrhl1 = [];
+      var fqjrhl2 = [];
+      var fnum = [];
       // 去年厂用电率
       var cydl2 = [];
       this.$http({
@@ -1713,60 +1761,88 @@ export default {
         this.LJFD = result.LJFD;
         this.optionData = result.YMLSTR;
         this.optionData.map((item, index) => {
-          item.value = Math.round(item.value);
+          if (item.name == "巨化") {
+            this.juhua = item.value;
+          }
+          if (item.name == "浙能") {
+            this.zheneng = item.value;
+          }
+          if (item.name == "国能") {
+            this.guoneng = item.value;
+          }
+          if (item.name == "华能") {
+            this.huaneng = item.value;
+          }
+          if (item.name == "大唐") {
+            this.datang = item.value;
+          }
+          if (item.name == "华电") {
+            this.huadian = item.value;
+          }
+          if (item.name == "华润") {
+            this.huarun = item.value;
+          }
+          if (item.name == "台塑") {
+            this.taisu = item.value;
+          }
+          item.value = item.value;
         });
-        //构建3d饼状图
-        let myChart3d = echarts.init(
-          document.getElementById("cityGreenLand-charts")
-        );
-        // 传入数据生成 option
-        this.option3d = this.getPie3D(this.optionData, 0.8);
-        myChart3d.setOption(this.option3d);
-        //是否需要label指引线，如果要就添加一个透明的2d饼状图并调整角度使得labelLine和3d的饼状图对齐，并再次setOption
-        this.option3d.series.push({
-          name: "pie2d",
-          type: "pie",
-          labelLine: {
-            normal: {
-              length: 20,
-              length2: 20,
-            },
-          },
-          avoidLabelOverlap: true,
-          label: {
-            normal: {
-              show: true,
-              rich: {
-                b: {
-                  color: "#999",
-                  fontSize: 14,
-                },
-                c: {
-                  fontSize: 16,
-                  color: "#72F4FA",
-                  fontWeight: 700,
-                },
-              },
-              formatter: "{b|{b} }{c|{d}% \n}{b|}",
-            },
-          },
-          startAngle: -55, //起始角度，支持范围[0, 360]。
-          clockwise: false, //饼图的扇区是否是顺时针排布。上述这两项配置主要是为了对齐3d的样式
-          radius: ["50%", "40%"],
-          center: ["50%", "50%"],
-          data: this.optionData,
-          itemStyle: {
-            opacity: 0,
-          },
-        });
-        myChart3d.setOption(this.option3d);
+        // //构建3d饼状图
+        // let myChart3d = echarts.init(
+        //   document.getElementById("cityGreenLand-charts")
+        // );
+        // // 传入数据生成 option
+        // this.option3d = this.getPie3D(this.optionData, 0.8);
+        // myChart3d.setOption(this.option3d);
+        // //是否需要label指引线，如果要就添加一个透明的2d饼状图并调整角度使得labelLine和3d的饼状图对齐，并再次setOption
+        // this.option3d.series.push({
+        //   name: "pie2d",
+        //   type: "pie",
+        //   labelLine: {
+        //     normal: {
+        //       length: 10,
+        //       length2: 10,
+        //     },
+        //   },
+        //   avoidLabelOverlap: true,
+        //   label: {
+        //     normal: {
+        //       show: true,
+        //       rich: {
+        //         b: {
+        //           color: "#999",
+        //           fontSize: 11,
+        //         },
+        //         c: {
+        //           fontSize: 11,
+        //           color: "#72F4FA",
+        //           fontWeight: 700,
+        //         },
+        //       },
+        //       formatter: "{b|{b} }{c|{d}% \n}{b|}",
+        //     },
+        //   },
+        //   startAngle: -55, //起始角度，支持范围[0, 360]。
+        //   clockwise: false, //饼图的扇区是否是顺时针排布。上述这两项配置主要是为了对齐3d的样式
+        //   radius: ["50%", "40%"],
+        //   center: ["50%", "50%"],
+        //   data: this.optionData,
+        //   itemStyle: {
+        //     opacity: 0,
+        //   },
+        // });
+        // myChart3d.setOption(this.option3d);
 
         result.STATSTR.map((item, index) => {
           xData.push(item.jtmc);
+          xxData.push(item.jtmc);
           num.push(item.value);
           mydata.push(item.mh1);
+          xxmydata.push(item.mh1);
           qjrhl1.push(item.qjrhl1);
+          qjrhl11.push(item.qjrhl1);
           qjrhl2.push(item.qjrhl2);
+          qjrhl22.push(item.qjrhl2);
           cydl1.push(item.cydl1);
           cydl2.push(0 - item.cydl2);
         });
@@ -1800,9 +1876,15 @@ export default {
         ];
         var barWidth = 18; // 柱子宽度
         // 绘制图表
+        fxData = xData.reverse();
+        fcydl1 = cydl1.reverse();
+        fcydl2 = cydl2.reverse();
+        fmydata = mydata.reverse();
+        fqjrhl1 = qjrhl1.reverse();
+        fqjrhl2 = qjrhl2.reverse();
         this.option4 = {
           title: {
-            text: "锅炉热效率",
+            // text: "锅炉热效率",
             textStyle: {
               //主标题的属性
               color: "#fff", //颜色
@@ -1857,7 +1939,7 @@ export default {
               name: "2020",
               type: "pictorialBar",
               symbolPosition: "end",
-              data: num,
+              data: fnum,
               symbol: "diamond",
               symbolOffset: ["0%", "-50%"],
               symbolSize: [barWidth, (10 * (barWidth - 1)) / barWidth],
@@ -1918,7 +2000,7 @@ export default {
           },
           xAxis: {
             type: "category",
-            data: xData,
+            data: xxData,
             offset: 6,
             axisLine: { show: false, lineStyle: { color: " #CCCCCC" } },
             axisTick: {
@@ -1935,11 +2017,6 @@ export default {
                 fontSize: 13,
                 margin: 10,
               },
-              formatter: function (value) {
-                //x轴的文字改为竖版显示
-                var str = value.slice(0, 2);
-                return str;
-              },
             },
           },
 
@@ -1949,6 +2026,7 @@ export default {
             nameTextStyle: {
               align: "right",
               color: "#999",
+              // fontSize: 11,
             },
             axisLine: {
               show: false,
@@ -1988,18 +2066,19 @@ export default {
           },
           grid: {
             top: "10%",
-            left: "10%",
-            right: "10%",
-            bottom: "10%",
+            left: "3%",
+            right: "4%",
+            bottom: "3%",
             containLabel: true,
           },
           xAxis: {
             show: true,
             axisLabel: {
               color: "#999", // x轴字颜色
-              formatter: "{value}",
+              // fontSize: 11,
               show: true,
             },
+            boundaryGap:['0%', '10%'],
             splitLine: { show: false },
             axisLine: {
               show: true,
@@ -2014,9 +2093,6 @@ export default {
               opacity: 0.8,
               fontFamily: "PingFangSC-Regular",
               fontSize: 14,
-              formatter: (val) => {
-                return `${val}`;
-              },
             },
             axisLine: {
               show: false, // 轴线
@@ -2024,7 +2100,7 @@ export default {
             axisTick: {
               show: false, // 刻度线
             },
-            data: xData,
+            data: xxData,
           },
           series: [
             {
@@ -2057,13 +2133,13 @@ export default {
                   lineDash: [5, 1],
                 },
               },
-              data: mydata,
+              data: xxmydata,
             },
           ],
         };
         this.option5 = {
           title: {
-            text: "汽轮机热耗率kJ/kWh",
+            // text: "汽轮机热耗率kJ/kWh",
             textStyle: {
               //主标题的属性
               color: "#fff", //颜色
@@ -2090,6 +2166,7 @@ export default {
             itemWidth: 10, // 图例icon宽度
             textStyle: {
               color: "#fff", // 图例文字颜色
+              // fontSize: 11,
             },
           },
           grid: {
@@ -2102,7 +2179,7 @@ export default {
             {
               type: "category",
               boundaryGap: false,
-              data: xData,
+              data: xxData,
               offset: 6,
               axisLine: { lineStyle: { color: " #CCCCCC" } },
               axisTick: {
@@ -2110,7 +2187,6 @@ export default {
               },
               axisLabel: {
                 interval: 0,
-                // rotate: 20,
                 textStyle: {
                   color: "#999",
                   fontStyle: "normal",
@@ -2148,7 +2224,7 @@ export default {
           series: [
             {
               name: "2021",
-              data: qjrhl1,
+              data: qjrhl11,
               type: "line",
               lineStyle: {
                 color: "rgb(134,53,245)",
@@ -2172,7 +2248,7 @@ export default {
             },
             {
               name: "2022",
-              data: qjrhl2,
+              data: qjrhl22,
               type: "line",
               lineStyle: {
                 color: "rgb(117,251,252)",
@@ -2196,13 +2272,10 @@ export default {
             },
           ],
         };
-        fxData = xData.reverse();
-        fcydl1 = cydl1.reverse();
-        fcydl2 = cydl2.reverse();
         this.option6 = {
           backgroundColor: "", //设置无背景色
           title: {
-            text: "(集团)",
+            // text: "(集团)",
             textStyle: {
               //主标题的属性
               color: "#fff", //颜色
@@ -2218,6 +2291,7 @@ export default {
             itemWidth: 10, // 图例icon宽度
             textStyle: {
               color: "#fff", // 图例文字颜色
+              // fontSize: 11,
             },
           },
           tooltip: {
@@ -2253,6 +2327,7 @@ export default {
               axisTick: {
                 show: false,
               },
+              boundaryGap:['10%', '10%'],
               splitLine: { show: false },
               axisLabel: {
                 formatter: (value) => {
@@ -2290,48 +2365,10 @@ export default {
           ],
           series: [
             {
-              name: "2021",
-              type: "bar",
-              stack: "总量",
-              showBackground: true,
-              backgroundStyle: {
-                color: "rgba(180, 180, 180, 0.2)",
-              },
-              barWidth: 18,
-              label: {
-                show: true,
-                position: "right",
-                textStyle: {
-                  fontSize: 14,
-                  color: "#72F4FA",
-                  fontWeight: 700,
-                  fontFamily: "FusiBold",
-                },
-                formatter: (value) => {
-                  // 值都是负数的 所以需要取反一下
-                  if (value.data == 0.0) {
-                    value.data = 0;
-                  }
-                  return value.data;
-                },
-              },
-              barWidth: 9,
-              data: fcydl1,
-              itemStyle: {
-                normal: {
-                  barBorderRadius: [0, 10, 10, 0],
-                  color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [
-                    { offset: 0, color: "#00FFCC" },
-                    { offset: 1, color: "#143259" },
-                  ]),
-                },
-              },
-            },
-            {
               name: "2022",
               type: "bar",
               stack: "总量",
-              barWidth: 18,
+              barWidth: 10,
               label: {
                 show: true,
                 position: "left",
@@ -2357,6 +2394,48 @@ export default {
                 },
               },
             },
+            {
+              name: "2021",
+              type: "bar",
+              stack: "总量",
+              showBackground: true,
+              backgroundStyle: {
+                color: "rgba(180, 180, 180, 0.2)",
+              },
+              barWidth: 18,
+              label: {
+                show: true,
+                position: "right",
+                textStyle: {
+                  fontSize: 14,
+                  color: "#72F4FA",
+                  fontWeight: 700,
+                  fontFamily: "FusiBold",
+                },
+                formatter: (value) => {
+                  // 值都是负数的 所以需要取反一下
+                  return -value.data;
+                },
+                formatter: (value) => {
+                  // 值都是负数的 所以需要取反一下
+                  if (value.data == 0.0) {
+                    value.data = 0;
+                  }
+                  return value.data;
+                },
+              },
+              barWidth: 9,
+              data: fcydl1,
+              itemStyle: {
+                normal: {
+                  barBorderRadius: [0, 10, 10, 0],
+                  color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [
+                    { offset: 0, color: "#00FFCC" },
+                    { offset: 1, color: "#143259" },
+                  ]),
+                },
+              },
+            }
           ],
         };
         myChart1.setOption(this.option1);
@@ -2477,82 +2556,85 @@ export default {
             });
           });
           resultRight.JTPFLIST.map((item2, index2) => {
-            if (item2.dates == date8[0]) {
+            if (item2.JTMC == jituanName[0]) {
               noxpfl1.push(item2.noxpfl);
               so2pfl1.push(item2.so2pfl);
               dustpfl1.push(item2.dustpfl);
             }
-            if (item2.dates == date8[1]) {
+            if (item2.JTMC == jituanName[1]) {
               noxpfl2.push(item2.noxpfl);
               so2pfl2.push(item2.so2pfl);
               dustpfl2.push(item2.dustpfl);
             }
-            if (item2.dates == date8[2]) {
+            if (item2.JTMC == jituanName[2]) {
               noxpfl3.push(item2.noxpfl);
               so2pfl3.push(item2.so2pfl);
               dustpfl3.push(item2.dustpfl);
             }
-            if (item2.dates == date8[3]) {
+            if (item2.JTMC == jituanName[3]) {
               noxpfl4.push(item2.noxpfl);
               so2pfl4.push(item2.so2pfl);
               dustpfl4.push(item2.dustpfl);
             }
-            if (item2.dates == date8[4]) {
+            if (item2.JTMC == jituanName[4]) {
               noxpfl5.push(item2.noxpfl);
               so2pfl5.push(item2.so2pfl);
               dustpfl5.push(item2.dustpfl);
             }
-            if (item2.dates == date8[5]) {
+            if (item2.JTMC == jituanName[5]) {
               noxpfl6.push(item2.noxpfl);
               so2pfl6.push(item2.so2pfl);
               dustpfl6.push(item2.dustpfl);
             }
-            if (item2.dates == date8[6]) {
+            if (item2.JTMC == jituanName[6]) {
               noxpfl7.push(item2.noxpfl);
               so2pfl7.push(item2.so2pfl);
               dustpfl7.push(item2.dustpfl);
             }
-            if (item2.dates == date8[7]) {
+            if (item2.JTMC == jituanName[7]) {
               noxpfl8.push(item2.noxpfl);
               so2pfl8.push(item2.so2pfl);
               dustpfl8.push(item2.dustpfl);
             }
-            if (item2.dates == date8[8]) {
+            if (item2.JTMC == jituanName[8]) {
               noxpfl9.push(item2.noxpfl);
               so2pfl9.push(item2.so2pfl);
               dustpfl9.push(item2.dustpfl);
             }
-            if (item2.dates == date8[9]) {
+            if (item2.JTMC == jituanName[9]) {
               noxpfl10.push(item2.noxpfl);
               so2pfl10.push(item2.so2pfl);
               dustpfl10.push(item2.dustpfl);
             }
-            if (item2.dates == date8[10]) {
+            if (item2.JTMC == jituanName[10]) {
               noxpfl11.push(item2.noxpfl);
               so2pfl11.push(item2.so2pfl);
               dustpfl11.push(item2.dustpfl);
             }
-            if (item2.dates == date8[11]) {
+            if (item2.JTMC == jituanName[11]) {
               noxpfl12.push(item2.noxpfl);
               so2pfl12.push(item2.so2pfl);
               dustpfl12.push(item2.dustpfl);
             }
-            if (item2.dates == date8[12]) {
+            if (item2.JTMC == jituanName[12]) {
               noxpfl13.push(item2.noxpfl);
               so2pfl13.push(item2.so2pfl);
               dustpfl13.push(item2.dustpfl);
             }
-            if (item2.dates == date8[13]) {
+            if (item2.JTMC == jituanName[13]) {
               noxpfl14.push(item2.noxpfl);
               so2pfl14.push(item2.so2pfl);
               dustpfl14.push(item2.dustpfl);
             }
-            if (item2.dates == date8[14]) {
+            if (item2.JTMC == jituanName[14]) {
               noxpfl15.push(item2.noxpfl);
               so2pfl15.push(item2.so2pfl);
               dustpfl15.push(item2.dustpfl);
             }
           });
+
+          console.log(noxpfl15);
+          console.log();
 
           // console.log(Object.keys(resultRight.TPFDATA[0]));
 
@@ -2579,8 +2661,10 @@ export default {
               icon: "rect", // 图例icon为方块
               itemHeight: 10, // 图例icon高度
               itemWidth: 10, // 图例icon宽度
+              itemGap: 2,
               textStyle: {
                 color: "#fff", // 图例文字颜色
+                // fontSize: 8,
               },
             },
             toolbox: {
@@ -2598,6 +2682,7 @@ export default {
               axisLabel: {
                 color: "#fff", // x轴字颜色
                 show: true,
+                // fontSize: 11,
               },
               splitLine: { show: false },
               axisTick: {
@@ -2631,12 +2716,14 @@ export default {
               },
               axisLabel: {
                 color: "#999", // y轴字颜色
+                // fontSize: 11,
               },
             },
             dataZoom: [
               {
                 type: "slider",
                 show: true,
+                // height: 12,
                 start: 0,
                 end: 100,
                 borderGap: 0,
@@ -2645,33 +2732,12 @@ export default {
                 dataBackground: {
                   lineStyle: {
                     color: "#Fff",
+                    // fontSize: 11,
                   },
                 },
               },
             ],
             series: [
-              {
-                name: "dust",
-                type: "line",
-                symbol: "none",
-                sampling: "lttb",
-                itemStyle: {
-                  color: "#1FF7AC",
-                },
-                areaStyle: {
-                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                    {
-                      offset: 0,
-                      color: "#1FF75F",
-                    },
-                    {
-                      offset: 1,
-                      color: "#071A35",
-                    },
-                  ]),
-                },
-                data: dustpfl,
-              },
               {
                 name: "SO₂",
                 type: "line",
@@ -2695,7 +2761,7 @@ export default {
                 data: so2pfl,
               },
               {
-                name: "nox",
+                name: "NOx",
                 type: "line",
                 symbol: "none",
                 sampling: "lttb",
@@ -2716,6 +2782,28 @@ export default {
                 },
                 data: noxpfl,
               },
+              {
+                name: "烟尘",
+                type: "line",
+                symbol: "none",
+                sampling: "lttb",
+                itemStyle: {
+                  color: "#1FF7AC",
+                },
+                areaStyle: {
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: "#1FF75F",
+                    },
+                    {
+                      offset: 1,
+                      color: "#071A35",
+                    },
+                  ]),
+                },
+                data: dustpfl,
+              },
             ],
           };
           this.option7 && myChart1.setOption(this.option7);
@@ -2735,8 +2823,10 @@ export default {
               icon: "rect", // 图例icon为方块
               itemHeight: 10, // 图例icon高度
               itemWidth: 10, // 图例icon宽度
+              // itemGap: 2,
               textStyle: {
                 color: "#fff", // 图例文字颜色
+                // fontSize: 8,
               },
             },
             toolbox: {
@@ -2754,6 +2844,7 @@ export default {
               axisLabel: {
                 color: "#fff", // x轴字颜色
                 show: true,
+                // fontSize: 11,
               },
               splitLine: { show: false },
               axisTick: {
@@ -2787,12 +2878,14 @@ export default {
               },
               axisLabel: {
                 color: "#999", // y轴字颜色
+                // fontSize: 11,
               },
             },
             dataZoom: [
               {
                 type: "slider",
                 show: true,
+                // height: 12,
                 start: 0,
                 end: 100,
                 borderGap: 0,
@@ -2801,6 +2894,7 @@ export default {
                 dataBackground: {
                   lineStyle: {
                     color: "#Fff",
+                    // fontSize: 11,
                   },
                 },
               },
@@ -2812,7 +2906,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(60,124,228)",
+                  color: "#31CE8B",
                 },
                 data: so2pfl1,
               },
@@ -2822,7 +2916,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(172,238,83)",
+                  color: "#6C92FF",
                 },
                 data: so2pfl2,
               },
@@ -2832,7 +2926,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(245,187,102) ",
+                  color: "#19C7D0",
                 },
                 data: so2pfl3,
               },
@@ -2842,7 +2936,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(103,215,160) ",
+                  color: "#B87BFC",
                 },
                 data: so2pfl4,
               },
@@ -2852,7 +2946,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(86,52,227) ",
+                  color: "#E2A467",
                 },
                 data: so2pfl5,
               },
@@ -2862,7 +2956,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(223,68,159) ",
+                  color: "#B87BFC ",
                 },
                 data: so2pfl6,
               },
@@ -2872,7 +2966,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(146,219,146) ",
+                  color: "#2636E6",
                 },
                 data: so2pfl7,
               },
@@ -2882,7 +2976,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(104,207,214) ",
+                  color: "#ADFC7B",
                 },
                 data: so2pfl8,
               },
@@ -2905,8 +2999,10 @@ export default {
               icon: "rect", // 图例icon为方块
               itemHeight: 10, // 图例icon高度
               itemWidth: 10, // 图例icon宽度
+              // itemGap: 2,
               textStyle: {
                 color: "#fff", // 图例文字颜色
+                // fontSize: 8,
               },
             },
             toolbox: {
@@ -2924,6 +3020,7 @@ export default {
               axisLabel: {
                 color: "#fff", // x轴字颜色
                 show: true,
+                // fontSize: 11,
               },
               splitLine: { show: false },
               axisTick: {
@@ -2957,6 +3054,7 @@ export default {
               },
               axisLabel: {
                 color: "#999", // y轴字颜色
+                // fontSize: 11,
               },
             },
             dataZoom: [
@@ -2964,6 +3062,7 @@ export default {
                 type: "slider",
                 show: true,
                 start: 0,
+                // height: 12,
                 end: 100,
                 borderGap: 0,
                 borderColor: "rgb(14,27,65)", //滑动通道的边框颜色
@@ -2971,6 +3070,7 @@ export default {
                 dataBackground: {
                   lineStyle: {
                     color: "#Fff",
+                    // fontSize: 11,
                   },
                 },
               },
@@ -2982,7 +3082,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(146,233,156)",
+                  color: "#31CE8B",
                 },
                 data: noxpfl1,
               },
@@ -2992,7 +3092,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(128,170,244)",
+                  color: "#6C92FF",
                 },
                 data: noxpfl2,
               },
@@ -3002,7 +3102,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(105,209,215) ",
+                  color: "#19C7D0",
                 },
                 data: noxpfl3,
               },
@@ -3012,7 +3112,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(208,150,231) ",
+                  color: "#B87BFC",
                 },
                 data: noxpfl4,
               },
@@ -3022,7 +3122,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(217,166,112) ",
+                  color: "#E2A467",
                 },
                 data: noxpfl5,
               },
@@ -3032,7 +3132,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(104,81,243) ",
+                  color: "#B87BFC",
                 },
                 data: noxpfl6,
               },
@@ -3042,7 +3142,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(36,62,221) ",
+                  color: "#2636E6",
                 },
                 data: noxpfl7,
               },
@@ -3052,7 +3152,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(209,235,118) ",
+                  color: "#ADFC7B",
                 },
                 data: noxpfl8,
               },
@@ -3075,8 +3175,10 @@ export default {
               icon: "rect", // 图例icon为方块
               itemHeight: 10, // 图例icon高度
               itemWidth: 10, // 图例icon宽度
+              // itemGap: 2,
               textStyle: {
                 color: "#fff", // 图例文字颜色
+                // fontSize: 8,
               },
             },
             toolbox: {
@@ -3094,6 +3196,7 @@ export default {
               axisLabel: {
                 color: "#fff", // x轴字颜色
                 show: true,
+                // fontSize: 11,
               },
               splitLine: { show: false },
               axisTick: {
@@ -3127,12 +3230,14 @@ export default {
               },
               axisLabel: {
                 color: "#999", // y轴字颜色
+                // fontSize: 11,
               },
             },
             dataZoom: [
               {
                 type: "slider",
                 show: true,
+                // height: 12,
                 start: 0,
                 end: 100,
                 borderGap: 0,
@@ -3141,6 +3246,7 @@ export default {
                 dataBackground: {
                   lineStyle: {
                     color: "#Fff",
+                    // fontSize: 11,
                   },
                 },
               },
@@ -3152,7 +3258,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(146,233,156)",
+                  color: "#31CE8B",
                 },
                 data: dustpfl1,
               },
@@ -3162,7 +3268,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(128,170,244)",
+                  color: "#6C92FF",
                 },
                 data: dustpfl2,
               },
@@ -3172,7 +3278,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(105,209,215) ",
+                  color: "#19C7D0",
                 },
                 data: dustpfl3,
               },
@@ -3182,7 +3288,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(208,150,231) ",
+                  color: "#B87BFC",
                 },
                 data: dustpfl4,
               },
@@ -3192,7 +3298,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(217,166,112) ",
+                  color: "#E2A467",
                 },
                 data: dustpfl5,
               },
@@ -3202,7 +3308,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(104,81,243) ",
+                  color: "#B87BFC",
                 },
                 data: dustpfl6,
               },
@@ -3212,7 +3318,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(36,62,221) ",
+                  color: "#2636E6",
                 },
                 data: dustpfl7,
               },
@@ -3222,7 +3328,7 @@ export default {
                 symbol: "none",
                 sampling: "lttb",
                 itemStyle: {
-                  color: "rgb(209,235,118) ",
+                  color: "#ADFC7B",
                 },
                 data: dustpfl8,
               },
@@ -3240,8 +3346,10 @@ export default {
           const legend = {
             data: dataArr.result.map((item) => item.name),
             textStyle: { color: "#fff" },
-            itemWidth: 10,
-            itemHeight: 10,
+            itemHeight: 10, // 图例icon高度
+            itemWidth: 10, // 图例icon宽度
+            // itemGap: 2,
+            // x: "right", // 水平居右
             top: "3%",
             // 禁止点击
             selectedMode: false,
@@ -3258,7 +3366,12 @@ export default {
           const xAxis = {
             axisTick: { show: false },
             axisLine: { show: false },
-            axisLabel: { textStyle: { color: "#fff" } },
+            axisLabel: {
+              textStyle: {
+                color: "#fff",
+                // fontSize: 11,
+              },
+            },
             data: dataArr.xdata,
           };
 
@@ -3290,7 +3403,7 @@ export default {
             [
               { offset: 0, color: "#7DBCF9" },
               { offset: 0.5, color: "#7DBCF9" },
-              { offset: 0.5, color: "#6C92FF " },
+              { offset: 0.5, color: "#6C92FF" },
               { offset: 1, color: "#6C92FF" },
             ],
             [
@@ -3306,10 +3419,10 @@ export default {
               { offset: 1, color: "#B87BFC" },
             ],
             [
-              { offset: 0, color: "#E2A467 " },
-              { offset: 0.5, color: "#E2A467 " },
-              { offset: 0.5, color: "#FFA346" },
-              { offset: 1, color: "#FFA346" },
+              { offset: 0, color: "#E2A467" },
+              { offset: 0.5, color: "#E2A467" },
+              { offset: 0.5, color: "#E2A467" },
+              { offset: 1, color: "#E2A467" },
             ],
             [
               { offset: 0, color: "#B87BFC" },
@@ -3319,17 +3432,17 @@ export default {
             ],
 
             [
-              { offset: 0, color: "#213DFB" },
-              { offset: 0.5, color: "#213DFB" },
+              { offset: 0, color: "#2636E6" },
+              { offset: 0.5, color: "#2636E6" },
               { offset: 0.5, color: "#3A45FB" },
               { offset: 1, color: "#3A45FB" },
             ],
 
             [
-              { offset: 0, color: "#EBE754" },
-              { offset: 0.5, color: "#EBE754" },
+              { offset: 0, color: "#ADFC7B" },
               { offset: 0.5, color: "#ADFC7B" },
-              { offset: 1, color: "#ADFC7B" },
+              { offset: 0.5, color: "#EBE754" },
+              { offset: 1, color: "#EBE754" },
             ],
           ];
 

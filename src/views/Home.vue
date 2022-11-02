@@ -2,7 +2,7 @@
   <div class="home" style="height: 100%; width: 100%">
     <!-- 头部区域 -->
     <div class="body-header-div">
-      <sellheader></sellheader>
+      <sellheader ></sellheader>
     </div>
     <!-- 数据展示区域 -->
     <div class="body-content">
@@ -30,6 +30,7 @@ export default {
   margin: auto;
   display: flex;
   flex-direction: row;
+  // padding-top: 25px;
 }
 .body-content{
   height: 69%;

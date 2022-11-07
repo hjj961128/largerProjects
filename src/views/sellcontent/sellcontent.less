@@ -7,8 +7,8 @@
     src:url('../../assets/font/YouSheBiaoTiHei-2.ttf')
   }
 .mian-body {
-    margin-top: 80px;
-    margin-left: 45px;
+    padding-top: 65px;
+    margin-left: 55px;
 
     .main-left {
         float: left;
@@ -127,8 +127,8 @@
 
                 .left-top-center-text {
                     position: absolute;
-                    top: 165px;
-                    left: 185px;
+                    top: 162px;
+                    left: 178px;
                     font-family: AliMedium;
                     font-size: 16px;
                     color: #ffffff;
@@ -315,6 +315,37 @@
             width: 300px;
             padding-left: 150px;
         }
+        ::v-deep .el-table td.el-table__cell, .el-table th.el-table__cell.is-leaf {
+            border: none;
+        }
+        ::v-deep .el-table .el-table__cell{
+            padding: 0;
+        }
+        ::v-deep .el-table th {
+            background-color:#0E3F5F;
+        }
+        ::v-deep .el-table tr{
+            background-color: #0E3F5F;
+            td {
+                color: #fff;
+                font-size: 9px;
+            }
+        }
+        ::v-deep .el-table tr:nth-child(odd) {
+            background-color: #0C2D46;
+            td {
+                color: #fff;
+            }
+
+        }
+
+        ::v-deep .el-table tbody tr:hover>td {
+            background-color: #0E3F5F !important;
+
+        }
+
+
+
 
 
         .biaoge1,
@@ -338,7 +369,7 @@
         .biaoge19 {
             position: absolute;
             width: 830px;
-            height: 165px;
+            height: 354px;
             background-image: url('../../assets/pop.png');
             background-repeat: no-repeat;
             background-size: 100% 100%;
@@ -365,7 +396,7 @@
         }
 
         .biaoge2 {
-            height: 90px;
+            height: 100px;
             top: 550px;
         }
 
@@ -375,22 +406,18 @@
         .biaoge14,
         .biaoge15,
         .biaoge19 {
-            height: 130px;
+            height: 260px;
         }
 
         .biaoge4,
         .biaoge5,
         .biaoge6 {
-            height: 170px;
+            height: 420px;
         }
 
         .biaoge7,
         .biaoge10 {
             height: 100px;
-        }
-
-        .biaoge8 {
-            height: 200px;
         }
 
         .biaoge9,
@@ -411,54 +438,71 @@
             top: 250px;
         }
         .biaoge3 {
+            height: 160px;
             top: 370px;
         }
         .biaoge4 {
-            top: 600px;
+            height: 290px;
+            top: 250px;
         }
         .biaoge5 {
+            height: 290px;
             top: 400px;
         }
         .biaoge6 {
-            top: 640px;
+            height: 200px;
+            top: 260px;
         }
         .biaoge7 {
+            height: 115px;
             top: 260px;
         }
         .biaoge8 {
+            height: 420px;
             top: 310px;
         }
         .biaoge9 {
-            top: 570px;
+            height: 275px;
+            top: 230px;
         }
         .biaoge10 {
+            height: 120px;
             top: 610px;
         }
         .biaoge11 {
+            height: 170px;
             top: 230px;
         }
         .biaoge12 {
+            height: 230px;
             top: 410px;
         }
         .biaoge13 {
+            height: 180px;
             top: 330px;
         }
         .biaoge14 {
+            height: 185px;
             top: 390px;
         }
         .biaoge15 {
+            height: 180px;
             top: 380px;
         }
         .biaoge16 {
+            height: 275px;
             top: 370px;
         }
         .biaoge17 {
+            height: 250px;
             top: 230px;
         }
         .biaoge18 {
-            top: 630px;
+            height: 280px;
+            top: 300px;
         }
         .biaoge19 {
+            height: 180px;
             top: 410px;
         }
 
@@ -726,7 +770,7 @@
             float: right;
             width: 425px;
             height: 800px;
-            margin-right: 10px;
+            margin-right: 17px;
 
             .top {
                 width: 100%;
@@ -829,13 +873,10 @@
             }
 
             .scroll_table {
-                margin-top: 80px;
+                margin-top: 70px;
                 display: flex;
-
                 .table-footer {  
                     width: 375px;
-                    margin-left: 25px;
-                    margin-right: 25px;
 
                     ::v-deep .tablea .el-table__body-wrapper {
                         display: none;
@@ -866,9 +907,18 @@
                     ::v-deep .el-table th {
                         background-color: rgb(9, 23, 47);
                     }
+                    ::v-deep .el-table tr{
+                        background-color: rgb(16, 30, 46);
+
+                        td {
+                            color: rgb(114, 217, 215);
+                            font-weight: 600;
+                        }
+
+                    }
 
                     ::v-deep .el-table tr:nth-child(odd) {
-                        background-color: rgb(17, 31, 53);
+                        background-color: rgb(8, 21, 39);
 
                         td {
                             color: rgb(114, 217, 215);
@@ -883,4 +933,8 @@
             }
         }
     }
+}
+ /* 隐藏伪元素 */
+ ::v-deep .el-table::before {
+    display: none !important;
 }

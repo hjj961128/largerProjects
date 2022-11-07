@@ -25,4 +25,12 @@ html {
   width: 100%;
   background-color: #1d232f;
 }
+ul{
+  padding-inline-start: 8px;
+  li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
 </style>

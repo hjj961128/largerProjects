@@ -129,11 +129,11 @@
           :data="tableData1"
           style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="50">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="70">
           </el-table-column>
           <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="185">
           </el-table-column>
@@ -152,15 +152,15 @@
           :data="tableData2"
           style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="45">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="70">
           </el-table-column>
-          <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="185">
+          <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="145">
           </el-table-column>
-          <el-table-column prop="qilun" label="汽轮机燃气轮机" width="115">
+          <el-table-column prop="qilun" label="汽轮机燃气轮机" width="135">
           </el-table-column>
           <el-table-column prop="fadian" label="发电机" width="205">
           </el-table-column>
@@ -205,7 +205,7 @@
         >
           <el-table-column prop="mingcheng" label="名称" width="48">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="70">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
           <el-table-column prop="jizu" label="机组类型" width="75">
           </el-table-column>
@@ -228,11 +228,11 @@
           :data="tableData5"
           style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="44">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="68">
           </el-table-column>
           <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="195">
           </el-table-column>
@@ -288,7 +288,7 @@
           </el-table-column>
           <el-table-column prop="qilun" label="汽轮机燃气轮机" width="130">
           </el-table-column>
-          <el-table-column prop="fadian" label="发电机" width="130">
+          <el-table-column prop="fadian" label="发电机" width="140">
           </el-table-column>
           <el-table-column prop="bianya" label="主变压器"> </el-table-column>
         </el-table>
@@ -303,17 +303,17 @@
           :data="tableData8"
           style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="47">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="68">
           </el-table-column>
-          <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="165">
+          <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="164">
           </el-table-column>
-          <el-table-column prop="qilun" label="汽轮机燃气轮机" width="170">
+          <el-table-column prop="qilun" label="汽轮机燃气轮机" width="176">
           </el-table-column>
-          <el-table-column prop="fadian" label="发电机" width="170">
+          <el-table-column prop="fadian" label="发电机" width="164">
           </el-table-column>
           <el-table-column prop="bianya" label="主变压器"> </el-table-column>
         </el-table>
@@ -329,11 +329,11 @@
           :data="tableData9"
           style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="44">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="68">
           </el-table-column>
           <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="185">
           </el-table-column>
@@ -354,17 +354,17 @@
           :data="tableData10"
           style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="44">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="68">
           </el-table-column>
-          <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="185">
+          <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="155">
           </el-table-column>
-          <el-table-column prop="qilun" label="汽轮机燃气轮机" width="120">
+          <el-table-column prop="qilun" label="汽轮机燃气轮机" width="140">
           </el-table-column>
-          <el-table-column prop="fadian" label="发电机" width="210">
+          <el-table-column prop="fadian" label="发电机" width="160">
           </el-table-column>
           <el-table-column prop="bianya" label="主变压器"> </el-table-column>
         </el-table>
@@ -379,17 +379,17 @@
           :data="tableData11"
           style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="44">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="68">
           </el-table-column>
-          <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="185">
+          <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="200">
           </el-table-column>
-          <el-table-column prop="qilun" label="汽轮机燃气轮机" width="120">
+          <el-table-column prop="qilun" label="汽轮机燃气轮机" width="130">
           </el-table-column>
-          <el-table-column prop="fadian" label="发电机" width="210">
+          <el-table-column prop="fadian" label="发电机" width="140">
           </el-table-column>
           <el-table-column prop="bianya" label="主变压器"> </el-table-column>
         </el-table>
@@ -405,17 +405,17 @@
           :data="tableData12"
           style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="44">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="68">
           </el-table-column>
-          <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="185">
+          <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="145">
           </el-table-column>
-          <el-table-column prop="qilun" label="汽轮机燃气轮机" width="120">
+          <el-table-column prop="qilun" label="汽轮机燃气轮机" width="135">
           </el-table-column>
-          <el-table-column prop="fadian" label="发电机" width="210">
+          <el-table-column prop="fadian" label="发电机" width="145">
           </el-table-column>
           <el-table-column prop="bianya" label="主变压器"> </el-table-column>
         </el-table>
@@ -430,11 +430,11 @@
           :data="tableData13"
           style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="44">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="68">
           </el-table-column>
           <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="185">
           </el-table-column>
@@ -455,11 +455,11 @@
           :data="tableData14"
           style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="44">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="68">
           </el-table-column>
           <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="185">
           </el-table-column>
@@ -480,11 +480,11 @@
           :data="tableData15"
           style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="44">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="68">
           </el-table-column>
           <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="185">
           </el-table-column>
@@ -505,11 +505,11 @@
           :data="tableData16"
           style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="44">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="68">
           </el-table-column>
           <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="165">
           </el-table-column>
@@ -528,13 +528,13 @@
         </div>
         <el-table
           :data="tableData17"
-          style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
+          style="width: 100%;background:red; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="44">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="68">
           </el-table-column>
           <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="185">
           </el-table-column>
@@ -555,11 +555,11 @@
           :data="tableData18"
           style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="44">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="68">
           </el-table-column>
           <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="185">
           </el-table-column>
@@ -580,11 +580,11 @@
           :data="tableData19"
           style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
-          <el-table-column prop="mingcheng" label="名称" width="28">
+          <el-table-column prop="mingcheng" label="名称" width="44">
           </el-table-column>
-          <el-table-column prop="rongliang" label="容量(MW)" width="60">
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
           </el-table-column>
-          <el-table-column prop="jizu" label="机组类型" width="55">
+          <el-table-column prop="jizu" label="机组类型" width="68">
           </el-table-column>
           <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="185">
           </el-table-column>
@@ -668,7 +668,7 @@
             <el-table
               class="tablea"
               stripe
-              style="width: 375px; text-align: left"
+              style="width: 100%; text-align: left"
             >
               <el-table-column label="电厂"> </el-table-column>
               <el-table-column label="机组"> </el-table-column>
@@ -1926,7 +1926,7 @@ export default {
               type: "pictorialBar",
               symbol: "diamond",
               symbolOffset: ["0%", "50%"],
-              symbolSize: [barWidth, 10],
+              symbolSize: [18, 10],
               itemStyle: {
                 normal: {
                   color: colors[1],
@@ -1942,7 +1942,7 @@ export default {
               data: fnum,
               symbol: "diamond",
               symbolOffset: ["0%", "-50%"],
-              symbolSize: [barWidth, (10 * (barWidth - 1)) / barWidth],
+              symbolSize: [18, (10 * (18 - 1)) / 18],
               itemStyle: {
                 normal: {
                   color: "rgb(91,201,212)",
@@ -2632,9 +2632,6 @@ export default {
               dustpfl15.push(item2.dustpfl);
             }
           });
-
-          console.log(noxpfl15);
-          console.log();
 
           // console.log(Object.keys(resultRight.TPFDATA[0]));
 

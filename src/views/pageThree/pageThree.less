@@ -1,0 +1,126 @@
+.main-body {
+    height: 914px;
+    background-image: url("../../assets/pageThree.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    .top-search {
+        color: #fff;
+        font-size: 14px;
+        padding-top: 31px;
+        height: 70px;
+        width: 3400px;
+        margin-left: 90px;
+
+        .search-list {
+            display: inline-block;
+            margin-right: 40px;
+            width: 176px;
+            height: 36px;
+            line-height: 34px;
+            text-align: center;
+            background: #162A40;
+            border-radius: 2px;
+
+            ::v-deep .el-input__inner {
+                width: 176px;
+                height: 36px;
+                border: none;
+                text-align: center;
+                color: #fff;
+                background-color: transparent !important;
+            }
+
+            /**修改边框和字体颜色 */
+            ::v-deep .el-select {
+                position: relative;
+                width: 176px;
+
+                .el-input {
+                    input {
+                        height: 36px;
+                        border: none;
+                        color: #fff;
+                    }
+                }
+            }
+
+            /**修改下拉图标颜色 */
+            ::v-deep .el-input__suffix {
+                .el-input__suffix-inner {
+                    .el-icon-arrow-up:before {
+                        color: rgba(44, 137, 229, 0.5);
+                        padding-left: 0.11rem;
+                    }
+                }
+            }
+
+            /deep/ .el-select-dropdown {
+                margin-top: 10px;
+                width: 176px;
+                background: #0D1A28;
+                box-shadow: inset 0px -2px 7px 0px rgba(2, 69, 147, 1);
+                border-radius: 2px;
+                border: none;
+                padding: 0;
+                z-index: 9999;
+            }
+
+            // option选项 文字样式
+            /deep/ .el-select-dropdown__item {
+                margin: 8px auto;
+                text-align: center;
+                width: 160px;
+                height: 36px;
+                background: #162A40;
+                border-radius: 2px;
+                color: #fff !important;
+                z-index: 9999;
+            }
+
+            /deep/ .el-select-dropdown__item:hover {
+                background-image: linear-gradient(180deg, rgba(3, 34, 68, 0.22) 0%, #014C8D 100%);
+                color: #00FAF9 !important;
+            }
+
+            .date-style.el-date-picker {
+                background: red;
+            }
+
+        }
+
+        .btn1,
+        .btn2 {
+            display: inline-block;
+            width: 108px;
+            height: 65px;
+            line-height: 65px;
+            margin: 0px 10px;
+
+            img {
+                width: 100%;
+                vertical-align: middle;
+            }
+        }
+    }
+    .footer{
+        
+        .top1,.top2,.top3,.top4,.footer1,.footer2,.footer3,.footer4{
+            margin-top: 20px;
+            float: left;
+            background-color: #fff;
+            width: 835px;
+            height: 385px;
+            margin-left: 40px;
+        }
+        .top1,.footer1{
+            margin-left: 72px;
+        }
+        .top3{
+            margin-left: 30px;
+        }
+        .footer2,.footer3,.footer4{
+            margin-left: 35px;
+        }
+    }
+}

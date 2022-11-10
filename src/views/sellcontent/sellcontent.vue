@@ -528,7 +528,13 @@
         </div>
         <el-table
           :data="tableData17"
-          style="width: 100%;background:red; color: #fff; font-weight: 200; font-size: 11px"
+          style="
+            width: 100%;
+            background: red;
+            color: #fff;
+            font-weight: 200;
+            font-size: 11px;
+          "
         >
           <el-table-column prop="mingcheng" label="名称" width="44">
           </el-table-column>
@@ -612,23 +618,37 @@
           <div class="main-right-left-text2">
             {{ hpressure }}
           </div>
-          <div class="zi2"><span class="wan" style="color: #f7f388;">台 </span><span>高压</span></div>
+          <div class="zi2">
+            <span class="wan" style="color: #f7f388">台 </span><span>高压</span>
+          </div>
           <div class="main-right-left-text3">
-           {{ chpressure }}
+            {{ chpressure }}
           </div>
-          <div class="zi3"><span class="wan" style="color: #f7f388;">台 </span><span>超高压</span></div>
+          <div class="zi3">
+            <span class="wan" style="color: #f7f388">台 </span
+            ><span>超高压</span>
+          </div>
           <div class="main-right-left-text4">
-          {{ cCritical }}
+            {{ cCritical }}
           </div>
-          <div class="zi4"><span class="wan" style="color: #f7f388;">台 </span><span>亚临界</span></div>
+          <div class="zi4">
+            <span class="wan" style="color: #f7f388">台 </span
+            ><span>亚临界</span>
+          </div>
           <div class="main-right-left-text5">
             {{ yCritical }}
           </div>
-          <div class="zi5"><span class="wan" style="color: #f7f388;">台 </span><span>超临界</span></div>
+          <div class="zi5">
+            <span class="wan" style="color: #f7f388">台 </span
+            ><span>超临界</span>
+          </div>
           <div class="main-right-left-text6">
             {{ ccCritical }}
           </div>
-          <div class="zi6"><span class="wan" style="color: #f7f388;">台 </span><span>超超临界</span></div>
+          <div class="zi6">
+            <span class="wan" style="color: #f7f388">台 </span
+            ><span>超超临界</span>
+          </div>
         </div>
         <div class="main-right-left-footer">
           <div class="footer-one" id="xindian1"></div>
@@ -640,10 +660,12 @@
       <div class="main-right-right">
         <div class="top">
           <div class="text1">
-            <span style="color: #fff">煤机 </span> {{ gasMachine}}
+            <span style="color: #fff">煤机 </span> {{ gasMachine }}
             <!-- <span style="color: #fff"> 运行 </span>{{ gasMachineFunction }} -->
           </div>
-          <div class="text2"><span style="color: #fff"> 运行 </span>{{ gasMachineFunction }}</div>
+          <div class="text2">
+            <span style="color: #fff"> 运行 </span>{{ gasMachineFunction }}
+          </div>
           <div class="text3">
             <span class="text11">{{ rqjz }}</span
             ><span class="tai">台</span>
@@ -2078,7 +2100,7 @@ export default {
               // fontSize: 11,
               show: true,
             },
-            boundaryGap:['0%', '10%'],
+            boundaryGap: ["0%", "10%"],
             splitLine: { show: false },
             axisLine: {
               show: true,
@@ -2327,7 +2349,7 @@ export default {
               axisTick: {
                 show: false,
               },
-              boundaryGap:['10%', '10%'],
+              boundaryGap: ["10%", "10%"],
               splitLine: { show: false },
               axisLabel: {
                 formatter: (value) => {
@@ -2365,7 +2387,7 @@ export default {
           ],
           series: [
             {
-              name: "2022",
+              name: "2021",
               type: "bar",
               stack: "总量",
               barWidth: 10,
@@ -2380,6 +2402,9 @@ export default {
                 },
                 formatter: (value) => {
                   // 值都是负数的 所以需要取反一下
+                  if (value.data == "0.00") {
+                    value.data = 0;
+                  }
                   return -value.data;
                 },
               },
@@ -2395,9 +2420,11 @@ export default {
               },
             },
             {
-              name: "2021",
+              name: "2022",
               type: "bar",
               stack: "总量",
+              xAxisIndex: 0, //对应左侧Y轴
+              yAxisIndex: 0, //对应左侧Y轴
               showBackground: true,
               backgroundStyle: {
                 color: "rgba(180, 180, 180, 0.2)",
@@ -2413,14 +2440,10 @@ export default {
                   fontFamily: "FusiBold",
                 },
                 formatter: (value) => {
-                  // 值都是负数的 所以需要取反一下
-                  return -value.data;
-                },
-                formatter: (value) => {
-                  // 值都是负数的 所以需要取反一下
-                  if (value.data == 0.0) {
+                  if (value.data == "0.00") {
                     value.data = 0;
                   }
+                  // 值都是负数的 所以需要取反一下
                   return value.data;
                 },
               },
@@ -2435,7 +2458,7 @@ export default {
                   ]),
                 },
               },
-            }
+            },
           ],
         };
         myChart1.setOption(this.option1);

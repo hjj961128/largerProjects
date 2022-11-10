@@ -5,12 +5,12 @@
   v-show="showSeason"
   @click.stop="showSeason=false"
 ></mark>
-<el-input placeholder="请选择季度" v-model="showValue" style="width:138px;" @focus="showSeason=true">
+<el-input placeholder="请选择季度" class="input-q" v-model="showValue" style="width:138px;" @focus="showSeason=true">
   <i slot="prefix" class="el-input__icon el-icon-date"></i>
 </el-input>
 <el-card
   class="box-card"
-  style="width:322px;padding: 0 3px 20px;margin-top:10px;position:fixed;z-index:9999"
+  style="width:322px;padding: 0 3px 20px;margin-top:10px;;z-index:9999"
   v-show="showSeason"
 >
   <div slot="header" class="clearfix" style="text-align:center;padding:0">
@@ -124,7 +124,7 @@ export default {
     },
     selectSeason(i) {
       let that = this
-      that.season = (i + 1) < 10 ? '0'+(i + 1):(i + 1)
+      that.season = (i + 1)
       let arr = that.valueArr[i].split('-')
       that.getValue(that.year + arr[0] + '-' + that.year + arr[1])
       that.showSeason = false
@@ -136,6 +136,13 @@ export default {
 }
 </script>
 <style scoped lang='less'>
+.input-q{
+  position: relative;
+}
+.box-card{
+  position: absolute;
+}
+
 .el-input {
   color: #fff;
 }

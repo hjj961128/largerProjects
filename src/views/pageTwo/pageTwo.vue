@@ -80,8 +80,8 @@
             </el-select>
           </div>
           <span v-if="formInline.baobiaoName == '1'"> 年份： </span>
-          <span v-if="formInline.baobiaoName == '2'">季度：</span>
-          <span v-if="formInline.baobiaoName == '3'">月份：</span>
+          <span v-if="formInline.baobiaoName == '2'"> 季度： </span>
+          <span v-if="formInline.baobiaoName == '3'"> 月份： </span>
 
           <!-- <span v-if="formInline.baobiaoName == '1'"> 年份： </span> -->
           <div class="search-list">
@@ -118,27 +118,32 @@
     <div class="footer">
       <div class="footer-left">
         <div class="top-left">
+          <div class="titleaa">原煤量</div>
           <div id="myChart1"></div>
         </div>
         <div class="top-right">
+          <div class="titleaa">机端发电量</div>
           <div id="myChart2"></div>
         </div>
         <div class="footer-one">
+          <div class="titleaa">{{titleTime}}原煤量</div>
           <div class="myChart3-left">
-            <div class="title">2022原煤量</div>
+            <div class="title">{{titleTime}}原煤量</div>
             <img src="../../assets/chart@4x.png" alt="" />
             <div id="myChart3"></div>
           </div>
         </div>
         <div class="footer-two">
+          <div class="titleaa">{{titleTime}}机端发电量</div>
           <div class="myChart3-left">
-            <div class="title">2022机端 发电量</div>
+            <div class="title">{{titleTime}}机端发电量</div>
             <img src="../../assets/chart@4x.png" alt="" />
             <div id="myChart4"></div>
           </div>
         </div>
       </div>
       <div class="footer-right">
+        <div class="titleaa">机端发电量</div>
         <div class="table">
           <el-table
             :data="
@@ -149,17 +154,17 @@
             "
             style="width: 100%"
           >
-            <el-table-column label="序号" align="center">
-              <template slot-scope="scope">
-                {{ scope.$index + 1 }}
-              </template>
+            <el-table-column label="序号" width="70" prop="num" align="center">
             </el-table-column>
-            <el-table-column label="集团" align="center">
+            <el-table-column prop="dates" label="时间" align="center">
+            </el-table-column>
+            <el-table-column label="集团" width="172px" align="center">
               <template slot-scope="scope">
                 <div
                   style="
                     width: 172px;
                     height: 26px;
+                    text-align:center;
                     background: rgb(16, 42, 64);
                     border-radius: 4.4px;
                   "
@@ -170,15 +175,15 @@
             </el-table-column>
             <el-table-column prop="factoryName" label="电厂名称" align="center">
             </el-table-column>
-            <el-table-column prop="crewName" label="机组名称" align="center">
+            <el-table-column prop="crewName" width="100" label="机组名称" align="center">
             </el-table-column>
-            <el-table-column prop="index" label="原煤量" align="center">
+            <el-table-column prop="coal" label="原煤量" align="center">
             </el-table-column>
             <el-table-column prop="terminal" label="机端发电量" align="center">
             </el-table-column>
           </el-table>
           <el-pagination
-            style="float: right"
+            style="float: right;margin-top:10px"
             @current-change="handleCurrentChange"
             :current-page="currentPage"
             :page-size="pageSize"
@@ -200,12 +205,13 @@ export default {
   },
   data() {
     return {
+      titleTime:'2022年',
       // 默认显示第几页
       currentPage: 1,
       // 总条数，根据接口获取数据长度(注意：这里不能为空)
       totalCount: 1,
       // 个数选择器（可修改）
-      pageSize: 11,
+      pageSize: 10,
       // 默认每页显示的条数（可修改）
       formInline: {
         checked: true,
@@ -327,7 +333,9 @@ export default {
       if (val) {
         this.formInline.groupName = "所有集团";
         this.formInline.factoryName = "所有电厂";
+        this.factoryList = []
         this.formInline.jzName = "所有机组";
+        this.formInline.jzList = []
       }
     },
     getGroupList() {
@@ -345,6 +353,12 @@ export default {
         });
     },
     getFactoryList(val) {
+      this.formInline.checked = this.formInline.groupName == "所有集团"? true:false
+        this.formInline.factoryName = "所有电厂";
+        this.factoryList = []
+        this.formInline.jzName = "所有机组";
+        this.formInline.jzList = []
+
       let param = {
         groupid: this.formInline.groupName == "所有集团" ? "" : val,
       };
@@ -363,8 +377,11 @@ export default {
         });
     },
     getJzList(val) {
+      this.formInline.checked = this.formInline.factoryName == "所有电厂" ? true:false
+        this.formInline.jzName = "所有机组";
+        this.formInline.jzList = []
       let param = {
-        factoryid: this.formInline.factoryName == "所有机组" ? "" : val,
+        factoryid: this.formInline.factoryName == "所有电厂" ? "" : val,
       };
       this.$http({
         method: "get",
@@ -381,11 +398,14 @@ export default {
         });
     },
     getCoalStat() {
+      this.currentPage = 1
+      this.tableData = []
+      
       //初始化echarts
-      let myChart1 = echarts.init(document.getElementById("myChart1"), "dark");
-      let myChart2 = echarts.init(document.getElementById("myChart2"), "dark");
-      let myChart3 = echarts.init(document.getElementById("myChart3"), "dark");
-      let myChart4 = echarts.init(document.getElementById("myChart4"), "dark");
+      let myChart1 = echarts.init(document.getElementById("myChart1"), "dark",{devicePixelRatio: 2.5});
+      let myChart2 = echarts.init(document.getElementById("myChart2"), "dark",{devicePixelRatio: 2.5});
+      let myChart3 = echarts.init(document.getElementById("myChart3"), "dark",{devicePixelRatio: 2.5});
+      let myChart4 = echarts.init(document.getElementById("myChart4"), "dark",{devicePixelRatio: 2.5});
       let year = "";
       let months = "";
       let quarter = "";
@@ -452,6 +472,10 @@ export default {
           if (res.data[0].res == "success") {
             this.coalStatList = res.data[0].data[0];
             this.tableData = this.coalStatList.MLZKLIST;
+            this.titleTime = this.coalStatList.TITLETIME
+            let qiannian = this.coalStatList.LASTYEARTAG.toString()
+            let dangnian = this.coalStatList.YEARTAG.toString()
+            let dibu = []
             let jTName = [];
             let valueNew = [];
             let valueOld = [];
@@ -460,10 +484,13 @@ export default {
             let valueOld2 = [];
             let data3 = [];
             let data4 = [];
+            let legendDate = []
+            legendDate.push(qiannian,dangnian)
             this.coalStatList.YMLSTATLIST.map((item, index) => {
               jTName.push(item.name);
               valueNew.push(item.valueNew);
               valueOld.push(item.valueOld);
+              dibu.push(2)
               data3.push({ value: item.valueNew, name: item.name });
             });
 
@@ -476,7 +503,7 @@ export default {
                 },
               },
               legend: {
-                data: ["去年", "当年"],
+                data: legendDate,
                 x: "right", // 水平居右
                 icon: "rect", // 图例icon为方块
                 itemHeight: 10, // 图例icon高度
@@ -488,7 +515,8 @@ export default {
               grid: {
                 left: "3%",
                 right: "4%",
-                bottom: "3%",
+                top: "10%",
+                bottom: "10%",
                 containLabel: true,
               },
               xAxis: [
@@ -508,12 +536,11 @@ export default {
                   axisLabel: {
                     show: true,
                     interval: 0,
-                    // rotate: 20,
                     textStyle: {
                       color: "#999",
                       fontStyle: "normal",
                       fontFamily: "微软雅黑",
-                      fontSize: 13,
+                      fontSize: 11,
                       margin: 10,
                     },
                   },
@@ -544,7 +571,7 @@ export default {
               ],
               series: [
                 {
-                  name: "去年",
+                  name: legendDate[0],
                   type: "bar",
                   barWidth: 20,
                   label: {
@@ -567,7 +594,7 @@ export default {
                   data: valueOld,
                 },
                 {
-                  name: "当年",
+                  name: legendDate[1],
                   type: "bar",
                   barWidth: 20,
                   label: {
@@ -590,7 +617,7 @@ export default {
                   data: valueNew,
                 },
                 {
-                  name: "去年",
+                  name: legendDate[0],
                   type: "pictorialBar",
                   barWidth: 20,
                   symbol: "diamond",
@@ -604,13 +631,13 @@ export default {
                       barBorderRadius: 0,
                     },
                   },
-                  data: [2, 2, 2, 2, 2, 2, 2],
+                  data: dibu,
                   tooltip: {
                     show: false,
                   },
                 },
                 {
-                  name: "去年",
+                  name: legendDate[0],
                   type: "pictorialBar",
                   barWidth: 20,
                   symbol: "diamond",
@@ -630,7 +657,7 @@ export default {
                   },
                 },
                 {
-                  name: "当年",
+                  name: legendDate[1],
                   type: "pictorialBar",
                   barWidth: 20,
                   symbol: "diamond",
@@ -644,13 +671,13 @@ export default {
                       barBorderRadius: 0,
                     },
                   },
-                  data: [2, 2, 2, 2, 2, 2, 2],
+                  data: dibu,
                   tooltip: {
                     show: false,
                   },
                 },
                 {
-                  name: "当年",
+                  name: legendDate[1],
                   type: "pictorialBar",
                   barWidth: 20,
                   symbol: "diamond",
@@ -690,7 +717,7 @@ export default {
               },
               color: ["rgb(105,227,212)", "rgb(208,247,85)"],
               legend: {
-                data: ["去年", "当年"],
+                data: legendDate,
 
                 x: "right", // 水平居右
                 icon: "rect", // 图例icon为方块
@@ -712,7 +739,8 @@ export default {
               grid: {
                 left: "3%",
                 right: "4%",
-                bottom: "3%",
+                top: "10%",
+                bottom: "10%",
                 containLabel: true,
               },
               xAxis: [
@@ -720,9 +748,15 @@ export default {
                   type: "category",
                   boundaryGap: ["0.1", "0.1"],
                   axisLabel: {
-                    color: "#fff", // x轴字颜色
                     show: true,
-                    // fontSize: 11,
+                    interval: 0,
+                    textStyle: {
+                      color: "#999",
+                      fontStyle: "normal",
+                      fontFamily: "微软雅黑",
+                      fontSize: 11,
+                      margin: 10,
+                    },
                   },
                   splitLine: { show: false },
                   axisTick: {
@@ -762,7 +796,7 @@ export default {
               },
               series: [
                 {
-                  name: "去年",
+                  name: legendDate[0],
                   type: "line",
                   stack: "Total",
                   lineStyle: {
@@ -798,7 +832,7 @@ export default {
                   data: valueOld2,
                 },
                 {
-                  name: "当年",
+                  name: legendDate[1],
                   type: "line",
                   stack: "Total",
                   lineStyle: {
@@ -849,7 +883,7 @@ export default {
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
                   x: 500, //水平位置
-                  y: 40, //竖直位置
+                  y: 55, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
                   itemGap: 40,
@@ -861,10 +895,10 @@ export default {
                     var data = name1;
                     var total = 0;
                     var tarValue;
-                    for (var i = 0, l = data.length; i < l; i++) {
-                      total += data[i].value * 1;
-                      if (data[i].name == name) {
-                        tarValue = data[i].value;
+                    for (var i = 0, l = data3.length; i < l; i++) {
+                      total += data3[i].value * 1;
+                      if (data3[i].name == name) {
+                        tarValue = data3[i].value;
                       }
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
@@ -876,7 +910,7 @@ export default {
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
                   x: 650, //水平位置
-                  y: 40, //竖直位置
+                  y: 55, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
                   itemGap: 40,
@@ -888,10 +922,10 @@ export default {
                     var data = name2;
                     var total = 0;
                     var tarValue;
-                    for (var i = 0, l = data.length; i < l; i++) {
-                      total += data[i].value * 1;
-                      if (data[i].name == name) {
-                        tarValue = data[i].value;
+                    for (var i = 0, l = data3.length; i < l; i++) {
+                      total += data3[i].value * 1;
+                      if (data3[i].name == name) {
+                        tarValue = data3[i].value;
                       }
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
@@ -904,7 +938,7 @@ export default {
                   name: "Access From",
                   type: "pie",
                   radius: ["40%", "60%"],
-                  center: ["36%", "50%"],
+                  center: ["35%", "50%"],
                   data: data3,
                   itemStyle: {
                     normal: {
@@ -947,7 +981,7 @@ export default {
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
                   x: 500, //水平位置
-                  y: 40, //竖直位置
+                  y: 55, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
                   itemGap: 40,
@@ -956,7 +990,7 @@ export default {
                   },
                   data:name3,
                   formatter: function (name) {
-                    var data = name3;
+                    var data = data4;
                     var total = 0;
                     var tarValue;
                     for (var i = 0, l = data.length; i < l; i++) {
@@ -974,7 +1008,7 @@ export default {
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
                   x: 650, //水平位置
-                  y: 40, //竖直位置
+                  y: 55, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
                   itemGap: 40,
@@ -983,7 +1017,7 @@ export default {
                   },
                   data:name4,
                   formatter: function (name) {
-                    var data = name4;
+                    var data = data4;
                     var total = 0;
                     var tarValue;
                     for (var i = 0, l = data.length; i < l; i++) {
@@ -1002,7 +1036,7 @@ export default {
                   name: "Access From",
                   type: "pie",
                   radius: ["40%", "60%"],
-                  center: ["36%", "50%"],
+                  center: ["35%", "50%"],
                   itemStyle: {
                     normal: {
                       //这里是重点

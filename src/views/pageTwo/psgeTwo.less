@@ -1,15 +1,8 @@
 .main-page {
-    // margin-top: 14px;
-    height: 915px;
-    width: 3584px;
+    height: 914px;
     background-image: url("../../assets/pagetwo.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    // background-color: #fff;
-
-    // padding: 11px 70px;
-    // padding-top: 20px;
-    // padding-left: 70px;
 
 
     .top-search {
@@ -92,7 +85,7 @@
             }
 
             .date-style.el-date-picker {
-                background: red;
+                // background: red;
             }
 
         }
@@ -113,168 +106,149 @@
     }
 
     .footer {
-        margin-left: 70px;
-        margin-top: 23px;
+        .titleaa {
+            padding-left: 20px;
+            height: 35px;
+            line-height: 35px;
+            font-family: YouSheBiaoTiHei;
+            font-size: 20px;
+            color: #BCE3FC;
+            letter-spacing: 4px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
 
         .footer-left {
             float: left;
-            width: 1750px;
-            height: 760px;
+            width: 1780px;
 
-            .top-left,
-            .top-right,
-            .footer-one,
-            .footer-two {
+            .top1,
+            .top2,
+            .top3,
+            .top4 {
+                margin-top: 20px;
                 float: left;
-                width: 830px;
-                height: 350px;
-            }
-
-            .top-left,
-            .footer-one {
-                margin-right: 45px;
-            }
-
-            .top-left,
-            .top-right {
-                margin-bottom: 52px;
-            }
-
-            #myChart1,
-            #myChart2,
-            #myChart3,
-            #myChart4 {
-                height: 100%;
-                width: 100%;
-            }
-
-            .myChart3-left {
-                float: left;
-                height: 100%;
-                width: 100%;
+                width: 835px;
+                height: 385px;
+                margin-left: 40px;
                 position: relative;
 
-                .title {
-                    position: absolute;
-                    top: 163px;
-                    left: 249px;
-                    width: 90px;
-                    height: 30px;
-                    text-align: center;
-                    font-family: PingFangSC-Medium;
-                    font-size: 16px;
-                    line-height: 20px;
-                    color: #F5F7FD;
-                    font-weight: 500;
-                    letter-spacing: 12;
-                }
-
-                img {
-                    position: absolute;
-                    width: 220px;
-                    top: 240px;
-                    left: 184px;
-                }
-
-                // padding-left: 110px;
+                #myChart1,
+                #myChart2,
                 #myChart3,
                 #myChart4 {
-                    // background-color: #fff;
-                    float: right;
-                    width: 100%;
-                    position: relative;
+                    width: 835px;
+                    height: 325px;
                 }
 
+                img{
+                    position: absolute;
+                    width: 220px;
+                    top: 260px;
+                    left: 184px;
+                }
+                .title{
+                    position: absolute;
+                    width: 100px;
+                    top: 180px;
+                    left: 240px;
+                    text-align: center;
+                    color: #fff;
+                    font-weight: 700;
+                    
+                }
+
+
+
+            }
+
+            .top1,
+            .top3 {
+                margin-left: 70px;
             }
         }
 
         .footer-right {
             float: left;
-            width: 1690px;
-            height: 760px;
+            margin-left: 50px;
 
             .table {
-                margin: 10px auto;
-                width: 1630px;
-                height: 730px;
-            }
-
-            ::v-deep .el-table__body {
-                background-color: #0D1A28;
-                background-image: url("../../assets/table_bg.jpg");
-                border: none;
-                box-shadow: none;
-
-                -webkit-border-vertical-spacing: 10px; // 垂直间距 设置的是行间距
-            }
-
-            ::v-deep .el-table__header-wrapper {}
-
-            ::v-deep .el-table th {
-                height: 49px;
-                background-color: #0D1A28;
-                box-shadow: none;
-
-                color: #fff;
-                text-align: center;
-            }
-
-            ::v-deep .el-table tr {
-                height: 49px;
-                background-color: #021426;
-                color: #fff;
-                font-family: PingFangSC-Regular;
-                font-size: 15.4px;
-                color: #FFFFFF;
-                line-height: 17.6px;
-                margin-top: 5px;
-            }
-
-            ::v-deep .el-table tbody tr:hover>td {
-                background-color: #021426 !important;
-
-            }
-
-
-            /* 隐藏伪元素 */
-            ::v-deep .el-table::before {
-                display: none !important;
-            }
-
-            ::v-deep .el-table td.el-table__cell,
-            .el-table th.el-table__cell.is-leaf {
-                border: none;
-                border-bottom: 1px solid rgb(43, 99, 137);
-            }
-
-            ::v-deep .el-pagination,
-            ::v-deep .btn-prev,
-            ::v-deep .btn-next,
-            ::v-deep .el-pager li {
-                background-color: #162A40;
-                color: #fff;
-            }
-
-            ::v-deep .el-pagination__total {
-                color: #fff;
+                margin-top: 20px;
+                width: 1670px;
+                .tabel-body {
+                    margin: 0 auto;
+                    width: 1630px;
+                    height: 730px;
+                    ::v-deep .el-table__body {
+                        background-color: #0D1A28;
+                        background-image: url("../../assets/table_bg.jpg");
+                        border: none;
+                        box-shadow: none;
+        
+                        -webkit-border-vertical-spacing: 10px; // 垂直间距 设置的是行间距
+                    }
+        
+                    ::v-deep .el-table__header-wrapper {}
+        
+                    ::v-deep .el-table th {
+                        height: 49px;
+                        background-color: #0D1A28;
+                        box-shadow: none;
+        
+                        color: #fff;
+                        text-align: center;
+                    }
+        
+                    ::v-deep .el-table tr {
+                        height: 49px;
+                        background-color: #021426;
+                        color: #fff;
+                        font-family: PingFangSC-Regular;
+                        font-size: 15.4px;
+                        color: #FFFFFF;
+                        line-height: 17.6px;
+                        margin-top: 5px;
+                    }
+        
+                    ::v-deep .el-table tbody tr:hover>td {
+                        background-color: #021426 !important;
+        
+                    }
+        
+        
+                    /* 隐藏伪元素 */
+                    ::v-deep .el-table::before {
+                        display: none !important;
+                    }
+        
+                    ::v-deep .el-table td.el-table__cell,
+                    .el-table th.el-table__cell.is-leaf {
+                        border: none;
+                        border-bottom: 1px solid rgb(43, 99, 137);
+                    }
+        
+                    ::v-deep .el-pagination,
+                    ::v-deep .btn-prev,
+                    ::v-deep .btn-next,
+                    ::v-deep .el-pager li {
+                        background-color: #162A40;
+                        color: #fff;
+                    }
+                    ::v-deep .el-pager li.active{
+                        background-image: linear-gradient(180deg, rgba(3, 34, 68, 0.22) 0%, #014C8D 100%);
+                        color: #00FAF9 !important;
+                    }
+        
+                    ::v-deep .el-pagination__total {
+                        color: #fff;
+                    }
+                    ::v-deep .el-table__empty-block{
+                        background-color: #021426;
+                        color: #fff;
+                    }
+                }
             }
         }
 
     }
-}
-
-.titleaa {
-    padding-left: 20px;
-    height: 35px;
-    line-height: 35px;
-    font-family: YouSheBiaoTiHei;
-    font-size: 20px;
-    color: #BCE3FC;
-    letter-spacing: 4px;
-    font-weight: 400;
-    margin-bottom: 20px;
-}
-::v-deep .el-table__empty-block{
-    background-color: #021426;
-    color: #fff;
 }

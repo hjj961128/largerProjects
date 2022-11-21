@@ -17,6 +17,14 @@
         <img v-if="yemian == '4'" src="../../assets/huanbao2.png" alt="">
         <img v-else src="../../assets/huanbao1.png" alt="">
       </div>
+      <div class="six" @click="goOne('6')">
+        <img v-if="yemian == '6'" src="../../assets/nenghao2.png" alt="">
+        <img v-else src="../../assets/nenghao1.png" alt="">
+      </div>
+      <div class="five" @click="goOne('5')">
+        <img v-if="yemian == '5'" src="../../assets/ceshi2.png" alt="">
+        <img v-else src="../../assets/ceshi1.png" alt="">
+      </div>
     </div>
     <div class="header-time">
       <div class="time-fen">{{ shifenmiao }}</div>
@@ -109,13 +117,13 @@ export default {
   }
   .tab-list {
     float: left;
-    width: 942px;
+    width: 1418px;
     margin-top: 35px;
     margin-left: 953px;
     .one,
     .two,
     .three,
-    .four {
+    .four,.five,.six {
       display: inline-block;
       width: 228px;
       height: 54px;
@@ -127,7 +135,7 @@ export default {
         height: 100%;
       }
     }
-    .four {
+    .five {
       margin-right: 0px;
     }
   }

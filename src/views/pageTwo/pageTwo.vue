@@ -36,7 +36,11 @@
               :popper-append-to-body="false"
               @change="getJzList"
             >
-              <el-option label="所有电厂" value="所有电厂"></el-option>
+              <el-option
+                v-if="formInline.factoryList.length > 1"
+                label="所有电厂"
+                value="所有电厂"
+              ></el-option>
               <el-option
                 v-for="item in formInline.factoryList"
                 :key="item.id"
@@ -53,7 +57,11 @@
               placeholder="请选择"
               :popper-append-to-body="false"
             >
-              <el-option label="所有机组" value="所有机组"></el-option>
+              <el-option
+                v-if="formInline.jzList.length > 1"
+                label="所有机组"
+                value="所有机组"
+              ></el-option>
               <el-option
                 v-for="item in formInline.jzList"
                 :key="item.id"
@@ -117,80 +125,98 @@
     </div>
     <div class="footer">
       <div class="footer-left">
-        <div class="top-left">
-          <div class="titleaa">原煤量</div>
-          <div id="myChart1"></div>
-        </div>
-        <div class="top-right">
-          <div class="titleaa">机端发电量</div>
-          <div id="myChart2"></div>
-        </div>
-        <div class="footer-one">
-          <div class="titleaa">{{titleTime}}原煤量</div>
-          <div class="myChart3-left">
-            <div class="title">{{titleTime}}原煤量</div>
+        <div class="footer-left">
+          <div class="top1">
+            <div class="titleaa">原煤量</div>
+            <div id="myChart1"></div>
+          </div>
+          <div class="top2">
+            <div class="titleaa">机端发电量</div>
+            <div id="myChart2"></div>
+          </div>
+          <div class="top3">
+            <div class="titleaa">{{ titleTime }}原煤量</div>
+            <div class="title">{{ titleTime }}原煤量</div>
             <img src="../../assets/chart@4x.png" alt="" />
             <div id="myChart3"></div>
           </div>
-        </div>
-        <div class="footer-two">
-          <div class="titleaa">{{titleTime}}机端发电量</div>
-          <div class="myChart3-left">
-            <div class="title">{{titleTime}}机端发电量</div>
+          <div class="top4">
+            <div class="titleaa">{{ titleTime }}机端发电量</div>
+            <div class="title">{{ titleTime }}机端发电量</div>
             <img src="../../assets/chart@4x.png" alt="" />
             <div id="myChart4"></div>
           </div>
         </div>
       </div>
       <div class="footer-right">
-        <div class="titleaa">机端发电量</div>
         <div class="table">
-          <el-table
-            :data="
-              tableData.slice(
-                (currentPage - 1) * pageSize,
-                currentPage * pageSize
-              )
-            "
-            style="width: 100%"
-          >
-            <el-table-column label="序号" width="70" prop="num" align="center">
-            </el-table-column>
-            <el-table-column prop="dates" label="时间" align="center">
-            </el-table-column>
-            <el-table-column label="集团" width="172px" align="center">
-              <template slot-scope="scope">
-                <div
-                  style="
-                    width: 172px;
-                    height: 26px;
-                    text-align:center;
-                    background: rgb(16, 42, 64);
-                    border-radius: 4.4px;
-                  "
-                >
-                  {{ scope.row.groupName }}
-                </div>
-              </template>
-            </el-table-column>
-            <el-table-column prop="factoryName" label="电厂名称" align="center">
-            </el-table-column>
-            <el-table-column prop="crewName" width="100" label="机组名称" align="center">
-            </el-table-column>
-            <el-table-column prop="coal" label="原煤量" align="center">
-            </el-table-column>
-            <el-table-column prop="terminal" label="机端发电量" align="center">
-            </el-table-column>
-          </el-table>
-          <el-pagination
-            style="float: right;margin-top:10px"
-            @current-change="handleCurrentChange"
-            :current-page="currentPage"
-            :page-size="pageSize"
-            layout="total, prev, pager, next"
-            :total="tableData.length"
-          >
-          </el-pagination>
+          <div class="titleaa">机端发电量</div>
+          <div class="tabel-body">
+            <el-table
+              :data="
+                tableData.slice(
+                  (currentPage - 1) * pageSize,
+                  currentPage * pageSize
+                )
+              "
+              style="width: 100%"
+            >
+              <el-table-column
+                label="序号"
+                width="70"
+                prop="num"
+                align="center"
+              >
+              </el-table-column>
+              <el-table-column prop="dates" label="时间" align="center">
+              </el-table-column>
+              <el-table-column label="集团" width="172px" align="center">
+                <template slot-scope="scope">
+                  <div
+                    style="
+                      width: 172px;
+                      height: 26px;
+                      text-align: center;
+                      background: rgb(16, 42, 64);
+                      border-radius: 4.4px;
+                    "
+                  >
+                    {{ scope.row.groupName }}
+                  </div>
+                </template>
+              </el-table-column>
+              <el-table-column
+                prop="factoryName"
+                label="电厂名称"
+                align="center"
+              >
+              </el-table-column>
+              <el-table-column
+                prop="crewName"
+                width="100"
+                label="机组名称"
+                align="center"
+              >
+              </el-table-column>
+              <el-table-column prop="coal" label="原煤量" align="center">
+              </el-table-column>
+              <el-table-column
+                prop="terminal"
+                label="机端发电量"
+                align="center"
+              >
+              </el-table-column>
+            </el-table>
+            <el-pagination
+              style="float: right; margin-top: 10px"
+              @current-change="handleCurrentChange"
+              :current-page="currentPage"
+              :page-size="pageSize"
+              layout="total, prev, pager, next"
+              :total="tableData.length"
+            >
+            </el-pagination>
+          </div>
         </div>
       </div>
     </div>
@@ -205,7 +231,7 @@ export default {
   },
   data() {
     return {
-      titleTime:'2022年',
+      titleTime: "2022年",
       // 默认显示第几页
       currentPage: 1,
       // 总条数，根据接口获取数据长度(注意：这里不能为空)
@@ -333,9 +359,9 @@ export default {
       if (val) {
         this.formInline.groupName = "所有集团";
         this.formInline.factoryName = "所有电厂";
-        this.factoryList = []
+        this.factoryList = [];
         this.formInline.jzName = "所有机组";
-        this.formInline.jzList = []
+        this.formInline.jzList = [];
       }
     },
     getGroupList() {
@@ -353,11 +379,12 @@ export default {
         });
     },
     getFactoryList(val) {
-      this.formInline.checked = this.formInline.groupName == "所有集团"? true:false
-        this.formInline.factoryName = "所有电厂";
-        this.factoryList = []
-        this.formInline.jzName = "所有机组";
-        this.formInline.jzList = []
+      this.formInline.checked =
+        this.formInline.groupName == "所有集团" ? true : false;
+      this.formInline.factoryName = "所有电厂";
+      this.factoryList = [];
+      this.formInline.jzName = "所有机组";
+      this.formInline.jzList = [];
 
       let param = {
         groupid: this.formInline.groupName == "所有集团" ? "" : val,
@@ -370,6 +397,9 @@ export default {
         .then((res) => {
           if (res.data[0].res == "success") {
             this.formInline.factoryList = res.data[0].data;
+            if (this.formInline.factoryList.length == 1) {
+              this.formInline.factoryName = this.formInline.factoryList[0].id;
+            }
           }
         })
         .catch((err) => {
@@ -377,9 +407,14 @@ export default {
         });
     },
     getJzList(val) {
-      this.formInline.checked = this.formInline.factoryName == "所有电厂" ? true:false
-        this.formInline.jzName = "所有机组";
-        this.formInline.jzList = []
+      if (this.formInline.factoryName == "所有电厂") {
+        if (this.formInline.groupName == "所有集团") {
+          this.formInline.checked = true;
+        }
+      }
+      // this.formInline.checked = this.formInline.factoryName == "所有电厂" ? true:false
+      this.formInline.jzName = "所有机组";
+      this.formInline.jzList = [];
       let param = {
         factoryid: this.formInline.factoryName == "所有电厂" ? "" : val,
       };
@@ -391,6 +426,9 @@ export default {
         .then((res) => {
           if (res.data[0].res == "success") {
             this.formInline.jzList = res.data[0].data;
+            if (this.formInline.jzList.length == 1) {
+              this.formInline.jzName = this.formInline.jzList[0].id;
+            }
           }
         })
         .catch((err) => {
@@ -398,14 +436,22 @@ export default {
         });
     },
     getCoalStat() {
-      this.currentPage = 1
-      this.tableData = []
-      
+      this.currentPage = 1;
+      this.tableData = [];
+
       //初始化echarts
-      let myChart1 = echarts.init(document.getElementById("myChart1"), "dark",{devicePixelRatio: 2.5});
-      let myChart2 = echarts.init(document.getElementById("myChart2"), "dark",{devicePixelRatio: 2.5});
-      let myChart3 = echarts.init(document.getElementById("myChart3"), "dark",{devicePixelRatio: 2.5});
-      let myChart4 = echarts.init(document.getElementById("myChart4"), "dark",{devicePixelRatio: 2.5});
+      let myChart1 = echarts.init(document.getElementById("myChart1"), "dark", {
+        devicePixelRatio: 2.5,
+      });
+      let myChart2 = echarts.init(document.getElementById("myChart2"), "dark", {
+        devicePixelRatio: 2.5,
+      });
+      let myChart3 = echarts.init(document.getElementById("myChart3"), "dark", {
+        devicePixelRatio: 2.5,
+      });
+      let myChart4 = echarts.init(document.getElementById("myChart4"), "dark", {
+        devicePixelRatio: 2.5,
+      });
       let year = "";
       let months = "";
       let quarter = "";
@@ -472,10 +518,10 @@ export default {
           if (res.data[0].res == "success") {
             this.coalStatList = res.data[0].data[0];
             this.tableData = this.coalStatList.MLZKLIST;
-            this.titleTime = this.coalStatList.TITLETIME
-            let qiannian = this.coalStatList.LASTYEARTAG.toString()
-            let dangnian = this.coalStatList.YEARTAG.toString()
-            let dibu = []
+            this.titleTime = this.coalStatList.TITLETIME;
+            let qiannian = this.coalStatList.LASTYEARTAG.toString();
+            let dangnian = this.coalStatList.YEARTAG.toString();
+            let dibu = [];
             let jTName = [];
             let valueNew = [];
             let valueOld = [];
@@ -484,13 +530,13 @@ export default {
             let valueOld2 = [];
             let data3 = [];
             let data4 = [];
-            let legendDate = []
-            legendDate.push(qiannian,dangnian)
+            let legendDate = [];
+            legendDate.push(qiannian, dangnian);
             this.coalStatList.YMLSTATLIST.map((item, index) => {
               jTName.push(item.name);
               valueNew.push(item.valueNew);
               valueOld.push(item.valueOld);
-              dibu.push(2)
+              dibu.push(2);
               data3.push({ value: item.valueNew, name: item.name });
             });
 
@@ -513,11 +559,10 @@ export default {
                 },
               },
               grid: {
-                left: "3%",
+                left: "10%",
                 right: "4%",
                 top: "10%",
-                bottom: "10%",
-                containLabel: true,
+                bottom: "25%",
               },
               xAxis: [
                 {
@@ -737,10 +782,10 @@ export default {
                 },
               },
               grid: {
-                left: "3%",
+                left: "5%",
                 right: "4%",
                 top: "10%",
-                bottom: "10%",
+                bottom: "20%",
                 containLabel: true,
               },
               xAxis: [
@@ -773,7 +818,7 @@ export default {
               ],
               yAxis: {
                 type: "value",
-                boundaryGap: [0, "100%"],
+                // boundaryGap: [0, "100%"],
                 axisLine: {
                   show: true, // 轴线
                   lineStyle: {
@@ -883,14 +928,14 @@ export default {
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
                   x: 500, //水平位置
-                  y: 55, //竖直位置
+                  y: 20, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
                   itemGap: 40,
                   textStyle: {
                     color: "#fff", // 图例文字颜色
                   },
-                  data:name1,
+                  data: name1,
                   formatter: function (name) {
                     var data = name1;
                     var total = 0;
@@ -910,14 +955,14 @@ export default {
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
                   x: 650, //水平位置
-                  y: 55, //竖直位置
+                  y: 20, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
                   itemGap: 40,
                   textStyle: {
                     color: "#fff", // 图例文字颜色
                   },
-                  data:name2,
+                  data: name2,
                   formatter: function (name) {
                     var data = name2;
                     var total = 0;
@@ -938,7 +983,7 @@ export default {
                   name: "Access From",
                   type: "pie",
                   radius: ["40%", "60%"],
-                  center: ["35%", "50%"],
+                  center: ["35%", "45%"],
                   data: data3,
                   itemStyle: {
                     normal: {
@@ -968,8 +1013,8 @@ export default {
                 },
               ],
             };
-            let name3 = data3.slice(0, data3.length / 2);
-            let name4 = data3.slice(data3.length / 2, data3.length);
+            let name3 = data4.slice(0, data4.length / 2);
+            let name4 = data4.slice(data4.length / 2, data4.length);
             this.option4 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -981,14 +1026,14 @@ export default {
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
                   x: 500, //水平位置
-                  y: 55, //竖直位置
+                  y: 20, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
                   itemGap: 40,
                   textStyle: {
                     color: "#fff", // 图例文字颜色
                   },
-                  data:name3,
+                  data: name3,
                   formatter: function (name) {
                     var data = data4;
                     var total = 0;
@@ -1008,14 +1053,14 @@ export default {
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
                   x: 650, //水平位置
-                  y: 55, //竖直位置
+                  y: 20, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
                   itemGap: 40,
                   textStyle: {
                     color: "#fff", // 图例文字颜色
                   },
-                  data:name4,
+                  data: name4,
                   formatter: function (name) {
                     var data = data4;
                     var total = 0;
@@ -1036,7 +1081,7 @@ export default {
                   name: "Access From",
                   type: "pie",
                   radius: ["40%", "60%"],
-                  center: ["35%", "50%"],
+                  center: ["35%", "45%"],
                   itemStyle: {
                     normal: {
                       //这里是重点

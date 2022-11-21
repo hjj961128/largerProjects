@@ -36,7 +36,11 @@
               :popper-append-to-body="false"
               @change="getJzList"
             >
-              <el-option label="所有电厂" value="所有电厂"></el-option>
+              <el-option
+                v-if="formInline.factoryList.length > 1"
+                label="所有电厂"
+                value="所有电厂"
+              ></el-option>
               <el-option
                 v-for="item in formInline.factoryList"
                 :key="item.id"
@@ -53,7 +57,11 @@
               placeholder="请选择"
               :popper-append-to-body="false"
             >
-              <el-option label="所有机组" value="所有机组"></el-option>
+              <el-option
+                v-if="formInline.jzList.length > 1"
+                label="所有机组"
+                value="所有机组"
+              ></el-option>
               <el-option
                 v-for="item in formInline.jzList"
                 :key="item.id"
@@ -117,82 +125,165 @@
     </div>
     <div class="footer">
       <div class="footer-left">
-        <div class="top-left">
+        <div class="top1">
           <div class="titleaa">机组运行时间</div>
           <div id="myChart1"></div>
         </div>
-        <div class="top-right">
+        <div class="top2">
           <div class="titleaa">氮氧化物排放量</div>
           <div id="myChart2"></div>
         </div>
-        <div class="footer-one">
+        <div class="top3">
           <div class="titleaa">二氧化硫排放量</div>
-          <div class="myChart3-left">
-            <div id="myChart3"></div>
-          </div>
+          <div id="myChart3"></div>
         </div>
-        <div class="footer-two">
+        <div class="top4">
           <div class="titleaa">烟尘排放量</div>
-          <div class="myChart3-left">
-            <div id="myChart4"></div>
-          </div>
+          <div id="myChart4"></div>
         </div>
       </div>
       <div class="footer-right">
-        <div class="titleaa">机端发电量</div>
         <div class="table">
-          <el-table
-            :data="
-              tableData.slice(
-                (currentPage - 1) * pageSize,
-                currentPage * pageSize
-              )
-            "
-            style="width: 100%"
-          >
-            <el-table-column label="序号" width="70" prop="num" align="center">
-            </el-table-column>
-            <el-table-column prop="dates" label="时间" align="center">
-            </el-table-column>
-            <el-table-column label="集团" width="172px" align="center">
-              <template slot-scope="scope">
-                <div
-                  style="
-                    width: 172px;
-                    height: 26px;
-                    text-align:center;
-                    background: rgb(16, 42, 64);
-                    border-radius: 4.4px;
-                  "
+          <div class="titleaa">污染排放</div>
+          <div class="tabel-body">
+            <el-table
+              :data="
+                tableData.slice(
+                  (currentPage - 1) * pageSize,
+                  currentPage * pageSize
+                )
+              "
+              max-height="680"
+              style="width: 100%"
+            >
+              <el-table-column
+                label="序号"
+                width="53"
+                prop="num"
+                align="center"
+              >
+              </el-table-column>
+              <el-table-column prop="dates" label="时间" align="center">
+              </el-table-column>
+              <el-table-column label="集团" width="120px" align="center">
+                <template slot-scope="scope">
+                  <div
+                    style="
+                      width: 110px;
+                      height: 26px;
+                      text-align: center;
+                      background: rgb(16, 42, 64);
+                      border-radius: 4.4px;
+                    "
+                  >
+                    {{ scope.row.groupName }}
+                  </div>
+                </template>
+              </el-table-column>
+              <el-table-column
+                prop="factoryName"
+                label="电厂名称"
+                align="center"
+              >
+              </el-table-column>
+              <el-table-column
+                prop="crewName"
+                width="100"
+                label="机组名称"
+                align="center"
+              >
+              </el-table-column>
+              <el-table-column prop="fdl" label="发电量" align="center">
+              </el-table-column>
+              <el-table-column prop="runTime" label="运行时间" align="center">
+              </el-table-column>
+              <el-table-column
+                prop="noxPfl"
+                label="氮氧化物排放量"
+                align="center"
+              >
+              </el-table-column>
+              <el-table-column
+                prop="so2Pfl"
+                label="二氧化硫排放量"
+                align="center"
+              >
+              </el-table-column>
+              <el-table-column prop="dustPfl" label="烟尘排放量" align="center">
+              </el-table-column>
+              <el-table-column label="氮氧化物浓度" align="center">
+                <el-table-column
+                  prop="noxNd"
+                  label="浓度(mg/m3)"
+                  align="center"
                 >
-                  {{ scope.row.groupName }}
-                </div>
-              </template>
-            </el-table-column>
-            <el-table-column prop="factoryName" label="电厂名称" align="center">
-            </el-table-column>
-            <el-table-column prop="crewName" width="100" label="机组名称" align="center">
-            </el-table-column>
-            <el-table-column prop="fdl" label="发电量" align="center">
-            </el-table-column>
-            <el-table-column prop="runTime" label="运行时间" align="center">
-            </el-table-column>
-            <el-table-column prop="noxPfl" label="氮氧化物排放量" align="center">
-            </el-table-column>
-            <el-table-column prop="so2Pfl" label="二氧化硫排放量" align="center">
-            </el-table-column>
-            <el-table-column prop="dustPfl" label="烟尘排放量" align="center">
-            </el-table-column>
-          </el-table>
-          <el-pagination
-            style="float: right;margin-top:10px"
-            @current-change="handleCurrentChange"
-            :current-page="currentPage"
-            :page-size="pageSize"
-            layout="total, prev, pager, next"
-            :total="tableData.length"
-          >
-          </el-pagination>
+                </el-table-column>
+                <el-table-column
+                  prop="noxCb1byn"
+                  label="1倍以内超标时间(小时)"
+                  align="center"
+                >
+                </el-table-column>
+                <el-table-column
+                  prop="noxCb1bys"
+                  label="1倍以上超标时间(小时)"
+                  align="center"
+                >
+                </el-table-column>
+              </el-table-column>
+
+              <el-table-column label="二氧化硫浓度" align="center">
+                <el-table-column
+                  prop="so2Nd"
+                  label="浓度(mg/m3)"
+                  align="center"
+                >
+                </el-table-column>
+                <el-table-column
+                  prop="so2Cb1byn"
+                  label="1倍以内超标时间(小时)"
+                  align="center"
+                >
+                </el-table-column>
+                <el-table-column
+                  prop="so2Cb1bys"
+                  label="二氧化硫超标一倍以上"
+                  align="center"
+                >
+                </el-table-column>
+              </el-table-column>
+
+              <el-table-column label="烟尘浓度" align="center">
+                <el-table-column
+                  prop="dustNd"
+                  label="浓度(mg/m3)"
+                  align="center"
+                >
+                </el-table-column>
+                <el-table-column
+                  prop="dustCb1byn"
+                  label="1倍以内超标时间(小时)"
+                  align="center"
+                >
+                </el-table-column>
+                <el-table-column
+                  prop="dustCb1bys"
+                  label="1倍以上超标时间(小时)"
+                  align="center"
+                >
+                </el-table-column>
+              </el-table-column>
+            </el-table>
+            <el-pagination
+              style="float: right; margin-top: 10px"
+              @current-change="handleCurrentChange"
+              :current-page="currentPage"
+              :page-size="pageSize"
+              layout="total, prev, pager, next"
+              :total="tableData.length"
+            >
+            </el-pagination>
+          </div>
         </div>
       </div>
     </div>
@@ -207,13 +298,13 @@ export default {
   },
   data() {
     return {
-      titleTime:'2022年',
+      titleTime: "2022年",
       // 默认显示第几页
       currentPage: 1,
       // 总条数，根据接口获取数据长度(注意：这里不能为空)
       totalCount: 1,
       // 个数选择器（可修改）
-      pageSize: 10,
+      pageSize: 8,
       // 默认每页显示的条数（可修改）
       formInline: {
         checked: true,
@@ -335,9 +426,9 @@ export default {
       if (val) {
         this.formInline.groupName = "所有集团";
         this.formInline.factoryName = "所有电厂";
-        this.factoryList = []
+        this.factoryList = [];
         this.formInline.jzName = "所有机组";
-        this.formInline.jzList = []
+        this.formInline.jzList = [];
       }
     },
     getGroupList() {
@@ -355,11 +446,12 @@ export default {
         });
     },
     getFactoryList(val) {
-      this.formInline.checked = this.formInline.groupName == "所有集团"? true:false
-        this.formInline.factoryName = "所有电厂";
-        this.factoryList = []
-        this.formInline.jzName = "所有机组";
-        this.formInline.jzList = []
+      this.formInline.checked =
+        this.formInline.groupName == "所有集团" ? true : false;
+      this.formInline.factoryName = "所有电厂";
+      this.factoryList = [];
+      this.formInline.jzName = "所有机组";
+      this.formInline.jzList = [];
 
       let param = {
         groupid: this.formInline.groupName == "所有集团" ? "" : val,
@@ -372,6 +464,9 @@ export default {
         .then((res) => {
           if (res.data[0].res == "success") {
             this.formInline.factoryList = res.data[0].data;
+            if (this.formInline.factoryList.length == 1) {
+              this.formInline.factoryName = this.formInline.factoryList[0].id;
+            }
           }
         })
         .catch((err) => {
@@ -379,9 +474,14 @@ export default {
         });
     },
     getJzList(val) {
-      this.formInline.checked = this.formInline.factoryName == "所有电厂" ? true:false
-        this.formInline.jzName = "所有机组";
-        this.formInline.jzList = []
+      if (this.formInline.factoryName == "所有电厂") {
+        if (this.formInline.groupName == "所有集团") {
+          this.formInline.checked = true;
+        }
+      }
+      // this.formInline.checked = this.formInline.factoryName == "所有电厂" ? true:false
+      this.formInline.jzName = "所有机组";
+      this.formInline.jzList = [];
       let param = {
         factoryid: this.formInline.factoryName == "所有电厂" ? "" : val,
       };
@@ -393,6 +493,9 @@ export default {
         .then((res) => {
           if (res.data[0].res == "success") {
             this.formInline.jzList = res.data[0].data;
+            if (this.formInline.jzList.length == 1) {
+              this.formInline.jzName = this.formInline.jzList[0].id;
+            }
           }
         })
         .catch((err) => {
@@ -400,14 +503,22 @@ export default {
         });
     },
     getCoalStat() {
-      this.currentPage = 1
-      this.tableData = []
-      
+      this.currentPage = 1;
+      this.tableData = [];
+
       //初始化echarts
-      let myChart1 = echarts.init(document.getElementById("myChart1"), "dark",{devicePixelRatio: 2.5});
-      let myChart2 = echarts.init(document.getElementById("myChart2"), "dark",{devicePixelRatio: 2.5});
-      let myChart3 = echarts.init(document.getElementById("myChart3"), "dark",{devicePixelRatio: 2.5});
-      let myChart4 = echarts.init(document.getElementById("myChart4"), "dark",{devicePixelRatio: 2.5});
+      let myChart1 = echarts.init(document.getElementById("myChart1"), "dark", {
+        devicePixelRatio: 2.5,
+      });
+      let myChart2 = echarts.init(document.getElementById("myChart2"), "dark", {
+        devicePixelRatio: 2.5,
+      });
+      let myChart3 = echarts.init(document.getElementById("myChart3"), "dark", {
+        devicePixelRatio: 2.5,
+      });
+      let myChart4 = echarts.init(document.getElementById("myChart4"), "dark", {
+        devicePixelRatio: 2.5,
+      });
       let year = "";
       let months = "";
       let quarter = "";
@@ -476,33 +587,33 @@ export default {
             // 右侧表格数据
             this.tableData = this.coalStatList.HBZKLIST;
 
-            this.titleTime = this.coalStatList.TITLETIME
-            let qiannian = this.coalStatList.LASTYEARTAG.toString()
-            let dangnian = this.coalStatList.YEARTAG.toString()
-            let dibu = []
+            this.titleTime = this.coalStatList.TITLETIME;
+            let qiannian = this.coalStatList.LASTYEARTAG.toString();
+            let dangnian = this.coalStatList.YEARTAG.toString();
+            let dibu = [];
             let jTName = [];
             let valueNew = [];
             let valueOld = [];
-            let dibu2 = []
+            let dibu2 = [];
             let jTName2 = [];
             let valueNew2 = [];
             let valueOld2 = [];
-            let dibu3 = []
+            let dibu3 = [];
             let jTName3 = [];
             let valueNew3 = [];
             let valueOld3 = [];
-            let dibu4 = []
+            let dibu4 = [];
             let jTName4 = [];
             let valueNew4 = [];
             let valueOld4 = [];
-            let legendDate = []
-            legendDate.push(qiannian,dangnian)
+            let legendDate = [];
+            legendDate.push(qiannian, dangnian);
             // 表1数据
             this.coalStatList.RUNTIMELIST.map((item, index) => {
               jTName.push(item.name);
               valueNew.push(item.valueNew);
               valueOld.push(item.valueOld);
-              dibu.push(2)
+              dibu.push(2);
             });
 
             this.option1 = {
@@ -527,7 +638,7 @@ export default {
                 left: "3%",
                 right: "4%",
                 top: "10%",
-                bottom: "10%",
+                bottom: "20%",
                 containLabel: true,
               },
               xAxis: [
@@ -714,7 +825,7 @@ export default {
               jTName2.push(item.name);
               valueNew2.push(item.valueNew);
               valueOld2.push(item.valueOld);
-              dibu2.push(2)
+              dibu2.push(2);
             });
             this.option2 = {
               backgroundColor: "", //设置无背景色
@@ -738,7 +849,7 @@ export default {
                 left: "3%",
                 right: "4%",
                 top: "10%",
-                bottom: "10%",
+                bottom: "20%",
                 containLabel: true,
               },
               xAxis: [
@@ -925,7 +1036,7 @@ export default {
               jTName3.push(item.name);
               valueNew3.push(item.valueNew);
               valueOld3.push(item.valueOld);
-              dibu3.push(2)
+              dibu3.push(2);
             });
 
             this.option3 = {
@@ -950,7 +1061,7 @@ export default {
                 left: "3%",
                 right: "4%",
                 top: "10%",
-                bottom: "10%",
+                bottom: "20%",
                 containLabel: true,
               },
               xAxis: [
@@ -1137,7 +1248,7 @@ export default {
               jTName4.push(item.name);
               valueNew4.push(item.valueNew);
               valueOld4.push(item.valueOld);
-              dibu4.push(2)
+              dibu4.push(2);
             });
 
             this.option4 = {
@@ -1162,7 +1273,7 @@ export default {
                 left: "3%",
                 right: "4%",
                 top: "10%",
-                bottom: "10%",
+                bottom: "20%",
                 containLabel: true,
               },
               xAxis: [
@@ -1344,8 +1455,6 @@ export default {
                 },
               ],
             };
-         
-
 
             myChart1.setOption(this.option1);
             myChart2.setOption(this.option2);

@@ -60,61 +60,61 @@
     <div class="main-center">
       <div class="main-center1">{{ SSFH }}</div>
       <div class="main-center2">{{ LJFD }}</div>
-      <div class="imgs1" v-show="1 == currentIndex">
+      <div class="imgs1" @click="showCurrentIndex('1')">
         <img src="../../assets/p5.png" alt="" />
       </div>
-      <div class="imgs2" v-show="2 == currentIndex">
+      <div class="imgs2" @click="showCurrentIndex('2')">
         <img src="../../assets/p1.png" alt="" />
       </div>
-      <div class="imgs3" v-show="3 == currentIndex">
+      <div class="imgs3" @click="showCurrentIndex('3')">
         <img src="../../assets/p2.png" alt="" />
       </div>
-      <div class="imgs4" v-show="4 == currentIndex">
+      <div class="imgs4" @click="showCurrentIndex('4')">
         <img src="../../assets/p5.png" alt="" />
       </div>
-      <div class="imgs5" v-show="5 == currentIndex">
+      <div class="imgs5" @click="showCurrentIndex('5')">
         <img src="../../assets/p3.png" alt="" />
       </div>
-      <div class="imgs6" v-show="6 == currentIndex">
+      <div class="imgs6" @click="showCurrentIndex('6')">
         <img src="../../assets/p3.png" alt="" />
       </div>
-      <div class="imgs7" v-show="7 == currentIndex">
+      <div class="imgs7" @click="showCurrentIndex('7')">
         <img src="../../assets/p5.png" alt="" />
       </div>
-      <div class="imgs8" v-show="8 == currentIndex">
+      <div class="imgs8" @click="showCurrentIndex('8')">
         <img src="../../assets/p6.png" alt="" />
       </div>
-      <div class="imgs9" v-show="9 == currentIndex">
+      <div class="imgs9" @click="showCurrentIndex('9')">
         <img src="../../assets/p4.png" alt="" />
       </div>
-      <div class="imgs10" v-show="10 == currentIndex">
+      <div class="imgs10" @click="showCurrentIndex('10')">
         <img src="../../assets/p3.png" alt="" />
       </div>
-      <div class="imgs11" v-show="11 == currentIndex">
+      <div class="imgs11" @click="showCurrentIndex('11')">
         <img src="../../assets/p3.png" alt="" />
       </div>
-      <div class="imgs12" v-show="12 == currentIndex">
+      <div class="imgs12" @click="showCurrentIndex('12')">
         <img src="../../assets/p2.png" alt="" />
       </div>
-      <div class="imgs13" v-show="13 == currentIndex">
+      <div class="imgs13" @click="showCurrentIndex('13')">
         <img src="../../assets/p1.png" alt="" />
       </div>
-      <div class="imgs14" v-show="14 == currentIndex">
+      <div class="imgs14" @click="showCurrentIndex('14')">
         <img src="../../assets/p6.png" alt="" />
       </div>
-      <div class="imgs15" v-show="15 == currentIndex">
+      <div class="imgs15" @click="showCurrentIndex('15')">
         <img src="../../assets/p6.png" alt="" />
       </div>
-      <div class="imgs16" v-show="16 == currentIndex">
+      <div class="imgs16" @click="showCurrentIndex('16')">
         <img src="../../assets/p1.png" alt="" />
       </div>
-      <div class="imgs17" v-show="17 == currentIndex">
+      <div class="imgs17" @click="showCurrentIndex('17')">
         <img src="../../assets/p1.png" alt="" />
       </div>
-      <div class="imgs18" v-show="18 == currentIndex">
+      <div class="imgs18" @click="showCurrentIndex('18')">
         <img src="../../assets/p1.png" alt="" />
       </div>
-      <div class="imgs19" v-show="0 == currentIndex">
+      <div class="imgs19" @click="showCurrentIndex('0')">
         <img src="../../assets/p2.png" alt="" />
       </div>
       <div class="biaoge1" v-show="1 == currentIndex">
@@ -530,7 +530,6 @@
           :data="tableData17"
           style="
             width: 100%;
-            background: red;
             color: #fff;
             font-weight: 200;
             font-size: 11px;
@@ -1413,7 +1412,7 @@ export default {
       statusChart: null,
       option: {},
       tableData: [],
-      currentIndex: 1,
+      currentIndex: 100,
       juhua: 0,
       taisu: 0,
       huarun: 0,
@@ -1435,11 +1434,11 @@ export default {
         this.getOption4();
         this.getOption7();
       }, 60000);
-      let count = 1;
-      setInterval(() => {
-        count++;
-        this.currentIndex = count % 19;
-      }, 5000);
+      // let count = 1;
+      // setInterval(() => {
+      //   count++;
+      //   this.currentIndex = count % 19;
+      // }, 5000);
     });
   },
   computed: {
@@ -1457,6 +1456,9 @@ export default {
     },
   },
   methods: {
+    showCurrentIndex(val){
+      this.currentIndex = val
+    },
     biao() {
       setInterval(() => {
         this.currentIndex++;

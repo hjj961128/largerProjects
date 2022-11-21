@@ -10,6 +10,8 @@
       <pageTwo v-if="pagenumber == '2'"></pageTwo>
       <pageThree v-if="pagenumber == '3'"></pageThree>
       <pageFour v-if="pagenumber == '4'"></pageFour>
+      <pageFive v-if="pagenumber == '5'"></pageFive>
+      <pageSix v-if="pagenumber == '6'"></pageSix>
     </div>
   </div>
 </template>
@@ -20,7 +22,8 @@ import sellcontent from "./sellcontent/sellcontent.vue";
 import pageTwo from "./pageTwo/pageTwo.vue";
 import pageThree from "./pageThree/pageThree.vue";
 import pageFour from "./pageFour/pageFour.vue";
-
+import pageFive from "./pageFive/pageFive.vue";
+import pageSix from "./pageSix/pageSix.vue";
 
 export default {
   name: "Home",
@@ -29,7 +32,9 @@ export default {
     sellcontent,
     pageTwo,
     pageThree,
-    pageFour
+    pageFour,
+    pageFive,
+    pageSix
   },
   data() {
     return {

@@ -121,25 +121,25 @@
     <div class="footer">
       <div class="footer-left">
         <div class="top1">
-          <div class="titleaa">供电煤耗g/KW.h</div>
+          <div class="titleaa">{{TITLE1}}</div>
           <div id="myChart1"></div>
         </div>
         <div class="top2">
-          <div class="titleaa">锅炉热效率%</div>
+          <div class="titleaa">{{TITLE2}}</div>
           <div id="myChart2"></div>
         </div>
         <div class="top3">
-          <div class="titleaa">汽轮机热耗率kJ/kWh</div>
+          <div class="titleaa">{{TITLE3}}</div>
           <div id="myChart3"></div>
         </div>
         <div class="top4">
-          <div class="titleaa">机组厂用电率%</div>
+          <div class="titleaa">{{TITLE4}}</div>
           <div id="myChart4"></div>
         </div>
       </div>
       <div class="footer-right">
         <div class="table">
-          <div class="titleaa">机组厂用电率%</div>
+          <div class="titleaa">{{TABLETITLE}}</div>
           <div class="tabel-body">
             <el-table
               :data="
@@ -162,8 +162,7 @@
               <el-table-column label="集团名称" width="172px" align="center">
                 <template slot-scope="scope">
                   <div
-                    style="
-                      width: 172px;
+                    style="width: 172px;
                       height: 26px;
                       text-align: center;
                       background: rgb(16, 42, 64);
@@ -226,6 +225,11 @@ export default {
   },
   data() {
     return {
+      TABLETITLE: '',
+      TITLE1: '',
+      TITLE2: '',
+      TITLE3: '',
+      TITLE4: '',
       tableData: [],
       // 默认显示第几页
       currentPage: 1,
@@ -375,6 +379,11 @@ export default {
           if (res.data[0].res == "success") {
             let resDate = [];
             resDate = res.data[0].data[0];
+            this.TABLETITLE = resDate.TABLETITLE
+            this.TITLE1 = resDate.TITLE1
+            this.TITLE2 = resDate.TITLE2
+            this.TITLE3 = resDate.TITLE3
+            this.TITLE4 = resDate.TITLE4
             this.tableData = resDate.nhList;
 
             // this.titleTime = resDate.TITLETIME

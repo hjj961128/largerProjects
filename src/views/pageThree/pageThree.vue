@@ -69,35 +69,38 @@
     </div>
     <div class="footer">
       <div class="top1">
-        <div class="titleaa">实时出力</div>
+        <div class="titleaa">{{TITLE1}}</div>
         <div id="myChart1"></div>
       </div>
       <div class="top2">
-        <div class="titleaa">出力上限裕量</div>
+        <div class="titleaa">{{TITLE2}}</div>
         <div id="myChart2"></div>
       </div>
       <div class="top3">
-        <div class="titleaa">出力下限裕量</div>
+        <div class="titleaa">{{TITLE3}}</div>
         <div id="myChart3"></div>
       </div>
       <div class="top4">
-        <div class="titleaa">出力对比</div>
+        <div class="titleaa">{{TITLE4}}</div>
         <div id="myChart4"></div>
       </div>
       <div class="footer1">
-        <div class="titleaa">实时出力</div>
+        <div class="titleaa">{{TITLE5}}</div>
+        <div class="title">{{PIETITLE1}}</div>
         <div id="myChart5"></div>
       </div>
       <div class="footer2">
-        <div class="titleaa">出力上限裕量</div>
+        <div class="titleaa">{{TITLE6}}</div>
+        <div class="title">{{ PIETITLE2 }}</div>
         <div id="myChart6"></div>
       </div>
       <div class="footer3">
-        <div class="titleaa">出力下限裕量</div>
+        <div class="titleaa">{{TITLE7}}</div>
+        <div class="title">{{ PIETITLE3 }}</div>
         <div id="myChart7"></div>
       </div>
       <div class="footer4">
-        <div class="titleaa">数据列表</div>
+        <div class="titleaa" style="margin-bottom:10px">{{TABLETITLE}}</div>
         <div class="table">
           <el-table
             :data="
@@ -115,8 +118,7 @@
             <el-table-column label="集团名称" width="88" align="center">
               <template slot-scope="scope">
                 <div
-                  style="
-                    width: 80px;
+                  style="width: 80px;
                     height: 26px;
                     text-align: center;
                     line-height:26px;
@@ -166,6 +168,17 @@ import * as echarts from "echarts";
 export default {
   data() {
     return {
+      TITLE1: '',
+      TITLE2: '',
+      TITLE3: '',
+      TITLE4: '',
+      TITLE5: '',
+      TITLE6: '',
+      TITLE7: '',
+      PIETITLE1: '',
+      PIETITLE2: '',
+      PIETITLE3: '',
+      TABLETITLE: '',
       // 默认显示第几页
       currentPage: 1,
       // 总条数，根据接口获取数据长度(注意：这里不能为空)
@@ -323,6 +336,18 @@ export default {
         .then((res) => {
           if (res.data[0].res == "success") {
             this.coalStatList = res.data[0].data[0];
+            this.TITLE1 = this.coalStatList.TITLE1;
+            this.TITLE2 = this.coalStatList.TITLE2;
+            this.TITLE3 = this.coalStatList.TITLE3;
+            this.TITLE4 = this.coalStatList.TITLE4;
+            this.TITLE5 = this.coalStatList.TITLE5;
+            this.TITLE6 = this.coalStatList.TITLE6;
+            this.TITLE7 = this.coalStatList.TITLE7;
+            this.PIETITLE1 = this.coalStatList.PIETITLE1
+            this.PIETITLE2 = this.coalStatList.PIETITLE2
+            this.PIETITLE3 = this.coalStatList.PIETITLE3
+            this.TABLETITLE = this.coalStatList.TABLETITLE
+
             this.tableData = this.coalStatList.KTCLLIST;
             let qiannian = this.coalStatList.LASTYEARTAG.toString();
             let dangnian = this.coalStatList.YEARTAG.toString();
@@ -561,7 +586,7 @@ export default {
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
                   x: 500, //水平位置
-                  y: 55, //竖直位置
+                  y: 40, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
                   itemGap: 40,
@@ -588,7 +613,7 @@ export default {
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
                   x: 650, //水平位置
-                  y: 55, //竖直位置
+                  y: 40, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
                   itemGap: 40,
@@ -879,7 +904,7 @@ export default {
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
                   x: 500, //水平位置
-                  y: 55, //竖直位置
+                  y: 40, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
                   itemGap: 40,
@@ -906,7 +931,7 @@ export default {
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
                   x: 650, //水平位置
-                  y: 55, //竖直位置
+                  y: 40, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
                   itemGap: 40,
@@ -1198,7 +1223,7 @@ export default {
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
                   x: 500, //水平位置
-                  y: 55, //竖直位置
+                  y: 40, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
                   itemGap: 40,
@@ -1225,7 +1250,7 @@ export default {
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
                   x: 650, //水平位置
-                  y: 55, //竖直位置
+                  y: 40, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
                   itemGap: 40,
@@ -1393,7 +1418,7 @@ export default {
                   name: "出力下限",
                   barWidth: 45,
                   type: "bar",
-                  stack: "出力",
+                  // stack: "出力",
                   data: clxx4,
                   itemStyle: {
                     normal: {

@@ -121,34 +121,57 @@
                 font-weight: 400;
                 margin-bottom: 20px;
             }
+
+                ::v-deep .el-table__body {
+                    background-color: #0D1A28;
+                    border: none;
+                }
+
+               
             ::v-deep .el-table td.el-table__cell, .el-table th.el-table__cell.is-leaf {
                 border: none;
             }
-            ::v-deep .el-table .el-table__cell{
-            }
+            ::v-deep .el-table__header-wrapper {
+                thead {
+                  tr{
+                        background: rgba(20,45,68,0.64);
+                        box-shadow: inset 0px 5px 8px 0px rgba(0,157,250,0.48);
+                    
+                  }
+                }
+              }
+              
             ::v-deep .el-table th {
-                background-color:#0E3F5F;
+                background: rgba(20,45,68,0.64);
                 height: 80px;
                 color: #fff;
             }
             ::v-deep .el-table tr{
-                background-color: #0E3F5F;
+                background-color: #021A32 ;
                 td {
                     color: #fff;
+                    height: 72px;
                     text-align: center;
                 }
+            }
+            ::v-deep .el-table td.el-table__cell{
+                border-bottom: 1px solid #2b6389;
             }
             ::v-deep .el-table tr:nth-child(odd) {
-                background-color: #0C2D46;
+                background-color: #021426 ;
                 td {
-                    color: #fff;
+                    color: #00FFC4;
                     text-align: center;
                 }
     
             }
-    
+            
             ::v-deep .el-table tbody tr:hover>td {
-                background-color: #0E3F5F !important;
+                background-color: #021A32 !important;
+            }
+    
+            ::v-deep .el-table tbody tr:nth-child(odd):hover>td {
+                background-color: #021426 !important;
     
             }
             ::v-deep th.el-table__cell.is-leaf {
@@ -168,8 +191,9 @@
             }
 
             ::v-deep .el-pager li.active{
-                background-image: linear-gradient(180deg, rgba(3, 34, 68, 0.22) 0%, #014C8D 100%);
-                color: #00FAF9 !important;
+                color: #9FFAFF  !important;
+                background-image: linear-gradient(180deg, rgba(29,137,255,0.06) 0%, #023458 100%);
+                box-shadow: inset 0px -2px 4px 
             }
 
 

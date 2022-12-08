@@ -1,0 +1,232 @@
+.main-body {
+    height: 914px;
+    background-image: url("../../assets/tanPF.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    .top-search {
+        color: #fff;
+        font-size: 14px;
+        padding-top: 31px;
+        height: 70px;
+        width: 3400px;
+        margin-left: 90px;
+
+        .search-list {
+            display: inline-block;
+            margin-right: 40px;
+            width: 176px;
+            height: 36px;
+            line-height: 34px;
+            text-align: center;
+            background: #162A40;
+            border-radius: 2px;
+
+            ::v-deep .el-input__inner {
+                width: 176px;
+                height: 36px;
+                border: none;
+                text-align: center;
+                color: #fff;
+                background-color: transparent !important;
+            }
+
+            /**修改边框和字体颜色 */
+            ::v-deep .el-select {
+                position: relative;
+                width: 176px;
+
+                .el-input {
+                    input {
+                        height: 36px;
+                        border: none;
+                        color: #fff;
+                    }
+                }
+            }
+
+            /**修改下拉图标颜色 */
+            ::v-deep .el-input__suffix {
+                .el-input__suffix-inner {
+                    .el-icon-arrow-up:before {
+                        color: rgba(44, 137, 229, 0.5);
+                        padding-left: 0.11rem;
+                    }
+                }
+            }
+
+            /deep/ .el-select-dropdown {
+                margin-top: 10px;
+                width: 176px;
+                background: #0D1A28;
+                box-shadow: inset 0px -2px 7px 0px rgba(2, 69, 147, 1);
+                border-radius: 2px;
+                border: none;
+                padding: 0;
+                z-index: 9999;
+            }
+
+            // option选项 文字样式
+            /deep/ .el-select-dropdown__item {
+                margin: 8px auto;
+                text-align: center;
+                width: 160px;
+                height: 36px;
+                background: #162A40;
+                border-radius: 2px;
+                color: #fff !important;
+                z-index: 9999;
+            }
+
+            /deep/ .el-select-dropdown__item:hover {
+                background-image: linear-gradient(180deg, rgba(3, 34, 68, 0.22) 0%, #014C8D 100%);
+                color: #00FAF9 !important;
+            }
+
+        }
+
+        .btn1,
+        .btn2 {
+            display: inline-block;
+            width: 108px;
+            height: 65px;
+            line-height: 65px;
+            margin: 0px 10px;
+
+            img {
+                width: 100%;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .footer {
+        .titleaa {
+            padding-left: 20px;
+            height: 35px;
+            line-height: 35px;
+            font-family: YouSheBiaoTiHei;
+            font-size: 20px;
+            color: #BCE3FC;
+            letter-spacing: 4px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .footer-left {
+            float: left;
+            width: 1780px;
+
+            .top1,
+            .top2 {
+                margin-top: 20px;
+                float: left;
+                width: 1705px;
+                height: 385px;
+                margin-left: 40px;
+            }
+
+            #myChart1,
+            #myChart2 {
+                width: 1705px;
+                height: 325px;
+            }
+
+            .top1,.top2{
+                margin-left: 70px;
+            }
+        }
+
+        .footer-right {
+            float: left;
+            margin-left: 50px;
+
+            .table {
+                margin-top: 20px;
+                width: 1670px;
+
+                .tabel-body {
+                    margin: 0 auto;
+                    width: 1630px;
+                    height: 730px;
+
+                    ::v-deep .el-table__body {
+                        background-color: #0D1A28;
+                        background-image: url("../../assets/table_bg.jpg");
+                        border: none;
+                        box-shadow: none;
+
+                        -webkit-border-vertical-spacing: 10px; // 垂直间距 设置的是行间距
+                    }
+
+                    ::v-deep .el-table__header-wrapper {}
+
+                    ::v-deep .el-table th {
+                        height: 49px;
+                        background-color: #0D1A28;
+                        box-shadow: none;
+
+                        color: #fff;
+                        text-align: center;
+                    }
+
+                    ::v-deep .el-table tr {
+                        height: 49px;
+                        background-color: #021426;
+                        color: #fff;
+                        font-family: PingFangSC-Regular;
+                        font-size: 15.4px;
+                        color: #FFFFFF;
+                        line-height: 17.6px;
+                        margin-top: 5px;
+                    }
+
+                    ::v-deep .el-table tbody tr:hover>td {
+                        background-color: #021426 !important;
+
+                    }
+
+
+                    /* 隐藏伪元素 */
+                    ::v-deep .el-table::before {
+                        display: none !important;
+                    }
+
+                    ::v-deep .el-table td.el-table__cell,
+                    .el-table th.el-table__cell.is-leaf {
+                        border: none;
+                        border-bottom: 1px solid rgb(43, 99, 137);
+                    }
+
+                    ::v-deep .el-pagination,
+                    ::v-deep .btn-prev,
+                    ::v-deep .btn-next,
+                    ::v-deep .el-pager li {
+                        background-color: #162A40;
+                        color: #fff;
+                    }
+
+                    ::v-deep .el-pager li.active {
+                        background-image: linear-gradient(180deg, rgba(3, 34, 68, 0.22) 0%, #014C8D 100%);
+                        color: #00FAF9 !important;
+                    }
+
+                    ::v-deep .el-pagination__total {
+                        color: #fff;
+                    }
+
+                    ::v-deep .el-table__empty-block {
+                        background-color: #021426;
+                        color: #fff;
+                    }
+                    ::v-deep .el-table th.el-table__cell.is-leaf{
+                        border-bottom:none;
+                    }
+                }
+            }
+        }
+
+
+
+    }
+}

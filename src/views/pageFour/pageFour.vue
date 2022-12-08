@@ -3,6 +3,10 @@
     <div class="top-search">
       <el-form :model="formInline" class="demo-form-inline">
         <el-form-item>
+          <div class="search-list qiehuantbn" style="cursor:pointer;" @click="changeTu">
+            <span v-if="showTu">排放浓度</span>
+            <span v-else>排放量</span>
+          </div>
           <div class="search-list">
             <el-checkbox @change="changeHz" v-model="formInline.checked"
               >汇总</el-checkbox
@@ -124,27 +128,45 @@
       </el-form>
     </div>
     <div class="footer">
-      <div class="footer-left">
+      <div class="footer-left" v-show="showTu">
         <div class="top1">
-          <div class="titleaa">机组运行时间</div>
+          <div class="titleaa">{{TITLE1}}</div>
           <div id="myChart1"></div>
         </div>
         <div class="top2">
-          <div class="titleaa">氮氧化物排放量</div>
-          <div id="myChart2"></div>
-        </div>
-        <div class="top3">
-          <div class="titleaa">二氧化硫排放量</div>
+          <div class="titleaa">{{TITLE2}}</div>
           <div id="myChart3"></div>
         </div>
+        <div class="top3">
+          <div class="titleaa">{{TITLE3}}</div>
+          <div id="myChart2"></div>
+        </div>
         <div class="top4">
-          <div class="titleaa">烟尘排放量</div>
+          <div class="titleaa">{{TITLE4}}</div>
           <div id="myChart4"></div>
+        </div>
+      </div>
+      <div class="footer-left" v-show="!showTu">
+        <div class="top1">
+          <div class="titleaa">{{TITLE5}}</div>
+          <div id="myChart6"></div>
+        </div>
+        <div class="top2">
+          <div class="titleaa">{{TITLE6}}</div>
+          <div id="myChart5"></div>
+        </div>
+        <div class="top3">
+          <div class="titleaa">{{TITLE7}}</div>
+          <div id="myChart7"></div>
+        </div>
+        <div class="top4">
+          <div class="titleaa"></div>
+          <div id="myChart8"></div>
         </div>
       </div>
       <div class="footer-right">
         <div class="table">
-          <div class="titleaa">污染排放</div>
+          <div class="titleaa">{{TABLETITLE}}</div>
           <div class="tabel-body">
             <el-table
               :data="
@@ -168,8 +190,7 @@
               <el-table-column label="集团" width="120px" align="center">
                 <template slot-scope="scope">
                   <div
-                    style="
-                      width: 110px;
+                    style="width: 110px;
                       height: 26px;
                       text-align: center;
                       background: rgb(16, 42, 64);
@@ -298,6 +319,15 @@ export default {
   },
   data() {
     return {
+      showTu: true,
+      TITLE1:'',
+      TITLE2:'',
+      TITLE3:'',
+      TITLE4:'',
+      TITLE5:'',
+      TITLE6:'',
+      TITLE7:'',
+      TABLETITLE:'',
       titleTime: "2022年",
       // 默认显示第几页
       currentPage: 1,
@@ -348,7 +378,7 @@ export default {
         groupName: "所有集团",
         factoryName: "所有电厂",
         jzName: "所有机组",
-        baobiaoName: "1",
+        baobiaoName: "3",
         choiceyear: "",
         jidu: "第一季度",
         months: "",
@@ -381,13 +411,14 @@ export default {
     });
   },
   methods: {
+    changeTu(){
+      this.showTu = !this.showTu
+    },
     //获取季度子组件传回的数据
     getValue(val) {
-      console.log(val);
       this.formInline.jidu = val;
     },
     fomatFloat(num, n) {
-      console.log(num, n);
       var f = parseFloat(num);
       if (isNaN(f)) {
         return false;
@@ -422,7 +453,6 @@ export default {
     },
     changeHz(val) {
       this.formInline.checked = val;
-      console.log(this.formInline.checked);
       if (val) {
         this.formInline.groupName = "所有集团";
         this.formInline.factoryName = "所有电厂";
@@ -519,6 +549,18 @@ export default {
       let myChart4 = echarts.init(document.getElementById("myChart4"), "dark", {
         devicePixelRatio: 2.5,
       });
+      let myChart5 = echarts.init(document.getElementById("myChart5"), "dark", {
+        devicePixelRatio: 2.5,
+      });
+      let myChart6 = echarts.init(document.getElementById("myChart6"), "dark", {
+        devicePixelRatio: 2.5,
+      });
+      let myChart7 = echarts.init(document.getElementById("myChart7"), "dark", {
+        devicePixelRatio: 2.5,
+      });
+      let myChart8 = echarts.init(document.getElementById("myChart8"), "dark", {
+        devicePixelRatio: 2.5,
+      });
       let year = "";
       let months = "";
       let quarter = "";
@@ -586,6 +628,15 @@ export default {
             this.coalStatList = res.data[0].data[0];
             // 右侧表格数据
             this.tableData = this.coalStatList.HBZKLIST;
+            this.TITLE1 = this.coalStatList.TITLE1
+            this.TITLE2 = this.coalStatList.TITLE2
+            this.TITLE3 = this.coalStatList.TITLE3
+            this.TITLE4 = this.coalStatList.TITLE4
+            this.TITLE5 = this.coalStatList.TITLE5
+            this.TITLE6 = this.coalStatList.TITLE6
+            this.TITLE7 = this.coalStatList.TITLE7
+            this.TABLETITLE = this.coalStatList.TABLETITLE
+
 
             this.titleTime = this.coalStatList.TITLETIME;
             let qiannian = this.coalStatList.LASTYEARTAG.toString();
@@ -606,6 +657,18 @@ export default {
             let jTName4 = [];
             let valueNew4 = [];
             let valueOld4 = [];
+            let dibu5 = [];
+            let jTName5 = [];
+            let valueNew5 = [];
+            let valueOld5 = [];
+            let dibu6 = [];
+            let jTName6 = [];
+            let valueNew6 = [];
+            let valueOld6 = [];
+            let dibu7 = [];
+            let jTName7 = [];
+            let valueNew7 = [];
+            let valueOld7 = [];
             let legendDate = [];
             legendDate.push(qiannian, dangnian);
             // 表1数据
@@ -638,7 +701,7 @@ export default {
                 left: "3%",
                 right: "4%",
                 top: "10%",
-                bottom: "20%",
+                bottom: "10%",
                 containLabel: true,
               },
               xAxis: [
@@ -849,7 +912,7 @@ export default {
                 left: "3%",
                 right: "4%",
                 top: "10%",
-                bottom: "20%",
+                bottom: "10%",
                 containLabel: true,
               },
               xAxis: [
@@ -1061,7 +1124,7 @@ export default {
                 left: "3%",
                 right: "4%",
                 top: "10%",
-                bottom: "20%",
+                bottom: "10%",
                 containLabel: true,
               },
               xAxis: [
@@ -1273,7 +1336,7 @@ export default {
                 left: "3%",
                 right: "4%",
                 top: "10%",
-                bottom: "20%",
+                bottom: "10%",
                 containLabel: true,
               },
               xAxis: [
@@ -1455,11 +1518,652 @@ export default {
                 },
               ],
             };
+            
+            this.coalStatList.NOXNDLIST.map((item, index) => {
+              jTName5.push(item.name);
+              valueNew5.push(item.valueNew);
+              valueOld5.push(item.valueOld);
+              dibu5.push(2);
+            });
+            this.option5 = {
+              backgroundColor: "", //设置无背景色
+              tooltip: {
+                trigger: "axis",
+                axisPointer: {
+                  type: "shadow",
+                },
+              },
+              legend: {
+                data: legendDate,
+                x: "right", // 水平居右
+                icon: "rect", // 图例icon为方块
+                itemHeight: 10, // 图例icon高度
+                itemWidth: 10, // 图例icon宽度
+                textStyle: {
+                  color: "#fff", // 图例文字颜色
+                },
+              },
+              grid: {
+                left: "3%",
+                right: "4%",
+                top: "10%",
+                bottom: "10%",
+                containLabel: true,
+              },
+              xAxis: [
+                {
+                  type: "category",
+                  data: jTName5,
+                  offset: 6,
+                  axisLine: {
+                    show: false,
+                    lineStyle: {
+                      color: "rgb(31,43,58)", //刻度线的颜色
+                    },
+                  },
+                  axisTick: {
+                    show: false, // 刻度线
+                  },
+                  axisLabel: {
+                    show: true,
+                    interval: 0,
+                    textStyle: {
+                      color: "#999",
+                      fontStyle: "normal",
+                      fontFamily: "微软雅黑",
+                      fontSize: 11,
+                      margin: 10,
+                    },
+                  },
+                },
+              ],
+              yAxis: [
+                {
+                  type: "value",
+                  axisLine: {
+                    show: true, // 轴线
+                    lineStyle: {
+                      color: "rgb(52,61,74)", //刻度线的颜色
+                    },
+                  },
+                  splitLine: {
+                    show: true,
+                    lineStyle: {
+                      color: "rgb(31,43,58)", //刻度线的颜色
+                    },
+                  },
+                  axisTick: {
+                    show: false, // 刻度线
+                  },
+                  axisLabel: {
+                    color: "#999", // y轴字颜色
+                  },
+                },
+              ],
+              series: [
+                {
+                  name: legendDate[0],
+                  type: "bar",
+                  barWidth: 20,
+                  label: {
+                    show: false,
+                    position: "top",
+                    textStyle: {
+                      fontSize: 14,
+                      color: "#fff",
+                      fontFamily: "FusiBold",
+                    },
+                  },
+                  itemStyle: {
+                    normal: {
+                      color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [
+                        { offset: 1, color: "#52D898 " },
+                        { offset: 0, color: "#00B455" },
+                      ]),
+                    },
+                  },
+                  data: valueOld5,
+                },
+                {
+                  name: legendDate[1],
+                  type: "bar",
+                  barWidth: 20,
+                  label: {
+                    show: false,
+                    position: "top",
+                    textStyle: {
+                      fontSize: 14,
+                      color: "#fff",
+                      fontFamily: "FusiBold",
+                    },
+                  },
+                  itemStyle: {
+                    normal: {
+                      color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [
+                        { offset: 1, color: "#52D2D8 " },
+                        { offset: 0, color: "#1F8AAC" },
+                      ]),
+                    },
+                  },
+                  data: valueNew5,
+                },
+                {
+                  name: legendDate[0], //底部
+                  type: "pictorialBar",
+                  barWidth: 20,
+                  symbol: "diamond",
+                  symbolPosition: "start",
+                  symbolOffset: ["-65%", "50%"],
+                  symbolSize: [20, 10],
+                  zlevel: 2,
+                  itemStyle: {
+                    normal: {
+                      color: "#26FF9D",
+                      barBorderRadius: 0,
+                    },
+                  },
+                  data: dibu5,
+                  tooltip: {
+                    show: false,
+                  },
+                },
+                {
+                  name: legendDate[0],
+                  type: "pictorialBar",
+                  barWidth: 20,
+                  symbol: "diamond",
+                  symbolOffset: ["-65%", "-50%"],
+                  symbolPosition: "end",
+                  symbolSize: [20, 10],
+                  zlevel: 2,
+                  itemStyle: {
+                    normal: {
+                      color: "#26FF9D",
+                      barBorderRadius: 0,
+                    },
+                  },
+                  data: valueOld5,
+                  tooltip: {
+                    show: false,
+                  },
+                },
+                {
+                  name: legendDate[1],
+                  type: "pictorialBar",
+                  barWidth: 20,
+                  symbol: "diamond",
+                  symbolPosition: "start",
+                  symbolOffset: ["65%", "50%"],
+                  symbolSize: [20, 10],
+                  zlevel: 2,
+                  itemStyle: {
+                    normal: {
+                      color: "#00F6FF",
+                      barBorderRadius: 0,
+                    },
+                  },
+                  data: dibu5,
+                  tooltip: {
+                    show: false,
+                  },
+                },
+                {
+                  name: legendDate[1],
+                  type: "pictorialBar",
+                  barWidth: 20,
+                  symbol: "diamond",
+                  symbolOffset: ["65%", "-50%"],
+                  symbolPosition: "end",
+                  symbolSize: [20, 10],
+                  zlevel: 2,
+                  itemStyle: {
+                    normal: {
+                      color: "#00F6FF",
+                      barBorderRadius: 0,
+                    },
+                  },
+                  data: valueNew5,
+                  tooltip: {
+                    show: false,
+                  },
+                },
+              ],
+            };
+
+            this.coalStatList.SO2NDLIST.map((item, index) => {
+              jTName6.push(item.name);
+              valueNew6.push(item.valueNew);
+              valueOld6.push(item.valueOld);
+              dibu6.push(2);
+            });
+            this.option6 = {
+              backgroundColor: "", //设置无背景色
+              tooltip: {
+                trigger: "axis",
+                axisPointer: {
+                  type: "shadow",
+                },
+              },
+              legend: {
+                data: legendDate,
+                x: "right", // 水平居右
+                icon: "rect", // 图例icon为方块
+                itemHeight: 10, // 图例icon高度
+                itemWidth: 10, // 图例icon宽度
+                textStyle: {
+                  color: "#fff", // 图例文字颜色
+                },
+              },
+              grid: {
+                left: "3%",
+                right: "4%",
+                top: "10%",
+                bottom: "10%",
+                containLabel: true,
+              },
+              xAxis: [
+                {
+                  type: "category",
+                  data: jTName6,
+                  offset: 6,
+                  axisLine: {
+                    show: false,
+                    lineStyle: {
+                      color: "rgb(31,43,58)", //刻度线的颜色
+                    },
+                  },
+                  axisTick: {
+                    show: false, // 刻度线
+                  },
+                  axisLabel: {
+                    show: true,
+                    interval: 0,
+                    textStyle: {
+                      color: "#999",
+                      fontStyle: "normal",
+                      fontFamily: "微软雅黑",
+                      fontSize: 11,
+                      margin: 10,
+                    },
+                  },
+                },
+              ],
+              yAxis: [
+                {
+                  type: "value",
+                  axisLine: {
+                    show: true, // 轴线
+                    lineStyle: {
+                      color: "rgb(52,61,74)", //刻度线的颜色
+                    },
+                  },
+                  splitLine: {
+                    show: true,
+                    lineStyle: {
+                      color: "rgb(31,43,58)", //刻度线的颜色
+                    },
+                  },
+                  axisTick: {
+                    show: false, // 刻度线
+                  },
+                  axisLabel: {
+                    color: "#999", // y轴字颜色
+                  },
+                },
+              ],
+              series: [
+                {
+                  name: legendDate[0],
+                  type: "bar",
+                  barWidth: 20,
+                  label: {
+                    show: false,
+                    position: "top",
+                    textStyle: {
+                      fontSize: 14,
+                      color: "#fff",
+                      fontFamily: "FusiBold",
+                    },
+                  },
+                  itemStyle: {
+                    normal: {
+                      color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [
+                        { offset: 1, color: "#52D898 " },
+                        { offset: 0, color: "#00B455" },
+                      ]),
+                    },
+                  },
+                  data: valueOld6,
+                },
+                {
+                  name: legendDate[1],
+                  type: "bar",
+                  barWidth: 20,
+                  label: {
+                    show: false,
+                    position: "top",
+                    textStyle: {
+                      fontSize: 14,
+                      color: "#fff",
+                      fontFamily: "FusiBold",
+                    },
+                  },
+                  itemStyle: {
+                    normal: {
+                      color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [
+                        { offset: 1, color: "#52D2D8 " },
+                        { offset: 0, color: "#1F8AAC" },
+                      ]),
+                    },
+                  },
+                  data: valueNew6,
+                },
+                {
+                  name: legendDate[0], //底部
+                  type: "pictorialBar",
+                  barWidth: 20,
+                  symbol: "diamond",
+                  symbolPosition: "start",
+                  symbolOffset: ["-65%", "50%"],
+                  symbolSize: [20, 10],
+                  zlevel: 2,
+                  itemStyle: {
+                    normal: {
+                      color: "#26FF9D",
+                      barBorderRadius: 0,
+                    },
+                  },
+                  data: dibu6,
+                  tooltip: {
+                    show: false,
+                  },
+                },
+                {
+                  name: legendDate[0],
+                  type: "pictorialBar",
+                  barWidth: 20,
+                  symbol: "diamond",
+                  symbolOffset: ["-65%", "-50%"],
+                  symbolPosition: "end",
+                  symbolSize: [20, 10],
+                  zlevel: 2,
+                  itemStyle: {
+                    normal: {
+                      color: "#26FF9D",
+                      barBorderRadius: 0,
+                    },
+                  },
+                  data: valueOld6,
+                  tooltip: {
+                    show: false,
+                  },
+                },
+                {
+                  name: legendDate[1],
+                  type: "pictorialBar",
+                  barWidth: 20,
+                  symbol: "diamond",
+                  symbolPosition: "start",
+                  symbolOffset: ["65%", "50%"],
+                  symbolSize: [20, 10],
+                  zlevel: 2,
+                  itemStyle: {
+                    normal: {
+                      color: "#00F6FF",
+                      barBorderRadius: 0,
+                    },
+                  },
+                  data: dibu6,
+                  tooltip: {
+                    show: false,
+                  },
+                },
+                {
+                  name: legendDate[1],
+                  type: "pictorialBar",
+                  barWidth: 20,
+                  symbol: "diamond",
+                  symbolOffset: ["65%", "-50%"],
+                  symbolPosition: "end",
+                  symbolSize: [20, 10],
+                  zlevel: 2,
+                  itemStyle: {
+                    normal: {
+                      color: "#00F6FF",
+                      barBorderRadius: 0,
+                    },
+                  },
+                  data: valueNew6,
+                  tooltip: {
+                    show: false,
+                  },
+                },
+              ],
+            };
+
+
+            this.coalStatList.DUSTNDLIST.map((item, index) => {
+              jTName7.push(item.name);
+              valueNew7.push(item.valueNew);
+              valueOld7.push(item.valueOld);
+              dibu7.push(2);
+            });
+            this.option7 = {
+              backgroundColor: "", //设置无背景色
+              tooltip: {
+                trigger: "axis",
+                axisPointer: {
+                  type: "shadow",
+                },
+              },
+              legend: {
+                data: legendDate,
+                x: "right", // 水平居右
+                icon: "rect", // 图例icon为方块
+                itemHeight: 10, // 图例icon高度
+                itemWidth: 10, // 图例icon宽度
+                textStyle: {
+                  color: "#fff", // 图例文字颜色
+                },
+              },
+              grid: {
+                left: "3%",
+                right: "4%",
+                top: "10%",
+                bottom: "10%",
+                containLabel: true,
+              },
+              xAxis: [
+                {
+                  type: "category",
+                  data: jTName7,
+                  offset: 6,
+                  axisLine: {
+                    show: false,
+                    lineStyle: {
+                      color: "rgb(31,43,58)", //刻度线的颜色
+                    },
+                  },
+                  axisTick: {
+                    show: false, // 刻度线
+                  },
+                  axisLabel: {
+                    show: true,
+                    interval: 0,
+                    textStyle: {
+                      color: "#999",
+                      fontStyle: "normal",
+                      fontFamily: "微软雅黑",
+                      fontSize: 11,
+                      margin: 10,
+                    },
+                  },
+                },
+              ],
+              yAxis: [
+                {
+                  type: "value",
+                  axisLine: {
+                    show: true, // 轴线
+                    lineStyle: {
+                      color: "rgb(52,61,74)", //刻度线的颜色
+                    },
+                  },
+                  splitLine: {
+                    show: true,
+                    lineStyle: {
+                      color: "rgb(31,43,58)", //刻度线的颜色
+                    },
+                  },
+                  axisTick: {
+                    show: false, // 刻度线
+                  },
+                  axisLabel: {
+                    color: "#999", // y轴字颜色
+                  },
+                },
+              ],
+              series: [
+                {
+                  name: legendDate[0],
+                  type: "bar",
+                  barWidth: 20,
+                  label: {
+                    show: false,
+                    position: "top",
+                    textStyle: {
+                      fontSize: 14,
+                      color: "#fff",
+                      fontFamily: "FusiBold",
+                    },
+                  },
+                  itemStyle: {
+                    normal: {
+                      color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [
+                        { offset: 1, color: "#52D898 " },
+                        { offset: 0, color: "#00B455" },
+                      ]),
+                    },
+                  },
+                  data: valueOld7,
+                },
+                {
+                  name: legendDate[1],
+                  type: "bar",
+                  barWidth: 20,
+                  label: {
+                    show: false,
+                    position: "top",
+                    textStyle: {
+                      fontSize: 14,
+                      color: "#fff",
+                      fontFamily: "FusiBold",
+                    },
+                  },
+                  itemStyle: {
+                    normal: {
+                      color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [
+                        { offset: 1, color: "#52D2D8 " },
+                        { offset: 0, color: "#1F8AAC" },
+                      ]),
+                    },
+                  },
+                  data: valueNew7,
+                },
+                {
+                  name: legendDate[0], //底部
+                  type: "pictorialBar",
+                  barWidth: 20,
+                  symbol: "diamond",
+                  symbolPosition: "start",
+                  symbolOffset: ["-65%", "50%"],
+                  symbolSize: [20, 10],
+                  zlevel: 2,
+                  itemStyle: {
+                    normal: {
+                      color: "#26FF9D",
+                      barBorderRadius: 0,
+                    },
+                  },
+                  data: dibu7,
+                  tooltip: {
+                    show: false,
+                  },
+                },
+                {
+                  name: legendDate[0],
+                  type: "pictorialBar",
+                  barWidth: 20,
+                  symbol: "diamond",
+                  symbolOffset: ["-65%", "-50%"],
+                  symbolPosition: "end",
+                  symbolSize: [20, 10],
+                  zlevel: 2,
+                  itemStyle: {
+                    normal: {
+                      color: "#26FF9D",
+                      barBorderRadius: 0,
+                    },
+                  },
+                  data: valueOld7,
+                  tooltip: {
+                    show: false,
+                  },
+                },
+                {
+                  name: legendDate[1],
+                  type: "pictorialBar",
+                  barWidth: 20,
+                  symbol: "diamond",
+                  symbolPosition: "start",
+                  symbolOffset: ["65%", "50%"],
+                  symbolSize: [20, 10],
+                  zlevel: 2,
+                  itemStyle: {
+                    normal: {
+                      color: "#00F6FF",
+                      barBorderRadius: 0,
+                    },
+                  },
+                  data: dibu7,
+                  tooltip: {
+                    show: false,
+                  },
+                },
+                {
+                  name: legendDate[1],
+                  type: "pictorialBar",
+                  barWidth: 20,
+                  symbol: "diamond",
+                  symbolOffset: ["65%", "-50%"],
+                  symbolPosition: "end",
+                  symbolSize: [20, 10],
+                  zlevel: 2,
+                  itemStyle: {
+                    normal: {
+                      color: "#00F6FF",
+                      barBorderRadius: 0,
+                    },
+                  },
+                  data: valueNew7,
+                  tooltip: {
+                    show: false,
+                  },
+                },
+              ],
+            };
+
+
+
+           
 
             myChart1.setOption(this.option1);
             myChart2.setOption(this.option2);
             myChart3.setOption(this.option3);
             myChart4.setOption(this.option4);
+            myChart5.setOption(this.option5);
+            myChart6.setOption(this.option6);
+            myChart7.setOption(this.option7);
           }
         })
         .catch((err) => {

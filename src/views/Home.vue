@@ -11,6 +11,8 @@
       <pageThree v-if="pagenumber == '3'"></pageThree>
       <pageFour v-if="pagenumber == '4'"></pageFour>
       <pageFive v-if="pagenumber == '5'"></pageFive>
+      <tanPFVue v-if="pagenumber == '7'"></tanPFVue>
+      <jianKongVue v-if="pagenumber == '8'"></jianKongVue>
       <pageSix v-if="pagenumber == '6'"></pageSix>
     </div>
   </div>
@@ -24,6 +26,8 @@ import pageThree from "./pageThree/pageThree.vue";
 import pageFour from "./pageFour/pageFour.vue";
 import pageFive from "./pageFive/pageFive.vue";
 import pageSix from "./pageSix/pageSix.vue";
+import tanPFVue from "./tanPF/tanPF.vue";
+import jianKongVue from "./jianKong/jianKong.vue";
 
 export default {
   name: "Home",
@@ -34,7 +38,9 @@ export default {
     pageThree,
     pageFour,
     pageFive,
-    pageSix
+    pageSix,
+    tanPFVue,
+    jianKongVue
   },
   data() {
     return {

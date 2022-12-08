@@ -3,7 +3,25 @@
     <div class="main-left">
       <div class="left-top">
         <div class="left-top-left">
-          <div class="left-one">
+          <img src="../../assets/pie.png" alt="" />
+          <div class="juhua1">巨化集团</div>
+          <div class="juhua">{{ juhua1 }}%</div>
+          <div class="taisu1">台塑集团</div>
+          <div class="taisu">{{ taisu1 }}%</div>
+          <div class="huarun1">华润集团</div>
+          <div class="huarun">{{ huarun1 }}%</div>
+          <div class="huadian1">华电集团</div>
+          <div class="huadian">{{ huadian1 }}%</div>
+          <div class="datang1">大唐集团</div>
+          <div class="datang">{{ datang1 }}%</div>
+          <div class="huaneng1">华能集团</div>
+          <div class="huaneng">{{ huaneng1 }}%</div>
+          <div class="guoneng1">国能集团</div>
+          <div class="guoneng">{{ guoneng1 }}%</div>
+          <div class="zheneng1">浙能集团</div>
+          <div class="zheneng">{{ zheneng1 }}%</div>
+
+          <!-- <div class="left-one">
             <div class="left-one-img">
               <img src="../../assets/box_1_1.png" alt="" />
               <div class="left-one-text">实时负荷</div>
@@ -16,7 +34,7 @@
               <div class="left-two-text">机组功率</div>
             </div>
             <div class="left-text">{{ JZGL }}</div>
-          </div>
+          </div> -->
         </div>
         <div class="left-top-center">
           <div class="left-top-center-text">原煤量</div>
@@ -58,8 +76,13 @@
     </div>
     <!-- 中间部分 -->
     <div class="main-center">
-      <div class="main-center1">{{ SSFH }}</div>
-      <div class="main-center2">{{ LJFD }}</div>
+      <div class="aaa">全省当日实时负荷</div>
+      <div class="main-center1">{{ LJFD }}兆瓦时</div>
+      <div class="bbb">全省当日累计发电量</div>
+      <div class="main-center2">{{ SSFH }}兆瓦</div>
+      <div class="main-center3">煤机负荷{{ MJFH }}兆瓦</div>
+      <div class="main-center4">燃机负荷{{ RJFH }}兆瓦</div>
+
       <div class="imgs1" @click="showCurrentIndex('1')">
         <img src="../../assets/p5.png" alt="" />
       </div>
@@ -373,7 +396,7 @@
       <div class="biaoge11" v-show="11 == currentIndex">
         <div class="title">浙江浙能长兴发电有限责任公司</div>
         <div class="title-de">
-          位于浙江省温州市。华润电力持有其40%的权益。该公司现有两台300MW燃煤发电机组。机组由中国设备制造商提供，所发电力出售给华东电网公司下属的浙江省电网。燃煤来自中国市场。
+          浙江浙能长兴发电有限公司位于浙江省北部，太湖南岸的长兴县经济技术开发区，于2001年7月在湖州成立。公司装机总容量1200MW，年发电量约75亿千瓦。
         </div>
         <el-table
           :data="tableData11"
@@ -528,12 +551,7 @@
         </div>
         <el-table
           :data="tableData17"
-          style="
-            width: 100%;
-            color: #fff;
-            font-weight: 200;
-            font-size: 11px;
-          "
+          style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
         >
           <el-table-column prop="mingcheng" label="名称" width="44">
           </el-table-column>
@@ -576,10 +594,9 @@
         </el-table>
       </div>
       <div class="biaoge19" v-show="0 == currentIndex">
-        <div class="title">浙江国华浙能发电有限公司</div>
+        <div class="title">华润电力（温州）有限公司苍南电厂</div>
         <div class="title-de">
-          浙江国华宁海发电厂工程由神华能源股份有限公司与浙江省能源集团有限公司按6∶4的比例共同出资建设，浙江国华浙能发电有限公司负责电厂建设及运营。
-          国华宁海电厂位于宁海县临港开发区，一期工程建设规模为4×600MW火力发电机组，同步建设四台机组脱硫和4#机脱硝装置，二期工程建设规模2×1000MW机组同步建成脱硫和脱硝装置，是浙江省“五大百亿”重点建设工程。
+          华润电力（温州）有限公司为华润电力下属公司，于2008年3月14日成立。项目位于温州市苍南县龙港镇。
         </div>
         <el-table
           :data="tableData19"
@@ -659,7 +676,7 @@
       <div class="main-right-right">
         <div class="top">
           <div class="text1">
-            <span style="color: #fff">煤机 </span> {{ gasMachine }}
+            <span style="color: #fff"> 汇总 </span> {{ gasMachine }}
             <!-- <span style="color: #fff"> 运行 </span>{{ gasMachineFunction }} -->
           </div>
           <div class="text2">
@@ -677,9 +694,9 @@
             <span class="text11">{{ yrlyjz }}</span
             ><span class="tai">台</span>
           </div>
-          <div class="text6">燃气机组</div>
-          <div class="text7">污泥生物质机组</div>
-          <div class="text8">余热利用机组</div>
+          <div class="text6">燃机</div>
+          <div class="text7">污泥生物质</div>
+          <div class="text8">余热利用</div>
         </div>
         <div class="center">
           <div id="duiji"></div>
@@ -761,7 +778,7 @@ export default {
       tableData1: [
         {
           mingcheng: "#3",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "亚临界",
           shebei: "北京巴布科克威尔科克斯有限公司",
           qilun: "东方汽轮机有限公司",
@@ -770,7 +787,7 @@ export default {
         },
         {
           mingcheng: "#4",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "亚临界",
           shebei: "北京巴布科克威尔科克斯有限公司",
           qilun: "东方汽轮机有限公司",
@@ -779,7 +796,7 @@ export default {
         },
         {
           mingcheng: "#5",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -788,7 +805,7 @@ export default {
         },
         {
           mingcheng: "#6",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -837,7 +854,7 @@ export default {
       tableData3: [
         {
           mingcheng: "#3",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "亚临界",
           shebei: "日本石川岛播磨重工业株式会社",
           qilun: "日本东芝公司",
@@ -846,7 +863,7 @@ export default {
         },
         {
           mingcheng: "#4",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "亚临界",
           shebei: "日本石川岛播磨重工业株式会社",
           qilun: "日本东芝公司",
@@ -855,7 +872,7 @@ export default {
         },
         {
           mingcheng: "#5",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "亚临界",
           shebei: "日本石川岛播磨重工业株式会社",
           qilun: "日本东芝公司",
@@ -866,7 +883,7 @@ export default {
       tableData4: [
         {
           mingcheng: "#5",
-          rongliang: "300",
+          rongliang: "330",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -875,7 +892,7 @@ export default {
         },
         {
           mingcheng: "#6",
-          rongliang: "300",
+          rongliang: "330",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -884,7 +901,7 @@ export default {
         },
         {
           mingcheng: "#7",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "超超临界",
           shebei: "北京巴布科克威尔科克斯有限公司",
           qilun: "上海汽轮机有限公司",
@@ -893,7 +910,7 @@ export default {
         },
         {
           mingcheng: "#8",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "超超临界",
           shebei: "北京巴布科克威尔科克斯有限公司",
           qilun: "上海汽轮机有限公司",
@@ -904,7 +921,7 @@ export default {
       tableData5: [
         {
           mingcheng: "#1",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "超临界",
           shebei: "北京巴布科克威尔科克斯有限公司",
           qilun: "东方汽轮机有限公司",
@@ -913,7 +930,7 @@ export default {
         },
         {
           mingcheng: "#2",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "超临界",
           shebei: "北京巴布科克威尔科克斯有限公司",
           qilun: "东方汽轮机有限公司",
@@ -922,7 +939,7 @@ export default {
         },
         {
           mingcheng: "#3",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "超临界",
           shebei: "北京巴布科克威尔科克斯有限公司",
           qilun: "东方汽轮机有限公司",
@@ -931,7 +948,7 @@ export default {
         },
         {
           mingcheng: "#4",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "超临界",
           shebei: "北京巴布科克威尔科克斯有限公司",
           qilun: "东方汽轮机有限公司",
@@ -942,7 +959,7 @@ export default {
       tableData6: [
         {
           mingcheng: "#1",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "超临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -951,7 +968,7 @@ export default {
         },
         {
           mingcheng: "#2",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "超临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -960,7 +977,7 @@ export default {
         },
         {
           mingcheng: "#3",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "超超临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -969,7 +986,7 @@ export default {
         },
         {
           mingcheng: "#4",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "超超临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -980,7 +997,7 @@ export default {
       tableData7: [
         {
           mingcheng: "#1",
-          rongliang: "300",
+          rongliang: "330",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -989,7 +1006,7 @@ export default {
         },
         {
           mingcheng: "#2",
-          rongliang: "300",
+          rongliang: "330",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -1018,7 +1035,7 @@ export default {
         },
         {
           mingcheng: "#3",
-          rongliang: "600",
+          rongliang: "57",
           jizu: "高压",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "哈尔滨汽轮机厂有限责任公司",
@@ -1027,7 +1044,7 @@ export default {
         },
         {
           mingcheng: "#4",
-          rongliang: "600",
+          rongliang: "57",
           jizu: "高压",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "哈尔滨汽轮机厂有限责任公司",
@@ -1036,7 +1053,7 @@ export default {
         },
         {
           mingcheng: "#5",
-          rongliang: "1000",
+          rongliang: "57",
           jizu: "高压",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "哈尔滨汽轮机厂有限责任公司",
@@ -1045,7 +1062,7 @@ export default {
         },
         {
           mingcheng: "#6",
-          rongliang: "1000",
+          rongliang: "57",
           jizu: "高压",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "哈尔滨汽轮机厂有限责任公司",
@@ -1054,7 +1071,7 @@ export default {
         },
         {
           mingcheng: "#7",
-          rongliang: "1000",
+          rongliang: "57",
           jizu: "高压",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "哈尔滨汽轮机厂有限责任公司",
@@ -1065,7 +1082,7 @@ export default {
       tableData9: [
         {
           mingcheng: "#7",
-          rongliang: "300",
+          rongliang: "350",
           jizu: "亚临界",
           shebei: "北京巴布科克威尔科克斯有限公司",
           qilun: "法国阿尔斯通公司",
@@ -1074,7 +1091,7 @@ export default {
         },
         {
           mingcheng: "#8",
-          rongliang: "300",
+          rongliang: "350",
           jizu: "亚临界",
           shebei: "北京巴布科克威尔科克斯有限公司",
           qilun: "法国阿尔斯通公司",
@@ -1083,7 +1100,7 @@ export default {
         },
         {
           mingcheng: "#9",
-          rongliang: "300",
+          rongliang: "330",
           jizu: "亚临界",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "东方汽轮机有限公司",
@@ -1092,7 +1109,7 @@ export default {
         },
         {
           mingcheng: "#10",
-          rongliang: "300",
+          rongliang: "330",
           jizu: "亚临界",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "东方汽轮机有限公司",
@@ -1103,7 +1120,7 @@ export default {
       tableData10: [
         {
           mingcheng: "#3",
-          rongliang: "300",
+          rongliang: "330",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -1112,7 +1129,7 @@ export default {
         },
         {
           mingcheng: "#4",
-          rongliang: "300",
+          rongliang: "330",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -1123,7 +1140,7 @@ export default {
       tableData11: [
         {
           mingcheng: "#1",
-          rongliang: "300",
+          rongliang: "330",
           jizu: "亚临界",
           shebei: "北京巴布科克威尔科克斯有限公司",
           qilun: "上海汽轮机有限公司",
@@ -1132,7 +1149,7 @@ export default {
         },
         {
           mingcheng: "#2",
-          rongliang: "300",
+          rongliang: "330",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -1141,7 +1158,7 @@ export default {
         },
         {
           mingcheng: "#3",
-          rongliang: "300",
+          rongliang: "330",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -1150,7 +1167,7 @@ export default {
         },
         {
           mingcheng: "#4",
-          rongliang: "300",
+          rongliang: "330",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -1161,7 +1178,7 @@ export default {
       tableData12: [
         {
           mingcheng: "#1",
-          rongliang: "600",
+          rongliang: "630",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -1170,7 +1187,7 @@ export default {
         },
         {
           mingcheng: "#2",
-          rongliang: "600",
+          rongliang: "630",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -1179,7 +1196,7 @@ export default {
         },
         {
           mingcheng: "#3",
-          rongliang: "600",
+          rongliang: "630",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -1188,7 +1205,7 @@ export default {
         },
         {
           mingcheng: "#4",
-          rongliang: "600",
+          rongliang: "630",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -1226,7 +1243,7 @@ export default {
         },
         {
           mingcheng: "#4",
-          rongliang: "300",
+          rongliang: "350",
           jizu: "亚临界",
           shebei: "上海锅炉厂有限公司",
           qilun: "上海汽轮机有限公司",
@@ -1237,7 +1254,7 @@ export default {
       tableData14: [
         {
           mingcheng: "#1",
-          rongliang: "600",
+          rongliang: "630",
           jizu: "亚临界",
           shebei: "美国燃烧工程公司",
           qilun: "日本东芝公司",
@@ -1246,7 +1263,7 @@ export default {
         },
         {
           mingcheng: "#2",
-          rongliang: "600",
+          rongliang: "630",
           jizu: "亚临界",
           shebei: "加拿大BABCOCK-WILCOX公司",
           qilun: "法国阿尔斯通公司",
@@ -1257,7 +1274,7 @@ export default {
       tableData15: [
         {
           mingcheng: "#6",
-          rongliang: "1000",
+          rongliang: "1050",
           jizu: "超超临界",
           shebei: "东方锅炉股份有限公司",
           qilun: "上海汽轮机有限公司",
@@ -1266,7 +1283,7 @@ export default {
         },
         {
           mingcheng: "#7",
-          rongliang: "1000",
+          rongliang: "1050",
           jizu: "超超临界",
           shebei: "东方锅炉股份有限公司",
           qilun: "上海汽轮机有限公司",
@@ -1277,7 +1294,7 @@ export default {
       tableData16: [
         {
           mingcheng: "#1",
-          rongliang: "600",
+          rongliang: "650",
           jizu: "超临界",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "哈尔滨汽轮机厂有限责任公司",
@@ -1286,7 +1303,7 @@ export default {
         },
         {
           mingcheng: "#2",
-          rongliang: "600",
+          rongliang: "650",
           jizu: "超临界",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "哈尔滨汽轮机厂有限责任公司",
@@ -1295,7 +1312,7 @@ export default {
         },
         {
           mingcheng: "#3",
-          rongliang: "600",
+          rongliang: "650",
           jizu: "超临界",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "哈尔滨汽轮机厂有限责任公司",
@@ -1304,7 +1321,7 @@ export default {
         },
         {
           mingcheng: "#4",
-          rongliang: "600",
+          rongliang: "650",
           jizu: "超临界",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "哈尔滨汽轮机厂有限责任公司",
@@ -1315,7 +1332,7 @@ export default {
       tableData17: [
         {
           mingcheng: "#1",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "超超临界",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "上海汽轮机有限公司",
@@ -1324,7 +1341,7 @@ export default {
         },
         {
           mingcheng: "#2",
-          rongliang: "600",
+          rongliang: "660",
           jizu: "超超临界",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "上海汽轮机有限公司",
@@ -1335,7 +1352,7 @@ export default {
       tableData18: [
         {
           mingcheng: "#1",
-          rongliang: "1000",
+          rongliang: "1055",
           jizu: "超超临界",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "上海汽轮机有限公司",
@@ -1353,7 +1370,7 @@ export default {
         },
         {
           mingcheng: "#3",
-          rongliang: "1000",
+          rongliang: "1055",
           jizu: "超超临界",
           shebei: "哈尔滨锅炉厂有限责任公司",
           qilun: "上海汽轮机有限公司",
@@ -1397,7 +1414,9 @@ export default {
       yrlyjz: 0,
       SSFH: 0,
       JZGL: "",
-      LJFD: "",
+      LJFD: 0,
+      MJFH: 0,
+      RJFH: 0,
       jtmcName: [],
       mh1num: [],
       coalMachine: 0,
@@ -1421,6 +1440,14 @@ export default {
       huaneng: 0,
       guoneng: 0,
       zheneng: 0,
+      juhua1: 0,
+      taisu1: 0,
+      huarun1: 0,
+      huadian1: 0,
+      datang1: 0,
+      huaneng1: 0,
+      guoneng1: 0,
+      zheneng1: 0,
     };
   },
   created() {},
@@ -1456,8 +1483,8 @@ export default {
     },
   },
   methods: {
-    showCurrentIndex(val){
-      this.currentIndex = val
+    showCurrentIndex(val) {
+      this.currentIndex = val;
     },
     biao() {
       setInterval(() => {
@@ -1783,6 +1810,36 @@ export default {
         this.SSFH = result.SSFH;
         this.JZGL = result.JZGL;
         this.LJFD = result.LJFD;
+        this.MJFH = result.MJFH;
+        this.RJFH = result.RJFH;
+
+        this.optionData1 = result.FHSTR;
+        this.optionData1.map((item, index) => {
+          if (item.name == "巨化") {
+            this.juhua1 = item.value;
+          }
+          if (item.name == "浙能") {
+            this.zheneng1 = item.value;
+          }
+          if (item.name == "国能") {
+            this.guoneng1 = item.value;
+          }
+          if (item.name == "华能") {
+            this.huaneng1 = item.value;
+          }
+          if (item.name == "大唐") {
+            this.datang1 = item.value;
+          }
+          if (item.name == "华电") {
+            this.huadian1 = item.value;
+          }
+          if (item.name == "华润") {
+            this.huarun1 = item.value;
+          }
+          if (item.name == "台塑") {
+            this.taisu1 = item.value;
+          }
+        });
         this.optionData = result.YMLSTR;
         this.optionData.map((item, index) => {
           if (item.name == "巨化") {
@@ -1809,7 +1866,6 @@ export default {
           if (item.name == "台塑") {
             this.taisu = item.value;
           }
-          item.value = item.value;
         });
         // //构建3d饼状图
         // let myChart3d = echarts.init(
@@ -1963,7 +2019,7 @@ export default {
               name: "2020",
               type: "pictorialBar",
               symbolPosition: "end",
-              data: fnum,
+              data: num,
               symbol: "diamond",
               symbolOffset: ["0%", "-50%"],
               symbolSize: [18, (10 * (18 - 1)) / 18],
@@ -2046,7 +2102,7 @@ export default {
 
           yAxis: {
             type: "value",
-            name: "(%)",
+            // name: "(%)",
             nameTextStyle: {
               align: "right",
               color: "#999",
@@ -2248,7 +2304,7 @@ export default {
           series: [
             {
               name: "2021",
-              data: qjrhl11,
+              data: qjrhl22,
               type: "line",
               lineStyle: {
                 color: "rgb(134,53,245)",
@@ -2272,7 +2328,7 @@ export default {
             },
             {
               name: "2022",
-              data: qjrhl22,
+              data: qjrhl11,
               type: "line",
               lineStyle: {
                 color: "rgb(117,251,252)",

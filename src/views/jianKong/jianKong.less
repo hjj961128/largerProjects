@@ -1,0 +1,1108 @@
+.main-body {
+    height: 914px;
+    background-image: url("../../assets/jiankong.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    .top-search {
+        color: #fff;
+        font-size: 14px;
+        padding-top: 15px;
+        height: 70px;
+        width: 3400px;
+        margin-left: 90px;
+
+        .search-list {
+            display: inline-block;
+            margin-right: 40px;
+            width: 176px;
+            height: 36px;
+            line-height: 34px;
+            text-align: center;
+            background: #162A40;
+            border-radius: 2px;
+
+            ::v-deep .el-input__inner {
+                width: 176px;
+                height: 36px;
+                border: none;
+                text-align: center;
+                color: #fff;
+                background-color: transparent !important;
+            }
+
+            /**修改边框和字体颜色 */
+            ::v-deep .el-select {
+                position: relative;
+                width: 176px;
+
+                .el-input {
+                    input {
+                        height: 36px;
+                        border: none;
+                        color: #fff;
+                    }
+                }
+            }
+
+            /**修改下拉图标颜色 */
+            ::v-deep .el-input__suffix {
+                .el-input__suffix-inner {
+                    .el-icon-arrow-up:before {
+                        color: rgba(44, 137, 229, 0.5);
+                        padding-left: 0.11rem;
+                    }
+                }
+            }
+
+            /deep/ .el-select-dropdown {
+                margin-top: 10px;
+                width: 176px;
+                background: #0D1A28;
+                box-shadow: inset 0px -2px 7px 0px rgba(2, 69, 147, 1);
+                border-radius: 2px;
+                border: none;
+                padding: 0;
+                z-index: 9999;
+            }
+
+            // option选项 文字样式
+            /deep/ .el-select-dropdown__item {
+                margin: 8px auto;
+                text-align: center;
+                width: 160px;
+                height: 36px;
+                background: #162A40;
+                border-radius: 2px;
+                color: #fff !important;
+                z-index: 9999;
+            }
+
+            /deep/ .el-select-dropdown__item:hover {
+                background-image: linear-gradient(180deg, rgba(3, 34, 68, 0.22) 0%, #014C8D 100%);
+                color: #00FAF9 !important;
+            }
+
+        }
+
+        .btn1,
+        .btn2 {
+            display: inline-block;
+            width: 108px;
+            height: 65px;
+            line-height: 65px;
+            margin: 0px 10px;
+
+            img {
+                width: 100%;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .footer {
+        .footer-left {
+            float: left;
+            width: 890px;
+            height: 800px;
+
+            .text {
+                font-family: YouSheBiaoTiHei;
+                font-size: 28px;
+                color: #00FFC4;
+                letter-spacing: 0;
+                line-height: 28px;
+                font-weight: 400;
+            }
+
+            .danwei {
+                font-family: Barlow-Regular;
+                font-size: 20px;
+                color: #FFFFFF;
+                letter-spacing: 0;
+                line-height: 20px;
+                font-weight: 400;
+            }
+
+            .left-top {
+                margin-left: 70px;
+                width: 820px;
+                height: 300px;
+                position: relative;
+
+                .text1 {
+                    position: absolute;
+                    top: 149px;
+                    left: 40px;
+                    width: 63px;
+                    height: 24px;
+                    font-family: FusiBold;
+                    font-size: 18px;
+                    color: #E5FE8C;
+                    letter-spacing: 0;
+                    text-align: center;
+                    line-height: 24px;
+                    font-weight: 700;
+                }
+
+                .text2,
+                .text3,
+                .text4,
+                .text5 {
+                    position: absolute;
+                    top: 135px;
+                    left: 233px;
+                    // width: 200px;
+                    height: 28px;
+                    line-height: 28px;
+                    // background-color: #fff;
+                }
+
+                .text3 {
+                    left: 547px;
+                }
+
+                .text4 {
+                    top: 233px;
+                }
+
+                .text5 {
+                    left: 547px;
+                    top: 233px;
+                }
+
+
+            }
+
+            .left-center {
+                margin-left: 70px;
+                // width: 820px;
+                height: 300px;
+                position: relative;
+
+                .text6,
+                .text7,
+                .text8 {
+                    position: absolute;
+                    width: 200px;
+                    height: 28px;
+                    line-height: 28px;
+                    top: 90px;
+                    left: 540px;
+                }
+
+                .text7 {
+                    top: 158px
+                }
+
+                .text8 {
+                    top: 226px;
+                }
+            }
+
+            .left-footer {
+                margin-left: 70px;
+                width: 820px;
+                height: 220px;
+                position: relative;
+
+                .text9,
+                .text10,
+                .text11,
+                .text12,
+                .text13 {
+                    position: absolute;
+                    top: 90px;
+                    left: 95px;
+                }
+
+                .text10 {
+                    left: 395px;
+                }
+
+                .text11 {
+                    left: 692px;
+                }
+
+                .text12 {
+                    top: 163px;
+                    left: 125px;
+                }
+
+                .text13 {
+                    top: 163px;
+                    left: 445px;
+                }
+            }
+        }
+
+        .footer-center {
+            float: left;
+
+            .titleaa {
+                margin-left: 80px;
+                padding-top: 20px;
+                height: 30px;
+                font-family: YouSheBiaoTiHei;
+                font-size: 24px;
+                color: #D9F6F5;
+                letter-spacing: 1.71px;
+                font-weight: 400;
+            }
+
+            .center1,
+            .center2,
+            .center3,
+            .center4,
+            .center5 {
+                margin-top: 50px;
+                margin-left: 90px;
+                width: 1871.04px;
+                height: 690px;
+                background-image: url("../../assets/jizu.png");
+                background-repeat: no-repeat;
+                background-size: 100%;
+                position: relative;
+
+                .kuang {
+                    // width: 420px;
+                    height: 200px;
+                    background: #0D1A28;
+                    box-shadow: inset 0px -2px 7px 0px rgba(2, 69, 147, 1);
+                    padding-top: 10px;
+
+                    .kuang1 {
+                        height: 40px;
+                        line-height: 40px;
+                        padding-left: 10px;
+                        background-image: linear-gradient(180deg, rgba(3, 34, 68, 0.22) 0%, #014C8D 100%);
+                        color: #fff;
+                        margin: 10px;
+                        margin-top: 0px;
+                    }
+                }
+                .text14dian {
+                    width: 50px;
+                    height: 50px;
+                }
+
+                .text14dian1 {
+                    height: 50px;
+                    min-width: 100px;
+                    text-align: right;
+                    padding-top: 15px;
+                    font-size: 20px;
+                    letter-spacing: 0;
+                    font-weight: 400;
+                    font-family: YouSheBiaoTiHei;
+                    color: #00FFC4;
+                }
+
+                .text00dian {
+                    width: 80px;
+                    height: 120px;
+                }
+
+                .text14 {
+                    position: absolute;
+                    top: 115px;
+                    left: 325px;
+                }
+
+                .text15 {
+                    position: absolute;
+                    top: 165px;
+                    left: 325px;
+                }
+
+                .text16 {
+                    position: absolute;
+                    top: 420px;
+                    left: 255px;
+                }
+
+                .text17 {
+                    position: absolute;
+                    top: 470px;
+                    left: 255px;
+                }
+
+                .text18 {
+                    position: absolute;
+                    top: 570px;
+                    left: 255px;
+                }
+
+                .text19 {
+                    position: absolute;
+                    top: 620px;
+                    left: 255px;
+                }
+
+                .text20 {
+                    position: absolute;
+                    top: 330px;
+                    left: 840px;
+                }
+
+                .text21 {
+                    position: absolute;
+                    top: 330px;
+                    left: 890px;
+                }
+
+                .text22 {
+                    position: absolute;
+                    top: 330px;
+                    left: 940px;
+                }
+
+                .text23 {
+                    position: absolute;
+                    top: 380px;
+                    left: 840px;
+                }
+
+                .text24 {
+                    position: absolute;
+                    top: 380px;
+                    left: 890px;
+                }
+
+                .text25 {
+                    position: absolute;
+                    top: 380px;
+                    left: 940px;
+                }
+
+                .text00 {
+                    position: absolute;
+                    top: 130px;
+                    left: 1020px;
+                }
+            }
+
+            .center2 {
+                background-image: url('../../assets/qilun.png');
+                .tit-bb{
+                    position: absolute;
+                    top: 640px;
+                    color: #E5FE8C;
+                    font-size: 20px;
+                    letter-spacing: 0;
+                    font-weight: 400;
+                    font-family: YouSheBiaoTiHei;
+                }
+                .tit-1{
+                    left: 145px;
+                }
+                .tit-2{
+                    left: 265px;
+                }
+                .tit-3{
+                    left: 390px;
+                }
+                .tit-4{
+                    left: 1045px;
+                }
+                .tit-5{
+                    left: 1175px;
+                }
+                .tit-6{
+                    left: 1315px;
+                }
+                .tit-7{
+                    left: 1445px;
+                }
+
+                .text14 {
+                    position: absolute;
+                    top: -40px;
+                    left: 120px;
+                }
+
+                .text15 {
+                    position: absolute;
+                    top: -40px;
+                    left: 300px;
+                }
+
+                .text16 {
+                    position: absolute;
+                    top: -40px;
+                    left: 805px;
+                }
+
+                .text17 {
+                    position: absolute;
+                    top: -40px;
+                    left: 995px;
+                }
+
+                .text00 {
+                    position: absolute;
+                    top: 40px;
+                    left: 1420px;
+                    z-index: 1002;
+
+                }
+
+                .text18 {
+                    position: absolute;
+                    top: 40px;
+                    left: 1655px;
+                    z-index: 1002;
+
+                }
+
+                .text19 {
+                    position: absolute;
+                    top: 245px;
+                    left: 10px;
+                    z-index: 1000;
+
+                }
+
+                .text20 {
+                    position: absolute;
+                    top: 245px;
+                    left: 215px;
+                    z-index: 1000;
+
+                }
+
+                .text21 {
+                    position: absolute;
+                    top: 260px;
+                    left: 1550px;
+                    z-index: 1001;
+
+                }
+
+                .text22 {
+                    position: absolute;
+                    top: 310px;
+                    left: 1550px;
+                    z-index: 1000;
+
+                }
+
+                .text23 {
+                    position: absolute;
+                    top: 370px;
+                    left: 70px;
+                    z-index: 999;
+
+                }
+
+                .text24 {
+                    position: absolute;
+                    top: 440px;
+                    left: 70px;
+                }
+
+                .text25 {
+                    position: absolute;
+                    top: 370px;
+                    left: 190px;
+                    z-index: 999;
+
+                }
+
+                .text26 {
+                    position: absolute;
+                    top: 440px;
+                    left: 190px;
+                }
+
+                .text27 {
+                    position: absolute;
+                    top: 370px;
+                    left: 310px;
+                    z-index: 999;
+
+                }
+
+                .text28 {
+                    position: absolute;
+                    top: 440px;
+                    left: 310px;
+                }
+
+                .text29 {
+                    position: absolute;
+                    top: 330px;
+                    left: 500px;
+                    z-index: 999;
+                }
+
+                .text30 {
+                    position: absolute;
+                    top: 400px;
+                    left: 500px;
+                }
+
+                .text31 {
+                    position: absolute;
+                    top: 370px;
+                    left: 870px;
+                    z-index: 999;
+
+                }
+
+                .text32 {
+                    position: absolute;
+                    top: 440px;
+                    left: 870px;
+                }
+
+                .text33 {
+                    position: absolute;
+                    top: 370px;
+                    left: 1075px;
+                    z-index: 999;
+
+                }
+
+                .text34 {
+                    position: absolute;
+                    top: 440px;
+                    left: 1075px;
+                }
+
+                .text35 {
+                    position: absolute;
+                    top: 370px;
+                    left: 1205px;
+                    z-index: 999;
+
+                }
+
+                .text36 {
+                    position: absolute;
+                    top: 440px;
+                    left: 1205px;
+                }
+
+                .text37 {
+                    position: absolute;
+                    top: 370px;
+                    left: 1340px;
+                    z-index: 999;
+                }
+
+                .text38 {
+                    position: absolute;
+                    top: 440px;
+                    left: 1340px;
+                }
+
+                .text39 {
+                    position: absolute;
+                    top: 310px;
+                    left: 1735px;
+                    z-index: 1111;
+
+                }
+
+                .text40 {
+                    position: absolute;
+                    top: 350px;
+                    left: 1735px;
+                    z-index: 1110;
+                }
+
+                .text41 {
+                    position: absolute;
+                    top: 540px;
+                    left: 1745px;
+                    z-index: 1112;
+                }
+
+                .text44 {
+                    position: absolute;
+                    top: 610px;
+                    left: 60px;
+                }
+
+                .text45 {
+                    position: absolute;
+                    top: 610px;
+                    left: 190px;
+                }
+
+                .text46 {
+                    position: absolute;
+                    top: 610px;
+                    left: 310px;
+                }
+
+                .text47 {
+                    position: absolute;
+                    top: 610px;
+                    left: 430px;
+                }
+
+                .text43 {
+                    position: absolute;
+                    top: 560px;
+                    left: 500px;
+                    
+                }
+
+                .text42 {
+                    position: absolute;
+                    top: 560px;
+                    left: 800px;
+                    z-index: 1111;
+                }
+
+                .text48 {
+                    position: absolute;
+                    top: 610px;
+                    left: 950px;
+                }
+
+                .text49 {
+                    position: absolute;
+                    top: 610px;
+                    left: 1090px;
+                }
+
+                .text50 {
+                    position: absolute;
+                    top: 610px;
+                    left: 1220px;
+                }
+
+                .text51 {
+                    position: absolute;
+                    top: 610px;
+                    left: 1350px;
+                }
+
+                .text52 {
+                    position: absolute;
+                    top: 610px;
+                    left: 1490px;
+                }
+
+            }
+
+            .center3 {
+                background-image: url('../../assets/guolu.png');
+                height: 695px;
+
+                .text14 {
+                    position: absolute;
+                    top: 0px;
+                    left: 290px;
+                }
+
+                .text15 {
+                    position: absolute;
+                    top: 0px;
+                    left: 540px;
+                }
+
+                .text16 {
+                    position: absolute;
+                    top: 80px;
+                    left: 1445px;
+                }
+
+                .text17 {
+                    position: absolute;
+                    top: 80px;
+                    left: 1665px;
+                }
+
+                .text18 {
+                    position: absolute;
+                    top: 150px;
+                    left: 975px;
+                }
+
+                .text19 {
+                    position: absolute;
+                    top: 150px;
+                    left: 1200px;
+                }
+
+                .text20 {
+                    position: absolute;
+                    top: 275px;
+                    left: 750px;
+                    z-index: 20;
+                }
+
+                .text21 {
+                    position: absolute;
+                    top: 340px;
+                    left: 750px;
+                    z-index: 19;
+                }
+
+                .text22 {
+                    position: absolute;
+                    top: 350px;
+                    left: 1100px;
+                    z-index: 18;
+                }
+
+                .text23 {
+                    position: absolute;
+                    top: 440px;
+                    left: 1425px;
+                    z-index: 23;
+                }
+
+                .text24 {
+                    position: absolute;
+                    top: 500px;
+                    left: 1425px;
+                    z-index: 24;
+                }
+
+                .text25 {
+                    position: absolute;
+                    top: 440px;
+                    left: 1570px;
+                    z-index: 29;
+                }
+
+                .text26 {
+                    position: absolute;
+                    top: 350px;
+                    left: 1670px;
+                    z-index: 17;
+                }
+
+                .text27 {
+                    position: absolute;
+                    top: 395px;
+                    left: 1600px;
+                    z-index: 18;
+                }
+
+                .text28 {
+                    position: absolute;
+                    top: 540px;
+                    right: 50px;
+                    z-index: 22;
+                }
+
+                .text29 {
+                    position: absolute;
+                    top: 575px;
+                    right: 50px;
+                    z-index: 997;
+                }
+
+                .text30 {
+                    position: absolute;
+                    top: 605px;
+                    right: 50px;
+                    z-index: 998;
+                }
+
+                .text31 {
+                    position: absolute;
+                    top: 640px;
+                    right: 50px;
+                    z-index: 999;
+                }
+
+                .text32 {
+                    position: absolute;
+                    top: 520px;
+                    left: 490px;
+                }
+
+                .text33 {
+                    position: absolute;
+                    top: 580px;
+                    left: 490px;
+                }
+
+                .text34 {
+                    position: absolute;
+                    top: 640px;
+                    left: 490px;
+                }
+
+                .text35 {
+                    position: absolute;
+                    top: 520px;
+                    left: 895px;
+                }
+
+                .text36 {
+                    position: absolute;
+                    top: 580px;
+                    left: 895px;
+                }
+
+                .text37 {
+                    position: absolute;
+                    top: 640px;
+                    left: 895px;
+                }
+            }
+            .center4 {
+                background-image: url("../../assets/yanqi.png");
+                .text14{
+                    position: absolute;
+                    top: 10px;
+                    left: 160px;
+                    z-index: 2;
+                }
+                .text16{
+                    position: absolute;
+                    top: 10px;
+                    left: 400px;
+                    z-index: 2;
+                }
+                .text15{
+                    position: absolute;
+                    top: 80px;
+                    left: 160px;
+                }
+                .text17{
+                    position: absolute;
+                    top: 80px;
+                    left: 400px;
+                }
+                .text18{
+                    position: absolute;
+                    top: 40px;
+                    left: 700px;
+                    z-index: 30;
+                }
+                .text19{
+                    position: absolute;
+                    top: 190px;
+                    left: 950px;
+                    z-index: 20;
+                }
+                .text20{
+                    position: absolute;
+                    top: 250px;
+                    left: 950px;
+                    z-index: 19;
+                }
+                .text21{
+                    position: absolute;
+                    top: 300px;
+                    left: 950px;
+                    z-index: 18;
+                }
+                .text22{
+                    position: absolute;
+                    top: 350px;
+                    left: 950px;
+                    z-index: 17;
+                }
+                .text23{
+                    position: absolute;
+                    top: 400px;
+                    left: 950px;
+                    z-index: 16;
+                }
+                .text24{
+                    position: absolute;
+                    top: 310px;
+                    left: 1450px;
+                    z-index: 16;
+                }
+                .text25{
+                    position: absolute;
+                    top: 365px;
+                    left: 1500px;
+                    z-index: 16;
+                }
+                .text26{
+                    position: absolute;
+                    top: 420px;
+                    left: 1540px;
+                    z-index: 16;
+                }
+                .text27{
+                    position: absolute;
+                    top: 470px;
+                    left: 1600px;
+                    z-index: 16;
+                }
+                .text28{
+                    position: absolute;
+                    top: 520px;
+                    left: 750px;
+                    z-index: 30;
+                }
+                .text29{
+                    position: absolute;
+                    top: 580px;
+                    left: 750px;
+                    z-index: 30;
+                }
+                .text30{
+                    position: absolute;
+                    top: 520px;
+                    left: 1000px;
+                    z-index: 30;
+                }
+                .text31{
+                    position: absolute;
+                    top: 580px;
+                    left: 1000px;
+                    z-index: 30;
+                }
+            }
+            .center5 {
+                margin-top: 25px;
+                margin-left: 65px;
+                background-image: url("../../assets/dianqi.png");
+                height: 725px;
+                .text14{
+                    position: absolute;
+                    top: 200px;
+                    left: 290px;
+                }
+                .text15{
+                    position: absolute;
+                    top: 260px;
+                    left: 650px;
+                }
+                .text16{
+                    position: absolute;
+                    top: 260px;
+                    left: 1140px;
+                }
+                .text17{
+                    position: absolute;
+                    top: 550px;
+                    left: 270px;
+                    z-index: 10;
+                }
+                .text18{
+                    position: absolute;
+                    top: 550px;
+                    left: 900px;
+                    z-index: 10;
+                }
+                .text19{
+                    position: absolute;
+                    top: 680px;
+                    left: 240px;
+                    z-index: 20;
+                }
+                .text20{
+                    position: absolute;
+                    top: 680px;
+                    left: 530px;
+                    z-index: 20;
+                }
+                .text21{
+                    position: absolute;
+                    top: 680px;
+                    left: 880px;
+                    z-index: 20;
+                }
+                .text22{
+                    position: absolute;
+                    top: 680px;
+                    left: 1155px;
+                    z-index: 20;
+                }
+            }
+        }
+
+        .footer-right {
+            float: left;
+
+            .right-biao {
+                margin-left: 30px;
+                margin-top: 150px;
+                width: 627.96px;
+                height: 679.03px;
+                background-image: url("../../assets/jiankongright.png");
+                background-repeat: no-repeat;
+                background-size: 100%;
+                position: relative;
+
+                .titleaa {
+                    margin-left: 70px;
+                    padding-top: 11px;
+                    width: 191px;
+                    height: 31px;
+                    font-family: YouSheBiaoTiHei;
+                    font-size: 24px;
+                    color: #D9F6F5;
+                    letter-spacing: 1.71px;
+                    font-weight: 400;
+                }
+
+                .right1,
+                .right2,
+                .right3,
+                .right4,
+                .right5,
+                .right6 {
+                    position: absolute;
+                    top: 65px;
+                    left: 100px;
+                    width: 460px;
+                    height: 85px;
+                    line-height: 85px;
+                }
+
+                .right2 {
+                    top: 151px;
+                }
+
+                .right3 {
+                    top: 237px;
+                }
+
+                .right4 {
+                    top: 323px;
+                }
+
+                .right5 {
+                    top: 409px;
+                }
+
+                .right6 {
+                    top: 495px;
+                }
+
+                .right1name {
+                    font-family: PingFangSC-Medium;
+                    font-size: 24.3px;
+                    color: #FFFFFF;
+                }
+
+                .rightshu {
+                    float: right;
+                    font-family: YouSheBiaoTiHei;
+                    font-size: 32px;
+                    color: #00FFC4;
+                    letter-spacing: 0;
+                    font-weight: 400;
+                }
+
+                .rightdan {
+                    font-family: Barlow-Regular;
+                    font-size: 24px;
+                    color: #FFFFFF;
+                    letter-spacing: 0;
+                    font-weight: 400;
+                    display: inline-block;
+                    width: 50px;
+                    margin-right: 20px;
+                }
+
+            }
+        }
+    }
+}

@@ -21,6 +21,14 @@
         <img v-if="yemian == '6'" src="../../assets/nenghao2.png" alt="">
         <img v-else src="../../assets/nenghao1.png" alt="">
       </div>
+      <div class="six" @click="goOne('7')">
+        <img v-if="yemian == '7'" src="../../assets/tan2.png" alt="">
+        <img v-else src="../../assets/tan1.png" alt="">
+      </div>
+      <div class="six" @click="goOne('8')">
+        <img v-if="yemian == '8'" src="../../assets/jiankongbtn2.png" alt="">
+        <img v-else src="../../assets/jiankongbtn1.png" alt="">
+      </div>
       <div class="five" @click="goOne('5')">
         <img v-if="yemian == '5'" src="../../assets/ceshi2.png" alt="">
         <img v-else src="../../assets/ceshi1.png" alt="">
@@ -98,16 +106,16 @@ export default {
   width: 100%;
   height: 100%;
   .header-time {
-    margin-top: 50px;
+    margin-top: 40px;
     float: right;
     color: #fff;
     height: 50px;
-    margin-right: 70px;
+    margin-right: 80px;
     .time-fen {
       float: left;
       font-size: 30px;
       line-height: 100%;
-      margin-right: 10px;
+      margin-right: 20px;
       margin-top: 10px;
     }
     .time-zhou {
@@ -117,7 +125,7 @@ export default {
   }
   .tab-list {
     float: left;
-    width: 1418px;
+    width: 1900px;
     margin-top: 35px;
     margin-left: 953px;
     .one,

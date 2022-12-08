@@ -127,22 +127,22 @@
       <div class="footer-left">
         <div class="footer-left">
           <div class="top1">
-            <div class="titleaa">原煤量</div>
+            <div class="titleaa">{{TITLE1}}</div>
             <div id="myChart1"></div>
           </div>
           <div class="top2">
-            <div class="titleaa">机端发电量</div>
+            <div class="titleaa">{{TITLE2}}</div>
             <div id="myChart2"></div>
           </div>
           <div class="top3">
-            <div class="titleaa">{{ titleTime }}原煤量</div>
-            <div class="title">{{ titleTime }}原煤量</div>
+            <div class="titleaa">{{TITLE3}}</div>
+            <div class="title">{{PIETITLE1}}</div>
             <img src="../../assets/chart@4x.png" alt="" />
             <div id="myChart3"></div>
           </div>
           <div class="top4">
-            <div class="titleaa">{{ titleTime }}机端发电量</div>
-            <div class="title">{{ titleTime }}机端发电量</div>
+            <div class="titleaa">{{ TITLE4 }}</div>
+            <div class="title">{{ PIETITLE2 }}</div>
             <img src="../../assets/chart@4x.png" alt="" />
             <div id="myChart4"></div>
           </div>
@@ -231,6 +231,12 @@ export default {
   },
   data() {
     return {
+      TITLE1:'',
+      TITLE2:'',
+      TITLE3:'',
+      TITLE4:'',
+      PIETITLE1: '',
+      PIETITLE2:'',
       titleTime: "2022年",
       // 默认显示第几页
       currentPage: 1,
@@ -517,6 +523,14 @@ export default {
         .then((res) => {
           if (res.data[0].res == "success") {
             this.coalStatList = res.data[0].data[0];
+            this.TITLE1 = this.coalStatList.TITLE1;
+            this.TITLE2 = this.coalStatList.TITLE2;
+            this.TITLE3 = this.coalStatList.TITLE3;
+            this.TITLE4 = this.coalStatList.TITLE4;
+            this.PIETITLE2 = this.coalStatList.PIETITLE2;
+            this.PIETITLE1 = this.coalStatList.PIETITLE1;
+
+
             this.tableData = this.coalStatList.MLZKLIST;
             this.titleTime = this.coalStatList.TITLETIME;
             let qiannian = this.coalStatList.LASTYEARTAG.toString();
@@ -843,7 +857,6 @@ export default {
                 {
                   name: legendDate[0],
                   type: "line",
-                  stack: "Total",
                   lineStyle: {
                     color: "rgb(105,227,212)",
                     width: 3,
@@ -879,7 +892,7 @@ export default {
                 {
                   name: legendDate[1],
                   type: "line",
-                  stack: "Total",
+                  // stack: "Total",
                   lineStyle: {
                     color: "rgb(208,247,85)",
                     width: 3,

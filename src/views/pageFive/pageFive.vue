@@ -32,7 +32,12 @@
       <div class="table">
         <div class="titleaa">{{ title }}</div>
         <el-table
-          :data="tableData.slice((currentPage - 1) * pageSize,currentPage * pageSize)"
+          :data="
+            tableData.slice(
+              (currentPage - 1) * pageSize,
+              currentPage * pageSize
+            )
+          "
           :max-height="690"
           style="width: 100%"
         >
@@ -41,16 +46,48 @@
             :key="index"
             :label="item"
             header-align="center"
-            :width="(item =='单位'||item =='U1'||item =='U2'||item =='U3'||item =='U4')?'100':''"
+            :width="
+              item == '单位' ||
+              item == 'U1' ||
+              item == 'U2' ||
+              item == 'U3' ||
+              item == 'U4'
+                ? '100'
+                : ''
+            "
           >
             <template slot-scope="scope" style="text-align: center">
-              <span :style="((/^[0-9]+.?[0-9]*$/.test(tableData.slice((currentPage - 1) * pageSize,currentPage * pageSize)[scope.$index][index])) || (/^[0-9]+.?[0-9]*$/.test(-tableData.slice((currentPage - 1) * pageSize,currentPage * pageSize)[scope.$index][index])))?'font-weight:900':'font-weight:300'">{{tableData.length > 0 ? tableData.slice((currentPage - 1) * pageSize,currentPage * pageSize)[scope.$index][index] : ""
-              }}</span>
+              <span
+                :style="
+                  /^[0-9]+.?[0-9]*$/.test(
+                    tableData.slice(
+                      (currentPage - 1) * pageSize,
+                      currentPage * pageSize
+                    )[scope.$index][index]
+                  ) ||
+                  /^[0-9]+.?[0-9]*$/.test(
+                    -tableData.slice(
+                      (currentPage - 1) * pageSize,
+                      currentPage * pageSize
+                    )[scope.$index][index]
+                  )
+                    ? 'font-weight:900'
+                    : 'font-weight:400;color:#fff'
+                "
+                >{{
+                  tableData.length > 0
+                    ? tableData.slice(
+                        (currentPage - 1) * pageSize,
+                        currentPage * pageSize
+                      )[scope.$index][index]
+                    : ""
+                }}</span
+              >
             </template>
           </el-table-column>
         </el-table>
         <el-pagination
-          style="float: right; margin-top: 10px"
+          style="float: left; margin-top: 10px"
           @current-change="handleCurrentChange"
           :current-page="currentPage"
           :page-size="pageSize"
@@ -90,12 +127,12 @@ export default {
       timeTicket = window.setInterval(() => {
         this.getPointValue();
       }, 60000);
-    })
+    });
   },
   methods: {
-    clickBtn2(){
-        this.formInline.dianJ = 'HRCN'
-        this.getPointValue()
+    clickBtn2() {
+      this.formInline.dianJ = "HRCN";
+      this.getPointValue();
     },
     // 显示第几页
     handleCurrentChange(val) {
@@ -114,9 +151,9 @@ export default {
       });
     },
     getPointValue() {
-      this.title = ''
-      this.tableTitle = []
-      this.tableData = []
+      this.title = "";
+      this.tableTitle = [];
+      this.tableData = [];
       let param = {
         id: this.formInline.dianJ,
       };
@@ -130,7 +167,6 @@ export default {
             this.title = res.data[0].data[0].TITLE;
             this.tableTitle = res.data[0].data[0].tableTitle;
             this.tableData = res.data[0].data[0].valueList;
-            
           }
         })
         .catch((err) => {

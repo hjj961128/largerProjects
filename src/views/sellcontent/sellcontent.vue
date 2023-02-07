@@ -2,24 +2,87 @@
   <div class="mian-body">
     <div class="main-left">
       <div class="left-top">
+        <div class="search-list">
+          <el-select
+            size="mini"
+            v-model="value111"
+            placeholder="请选择"
+          >
+            <el-option label="总" value="0"></el-option>
+            <el-option label="煤" value="1"></el-option>
+            <el-option label="燃" value="2"></el-option>
+          </el-select>
+        </div>
+        
         <div class="left-top-left">
-          <img src="../../assets/pie.png" alt="" />
-          <div class="juhua1">巨化集团</div>
-          <div class="juhua">{{ juhua1 }}%</div>
-          <div class="taisu1">台塑集团</div>
-          <div class="taisu">{{ taisu1 }}%</div>
-          <div class="huarun1">华润集团</div>
-          <div class="huarun">{{ huarun1 }}%</div>
-          <div class="huadian1">华电集团</div>
-          <div class="huadian">{{ huadian1 }}%</div>
-          <div class="datang1">大唐集团</div>
-          <div class="datang">{{ datang1 }}%</div>
-          <div class="huaneng1">华能集团</div>
-          <div class="huaneng">{{ huaneng1 }}%</div>
-          <div class="guoneng1">国能集团</div>
-          <div class="guoneng">{{ guoneng1 }}%</div>
-          <div class="zheneng1">浙能集团</div>
-          <div class="zheneng">{{ zheneng1 }}%</div>
+          
+          <div v-show="value111 == '0'" class="left-top-center-text">总</div>
+          <div v-show="value111 == '2'"  class="left-top-center-text">煤</div>
+          <div v-show="value111 == '1'"  class="left-top-center-text">燃</div>
+          
+          <img v-show="value111 == '0'" src="../../assets/pie2.png" style="width:60%;margin-left:20%;margin-top:20px;display: none;" alt="" />
+          <img v-show="value111 == '1'" src="../../assets/pie1.png" style="width:60%;margin-left:20%;margin-top:30px" alt="" />
+          <img v-show="value111 == '2'" src="../../assets/pie.png" alt="" />
+
+          <div v-show="value111 == '0'" style="position: absolute;top: 66px;left: 74px;color: #ffffff;">{{ allname0 }}</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 88px;left: 74px;">{{ allvalue0 }}%</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 125px;left: 45px;color: #ffffff;">{{ allname1 }}</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 147px;left: 45px;">{{ allvalue1 }}%</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 210px;left: 50px;color: #ffffff;">{{ allname2 }}</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 230px;left: 50px;">{{ allvalue2 }}%</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 270px;left: 150px;color: #ffffff;">{{ allname3 }}</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 290px;left: 150px;">{{ allvalue3 }}%</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 293px;left: 206px;color: #ffffff;">{{ allname4 }}</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 310px;left: 206px;">{{ allvalue4 }}%</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 255px;left: 256px;color: #ffffff;">{{ allname5 }}</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 270px;left: 256px;">{{ allvalue5 }}%</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 197px;left: 295px;color: #ffffff;">{{ allname6 }}</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 216px;left: 295px;">{{ allvalue6 }}%</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 160px;left: 295px;color: #ffffff;">{{ allname7 }}</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 180px;left: 295px;">{{ allvalue7 }}%</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 122px;left: 292px;color: #ffffff;">{{ allname8 }}</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 138px;left: 292px;">{{ allvalue8 }}%</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 91px;left: 254px;color: #ffffff;">{{ allname9 }}</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 108px;left: 254px;">{{ allvalue9 }}%</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 60px;left: 205px;color: #ffffff;">{{ allname10 }}</div>
+          <div v-show="value111 == '0'" style="position: absolute;top: 80px;left: 205px;">{{ allvalue10 }}%</div>
+
+
+          <div v-show="value111 == '1'" style="position: absolute;top: 66px;left: 85px;color: #ffffff;">{{ rjname0 }}</div>
+          <div v-show="value111 == '1'" style="position: absolute;top: 88px;left: 85px;">{{ rjvalue0 }}%</div>
+          <div v-show="value111 == '1'" style="position: absolute;top: 123px;left: 40px;color: #ffffff;">{{ rjname1 }}</div>
+          <div v-show="value111 == '1'" style="position: absolute;top: 140px;left: 40px;">{{ rjvalue1 }}%</div>
+          <div v-show="value111 == '1'" style="position: absolute;top: 215px;left: 45px;color: #ffffff;">{{ rjname0 }}</div>
+          <div v-show="value111 == '1'" style="position: absolute;top: 235px;left: 45px;">{{ rjvalue0 }}%</div>
+          <div v-show="value111 == '1'" style="position: absolute;top: 266px;left: 185px;color: #ffffff;">{{ rjname0 }}</div>
+          <div v-show="value111 == '1'" style="position: absolute;top: 288px;left: 185px;">{{ rjvalue0 }}%</div>
+          <div v-show="value111 == '1'" style="position: absolute;top: 197px;left: 285px;color: #ffffff;">{{ rjname0 }}</div>
+          <div v-show="value111 == '1'" style="position: absolute;top: 212px;left: 285px;">{{ rjvalue0 }}%</div>
+          <div v-show="value111 == '1'" style="position: absolute;top: 140px;left: 290px;color: #ffffff;">{{ rjname0 }}</div>
+          <div v-show="value111 == '1'" style="position: absolute;top: 160px;left: 290px;">{{ rjvalue0 }}%</div>
+          <div v-show="value111 == '1'" style="position: absolute;top: 72px;left: 225px;color: #ffffff;">{{ rjname0 }}</div>
+          <div v-show="value111 == '1'" style="position: absolute;top: 88px;left: 225px;">{{ rjvalue0 }}%</div>
+          
+
+
+
+
+          <div v-show="value111 == '2'" class="juhua1">巨化集团</div>
+          <div v-show="value111 == '2'" class="juhua">{{ juhua1 }}%</div>
+          <div v-show="value111 == '2'" class="taisu1">台塑集团</div>
+          <div v-show="value111 == '2'" class="taisu">{{ taisu1 }}%</div>
+          <div v-show="value111 == '2'" class="huarun1">华润集团</div>
+          <div v-show="value111 == '2'" class="huarun">{{ huarun1 }}%</div>
+          <div v-show="value111 == '2'" class="huadian1">华电集团</div>
+          <div v-show="value111 == '2'" class="huadian">{{ huadian1 }}%</div>
+          <div v-show="value111 == '2'" class="datang1">大唐集团</div>
+          <div v-show="value111 == '2'" class="datang">{{ datang1 }}%</div>
+          <div v-show="value111 == '2'" class="huaneng1">华能集团</div>
+          <div v-show="value111 == '2'" class="huaneng">{{ huaneng1 }}%</div>
+          <div v-show="value111 == '2'" class="guoneng1">国能集团</div>
+          <div v-show="value111 == '2'" class="guoneng">{{ guoneng1 }}%</div>
+          <div v-show="value111 == '2'" class="zheneng1">浙能集团</div>
+          <div v-show="value111 == '2'" class="zheneng">{{ zheneng1 }}%</div>
 
           <!-- <div class="left-one">
             <div class="left-one-img">
@@ -77,11 +140,11 @@
     <!-- 中间部分 -->
     <div class="main-center">
       <div class="aaa">全省当日实时负荷</div>
-      <div class="main-center1">{{ LJFD }}兆瓦时</div>
+      <div class="main-center1">{{ LJFD }}MWh</div>
       <div class="bbb">全省当日累计发电量</div>
-      <div class="main-center2">{{ SSFH }}兆瓦</div>
-      <div class="main-center3">煤机负荷{{ MJFH }}兆瓦</div>
-      <div class="main-center4">燃机负荷{{ RJFH }}兆瓦</div>
+      <div class="main-center2">{{ SSFH }}MW</div>
+      <div class="main-center3">煤机负荷{{ MJFH }}MW</div>
+      <div class="main-center4">燃机负荷{{ RJFH }}MW</div>
 
       <div class="imgs1" @click="showCurrentIndex('1')">
         <img src="../../assets/p5.png" alt="" />
@@ -716,9 +779,7 @@
             </el-table>
             <div
               v-if="tableData.length <= 0"
-              style="
-                color: #fff;
-                font-size: 18px;
+              style="color: #fff;font-size: 18px;
                 text-align: center;
                 font-weight: 700;
                 margin-top: 70px;
@@ -775,6 +836,46 @@ export default {
   components: {},
   data() {
     return {
+      allname0: '',
+      allname1: '',
+      allname2: '',
+      allname3: '',
+      allname4: '',
+      allname5: '',
+      allname6: '',
+      allname7: '',
+      allname8: '',
+      allname9: '',
+      allname10: '',
+      allvalue0: '0',
+      allvalue1: '0',
+      allvalue2: '0',
+      allvalue3: '0',
+      allvalue4: '0',
+      allvalue5: '0',
+      allvalue6: '0',
+      allvalue7: '0',
+      allvalue8: '0',
+      allvalue9: '0',
+      allvalue10: '0',
+      rjname0: '',
+      rjname1: '',
+      rjname2: '',
+      rjname3: '',
+      rjname4: '',
+      rjname5: '',
+      rjname6: '',
+      rjvalue0: '0',
+      rjvalue1: '0',
+      rjvalue2: '0',
+      rjvalue3: '0',
+      rjvalue4: '0',
+      rjvalue5: '0',
+      rjvalue6: '0',
+
+      value111: '0',
+      allFhsir:[],
+      optionData1:[],
       tableData1: [
         {
           mingcheng: "#3",
@@ -1814,6 +1915,44 @@ export default {
         this.RJFH = result.RJFH;
 
         this.optionData1 = result.FHSTR;
+        this.allFhsir = result.ALLFHSTR;
+          this.allname0 = this.allFhsir[0].name
+          this.allvalue0 = this.allFhsir[0].value
+          this.allname1 = this.allFhsir[1].name
+          this.allvalue1 = this.allFhsir[1].value
+          this.allname2 = this.allFhsir[2].name
+          this.allvalue2 = this.allFhsir[2].value
+          this.allname3 = this.allFhsir[3].name
+          this.allvalue3 = this.allFhsir[3].value
+          this.allname4 = this.allFhsir[4].name
+          this.allvalue4 = this.allFhsir[4].value
+          this.allname5 = this.allFhsir[5].name
+          this.allvalue5 = this.allFhsir[5].value
+          this.allname6 = this.allFhsir[6].name
+          this.allvalue6 = this.allFhsir[6].value
+          this.allname7 = this.allFhsir[7].name
+          this.allvalue7 = this.allFhsir[7].value
+          this.allname8 = this.allFhsir[8].name
+          this.allvalue8 = this.allFhsir[8].value
+          this.allname9 = this.allFhsir[9].name
+          this.allvalue9 = this.allFhsir[9].value
+          this.allname10 = this.allFhsir[10].name
+          this.allvalue10 = this.allFhsir[10].value
+          this.rjfhstr = result.RJFHSTR;
+          this.rjname0 = this.rjfhstr[0].name
+          this.rjvalue0 = this.rjfhstr[0].value
+          this.rjname1 = this.rjfhstr[1].name
+          this.rjvalue1 = this.rjfhstr[1].value
+          this.rjname2 = this.rjfhstr[2].name
+          this.rjvalue2 = this.rjfhstr[2].value
+          this.rjname3 = this.rjfhstr[3].name
+          this.rjvalue3 = this.rjfhstr[3].value
+          this.rjname4 = this.rjfhstr[4].name
+          this.rjvalue4 = this.rjfhstr[4].value
+          this.rjname5 = this.rjfhstr[5].name
+          this.rjvalue5 = this.rjfhstr[5].value
+          this.rjname6 = this.rjfhstr[6].name
+          this.rjvalue6 = this.rjfhstr[6].value
         this.optionData1.map((item, index) => {
           if (item.name == "巨化") {
             this.juhua1 = item.value;
@@ -1964,13 +2103,14 @@ export default {
         fqjrhl2 = qjrhl2.reverse();
         this.option4 = {
           title: {
-            // text: "锅炉热效率",
+            text: " （ % ） ",
             textStyle: {
               //主标题的属性
               color: "#fff", //颜色
-              fontSize: 14, //大小
+              fontSize: 16, //大小
               fontWeight: 400,
-              fontFamily: "PingFangSC-Regular",
+              fontFamily: "YouSheBiaoTiHei",
+              color: "#D9F6F5",
             },
           },
           series: [
@@ -2126,6 +2266,17 @@ export default {
           },
         };
         this.option1 = {
+          title: {
+            text: " （ g/kWh ）",
+            textStyle: {
+              //主标题的属性
+              color: "#fff", //颜色
+              fontSize: 16, //大小
+              fontWeight: 400,
+              fontFamily: "YouSheBiaoTiHei",
+              color: "#D9F6F5",
+            },
+          },
           tooltip: {
             trigger: "axis",
             axisPointer: {
@@ -2219,13 +2370,14 @@ export default {
         };
         this.option5 = {
           title: {
-            // text: "汽轮机热耗率kJ/kWh",
+            text: " （ kJ/kWh ）",
             textStyle: {
               //主标题的属性
               color: "#fff", //颜色
-              fontSize: 14, //大小
+              fontSize: 16, //大小
               fontWeight: 400,
-              fontFamily: "PingFangSC-Regular",
+              fontFamily: "YouSheBiaoTiHei",
+              color: "#D9F6F5",
             },
           },
           tooltip: {
@@ -2353,17 +2505,18 @@ export default {
           ],
         };
         this.option6 = {
-          backgroundColor: "", //设置无背景色
           title: {
-            // text: "(集团)",
+            text: " （ % ）",
             textStyle: {
               //主标题的属性
               color: "#fff", //颜色
-              fontSize: 14, //大小
+              fontSize: 16, //大小
               fontWeight: 400,
-              fontFamily: "PingFangSC-Regular",
+              fontFamily: "YouSheBiaoTiHei",
+              color: "#D9F6F5",
             },
           },
+          backgroundColor: "", //设置无背景色
           legend: {
             x: "right", // 水平居右
             icon: "rect", // 图例icon为方块
@@ -2714,8 +2867,6 @@ export default {
             }
           });
 
-          // console.log(Object.keys(resultRight.TPFDATA[0]));
-
           Object.values(resultRight.TPFDATA[0]).map((item, index) => {
             aaa.push({
               name: Object.keys(resultRight.TPFDATA[0])[index],
@@ -2724,6 +2875,19 @@ export default {
           });
 
           this.option7 = {
+            title: {
+              top: "9%",
+              left: "6%",
+              text: " （ 吨 ） ",
+              textStyle: {
+                //主标题的属性
+                color: "#fff", //颜色
+                fontSize: 16, //大小
+                fontWeight: 400,
+                fontFamily: "YouSheBiaoTiHei",
+                color: "#D9F6F5",
+              },
+            },
             backgroundColor: "", //设置无背景色
             tooltip: {
               show: true,
@@ -2736,6 +2900,7 @@ export default {
             },
             legend: {
               x: "right", // 水平居右
+              // top: "10%",
               icon: "rect", // 图例icon为方块
               itemHeight: 10, // 图例icon高度
               itemWidth: 10, // 图例icon宽度
@@ -2886,6 +3051,19 @@ export default {
           };
           this.option7 && myChart1.setOption(this.option7);
           this.option8 = {
+            title: {
+              top: "9%",
+              left: "6%",
+              text: " （ 吨 ） ",
+              textStyle: {
+                //主标题的属性
+                color: "#fff", //颜色
+                fontSize: 16, //大小
+                fontWeight: 400,
+                fontFamily: "YouSheBiaoTiHei",
+                color: "#D9F6F5",
+              },
+            },
             backgroundColor: "", //设置无背景色
             tooltip: {
               show: true,
@@ -3062,6 +3240,19 @@ export default {
           };
           this.option8 && myChart2.setOption(this.option8);
           this.option9 = {
+            title: {
+              top: "9%",
+              left: "6%",
+              text: " （ 吨 ） ",
+              textStyle: {
+                //主标题的属性
+                color: "#fff", //颜色
+                fontSize: 16, //大小
+                fontWeight: 400,
+                fontFamily: "YouSheBiaoTiHei",
+                color: "#D9F6F5",
+              },
+            },
             backgroundColor: "", //设置无背景色
             tooltip: {
               show: true,
@@ -3238,6 +3429,19 @@ export default {
           };
           this.option9 && myChart3.setOption(this.option9);
           this.option10 = {
+            title: {
+              top: "9%",
+              left: "6%",
+              text: " （ 吨 ） ",
+              textStyle: {
+                //主标题的属性
+                color: "#fff", //颜色
+                fontSize: 16, //大小
+                fontWeight: 400,
+                fontFamily: "YouSheBiaoTiHei",
+                color: "#D9F6F5",
+              },
+            },
             backgroundColor: "", //设置无背景色
             tooltip: {
               show: true,
@@ -3414,6 +3618,20 @@ export default {
           };
           this.option10 && myChart4.setOption(this.option10);
           // tooltip
+          console.log(aaa, date8);
+          const title = {
+            top: "9%",
+            // left:'6%',
+            text: " （ 吨 ）",
+            textStyle: {
+              //主标题的属性
+              color: "#fff", //颜色
+              fontSize: 16, //大小
+              fontWeight: 400,
+              fontFamily: "YouSheBiaoTiHei",
+              color: "#D9F6F5",
+            },
+          };
           const dataArr = {
             xdata: date8,
             result: aaa,
@@ -3573,6 +3791,7 @@ export default {
 
           // 渲染
           const option11 = {
+            title,
             tooltip,
             xAxis,
             yAxis,

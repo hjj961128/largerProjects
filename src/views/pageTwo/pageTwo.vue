@@ -150,7 +150,7 @@
       </div>
       <div class="footer-right">
         <div class="table">
-          <div class="titleaa">机端发电量</div>
+          <div class="titleaa">{{TABLETITLE}}</div>
           <div class="tabel-body">
             <el-table
               :data="
@@ -198,11 +198,11 @@
                 align="center"
               >
               </el-table-column>
-              <el-table-column prop="coal" label="原煤量" align="center">
+              <el-table-column prop="coal" label="原煤量(t)" align="center">
               </el-table-column>
               <el-table-column
                 prop="terminal"
-                label="机端发电量"
+                label="机端发电量(MWh)"
                 align="center"
               >
               </el-table-column>
@@ -235,6 +235,7 @@ export default {
       TITLE2:'',
       TITLE3:'',
       TITLE4:'',
+      TABLETITLE: '',
       PIETITLE1: '',
       PIETITLE2:'',
       titleTime: "2022年",
@@ -527,6 +528,7 @@ export default {
             this.TITLE2 = this.coalStatList.TITLE2;
             this.TITLE3 = this.coalStatList.TITLE3;
             this.TITLE4 = this.coalStatList.TITLE4;
+            this.TABLETITLE = this.coalStatList.TABLETITLE;
             this.PIETITLE2 = this.coalStatList.PIETITLE2;
             this.PIETITLE1 = this.coalStatList.PIETITLE1;
 
@@ -553,7 +555,7 @@ export default {
               dibu.push(2);
               data3.push({ value: item.valueNew, name: item.name });
             });
-
+            this.option1 = {}
             this.option1 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -764,7 +766,7 @@ export default {
               valueOld2.push(item.valueOld);
               data4.push({ value: item.valueNew, name: item.name });
             });
-
+            this.option2 = {}
             this.option2 = {
               backgroundColor: "", //设置无背景色
 

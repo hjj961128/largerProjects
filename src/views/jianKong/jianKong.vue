@@ -75,66 +75,366 @@
           <!-- <div class="btn1" @click="getOperationDiagram">
             <img src="../../assets/btn1.png" alt="" />
           </div> -->
-          <div class="btn2" @click="clickBtn2">
+          <!-- <div class="btn2" @click="clickBtn2">
             <img src="../../assets/btn2.png" alt="" />
-          </div>
+          </div> -->
         </el-form-item>
       </el-form>
     </div>
     <div class="footer">
       <div class="footer-left">
         <div class="left-top">
-          <div class="text1">{{ text1 }}</div>
+          <div class="text1">
+            <div
+              class="text14dian1"
+              @mouseenter="showtext1 = true"
+              @mouseleave="showtext1 = false"
+            >
+              {{ text1 }}
+            </div>
+            <div class="kuang" v-show="showtext1">
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text1desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text1name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text00 }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text1time }}</span>
+              </div>
+            </div>
+          </div>
           <div class="text2">
-            <span class="text">{{ text2 }}</span>
-            <span class="danwei"> t/h</span>
+            <div
+              class="text14dian1"
+              @mouseenter="showtext2 = true"
+              @mouseleave="showtext2 = false"
+            >
+              <span class="text">{{ text2 }}</span>
+              <span class="danwei"> t/h</span>
+            </div>
+            <div class="kuang" v-show="showtext2">
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text2desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text2name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text2 }} t/h</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text2time }}</span>
+              </div>
+            </div>
           </div>
           <div class="text3">
-            <span class="text">{{ text3 }}</span>
-            <span class="danwei"> ℃</span>
+            <div
+              class="text14dian1"
+              @mouseenter="showtext3 = true"
+              @mouseleave="showtext3 = false"
+            >
+              <span class="text">{{ text3 }}</span>
+              <span class="danwei"> ℃</span>
+            </div>
+            <div class="kuang" v-show="showtext3">
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text3desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text3name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text3 }} ℃</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text3time }}</span>
+              </div>
+            </div>
           </div>
           <div class="text4">
-            <span class="text">{{ text4 }}</span>
-            <span class="danwei"> MPa</span>
+            <div
+              class="text14dian1"
+              @mouseenter="showtext4 = true"
+              @mouseleave="showtext4 = false"
+            >
+              <span class="text">{{ text4 }}</span>
+              <span class="danwei"> MPa</span>
+            </div>
+            <div class="kuang" v-show="showtext4">
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text4desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text4name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text4 }} MPa</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text4time }}</span>
+              </div>
+            </div>
           </div>
           <div class="text5">
-            <span class="text">{{ text5 }}</span> <span class="danwei"> ℃</span>
+            <div
+              class="text14dian1"
+              @mouseenter="
+                (showtext5 = true), (text6show = false), (text7show = false)
+              "
+              @mouseleave="
+                (showtext5 = false), (text6show = true), (text7show = true)
+              "
+            >
+              <span class="text">{{ text5 }}</span>
+              <span class="danwei"> ℃</span>
+            </div>
+
+            <div class="kuang" v-show="showtext5" style="margin-left: -300px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text5desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text5name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text5 }} ℃</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text5time }}</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="left-center">
-          <div class="text6">
-            <span class="text">{{ text6 }}</span>
-            <span class="danwei"> mg/dNm3</span>
+          <div class="text6" v-show="text6show">
+            <div
+              class="text14dian1"
+              @mouseenter="showtext6 = true"
+              @mouseleave="showtext6 = false"
+            >
+              <span class="text">{{ text6 }}</span>
+              <span class="danwei"> mg/dNm3</span>
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext6"
+              style="margin-left: -200px; width: 550px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text6desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text6name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text6 }} mg/dNm3</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text6time }}</span>
+              </div>
+            </div>
           </div>
-          <div class="text7">
-            <span class="text">{{ text7 }}</span>
-            <span class="danwei"> mg/dNm3</span>
+          <div class="text7" v-show="text7show">
+            <div
+              class="text14dian1"
+              @mouseenter="
+                (showtext7 = true),
+                  (text10show = false),
+                  (text11show = false),
+                  (text13show = false)
+              "
+              @mouseleave="
+                (showtext7 = false),
+                  (text10show = true),
+                  (text11show = true),
+                  (text13show = true)
+              "
+            >
+              <span class="text">{{ text7 }}</span>
+              <span class="danwei"> mg/dNm3</span>
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext7"
+              style="margin-left: -200px; width: 550px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text7desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text7name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text7 }} mg/dNm3</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text7time }}</span>
+              </div>
+            </div>
           </div>
           <div class="text8">
-            <span class="text">{{ text8 }}</span>
-            <span class="danwei"> mg/dNm3</span>
+            <div
+              class="text14dian1"
+              @mouseenter="
+                (showtext8 = true),
+                  (text10show = false),
+                  (text11show = false),
+                  (text13show = false)
+              "
+              @mouseleave="
+                (showtext8 = false),
+                  (text10show = true),
+                  (text11show = true),
+                  (text13show = true)
+              "
+            >
+              <span class="text">{{ text8 }}</span>
+              <span class="danwei"> mg/dNm3</span>
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext8"
+              style="margin-left: -200px; width: 550px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text8desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text8name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text8 }} mg/dNm3</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text8time }}</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="left-footer">
           <div class="text9">
-            <span class="text">{{ text9 }}</span>
-            <span class="danwei"> t/h</span>
+            <div
+              class="text14dian1"
+              @mouseenter="showtext9 = true"
+              @mouseleave="showtext9 = false"
+            >
+              <span class="text">{{ text9 }}</span>
+              <span class="danwei"> t/h</span>
+            </div>
+            <div class="kuang" v-show="showtext9" style="margin-top: -280px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text9desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text9name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text9 }} t/h</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text9time }}</span>
+              </div>
+            </div>
           </div>
-          <div class="text10">
-            <span class="text">{{ text10 }}</span>
-            <span class="danwei"> t/h</span>
+          <div class="text10" v-show="text10show">
+            <div
+              class="text14dian1"
+              @mouseenter="showtext10 = true"
+              @mouseleave="showtext10 = false"
+            >
+              <span class="text">{{ text10 }}</span>
+              <span class="danwei"> t/h</span>
+            </div>
+            <div class="kuang" v-show="showtext10" style="margin-top: -280px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text10desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text10name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text10 }} t/h</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text10time }}</span>
+              </div>
+            </div>
           </div>
-          <div class="text11">
-            <span class="text">{{ text11 }}</span
-            ><span class="danwei">t/h</span>
+          <div class="text11" v-show="text11show">
+            <div
+              class="text14dian1"
+              @mouseenter="showtext11 = true"
+              @mouseleave="showtext11 = false"
+            >
+              <span class="text">{{ text11 }}</span
+              ><span class="danwei">t/h</span>
+            </div>
+            <div class="kuang" v-show="showtext11" style="margin-top: -280px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text11desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text11name }} </span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text11 }} t/h</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text11time }}</span>
+              </div>
+            </div>
           </div>
           <div class="text12">
-            <span class="text">{{ text12 }}</span>
-            <span class="danwei"> t/h</span>
+            <div
+              class="text14dian1"
+              @mouseenter="showtext12 = true"
+              @mouseleave="showtext12 = false"
+            >
+              <span class="text">{{ text12 }}</span>
+              <span class="danwei"> t/h</span>
+            </div>
+            <div class="kuang" v-show="showtext12" style="margin-top: -280px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text12desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text12name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text12 }} t/h</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text12time }}</span>
+              </div>
+            </div>
           </div>
-          <div class="text13">
-            <span class="text">{{ text13 }}</span>
-            <span class="danwei"> kPa</span>
+          <div class="text13" v-show="text13show">
+            <div
+              class="text14dian1"
+              @mouseenter="showtext13 = true"
+              @mouseleave="showtext13 = false"
+            >
+              <span class="text">{{ text13 }}</span>
+              <span class="danwei"> kPa</span>
+            </div>
+            <div class="kuang" v-show="showtext13" style="margin-top: -280px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text13desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text13name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text13 }} kPa</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text13time }}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -148,16 +448,16 @@
               @mouseleave="showtext14 = false"
             ></div>
             <div class="kuang" v-show="showtext14">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text14desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text14name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text14 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text14time }}</span>
               </div>
             </div>
@@ -169,16 +469,16 @@
               @mouseleave="showtext15 = false"
             ></div>
             <div class="kuang" v-show="showtext15">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text15desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text15name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text15 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text15time }}</span>
               </div>
             </div>
@@ -190,16 +490,16 @@
               @mouseleave="showtext16 = false"
             ></div>
             <div class="kuang" v-show="showtext16">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text16desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text16name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text16 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text16time }}</span>
               </div>
             </div>
@@ -211,16 +511,16 @@
               @mouseleave="showtext17 = false"
             ></div>
             <div class="kuang" v-show="showtext17">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text17desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text17name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text17 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text17time }}</span>
               </div>
             </div>
@@ -231,17 +531,17 @@
               @mouseenter="showtext18 = true"
               @mouseleave="showtext18 = false"
             ></div>
-            <div class="kuang" v-show="showtext18">
-              <div class="kuang1" style="padding-left: 40px">
+            <div class="kuang" v-show="showtext18" style="margin-top: -260px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text18desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text18name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text18 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text18time }}</span>
               </div>
             </div>
@@ -252,17 +552,17 @@
               @mouseenter="showtext19 = true"
               @mouseleave="showtext19 = false"
             ></div>
-            <div class="kuang" v-show="showtext19">
-              <div class="kuang1" style="padding-left: 40px">
+            <div class="kuang" v-show="showtext19" style="margin-top: -260px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text19desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text19name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text19 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text19time }}</span>
               </div>
             </div>
@@ -275,16 +575,16 @@
               @mouseleave="showtext20 = false"
             ></div>
             <div class="kuang" v-show="showtext20">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text20desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text20name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text20 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text20time }}</span>
               </div>
             </div>
@@ -296,16 +596,16 @@
               @mouseleave="showtext21 = false"
             ></div>
             <div class="kuang" v-show="showtext21">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text21desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text21name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text21 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text21time }}</span>
               </div>
             </div>
@@ -317,16 +617,16 @@
               @mouseleave="showtext22 = false"
             ></div>
             <div class="kuang" v-show="showtext22">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text22desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text22name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text22 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text22time }}</span>
               </div>
             </div>
@@ -338,16 +638,16 @@
               @mouseleave="showtext23 = false"
             ></div>
             <div class="kuang" v-show="showtext23">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text23desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text23name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text23 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text23time }}</span>
               </div>
             </div>
@@ -359,16 +659,16 @@
               @mouseleave="showtext24 = false"
             ></div>
             <div class="kuang" v-show="showtext24">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text24desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text24name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text24 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text24time }}</span>
               </div>
             </div>
@@ -380,16 +680,16 @@
               @mouseleave="showtext25 = false"
             ></div>
             <div class="kuang" v-show="showtext25">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text25desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text25name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text25 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text25time }}</span>
               </div>
             </div>
@@ -401,16 +701,16 @@
               @mouseleave="showtext00 = false"
             ></div>
             <div class="kuang" v-show="showtext00">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text00desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text00name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text00 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text00time }}</span>
               </div>
             </div>
@@ -434,16 +734,16 @@
               {{ text14 }}
             </div>
             <div class="kuang" v-show="showtext14">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text14desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text14name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text14 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text14time }}</span>
               </div>
             </div>
@@ -458,16 +758,16 @@
               {{ text15 }}
             </div>
             <div class="kuang" v-show="showtext15">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text15desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text15name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text15 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text15time }}</span>
               </div>
             </div>
@@ -482,16 +782,16 @@
               {{ text16 }}
             </div>
             <div class="kuang" v-show="showtext16">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text16desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text16name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text16 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text16time }}</span>
               </div>
             </div>
@@ -506,16 +806,16 @@
               {{ text17 }}
             </div>
             <div class="kuang" v-show="showtext17">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text17desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text17name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text17 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text17time }}</span>
               </div>
             </div>
@@ -530,16 +830,16 @@
               {{ text00 }}
             </div>
             <div class="kuang" v-show="showtext00" style="margin-left: -300px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text00desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text00name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text00 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text00time }}</span>
               </div>
             </div>
@@ -547,23 +847,23 @@
           <div class="text18">
             <div
               class="text14dian1"
-              style="width: 200px;text-align:left"
+              style="width: 200px; text-align: left"
               @mouseenter="showtext18 = true"
               @mouseleave="showtext18 = false"
             >
               {{ text18 }}
             </div>
             <div class="kuang" v-show="showtext18" style="margin-left: -300px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text18desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text18name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text18 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text18time }}</span>
               </div>
             </div>
@@ -578,16 +878,16 @@
               {{ text19 }}
             </div>
             <div class="kuang" v-show="showtext19">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text19desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text19name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text19 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text19time }}</span>
               </div>
             </div>
@@ -603,16 +903,16 @@
               {{ text20 }}
             </div>
             <div class="kuang" v-show="showtext20">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text20desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text20name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text20 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text20time }}</span>
               </div>
             </div>
@@ -627,16 +927,16 @@
               {{ text21 }}
             </div>
             <div class="kuang" v-show="showtext21" style="margin-left: -400px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text21desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text21name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text21 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text21time }}</span>
               </div>
             </div>
@@ -651,16 +951,16 @@
               {{ text22 }}
             </div>
             <div class="kuang" v-show="showtext22" style="margin-left: -400px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text22desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text22name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text22 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text22time }}</span>
               </div>
             </div>
@@ -675,16 +975,16 @@
               {{ text23 }}
             </div>
             <div class="kuang" v-show="showtext23">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text23desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text23name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text23 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text23time }}</span>
               </div>
             </div>
@@ -693,22 +993,32 @@
             <div
               class="text14dian1"
               style="width: 100px"
-              @mouseenter="(showtext24 = true ,text44show = false,text45show = false,text46show = false)"
-              @mouseleave="(showtext24 = false,text44show = true,text45show = true,text46show = true)"
+              @mouseenter="
+                (showtext24 = true),
+                  (text44show = false),
+                  (text45show = false),
+                  (text46show = false)
+              "
+              @mouseleave="
+                (showtext24 = false),
+                  (text44show = true),
+                  (text45show = true),
+                  (text46show = true)
+              "
             >
               {{ text24 }}
             </div>
-            <div class="kuang" v-show="showtext24" style="margin-left:-100px">
-              <div class="kuang1" style="padding-left: 40px">
+            <div class="kuang" v-show="showtext24" style="margin-left: -100px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text24desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text24name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text24 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text24time }}</span>
               </div>
             </div>
@@ -717,22 +1027,22 @@
             <div
               class="text14dian1"
               style="width: 100px"
-              @mouseenter="(showtext25 = true)"
-              @mouseleave="(showtext25 = false)"
+              @mouseenter="showtext25 = true"
+              @mouseleave="showtext25 = false"
             >
               {{ text25 }}
             </div>
             <div class="kuang" v-show="showtext25">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text25desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text25name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text25 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text25time }}</span>
               </div>
             </div>
@@ -741,22 +1051,32 @@
             <div
               class="text14dian1"
               style="width: 100px"
-              @mouseenter="(showtext26 = true,text44show = false,text45show = false,text46show = false)"
-              @mouseleave="(showtext26 = false,text44show = true,text45show = true,text46show = true)"
+              @mouseenter="
+                (showtext26 = true),
+                  (text44show = false),
+                  (text45show = false),
+                  (text46show = false)
+              "
+              @mouseleave="
+                (showtext26 = false),
+                  (text44show = true),
+                  (text45show = true),
+                  (text46show = true)
+              "
             >
               {{ text26 }}
             </div>
-            <div class="kuang" v-show="showtext26" style="margin-left:-250px">
-              <div class="kuang1" style="padding-left: 40px">
+            <div class="kuang" v-show="showtext26" style="margin-left: -250px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text26desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text26name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text26 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text26time }}</span>
               </div>
             </div>
@@ -771,16 +1091,16 @@
               {{ text27 }}
             </div>
             <div class="kuang" v-show="showtext27">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text27desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text27name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text27 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text27time }}</span>
               </div>
             </div>
@@ -789,22 +1109,32 @@
             <div
               class="text14dian1"
               style="width: 100px"
-              @mouseenter="(showtext28 = true,text44show = false,text45show = false,text46show = false)"
-              @mouseleave="(showtext28 = false,text44show = true,text45show = true,text46show = true)"
+              @mouseenter="
+                (showtext28 = true),
+                  (text44show = false),
+                  (text45show = false),
+                  (text46show = false)
+              "
+              @mouseleave="
+                (showtext28 = false),
+                  (text44show = true),
+                  (text45show = true),
+                  (text46show = true)
+              "
             >
               {{ text28 }}
             </div>
-            <div class="kuang" v-show="showtext28" style="margin-left:-250px">
-              <div class="kuang1" style="padding-left: 40px">
+            <div class="kuang" v-show="showtext28" style="margin-left: -350px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text28desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text28name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text28 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text28time }}</span>
               </div>
             </div>
@@ -818,17 +1148,21 @@
             >
               {{ text29 }}
             </div>
-            <div class="kuang" v-show="showtext29">
-              <div class="kuang1" style="padding-left: 40px">
+            <div
+              class="kuang"
+              v-show="showtext29"
+              style="margin-top: -270px; margin-left: -50px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text29desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text29name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text29 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text29time }}</span>
               </div>
             </div>
@@ -842,17 +1176,21 @@
             >
               {{ text30 }}
             </div>
-            <div class="kuang" v-show="showtext30">
-              <div class="kuang1" style="padding-left: 40px">
+            <div
+              class="kuang"
+              v-show="showtext30"
+              style="margin-top: -270px; margin-left: -50px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text30desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text30name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text30 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text30time }}</span>
               </div>
             </div>
@@ -867,16 +1205,16 @@
               {{ text31 }}
             </div>
             <div class="kuang" v-show="showtext31">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text31desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text31name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text31 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text31time }}</span>
               </div>
             </div>
@@ -885,22 +1223,36 @@
             <div
               class="text14dian1"
               style="width: 200px"
-              @mouseenter="(showtext32 = true,text48show = false,text49show = false,text50show = false,text51show = false,text52show = false)"
-              @mouseleave="(showtext32 = false,text48show = true,text49show = true,text50show = true,text51show = true,text52show = true)"
+              @mouseenter="
+                (showtext32 = true),
+                  (text48show = false),
+                  (text49show = false),
+                  (text50show = false),
+                  (text51show = false),
+                  (text52show = false)
+              "
+              @mouseleave="
+                (showtext32 = false),
+                  (text48show = true),
+                  (text49show = true),
+                  (text50show = true),
+                  (text51show = true),
+                  (text52show = true)
+              "
             >
               {{ text32 }}
             </div>
             <div class="kuang" v-show="showtext32">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text32desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text32name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text32 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text32time }}</span>
               </div>
             </div>
@@ -915,16 +1267,16 @@
               {{ text33 }}
             </div>
             <div class="kuang" v-show="showtext33">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text33desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text33name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text33 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text33time }}</span>
               </div>
             </div>
@@ -933,22 +1285,36 @@
             <div
               class="text14dian1"
               style="width: 130px"
-              @mouseenter="(showtext34 = true,text48show = false,text49show = false,text50show = false,text51show = false,text52show = false)"
-              @mouseleave="(showtext34 = false,text48show = true,text49show = true,text50show = true,text51show = true,text52show = true)"
+              @mouseenter="
+                (showtext34 = true),
+                  (text48show = false),
+                  (text49show = false),
+                  (text50show = false),
+                  (text51show = false),
+                  (text52show = false)
+              "
+              @mouseleave="
+                (showtext34 = false),
+                  (text48show = true),
+                  (text49show = true),
+                  (text50show = true),
+                  (text51show = true),
+                  (text52show = true)
+              "
             >
               {{ text34 }}
             </div>
             <div class="kuang" v-show="showtext34">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text34desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text34name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text34 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text34time }}</span>
               </div>
             </div>
@@ -963,16 +1329,16 @@
               {{ text35 }}
             </div>
             <div class="kuang" v-show="showtext35">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text35desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text35name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text35 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text35time }}</span>
               </div>
             </div>
@@ -981,22 +1347,36 @@
             <div
               class="text14dian1"
               style="width: 130px"
-              @mouseenter="(showtext36 = true,text48show = false,text49show = false,text50show = false,text51show = false,text52show = false)"
-              @mouseleave="(showtext36 = false,text48show = true,text49show = true,text50show = true,text51show = true,text52show = true)"
+              @mouseenter="
+                (showtext36 = true),
+                  (text48show = false),
+                  (text49show = false),
+                  (text50show = false),
+                  (text51show = false),
+                  (text52show = false)
+              "
+              @mouseleave="
+                (showtext36 = false),
+                  (text48show = true),
+                  (text49show = true),
+                  (text50show = true),
+                  (text51show = true),
+                  (text52show = true)
+              "
             >
               {{ text36 }}
             </div>
             <div class="kuang" v-show="showtext36">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text36desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text36name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text36 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text36time }}</span>
               </div>
             </div>
@@ -1010,17 +1390,17 @@
             >
               {{ text37 }}
             </div>
-            <div class="kuang" v-show="showtext37" style="margin-left:-300px">
-              <div class="kuang1" style="padding-left: 40px">
+            <div class="kuang" v-show="showtext37" style="margin-left: -300px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text37desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text37name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text37 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text37time }}</span>
               </div>
             </div>
@@ -1029,22 +1409,36 @@
             <div
               class="text14dian1"
               style="width: 130px"
-              @mouseenter="(showtext38 = true,text48show = false,text49show = false,text50show = false,text51show = false,text52show = false)"
-              @mouseleave="(showtext38 = false,text48show = true,text49show = true,text50show = true,text51show = true,text52show = true)"
+              @mouseenter="
+                (showtext38 = true),
+                  (text48show = false),
+                  (text49show = false),
+                  (text50show = false),
+                  (text51show = false),
+                  (text52show = false)
+              "
+              @mouseleave="
+                (showtext38 = false),
+                  (text48show = true),
+                  (text49show = true),
+                  (text50show = true),
+                  (text51show = true),
+                  (text52show = true)
+              "
             >
               {{ text38 }}
             </div>
-            <div class="kuang" v-show="showtext38" style="margin-left:-300px">
-              <div class="kuang1" style="padding-left: 40px">
+            <div class="kuang" v-show="showtext38" style="margin-left: -300px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text38desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text38name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text38 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text38time }}</span>
               </div>
             </div>
@@ -1059,16 +1453,16 @@
               {{ text39 }}
             </div>
             <div class="kuang" v-show="showtext39" style="margin-left: -400px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text39desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text39name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text39 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text39time }}</span>
               </div>
             </div>
@@ -1077,27 +1471,27 @@
             <div
               class="text14dian1"
               style="width: 150px; height: 25px; text-align: left"
-              @mouseenter="showtext40 = true"
-              @mouseleave="showtext40 = false"
+              @mouseenter="(showtext40 = true), (text41show = false)"
+              @mouseleave="(showtext40 = false), (text41show = true)"
             >
               {{ text40 }}
             </div>
             <div class="kuang" v-show="showtext40" style="margin-left: -400px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text40desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text40name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text40 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text40time }}</span>
               </div>
             </div>
           </div>
-          <div class="text41">
+          <div class="text41" v-show="text41show">
             <div
               class="text14dian1"
               style="width: 80px; text-align: left"
@@ -1106,22 +1500,26 @@
             >
               {{ text41 }}
             </div>
-            <div class="kuang" v-show="showtext41" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+            <div
+              class="kuang"
+              v-show="showtext41"
+              style="margin-top: -250px; margin-left: -400px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text41desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text41name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text41 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text41time }}</span>
               </div>
             </div>
           </div>
-          <div class="text42">
+          <div class="text42" v-show="text42show">
             <div
               class="text14dian1"
               style="width: 130px; text-align: center"
@@ -1131,16 +1529,16 @@
               {{ text42 }}
             </div>
             <div class="kuang" v-show="showtext42" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text42desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text42name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text42 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text42time }}</span>
               </div>
             </div>
@@ -1155,16 +1553,16 @@
               {{ text43 }}
             </div>
             <div class="kuang" v-show="showtext43" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text43desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text43name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text43 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text43time }}</span>
               </div>
             </div>
@@ -1179,21 +1577,21 @@
               {{ text44 }}
             </div>
             <div class="kuang" v-show="showtext44" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text44desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text44name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text44 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text44time }}</span>
               </div>
             </div>
           </div>
-          <div class="text45"  v-show="text45show">
+          <div class="text45" v-show="text45show">
             <div
               class="text14dian1"
               style="width: 130px; text-align: center"
@@ -1203,16 +1601,16 @@
               {{ text45 }}
             </div>
             <div class="kuang" v-show="showtext45" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text45desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text45name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text45 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text45time }}</span>
               </div>
             </div>
@@ -1227,16 +1625,16 @@
               {{ text46 }}
             </div>
             <div class="kuang" v-show="showtext46" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text46desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text46name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text46 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text46time }}</span>
               </div>
             </div>
@@ -1245,22 +1643,22 @@
             <div
               class="text14dian1"
               style="width: 130px; text-align: center"
-              @mouseenter="showtext47 = true"
-              @mouseleave="showtext47 = false"
+              @mouseenter="(showtext47 = true), (text42show = false)"
+              @mouseleave="(showtext47 = false), (text42show = true)"
             >
               {{ text47 }}
             </div>
             <div class="kuang" v-show="showtext47" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text47desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text47name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text47 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text47time }}</span>
               </div>
             </div>
@@ -1275,16 +1673,16 @@
               {{ text48 }}
             </div>
             <div class="kuang" v-show="showtext48" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text48desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text48name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text48 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text48time }}</span>
               </div>
             </div>
@@ -1299,16 +1697,16 @@
               {{ text49 }}
             </div>
             <div class="kuang" v-show="showtext49" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text49desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text49name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text49 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text49time }}</span>
               </div>
             </div>
@@ -1323,16 +1721,16 @@
               {{ text50 }}
             </div>
             <div class="kuang" v-show="showtext50" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text50desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text50name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text50 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text50time }}</span>
               </div>
             </div>
@@ -1346,17 +1744,21 @@
             >
               {{ text51 }}
             </div>
-            <div class="kuang" v-show="showtext51" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+            <div
+              class="kuang"
+              v-show="showtext51"
+              style="margin-top: -250px; margin-left: -400px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text51desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text51name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text51 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text51time }}</span>
               </div>
             </div>
@@ -1370,17 +1772,21 @@
             >
               {{ text52 }}
             </div>
-            <div class="kuang" v-show="showtext52" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+            <div
+              class="kuang"
+              v-show="showtext52"
+              style="margin-top: -250px; margin-left: -400px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text52desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text52name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text52 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text52time }}</span>
               </div>
             </div>
@@ -1397,16 +1803,16 @@
               {{ text14 }}
             </div>
             <div class="kuang" v-show="showtext14">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text14desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text14name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text14 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text14time }}</span>
               </div>
             </div>
@@ -1421,16 +1827,16 @@
               {{ text15 }}
             </div>
             <div class="kuang" v-show="showtext15">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text15desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text15name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text15 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text15time }}</span>
               </div>
             </div>
@@ -1439,22 +1845,22 @@
             <div
               class="text14dian1"
               style="width: 200px; text-align: center"
-              @mouseenter="showtext16 = true"
-              @mouseleave="showtext16 = false"
+              @mouseenter="(showtext16 = true), (text19show = false)"
+              @mouseleave="(showtext16 = false), (text19show = true)"
             >
               {{ text16 }}
             </div>
             <div class="kuang" v-show="showtext16" style="margin-left: -300px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text16desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text16name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text16 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text16time }}</span>
               </div>
             </div>
@@ -1463,22 +1869,22 @@
             <div
               class="text14dian1"
               style="width: 200px; text-align: center"
-              @mouseenter="showtext17 = true"
-              @mouseleave="showtext17 = false"
+              @mouseenter="(showtext17 = true), (text19show = false)"
+              @mouseleave="(showtext17 = false), (text19show = true)"
             >
               {{ text17 }}
             </div>
             <div class="kuang" v-show="showtext17" style="margin-left: -450px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text17desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text17name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text17 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text17time }}</span>
               </div>
             </div>
@@ -1492,22 +1898,26 @@
             >
               {{ text18 }}
             </div>
-            <div class="kuang" v-show="showtext18">
-              <div class="kuang1" style="padding-left: 40px">
+            <div
+              class="kuang"
+              v-show="showtext18"
+              style="margin-top: -270px; margin-left: -250px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text18desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text18name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text18 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text18time }}</span>
               </div>
             </div>
           </div>
-          <div class="text19">
+          <div class="text19" v-show="text19show">
             <div
               class="text14dian1"
               style="width: 200px; text-align: center"
@@ -1516,17 +1926,21 @@
             >
               {{ text19 }}
             </div>
-            <div class="kuang" v-show="showtext19">
-              <div class="kuang1" style="padding-left: 40px">
+            <div
+              class="kuang"
+              v-show="showtext19"
+              style="margin-top: -270px; margin-left: -250px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text19desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text19name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text19 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text19time }}</span>
               </div>
             </div>
@@ -1542,16 +1956,16 @@
               {{ text20 }}
             </div>
             <div class="kuang" v-show="showtext20">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text20desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text20name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text20 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text20time }}</span>
               </div>
             </div>
@@ -1566,16 +1980,16 @@
               {{ text21 }}
             </div>
             <div class="kuang" v-show="showtext21">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text21desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text21name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text21 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text21time }}</span>
               </div>
             </div>
@@ -1590,16 +2004,16 @@
               {{ text22 }}
             </div>
             <div class="kuang" v-show="showtext22" style="margin-left: -200px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text22desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text22name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text22 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text22time }}</span>
               </div>
             </div>
@@ -1618,16 +2032,16 @@
               v-show="showtext23"
               style="margin-top: -250px; margin-left: -350px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text23desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text23name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text23 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text23time }}</span>
               </div>
             </div>
@@ -1644,18 +2058,22 @@
             <div
               class="kuang"
               v-show="showtext24"
-              style="margin-top: -250px; margin-left: -350px"
+              style="
+                margin-top: -250px;
+                margin-left: -350px;
+                margin-right: 100px;
+              "
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text24desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text24name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text24 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text24time }}</span>
               </div>
             </div>
@@ -1669,17 +2087,21 @@
             >
               {{ text25 }}
             </div>
-            <div class="kuang" v-show="showtext25" style="margin-left: -320px">
-              <div class="kuang1" style="padding-left: 40px">
+            <div
+              class="kuang"
+              v-show="showtext25"
+              style="margin-left: -320px; margin-right: 100px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text25desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text25name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text25 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text25time }}</span>
               </div>
             </div>
@@ -1698,16 +2120,16 @@
               v-show="showtext26"
               style="margin-left: -300px; margin-top: -250px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text26desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text26name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text26 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text26time }}</span>
               </div>
             </div>
@@ -1726,16 +2148,16 @@
               v-show="showtext27"
               style="margin-left: -350px; margin-top: -250px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text27desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text27name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text27 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text27time }}</span>
               </div>
             </div>
@@ -1754,16 +2176,16 @@
               v-show="showtext28"
               style="margin-top: -240px; margin-left: -450px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text28desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text28name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text28 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text28time }}</span>
               </div>
             </div>
@@ -1782,16 +2204,16 @@
               v-show="showtext29"
               style="margin-top: -240px; margin-left: -450px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text29desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text29name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text29 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text29time }}</span>
               </div>
             </div>
@@ -1810,16 +2232,16 @@
               v-show="showtext30"
               style="margin-top: -240px; margin-left: -450px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text30desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text30name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text30 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text30time }}</span>
               </div>
             </div>
@@ -1838,16 +2260,16 @@
               v-show="showtext31"
               style="margin-top: -240px; margin-left: -450px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text31desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text31name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text31 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text31time }}</span>
               </div>
             </div>
@@ -1866,16 +2288,16 @@
               v-show="showtext32"
               style="margin-top: -250px; margin-left: -200px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text32desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text32name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text32 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text32time }}</span>
               </div>
             </div>
@@ -1894,16 +2316,16 @@
               v-show="showtext33"
               style="margin-top: -250px; margin-left: -200px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text33desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text33name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text33 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text33time }}</span>
               </div>
             </div>
@@ -1922,16 +2344,16 @@
               v-show="showtext34"
               style="margin-top: -250px; margin-left: -200px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text34desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text34name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text34 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text34time }}</span>
               </div>
             </div>
@@ -1940,7 +2362,7 @@
             <div
               class="text14dian1"
               style="width: 200px; text-align: left"
-              @mouseenter="showtext35 = true"
+              @mouseenter="(showtext35 = true), text22show"
               @mouseleave="showtext35 = false"
             >
               {{ text35 }}
@@ -1950,16 +2372,16 @@
               v-show="showtext35"
               style="margin-top: -250px; margin-left: -50px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text35desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text35name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text35 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text35time }}</span>
               </div>
             </div>
@@ -1978,16 +2400,16 @@
               v-show="showtext36"
               style="margin-top: -250px; margin-left: -50px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text36desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text36name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text36 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text36time }}</span>
               </div>
             </div>
@@ -2006,16 +2428,16 @@
               v-show="showtext37"
               style="margin-top: -250px; margin-left: -50px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text37desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text37name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text37 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text37time }}</span>
               </div>
             </div>
@@ -2032,16 +2454,16 @@
               {{ text14 }}
             </div>
             <div class="kuang" v-show="showtext14">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text14desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text14name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text14 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text14time }}</span>
               </div>
             </div>
@@ -2056,16 +2478,16 @@
               {{ text15 }}
             </div>
             <div class="kuang" v-show="showtext15">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text15desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text15name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text15 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text15time }}</span>
               </div>
             </div>
@@ -2080,16 +2502,16 @@
               {{ text16 }}
             </div>
             <div class="kuang" v-show="showtext16">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text16desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text16name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text16 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text16time }}</span>
               </div>
             </div>
@@ -2104,16 +2526,16 @@
               {{ text17 }}
             </div>
             <div class="kuang" v-show="showtext17">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text17desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text17name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text17 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text17time }}</span>
               </div>
             </div>
@@ -2128,16 +2550,16 @@
               {{ text18 }}
             </div>
             <div class="kuang" v-show="showtext18">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text18desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text18name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text18 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text18time }}</span>
               </div>
             </div>
@@ -2152,16 +2574,16 @@
               {{ text19 }}
             </div>
             <div class="kuang" v-show="showtext19">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text19desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text19name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text19 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text19time }}</span>
               </div>
             </div>
@@ -2176,16 +2598,16 @@
               {{ text20 }}
             </div>
             <div class="kuang" v-show="showtext20">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text20desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text20name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text20 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text20time }}</span>
               </div>
             </div>
@@ -2199,17 +2621,25 @@
             >
               {{ text21 }}
             </div>
-            <div class="kuang" v-show="showtext21">
-              <div class="kuang1" style="padding-left: 40px">
+            <div
+              class="kuang"
+              v-show="showtext21"
+              style="
+                margin-right: 100px;
+                margin-left: -350px;
+                margin-top: -250px;
+              "
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text21desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text21name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text21 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text21time }}</span>
               </div>
             </div>
@@ -2223,17 +2653,25 @@
             >
               {{ text22 }}
             </div>
-            <div class="kuang" v-show="showtext22" style="margin-left: -200px">
-              <div class="kuang1" style="padding-left: 40px">
+            <div
+              class="kuang"
+              v-show="showtext22"
+              style="
+                margin-right: 100px;
+                margin-left: -350px;
+                margin-top: -250px;
+              "
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text22desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text22name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text22 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text22time }}</span>
               </div>
             </div>
@@ -2250,18 +2688,22 @@
             <div
               class="kuang"
               v-show="showtext23"
-              style="margin-top: -250px; margin-left: -350px"
+              style="
+                margin-top: -250px;
+                margin-left: -350px;
+                margin-right: 100px;
+              "
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text23desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text23name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text23 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text23time }}</span>
               </div>
             </div>
@@ -2278,18 +2720,18 @@
             <div
               class="kuang"
               v-show="showtext24"
-              style="margin-top: -250px; margin-left: -350px"
+              style="margin-top: -250px; margin-left: -200px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text24desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text24name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text24 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text24time }}</span>
               </div>
             </div>
@@ -2308,16 +2750,16 @@
               v-show="showtext25"
               style="margin-left: -320px; margin-top: -250px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text25desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text25name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text25 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text25time }}</span>
               </div>
             </div>
@@ -2336,16 +2778,16 @@
               v-show="showtext26"
               style="margin-left: -300px; margin-top: -250px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text26desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text26name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text26 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text26time }}</span>
               </div>
             </div>
@@ -2364,16 +2806,16 @@
               v-show="showtext27"
               style="margin-left: -350px; margin-top: -250px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text27desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text27name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text27 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text27time }}</span>
               </div>
             </div>
@@ -2392,16 +2834,16 @@
               v-show="showtext28"
               style="margin-top: -240px; margin-left: -450px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text28desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text28name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text28 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text28time }}</span>
               </div>
             </div>
@@ -2420,16 +2862,16 @@
               v-show="showtext29"
               style="margin-top: -240px; margin-left: -450px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text29desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text29name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text29 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text29time }}</span>
               </div>
             </div>
@@ -2448,16 +2890,16 @@
               v-show="showtext30"
               style="margin-top: -240px; margin-left: -450px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text30desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text30name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text30 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text30time }}</span>
               </div>
             </div>
@@ -2476,16 +2918,16 @@
               v-show="showtext31"
               style="margin-top: -240px; margin-left: -450px"
             >
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text31desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text31name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text31 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text31time }}</span>
               </div>
             </div>
@@ -2501,17 +2943,17 @@
             >
               {{ text14 }}
             </div>
-            <div class="kuang" v-show="showtext14">
-              <div class="kuang1" style="padding-left: 40px">
+            <div class="kuang" v-show="showtext14" style="margin-left: -300px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text14desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text14name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text14 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text14time }}</span>
               </div>
             </div>
@@ -2526,16 +2968,16 @@
               {{ text15 }}
             </div>
             <div class="kuang" v-show="showtext15">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text15desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text15name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text15 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text15time }}</span>
               </div>
             </div>
@@ -2550,16 +2992,16 @@
               {{ text16 }}
             </div>
             <div class="kuang" v-show="showtext16">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text16desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text16name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text16 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text16time }}</span>
               </div>
             </div>
@@ -2574,16 +3016,16 @@
               {{ text17 }}
             </div>
             <div class="kuang" v-show="showtext17" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text17desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text17name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text17 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text17time }}</span>
               </div>
             </div>
@@ -2598,16 +3040,16 @@
               {{ text18 }}
             </div>
             <div class="kuang" v-show="showtext18" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text18desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text18name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text18 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text18time }}</span>
               </div>
             </div>
@@ -2622,16 +3064,16 @@
               {{ text19 }}
             </div>
             <div class="kuang" v-show="showtext19" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text19desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text19name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text19 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text19time }}</span>
               </div>
             </div>
@@ -2646,16 +3088,16 @@
               {{ text20 }}
             </div>
             <div class="kuang" v-show="showtext20" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text20desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text20name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text20 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text20time }}</span>
               </div>
             </div>
@@ -2670,16 +3112,16 @@
               {{ text21 }}
             </div>
             <div class="kuang" v-show="showtext21" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text21desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text21name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text21 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text21time }}</span>
               </div>
             </div>
@@ -2694,16 +3136,16 @@
               {{ text22 }}
             </div>
             <div class="kuang" v-show="showtext22" style="margin-top: -250px">
-              <div class="kuang1" style="padding-left: 40px">
+              <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text22desc }}</span>
-              </div>
+              </div> -->
               <div class="kuang1">
                 测点名: <span style="color: #00faf9"> {{ text22name }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 数值: <span style="color: #00faf9"> {{ text22 }}</span>
               </div>
-              <div class="kuang1" style="padding-left: 40px">
+              <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text22time }}</span>
               </div>
             </div>
@@ -2758,6 +3200,23 @@
 export default {
   data() {
     return {
+      showtext1: false,
+      showtext2: false,
+      showtext3: false,
+      showtext4: false,
+      showtext5: false,
+      showtext6: false,
+      showtext7: false,
+      showtext8: false,
+      showtext9: false,
+      showtext10: false,
+      showtext11: false,
+      showtext12: false,
+      showtext13: false,
+      text22show: true,
+      text19show: true,
+      text41show: true,
+      text42show: true,
       text44show: true,
       text45show: true,
       text46show: true,
@@ -2766,7 +3225,11 @@ export default {
       text50show: true,
       text51show: true,
       text52show: true,
-
+      text6show: true,
+      text7show: true,
+      text10show: true,
+      text11show: true,
+      text13show: true,
       tubiaoShow: 1,
       titlec: "",
       shuju1name: "",
@@ -2830,18 +3293,70 @@ export default {
       showtext52: false,
 
       text1: 0,
+      text1name: "",
+      text1time: "",
+      text1desc: "",
+
       text2: 0,
+      text2name: "",
+      text2time: "",
+      text2desc: "",
+
       text3: 0,
+      text3name: "",
+      text3time: "",
+      text3desc: "",
+
       text4: 0,
+      text4name: "",
+      text4time: "",
+      text4desc: "",
+
       text5: 0,
+      text5name: "",
+      text5time: "",
+      text5desc: "",
+
       text6: 0,
+      text6name: "",
+      text6time: "",
+      text6desc: "",
+
       text7: 0,
+      text7name: "",
+      text7time: "",
+      text7desc: "",
+
       text8: 0,
+      text8name: "",
+      text8time: "",
+      text8desc: "",
+
       text9: 0,
+      text9name: "",
+      text9time: "",
+      text9desc: "",
+
       text10: 0,
+      text10name: "",
+      text10time: "",
+      text10desc: "",
+
       text11: 0,
+      text11name: "",
+      text11time: "",
+      text11desc: "",
+
       text12: 0,
+      text12name: "",
+      text12time: "",
+      text12desc: "",
+
       text13: 0,
+      text13name: "",
+      text13time: "",
+      text13desc: "",
+
       text14: 0,
       text14name: "",
       text14time: "",
@@ -3050,7 +3565,7 @@ export default {
       // 个数选择器（可修改）
       pageSize: 10,
       formInline: {
-        groupName: "",
+        groupName: "6",
         factoryName: "",
         jzName: "",
         tubiaoName: "1",
@@ -3086,6 +3601,11 @@ export default {
     this.$nextTick(function () {
       this.getGroupList();
       this.getOperationDiagram();
+      let timeTicket;
+      clearInterval(timeTicket);
+      timeTicket = window.setInterval(() => {
+        this.getOperationDiagram();
+      }, 60000);
     });
   },
   methods: {
@@ -3094,18 +3614,70 @@ export default {
     },
     getOperationDiagram() {
       this.text1 = 0;
+      this.text1name = "";
+      this.text1time = "";
+      this.text1desc = "";
+
       this.text2 = 0;
+      this.text2name = "";
+      this.text2time = "";
+      this.text2desc = "";
+
       this.text3 = 0;
+      this.text3name = "";
+      this.text3time = "";
+      this.text3desc = "";
+
       this.text4 = 0;
+      this.text4name = "";
+      this.text4time = "";
+      this.text4desc = "";
+
       this.text5 = 0;
+      this.text5name = "";
+      this.text5time = "";
+      this.text5desc = "";
+
       this.text6 = 0;
+      this.text6name = "";
+      this.text6time = "";
+      this.text6desc = "";
+
       this.text7 = 0;
+      this.text7name = "";
+      this.text7time = "";
+      this.text7desc = "";
+
       this.text8 = 0;
+      this.text8name = "";
+      this.text8time = "";
+      this.text8desc = "";
+
       this.text9 = 0;
+      this.text9name = "";
+      this.text9time = "";
+      this.text9desc = "";
+
       this.text10 = 0;
+      this.text10name = "";
+      this.text10time = "";
+      this.text10desc = "";
+
       this.text11 = 0;
+      this.text11name = "";
+      this.text11time = "";
+      this.text11desc = "";
+
       this.text12 = 0;
+      this.text12name = "";
+      this.text12time = "";
+      this.text12desc = "";
+
       this.text13 = 0;
+      this.text13name = "";
+      this.text13time = "";
+      this.text13desc = "";
+
       this.text14 = 0;
       this.text14name = "";
       this.text14time = "";
@@ -3366,18 +3938,69 @@ export default {
           );
           this.shuju6dan = result[changdu - 6].unit;
           this.text1 = result[0].value;
+          this.text1name = result[0].name;
+          this.text1time = result[0].time;
+          this.text1desc = result[0].desc;
+
           this.text2 = result[1].value;
+          this.text2name = result[1].name;
+          this.text2time = result[1].time;
+          this.text2desc = result[1].desc;
+
           this.text3 = result[2].value;
+          this.text3name = result[2].name;
+          this.text3time = result[2].time;
+          this.text3desc = result[2].desc;
+
           this.text4 = result[3].value;
+          this.text4name = result[3].name;
+          this.text4time = result[3].time;
+          this.text4desc = result[3].desc;
+
           this.text5 = result[4].value;
+          this.text5name = result[4].name;
+          this.text5time = result[4].time;
+          this.text5desc = result[4].desc;
+
           this.text6 = result[5].value;
+          this.text6name = result[5].name;
+          this.text6time = result[5].time;
+          this.text6desc = result[5].desc;
+
           this.text7 = result[6].value;
+          this.text7name = result[6].name;
+          this.text7time = result[6].time;
+          this.text7desc = result[6].desc;
+
           this.text8 = result[7].value;
+          this.text8name = result[7].name;
+          this.text8time = result[7].time;
+          this.text8desc = result[7].desc;
+
           this.text9 = result[8].value;
+          this.text9name = result[8].name;
+          this.text9time = result[8].time;
+          this.text9desc = result[8].desc;
+
           this.text10 = result[9].value;
+          this.text10name = result[9].name;
+          this.text10time = result[9].time;
+          this.text10desc = result[9].desc;
+
           this.text11 = result[10].value;
+          this.text11name = result[10].name;
+          this.text11time = result[10].time;
+          this.text11desc = result[10].desc;
+
           this.text12 = result[11].value;
+          this.text12name = result[11].name;
+          this.text12time = result[11].time;
+          this.text12desc = result[11].desc;
+
           this.text13 = result[12].value;
+          this.text13name = result[12].name;
+          this.text13time = result[12].time;
+          this.text13desc = result[12].desc;
 
           this.text00 = result[0].value + " " + result[0].unit;
           this.text00name = result[0].name;
@@ -3654,7 +4277,7 @@ export default {
         .then((res) => {
           if (res.data[0].res == "success") {
             this.formInline.groupList = res.data[0].data;
-            this.formInline.groupName = res.data[0].data[0].id;
+            // this.formInline.groupName = '';
             this.getFactoryList();
           }
         })
@@ -3679,8 +4302,10 @@ export default {
           .then((res) => {
             if (res.data[0].res == "success") {
               this.formInline.factoryList = res.data[0].data;
-              this.formInline.factoryName = this.formInline.factoryList[0].id;
-              this.getJzList();
+              if (this.formInline.factoryList.length > 0) {
+                this.formInline.factoryName = this.formInline.factoryList[0].id;
+                this.getJzList();
+              }
             }
           })
           .catch((err) => {
@@ -3709,7 +4334,7 @@ export default {
             if (res.data[0].res == "success") {
               this.formInline.jzList = res.data[0].data;
               this.formInline.jzName = this.formInline.jzList[0].id;
-              this.getOperationDiagram()
+              this.getOperationDiagram();
             }
           })
           .catch((err) => {

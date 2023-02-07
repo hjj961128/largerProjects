@@ -14,6 +14,7 @@
       <tanPFVue v-if="pagenumber == '7'"></tanPFVue>
       <jianKongVue v-if="pagenumber == '8'"></jianKongVue>
       <pageSix v-if="pagenumber == '6'"></pageSix>
+      <tiaozhuan  v-if="pagenumber == '9'"></tiaozhuan>
     </div>
   </div>
 </template>
@@ -28,6 +29,7 @@ import pageFive from "./pageFive/pageFive.vue";
 import pageSix from "./pageSix/pageSix.vue";
 import tanPFVue from "./tanPF/tanPF.vue";
 import jianKongVue from "./jianKong/jianKong.vue";
+import tiaozhuan from "./tiaozhuan/tiaozhuan.vue";
 
 export default {
   name: "Home",
@@ -40,7 +42,8 @@ export default {
     pageFive,
     pageSix,
     tanPFVue,
-    jianKongVue
+    jianKongVue,
+    tiaozhuan
   },
   data() {
     return {

@@ -214,45 +214,24 @@
                 align="center"
               >
               </el-table-column>
-              <el-table-column prop="fdl" label="发电量" align="center">
+              <el-table-column prop="fdl" label="发电量(MWh)" align="center">
               </el-table-column>
-              <el-table-column prop="runTime" label="运行时间" align="center">
+              <el-table-column prop="runTime" label="运行时间(h)" align="center">
               </el-table-column>
               <el-table-column
                 prop="noxPfl"
-                label="氮氧化物排放量"
+                label="氮氧化物排放量(t)"
                 align="center"
               >
               </el-table-column>
               <el-table-column
                 prop="so2Pfl"
-                label="二氧化硫排放量"
+                label="二氧化硫排放量(t)"
                 align="center"
               >
               </el-table-column>
-              <el-table-column prop="dustPfl" label="烟尘排放量" align="center">
+              <el-table-column prop="dustPfl" label="烟尘排放量(t)" align="center">
               </el-table-column>
-              <el-table-column label="氮氧化物浓度" align="center">
-                <el-table-column
-                  prop="noxNd"
-                  label="浓度(mg/m3)"
-                  align="center"
-                >
-                </el-table-column>
-                <el-table-column
-                  prop="noxCb1byn"
-                  label="1倍以内超标时间(小时)"
-                  align="center"
-                >
-                </el-table-column>
-                <el-table-column
-                  prop="noxCb1bys"
-                  label="1倍以上超标时间(小时)"
-                  align="center"
-                >
-                </el-table-column>
-              </el-table-column>
-
               <el-table-column label="二氧化硫浓度" align="center">
                 <el-table-column
                   prop="so2Nd"
@@ -269,6 +248,27 @@
                 <el-table-column
                   prop="so2Cb1bys"
                   label="二氧化硫超标一倍以上"
+                  align="center"
+                >
+                </el-table-column>
+              </el-table-column>
+
+              <el-table-column label="氮氧化物浓度" align="center">
+                <el-table-column
+                  prop="noxNd"
+                  label="浓度(mg/m3)"
+                  align="center"
+                >
+                </el-table-column>
+                <el-table-column
+                  prop="noxCb1byn"
+                  label="1倍以内超标时间(小时)"
+                  align="center"
+                >
+                </el-table-column>
+                <el-table-column
+                  prop="noxCb1bys"
+                  label="1倍以上超标时间(小时)"
                   align="center"
                 >
                 </el-table-column>
@@ -627,7 +627,6 @@ export default {
           if (res.data[0].res == "success") {
             this.coalStatList = res.data[0].data[0];
             // 右侧表格数据
-            this.tableData = this.coalStatList.HBZKLIST;
             this.TITLE1 = this.coalStatList.TITLE1
             this.TITLE2 = this.coalStatList.TITLE2
             this.TITLE3 = this.coalStatList.TITLE3
@@ -637,7 +636,7 @@ export default {
             this.TITLE7 = this.coalStatList.TITLE7
             this.TABLETITLE = this.coalStatList.TABLETITLE
 
-
+            this.tableData = this.coalStatList.HBZKLIST;
             this.titleTime = this.coalStatList.TITLETIME;
             let qiannian = this.coalStatList.LASTYEARTAG.toString();
             let dangnian = this.coalStatList.YEARTAG.toString();
@@ -678,7 +677,7 @@ export default {
               valueOld.push(item.valueOld);
               dibu.push(2);
             });
-
+            this.option1 = {}
             this.option1 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -890,6 +889,7 @@ export default {
               valueOld2.push(item.valueOld);
               dibu2.push(2);
             });
+            this.option2 = {}
             this.option2 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -1101,7 +1101,7 @@ export default {
               valueOld3.push(item.valueOld);
               dibu3.push(2);
             });
-
+            this.option3 = {}
             this.option3 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -1313,7 +1313,7 @@ export default {
               valueOld4.push(item.valueOld);
               dibu4.push(2);
             });
-
+            this.option4 = {}
             this.option4 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -1525,6 +1525,7 @@ export default {
               valueOld5.push(item.valueOld);
               dibu5.push(2);
             });
+            this.option5 = {}
             this.option5 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -1736,6 +1737,7 @@ export default {
               valueOld6.push(item.valueOld);
               dibu6.push(2);
             });
+            this.option6 = {}
             this.option6 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -1948,6 +1950,7 @@ export default {
               valueOld7.push(item.valueOld);
               dibu7.push(2);
             });
+            this.option7 = {}
             this.option7 = {
               backgroundColor: "", //设置无背景色
               tooltip: {

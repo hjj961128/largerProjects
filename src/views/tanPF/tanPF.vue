@@ -135,9 +135,9 @@
                 align="center"
               >
               </el-table-column>
-              <el-table-column prop="fh" label="实时负荷" align="center">
+              <el-table-column prop="fh" label="实时负荷(MW)" align="center">
               </el-table-column>
-              <el-table-column prop="tpf" label="碳排放量" align="center">
+              <el-table-column prop="tpf" label="碳排放量(t/h)" align="center">
               </el-table-column>
             </el-table>
             <el-pagination
@@ -182,6 +182,7 @@ export default {
   },
   mounted() {
     this.$nextTick(function () {
+      this.getGroupList();
       this.getFactoryList();
       this.getJzList();
       this.getTpfStat();
@@ -193,6 +194,20 @@ export default {
     handleCurrentChange(val) {
       // 改变默认的页数
       this.currentPage = val;
+    },
+    getGroupList() {
+      this.$http({
+        method: "get",
+        url: `/jndpportal/wbjk/getGroupList.xhtml`,
+      })
+        .then((res) => {
+          if (res.data[0].res == "success") {
+            this.formInline.groupList = res.data[0].data;
+          }
+        })
+        .catch((err) => {
+          this.$message("查询集团列表接口报错");
+        });
     },
     getFactoryList(val) {
       this.formInline.checked =

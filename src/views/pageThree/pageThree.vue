@@ -31,7 +31,11 @@
               :popper-append-to-body="false"
               @change="getJzList"
             >
-              <el-option v-if="formInline.factoryList.length > 1" label="所有电厂" value="所有电厂"></el-option>
+              <el-option
+                v-if="formInline.factoryList.length > 1"
+                label="所有电厂"
+                value="所有电厂"
+              ></el-option>
               <el-option
                 v-for="item in formInline.factoryList"
                 :key="item.id"
@@ -48,7 +52,11 @@
               placeholder="请选择"
               :popper-append-to-body="false"
             >
-              <el-option v-if="formInline.jzList.length > 1" label="所有机组" value="所有机组"></el-option>
+              <el-option
+                v-if="formInline.jzList.length > 1"
+                label="所有机组"
+                value="所有机组"
+              ></el-option>
               <el-option
                 v-for="item in formInline.jzList"
                 :key="item.id"
@@ -69,38 +77,38 @@
     </div>
     <div class="footer">
       <div class="top1">
-        <div class="titleaa">{{TITLE1}}</div>
+        <div class="titleaa">{{ TITLE1 }}</div>
         <div id="myChart1"></div>
       </div>
       <div class="top2">
-        <div class="titleaa">{{TITLE2}}</div>
+        <div class="titleaa">{{ TITLE2 }}</div>
         <div id="myChart2"></div>
       </div>
       <div class="top3">
-        <div class="titleaa">{{TITLE3}}</div>
+        <div class="titleaa">{{ TITLE3 }}</div>
         <div id="myChart3"></div>
       </div>
       <div class="top4">
-        <div class="titleaa">{{TITLE4}}</div>
+        <div class="titleaa">{{ TITLE4 }}</div>
         <div id="myChart4"></div>
       </div>
       <div class="footer1">
-        <div class="titleaa">{{TITLE5}}</div>
-        <div class="title">{{PIETITLE1}}</div>
+        <div class="titleaa">{{ TITLE5 }}</div>
+        <div class="title">{{ PIETITLE1 }}</div>
         <div id="myChart5"></div>
       </div>
       <div class="footer2">
-        <div class="titleaa">{{TITLE6}}</div>
+        <div class="titleaa">{{ TITLE6 }}</div>
         <div class="title">{{ PIETITLE2 }}</div>
         <div id="myChart6"></div>
       </div>
       <div class="footer3">
-        <div class="titleaa">{{TITLE7}}</div>
+        <div class="titleaa">{{ TITLE7 }}</div>
         <div class="title">{{ PIETITLE3 }}</div>
         <div id="myChart7"></div>
       </div>
       <div class="footer4">
-        <div class="titleaa" style="margin-bottom:10px">{{TABLETITLE}}</div>
+        <div class="titleaa" style="margin-bottom: 10px">{{ TABLETITLE }}</div>
         <div class="table">
           <el-table
             :data="
@@ -111,25 +119,32 @@
             "
             style="width: 100%"
           >
-            <el-table-column label="序号"  prop="num" align="center">
+            <el-table-column label="序号" prop="num" align="center">
             </el-table-column>
             <!-- <el-table-column prop="dates" label="时间" align="center">
             </el-table-column> -->
             <el-table-column label="集团名称" width="88" align="center">
               <template slot-scope="scope">
                 <div
-                  style="width: 80px;
+                  style="
+                    width: 80px;
                     height: 26px;
                     text-align: center;
-                    line-height:26px;
-                    background: rgb(16, 42, 64);border-radius: 5px;
+                    line-height: 26px;
+                    background: rgb(16, 42, 64);
+                    border-radius: 5px;
                   "
                 >
                   {{ scope.row.groupName }}
                 </div>
               </template>
             </el-table-column>
-            <el-table-column prop="factoryName" width="113px" label="电厂名称" align="center">
+            <el-table-column
+              prop="factoryName"
+              width="113px"
+              label="电厂名称"
+              align="center"
+            >
             </el-table-column>
             <el-table-column
               prop="crewName"
@@ -138,15 +153,15 @@
               align="center"
             >
             </el-table-column>
-            <el-table-column prop="clsx" label="出力上限" align="center">
+            <el-table-column prop="clsx" label="出力上限(MW)" align="center">
             </el-table-column>
-            <el-table-column prop="clxx" label="出力下限" align="center">
+            <el-table-column prop="clxx" label="出力下限(MW)" align="center">
             </el-table-column>
-            <el-table-column prop="sscl" label="实时出力" align="center">
+            <el-table-column prop="sscl" label="实时出力(MW)" align="center">
             </el-table-column>
-            <el-table-column prop="clsxyl" label="出力上限裕量" align="center">
+            <el-table-column prop="clsxyl" label="上限裕量(MW)" align="center">
             </el-table-column>
-            <el-table-column prop="clxxyl" label="出力下限裕量" align="center">
+            <el-table-column prop="clxxyl" label="下限裕量(MW)" align="center">
             </el-table-column>
           </el-table>
           <el-pagination
@@ -168,17 +183,17 @@ import * as echarts from "echarts";
 export default {
   data() {
     return {
-      TITLE1: '',
-      TITLE2: '',
-      TITLE3: '',
-      TITLE4: '',
-      TITLE5: '',
-      TITLE6: '',
-      TITLE7: '',
-      PIETITLE1: '',
-      PIETITLE2: '',
-      PIETITLE3: '',
-      TABLETITLE: '',
+      TITLE1: "",
+      TITLE2: "",
+      TITLE3: "",
+      TITLE4: "",
+      TITLE5: "",
+      TITLE6: "",
+      TITLE7: "",
+      PIETITLE1: "",
+      PIETITLE2: "",
+      PIETITLE3: "",
+      TABLETITLE: "",
       // 默认显示第几页
       currentPage: 1,
       // 总条数，根据接口获取数据长度(注意：这里不能为空)
@@ -202,7 +217,7 @@ export default {
   mounted() {
     this.$nextTick(function () {
       // 集团
-      this.getGroupList()
+      this.getGroupList();
       // 电厂
       this.getFactoryList();
       // 机组
@@ -254,8 +269,8 @@ export default {
         .then((res) => {
           if (res.data[0].res == "success") {
             this.formInline.factoryList = res.data[0].data;
-            if(this.formInline.factoryList.length == 1){
-              this.formInline.factoryName = this.formInline.factoryList[0].id
+            if (this.formInline.factoryList.length == 1) {
+              this.formInline.factoryName = this.formInline.factoryList[0].id;
             }
           }
         })
@@ -282,8 +297,8 @@ export default {
         .then((res) => {
           if (res.data[0].res == "success") {
             this.formInline.jzList = res.data[0].data;
-            if(this.formInline.jzList.length == 1){
-              this.formInline.jzName = this.formInline.jzList[0].id
+            if (this.formInline.jzList.length == 1) {
+              this.formInline.jzName = this.formInline.jzList[0].id;
             }
           }
         })
@@ -328,6 +343,13 @@ export default {
         jzbh:
           this.formInline.jzName == "所有机组" ? "" : this.formInline.jzName,
       };
+      this.option1 = {};
+      this.option5 = {};
+      this.option2 = {};
+      this.option4 = {};
+      this.option3 = {};
+      this.option6 = {};
+      this.option7 = {};
       this.$http({
         method: "get",
         url: `jndpportal/wbjk/getKtclStat.xhtml`,
@@ -343,10 +365,10 @@ export default {
             this.TITLE5 = this.coalStatList.TITLE5;
             this.TITLE6 = this.coalStatList.TITLE6;
             this.TITLE7 = this.coalStatList.TITLE7;
-            this.PIETITLE1 = this.coalStatList.PIETITLE1
-            this.PIETITLE2 = this.coalStatList.PIETITLE2
-            this.PIETITLE3 = this.coalStatList.PIETITLE3
-            this.TABLETITLE = this.coalStatList.TABLETITLE
+            this.PIETITLE1 = this.coalStatList.PIETITLE1;
+            this.PIETITLE2 = this.coalStatList.PIETITLE2;
+            this.PIETITLE3 = this.coalStatList.PIETITLE3;
+            this.TABLETITLE = this.coalStatList.TABLETITLE;
 
             this.tableData = this.coalStatList.KTCLLIST;
             let qiannian = this.coalStatList.LASTYEARTAG.toString();
@@ -1313,6 +1335,9 @@ export default {
             let clsx4 = [];
             let clxx4 = [];
             let sscl4 = [];
+
+            let aaa = [];
+
             this.coalStatList.CLDBLIST.map((item, index) => {
               jTName4.push(item.name);
               clsx4.push(item.clsx);
@@ -1320,122 +1345,446 @@ export default {
               sscl4.push(item.sscl);
             });
 
+            var name = jTName4;
+            var data = clsx4;
+            var data2 = clxx4;
+            var data3 = sscl4;
+
+            var legends = ["出力上限", "实时出力", "出力下限"];
+
+            var color = [
+              {
+                type: "linear",
+                x: 0,
+                x2: 1,
+                y: 0,
+                y2: 0,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "rgb(121,186,249)",
+                  },
+                  {
+                    offset: 0.5,
+                    color: "rgb(121,186,249)",
+                  },
+                  {
+                    offset: 0.5,
+                    color: "rgb(72,153,239)",
+                  },
+                  {
+                    offset: 1,
+                    color: "rgb(72,153,239)",
+                  },
+                ],
+              },
+              {
+                type: "linear",
+                x: 0,
+                x2: 1,
+                y: 0,
+                y2: 0,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "#B87BFC",
+                  },
+                  {
+                    offset: 0.5,
+                    color: "#B87BFC",
+                  },
+                  {
+                    offset: 0.5,
+                    color: "#482CFB",
+                  },
+                  {
+                    offset: 1,
+                    color: "#482CFB",
+                  },
+                ],
+              },
+              {
+                type: "linear",
+                x: 0,
+                x2: 1,
+                y: 0,
+                y2: 0,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "rgb(130,249,172)",
+                  },
+                  {
+                    offset: 0.5,
+                    color: "rgb(130,249,172)",
+                  },
+                  {
+                    offset: 0.5,
+                    color: "rgb(80,158,125)",
+                  },
+                  {
+                    offset: 1,
+                    color: "rgb(80,158,125)",
+                  },
+                ],
+              },
+            ];
+            var barWidth = 30;
+            var constData = [];
+            var constData2 = [];
+            var showData = [];
+            var otherData = [];
+            for (var i = 0; i < data.length; i++) {
+              data[i] = Number(data[i]);
+              data2[i] = Number(data2[i]);
+              data3[i] = Number(data3[i]);
+              otherData[i] = data[i] + data2[i] + data3[i];
+              constData2[i] = data[i] + data2[i];
+              if (data[i] <= 0) {
+                constData.push(0);
+                showData.push({
+                  value: 1,
+                  itemStyle: {
+                    normal: {
+                      borderColor: "rgba(0,0,0,0)",
+                      borderWidth: 2,
+                      color: "rgba(0,0,0,0)",
+                    },
+                  },
+                });
+              } else {
+                constData.push(1);
+                if (data2[i] > 0) {
+                  showData.push({
+                    value: data[i],
+                    itemStyle: {
+                      normal: {
+                        borderColor: "#fdb8b8", // 第二个柱子底部的颜色
+                        borderWidth: 2,
+                        color: "#fdb8b8",
+                      },
+                    },
+                  });
+                } else {
+                  showData.push({
+                    value: data[i],
+                    itemStyle: {
+                      normal: {
+                        borderColor: "#89e3ec",
+                        borderWidth: 2,
+                        color: "#89e3ec",
+                      },
+                    },
+                  });
+                }
+              }
+            }
             this.option4 = {
               backgroundColor: "", //设置无背景色
-              title: {
-                left: "20px",
-                textStyle: { fontSize: 15 },
-              },
-              color: ["#26FF9D", "#1AE36E", "#00B455"],
-              tooltip: { trigger: "axis" },
-              legend: {
-                x: "right", // 水平居右
-                icon: "rect", // 图例icon为方块
-                itemHeight: 10, // 图例icon高度
-                itemWidth: 10, // 图例icon宽度
-                textStyle: {
-                  color: "#fff", // 图例文字颜色
+              tooltip: {
+                trigger: "axis",
+                formatter: function (params) {
+                  return (
+                    params[0].name +
+                    "<br/>" +
+                    params[0].seriesName +
+                    " : " +
+                    params[0].value.toFixed(2) +
+                    "<br/>" +
+                    params[1].seriesName +
+                    " : " +
+                    params[1].value.toFixed(2) +
+                    "<br/>" +
+                    params[2].seriesName +
+                    " : " +
+                    params[2].value.toFixed(2) +
+                    "<br/>"
+                  );
                 },
               },
+              legend: {
+                data: legends,
+                selectedMode: false, //取消点击事件
+                textStyle: { color: "#fff" },
+                show: true,
+                itemWidth: 10,
+                itemHeight: 10,
+                itemGap: 15,
+                top: "3%",
+                x: "right", // 水平居右
+              },
               grid: {
-                left: "3%",
+                left: "3%", //图表距边框的距离
                 right: "4%",
                 top: "10%",
                 bottom: "10%",
                 containLabel: true,
               },
               xAxis: {
-                type: "category",
-                data: jTName4,
-                offset: 6,
-                axisLine: {
-                  show: false,
-                  lineStyle: {
-                    color: "rgb(31,43,58)", //刻度线的颜色
-                  },
-                },
-                axisTick: {
-                  show: false, // 刻度线
-                },
-                axisLabel: {
-                  show: true,
-                  interval: 0,
-                  textStyle: {
-                    color: "#999",
-                    fontStyle: "normal",
-                    fontFamily: "微软雅黑",
-                    fontSize: 11,
-                    margin: 10,
-                  },
-                },
+                data: name,
+                // axisTick: {
+                //   show: false,
+                // },
+                axisTick: { show: true },
+                axisLine: { lineStyle: { color: "rgba(255,255,255, .2)" } },
+                axisLabel: { textStyle: { fontSize: 9, color: "#999" } },
               },
               yAxis: {
-                type: "value",
-                axisLine: {
-                  show: true, // 轴线
-                  lineStyle: {
-                    color: "rgb(52,61,74)", //刻度线的颜色
-                  },
-                },
-                splitLine: {
-                  show: true,
-                  lineStyle: {
-                    color: "rgb(31,43,58)", //刻度线的颜色
-                  },
-                },
                 axisTick: {
-                  show: false, // 刻度线
+                  show: false,
                 },
-                axisLabel: {
-                  color: "#999", // y轴字颜色
-                },
+                splitLine: { lineStyle: { color: "rgba(255,255,255, .05)" } },
+                axisLine: { show: false },
+                axisLabel: { textStyle: { fontSize: 16, color: "#999" } },
               },
               series: [
                 {
-                  name: "出力上限",
+                  z: 1,
+                  name: legends[0],
                   type: "bar",
-                  barGap: "-100%",
-                  barWidth: 45,
-                  data: clsx4,
+                  barWidth: barWidth,
+                  stack: "总量",
+                  color: color[0],
+                  data: data,
+                },
+                {
+                  z: 2,
+                  name: legends[1],
+                  type: "bar",
+                  barWidth: barWidth,
+                  stack: "总量",
+                  color: color[1],
+                  data: data2,
+                },
+                {
+                  z: 3,
+                  name: legends[2],
+                  type: "bar",
+                  barWidth: barWidth,
+                  stack: "总量",
+                  color: color[2],
+                  data: data3,
+                },
+                {
+                  z: 4,
+                  name: "项目",
+                  type: "pictorialBar",
+                  data: constData,
+                  symbol: "diamond",
+                  symbolOffset: ["0%", "50%"],
+                  symbolSize: [barWidth, 10],
                   itemStyle: {
                     normal: {
-                      color: "#26FF9D",
+                      color: color[0],
                     },
+                  },
+                  tooltip: {
+                    show: false,
                   },
                 },
                 {
-                  name: "实时出力",
-                  barWidth: 45,
-                  type: "bar",
-                  data: sscl4,
+                  z: 5,
+                  name: "项目",
+                  type: "pictorialBar",
+                  data: constData2,
+                  symbolPosition: "end",
+                  symbol: "diamond",
+                  symbolOffset: ["0%", "-50%"],
+                  symbolSize: [barWidth, 10],
                   itemStyle: {
                     normal: {
-                      color: "#1AE36E",
+                      color: color[2],
                     },
+                  },
+                  tooltip: {
+                    show: false,
                   },
                 },
                 {
-                  name: "出力下限",
-                  barWidth: 45,
-                  type: "bar",
-                  // stack: "出力",
-                  data: clxx4,
+                  z: 6,
+                  name: "项目",
+                  type: "pictorialBar",
+                  data: otherData,
+                  symbol: "diamond",
+                  symbolPosition: "end",
+                  symbolOffset: ["0%", "-50%"],
+                  symbolSize: [barWidth, 10],
                   itemStyle: {
                     normal: {
-                      color: "#00B455",
+                      color: color[2],
                     },
+                  },
+                  tooltip: {
+                    show: false,
+                  },
+                },
+                {
+                  z: 7,
+                  name: "项目",
+                  type: "pictorialBar",
+                  symbolPosition: "end",
+                  data: showData,
+                  symbol: "diamond",
+                  symbolOffset: ["0%", "-50%"],
+                  symbolSize: [barWidth - 4, (10 * (barWidth - 4)) / barWidth],
+                  tooltip: {
+                    show: false,
                   },
                 },
               ],
             };
+            // aaa.push(
+            //     {
+            //       name: "出力上限",
+            //       data: clsx4,
+            //     },
+            //     {
+            //       name: "实时出力",
+            //       data: sscl4,
+            //     },
+            //     {
+            //       name: "出力下限",
+            //       data: clxx4,
+            //     }
+            //   );
+            // const dataArr = {
+            //   xdata: jTName4,
+            //   result: aaa
+            // };
+            // // tooltip
+            // const tooltip = { trigger: "axis" };
+
+            // // legend
+            // const legend = {
+            //   data: dataArr.result.map((item) => item.name),
+            //   textStyle: { color: "#fff" },
+            //   itemWidth: 10,
+            //   itemHeight: 10,
+            //   itemGap: 15,
+            //   top: "3%",
+            //   x: "right", // 水平居右
+            //   // 禁止点击
+            //   selectedMode: false,
+            // };
+            // // grid
+            // const grid = {
+            //   left: "3%",
+            //   right: "4%",
+            //   top: "10%",
+            //   bottom: "10%",
+            //   containLabel: true,
+            // };
+
+            // // xAxis
+            // const xAxis = {
+            //   axisTick: { show: true },
+            //   axisLine: { lineStyle: { color: "rgba(255,255,255, .2)" } },
+            //   axisLabel: { textStyle: { fontSize: 9, color: "#fff" } },
+            //   data: dataArr.xdata,
+            // };
+
+            // // yAxis
+            // const yAxis = [
+            //   {
+            //     splitLine: { lineStyle: { color: "rgba(255,255,255, .05)" } },
+            //     axisLine: { show: false },
+            //     axisLabel: { textStyle: { fontSize: 16, color: "#fff" } },
+            //   },
+            // ];
+            // // 循环生成每个头部菱形
+            // const diamondData = dataArr.result.reduce((pre, cur, index) => {
+            //   pre[index] = cur.data.map(
+            //     (el, id) => el + (pre[index - 1] ? pre[index - 1][id] : 0)
+            //   );
+            //   return pre;
+            // }, []);
+
+            // // 定义好颜色 color
+            // const color = [
+            //   [
+            //     { offset: 0, color: "rgb(121,186,249)" },
+            //     { offset: 0.5, color: "rgb(121,186,249)" },
+            //     { offset: 0.5, color: "rgb(72,153,239)" },
+            //     { offset: 1, color: "rgb(72,153,239)" },
+            //   ],
+            //   [
+            //     { offset: 0, color: "#B87BFC" },
+            //     { offset: 0.5, color: "#B87BFC" },
+            //     { offset: 0.5, color: "#482CFB" },
+            //     { offset: 1, color: "#482CFB" },
+            //   ],
+            //   [
+            //     { offset: 0, color: "rgb(130,249,172)" },
+            //     { offset: 0.5, color: "rgb(130,249,172)" },
+            //     { offset: 0.5, color: "rgb(80,158,125)" },
+            //     { offset: 1, color: "rgb(80,158,125)" },
+            //   ],
+            // ];
+
+            // // 循环生成series配置
+            // let series = dataArr.result.reduce((p, c, i, array) => {
+            //   p.push(
+            //     {
+            //       z: i + 1,
+            //       type: "bar",
+            //       name: c.name,
+            //       barGap: "-100%",
+            //       barWidth: 20,
+            //       data: c.data,
+            //       itemStyle: {
+            //         color: {
+            //           type: "linear",
+            //           x: 0,
+            //           x2: 1,
+            //           y: 0,
+            //           y2: 0,
+            //           colorStops: color[i],
+            //         },
+            //       },
+            //     },
+            //     {
+            //       z: i + 10,
+            //       type: "pictorialBar",
+            //       symbolPosition: "end",
+            //       symbol: "diamond",
+            //       symbolOffset: [0, "-50%"],
+            //       symbolSize: [20, 10],
+            //       data: diamondData[i],
+            //       itemStyle: {
+            //         color: {
+            //           type: "linear",
+            //           x: 0,
+            //           x2: 1,
+            //           y: 0,
+            //           y2: 0,
+            //           colorStops: color[i],
+            //         },
+            //       },
+            //       tooltip: { show: false },
+            //     }
+            //   );
+
+            //   return p;
+            // }, []);
+
+            // // 渲染
+            // this.option4 = {
+            //   tooltip,
+            //   xAxis,
+            //   yAxis,
+            //   series,
+            //   grid,
+            //   legend,
+            //   backgroundColor: "",
+            // };
 
             myChart1.setOption(this.option1);
             myChart2.setOption(this.option2);
             myChart3.setOption(this.option3);
-            myChart4.setOption(this.option4);
             myChart5.setOption(this.option5);
             myChart6.setOption(this.option6);
             myChart7.setOption(this.option7);
+            myChart4.setOption(this.option4);
           }
         })
         .catch((err) => {

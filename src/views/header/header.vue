@@ -6,32 +6,36 @@
         <img v-else src="../../assets/shouye1.png" alt="" />
       </div>
       <div class="two" @click="goOne('2')">
-        <img v-if="yemian == '2'" src="../../assets/meikong2.png" alt="">
-        <img v-else src="../../assets/meikong1.png" alt="">
+        <img v-if="yemian == '2'" src="../../assets/meikong2.png" alt="" />
+        <img v-else src="../../assets/meikong1.png" alt="" />
       </div>
       <div class="three" @click="goOne('3')">
-        <img v-if="yemian == '3'" src="../../assets/jizu2.png" alt="">
-        <img v-else src="../../assets/jizu1.png" alt="">
+        <img v-if="yemian == '3'" src="../../assets/jizu2.png" alt="" />
+        <img v-else src="../../assets/jizu1.png" alt="" />
       </div>
       <div class="four" @click="goOne('4')">
-        <img v-if="yemian == '4'" src="../../assets/huanbao2.png" alt="">
-        <img v-else src="../../assets/huanbao1.png" alt="">
+        <img v-if="yemian == '4'" src="../../assets/huanbao2.png" alt="" />
+        <img v-else src="../../assets/huanbao1.png" alt="" />
       </div>
       <div class="six" @click="goOne('6')">
-        <img v-if="yemian == '6'" src="../../assets/nenghao2.png" alt="">
-        <img v-else src="../../assets/nenghao1.png" alt="">
+        <img v-if="yemian == '6'" src="../../assets/nenghao2.png" alt="" />
+        <img v-else src="../../assets/nenghao1.png" alt="" />
       </div>
       <div class="six" @click="goOne('7')">
-        <img v-if="yemian == '7'" src="../../assets/tan2.png" alt="">
-        <img v-else src="../../assets/tan1.png" alt="">
+        <img v-if="yemian == '7'" src="../../assets/tan2.png" alt="" />
+        <img v-else src="../../assets/tan1.png" alt="" />
       </div>
       <div class="six" @click="goOne('8')">
-        <img v-if="yemian == '8'" src="../../assets/jiankongbtn2.png" alt="">
-        <img v-else src="../../assets/jiankongbtn1.png" alt="">
+        <img v-if="yemian == '8'" src="../../assets/jiankongbtn2.png" alt="" />
+        <img v-else src="../../assets/jiankongbtn1.png" alt="" />
       </div>
-      <div class="five" @click="goOne('5')">
-        <img v-if="yemian == '5'" src="../../assets/ceshi2.png" alt="">
-        <img v-else src="../../assets/ceshi1.png" alt="">
+      <div class="six" @click="goOne('5')">
+        <img v-if="yemian == '5'" src="../../assets/ceshi2.png" alt="" />
+        <img v-else src="../../assets/ceshi1.png" alt="" />
+      </div>
+      <div class="five" @click="goOne('9')">
+        <img v-if="yemian == '9'" src="../../assets/jieneng2.png" alt="" />
+        <img v-else src="../../assets/jieneng1.png" alt="" />
       </div>
     </div>
     <div class="header-time">
@@ -47,7 +51,7 @@
 export default {
   data() {
     return {
-      yemian: '1',
+      yemian: "1",
       nian: "0000-00-00",
       shifenmiao: "0:0:0",
       nowWeek: "星期一", // 本周周几
@@ -125,13 +129,15 @@ export default {
   }
   .tab-list {
     float: left;
-    width: 1900px;
+    width: 2150px;
     margin-top: 35px;
     margin-left: 953px;
     .one,
     .two,
     .three,
-    .four,.five,.six {
+    .four,
+    .five,
+    .six {
       display: inline-block;
       width: 228px;
       height: 54px;

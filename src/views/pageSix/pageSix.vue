@@ -162,8 +162,7 @@
               <el-table-column label="集团名称" width="172px" align="center">
                 <template slot-scope="scope">
                   <div
-                    style="width: 172px;
-                      height: 26px;
+                    style="width: 172px;height: 26px;
                       text-align: center;
                       background: rgb(16, 42, 64);
                       border-radius: 4.4px;
@@ -186,19 +185,19 @@
                 align="center"
               >
               </el-table-column>
-              <el-table-column prop="edrl" label="额定容量" align="center">
+              <el-table-column prop="edrl" label="额定容量(MW)" align="center">
               </el-table-column>
-              <el-table-column prop="fhl" label="负荷率" align="center">
+              <el-table-column prop="fhl" label="负荷率(%)" align="center">
               </el-table-column>
-              <el-table-column prop="jzgl" label="机组功率" align="center">
+              <el-table-column prop="jzgl" label="机组功率(MW)" align="center">
               </el-table-column>
-              <el-table-column prop="gdmh" label="供电煤耗" align="center">
+              <el-table-column prop="gdmh" label="供电煤耗(g/kWh)" align="center">
               </el-table-column>
-              <el-table-column prop="glrxl" label="锅炉热效率" align="center">
+              <el-table-column prop="glrxl" label="锅炉热效率(%)" align="center">
               </el-table-column>
-              <el-table-column prop="qjrhl" label="汽机热耗率" align="center">
+              <el-table-column prop="qjrhl" label="汽机热耗率(kj/kWh)" align="center">
               </el-table-column>
-              <el-table-column prop="cydl" label="厂用电率" align="center">
+              <el-table-column prop="cydl" label="厂用电率(%)" align="center">
               </el-table-column>
             </el-table>
             <el-pagination
@@ -384,6 +383,7 @@ export default {
             this.TITLE2 = resDate.TITLE2
             this.TITLE3 = resDate.TITLE3
             this.TITLE4 = resDate.TITLE4
+
             this.tableData = resDate.nhList;
 
             // this.titleTime = resDate.TITLETIME
@@ -403,7 +403,7 @@ export default {
               valueOld.push(item.valueOld);
               dibu.push(2);
             });
-
+            this.option1 = {}
             this.option1 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -620,6 +620,7 @@ export default {
               valueOld2.push(item.valueOld);
               dibu2.push(2);
             });
+            this.option2 = {}
             this.option2 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -837,6 +838,7 @@ export default {
               dibu3.push(2);
             });
 
+            this.option3 = {}
             this.option3 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -1053,7 +1055,7 @@ export default {
               valueOld4.push(item.valueOld);
               dibu4.push(2);
             });
-
+            this.option4 = {}
             this.option4 = {
               backgroundColor: "", //设置无背景色
               tooltip: {

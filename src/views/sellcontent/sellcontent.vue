@@ -3,7 +3,14 @@
     <div class="main-left">
       <div class="left-top">
         <div class="search-list">
-          <el-select
+          <div>
+            <el-radio-group v-model="value111" size="mini">
+              <el-radio-button label="总"></el-radio-button>
+              <el-radio-button label="煤"></el-radio-button>
+              <el-radio-button label="燃"></el-radio-button>
+            </el-radio-group>
+          </div>
+          <!-- <el-select
             size="mini"
             v-model="value111"
             placeholder="请选择"
@@ -11,78 +18,267 @@
             <el-option label="总" value="0"></el-option>
             <el-option label="煤" value="1"></el-option>
             <el-option label="燃" value="2"></el-option>
-          </el-select>
+          </el-select> -->
         </div>
-        
+
         <div class="left-top-left">
-          
-          <div v-show="value111 == '0'" class="left-top-center-text">总</div>
-          <div v-show="value111 == '2'"  class="left-top-center-text">煤</div>
-          <div v-show="value111 == '1'"  class="left-top-center-text">燃</div>
-          
-          <img v-show="value111 == '0'" src="../../assets/pie2.png" style="width:60%;margin-left:20%;margin-top:20px;display: none;" alt="" />
-          <img v-show="value111 == '1'" src="../../assets/pie1.png" style="width:60%;margin-left:20%;margin-top:30px" alt="" />
-          <img v-show="value111 == '2'" src="../../assets/pie.png" alt="" />
+          <div v-show="value111 == '总'" class="left-top-center-text">总</div>
+          <div v-show="value111 == '煤'" class="left-top-center-text">煤</div>
+          <div v-show="value111 == '燃'" class="left-top-center-text">燃</div>
 
-          <div v-show="value111 == '0'" style="position: absolute;top: 66px;left: 74px;color: #ffffff;">{{ allname0 }}</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 88px;left: 74px;">{{ allvalue0 }}%</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 125px;left: 45px;color: #ffffff;">{{ allname1 }}</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 147px;left: 45px;">{{ allvalue1 }}%</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 210px;left: 50px;color: #ffffff;">{{ allname2 }}</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 230px;left: 50px;">{{ allvalue2 }}%</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 270px;left: 150px;color: #ffffff;">{{ allname3 }}</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 290px;left: 150px;">{{ allvalue3 }}%</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 293px;left: 206px;color: #ffffff;">{{ allname4 }}</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 310px;left: 206px;">{{ allvalue4 }}%</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 255px;left: 256px;color: #ffffff;">{{ allname5 }}</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 270px;left: 256px;">{{ allvalue5 }}%</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 197px;left: 295px;color: #ffffff;">{{ allname6 }}</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 216px;left: 295px;">{{ allvalue6 }}%</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 160px;left: 295px;color: #ffffff;">{{ allname7 }}</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 180px;left: 295px;">{{ allvalue7 }}%</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 122px;left: 292px;color: #ffffff;">{{ allname8 }}</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 138px;left: 292px;">{{ allvalue8 }}%</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 91px;left: 254px;color: #ffffff;">{{ allname9 }}</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 108px;left: 254px;">{{ allvalue9 }}%</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 60px;left: 205px;color: #ffffff;">{{ allname10 }}</div>
-          <div v-show="value111 == '0'" style="position: absolute;top: 80px;left: 205px;">{{ allvalue10 }}%</div>
+          <img
+            v-show="value111 == '总'"
+            src="../../assets/pie2.png"
+            style="
+              width: 60%;
+              margin-left: 20%;
+              margin-top: 20px;
+              display: none;
+            "
+            alt=""
+          />
+          <img
+            v-show="value111 == '燃'"
+            src="../../assets/pie1.png"
+            style="width: 60%; margin-left: 20%; margin-top: 30px"
+            alt=""
+          />
+          <img v-show="value111 == '煤'" src="../../assets/pie.png" alt="" />
 
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 66px; left: 74px; color: #ffffff"
+          >
+            {{ allname0 }}
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 88px; left: 74px"
+          >
+            {{ allvalue0 }}%
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 125px; left: 45px; color: #ffffff"
+          >
+            {{ allname1 }}
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 147px; left: 45px"
+          >
+            {{ allvalue1 }}%
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 210px; left: 50px; color: #ffffff"
+          >
+            {{ allname2 }}
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 230px; left: 50px"
+          >
+            {{ allvalue2 }}%
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 270px; left: 150px; color: #ffffff"
+          >
+            {{ allname3 }}
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 290px; left: 150px"
+          >
+            {{ allvalue3 }}%
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 293px; left: 206px; color: #ffffff"
+          >
+            {{ allname4 }}
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 310px; left: 206px"
+          >
+            {{ allvalue4 }}%
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 255px; left: 256px; color: #ffffff"
+          >
+            {{ allname5 }}
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 270px; left: 256px"
+          >
+            {{ allvalue5 }}%
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 197px; left: 295px; color: #ffffff"
+          >
+            {{ allname6 }}
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 216px; left: 295px"
+          >
+            {{ allvalue6 }}%
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 160px; left: 295px; color: #ffffff"
+          >
+            {{ allname7 }}
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 180px; left: 295px"
+          >
+            {{ allvalue7 }}%
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 122px; left: 292px; color: #ffffff"
+          >
+            {{ allname8 }}
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 138px; left: 292px"
+          >
+            {{ allvalue8 }}%
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 91px; left: 254px; color: #ffffff"
+          >
+            {{ allname9 }}
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 108px; left: 254px"
+          >
+            {{ allvalue9 }}%
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 60px; left: 205px; color: #ffffff"
+          >
+            {{ allname10 }}
+          </div>
+          <div
+            v-show="value111 == '总'"
+            style="position: absolute; top: 80px; left: 205px"
+          >
+            {{ allvalue10 }}%
+          </div>
 
-          <div v-show="value111 == '1'" style="position: absolute;top: 66px;left: 85px;color: #ffffff;">{{ rjname0 }}</div>
-          <div v-show="value111 == '1'" style="position: absolute;top: 88px;left: 85px;">{{ rjvalue0 }}%</div>
-          <div v-show="value111 == '1'" style="position: absolute;top: 123px;left: 40px;color: #ffffff;">{{ rjname1 }}</div>
-          <div v-show="value111 == '1'" style="position: absolute;top: 140px;left: 40px;">{{ rjvalue1 }}%</div>
-          <div v-show="value111 == '1'" style="position: absolute;top: 215px;left: 45px;color: #ffffff;">{{ rjname0 }}</div>
-          <div v-show="value111 == '1'" style="position: absolute;top: 235px;left: 45px;">{{ rjvalue0 }}%</div>
-          <div v-show="value111 == '1'" style="position: absolute;top: 266px;left: 185px;color: #ffffff;">{{ rjname0 }}</div>
-          <div v-show="value111 == '1'" style="position: absolute;top: 288px;left: 185px;">{{ rjvalue0 }}%</div>
-          <div v-show="value111 == '1'" style="position: absolute;top: 197px;left: 285px;color: #ffffff;">{{ rjname0 }}</div>
-          <div v-show="value111 == '1'" style="position: absolute;top: 212px;left: 285px;">{{ rjvalue0 }}%</div>
-          <div v-show="value111 == '1'" style="position: absolute;top: 140px;left: 290px;color: #ffffff;">{{ rjname0 }}</div>
-          <div v-show="value111 == '1'" style="position: absolute;top: 160px;left: 290px;">{{ rjvalue0 }}%</div>
-          <div v-show="value111 == '1'" style="position: absolute;top: 72px;left: 225px;color: #ffffff;">{{ rjname0 }}</div>
-          <div v-show="value111 == '1'" style="position: absolute;top: 88px;left: 225px;">{{ rjvalue0 }}%</div>
-          
+          <div
+            v-show="value111 == '燃'"
+            style="position: absolute; top: 66px; left: 85px; color: #ffffff"
+          >
+            {{ rjname0 }}
+          </div>
+          <div
+            v-show="value111 == '燃'"
+            style="position: absolute; top: 88px; left: 85px"
+          >
+            {{ rjvalue0 }}%
+          </div>
+          <div
+            v-show="value111 == '燃'"
+            style="position: absolute; top: 123px; left: 40px; color: #ffffff"
+          >
+            {{ rjname1 }}
+          </div>
+          <div
+            v-show="value111 == '燃'"
+            style="position: absolute; top: 140px; left: 40px"
+          >
+            {{ rjvalue1 }}%
+          </div>
+          <div
+            v-show="value111 == '燃'"
+            style="position: absolute; top: 215px; left: 45px; color: #ffffff"
+          >
+            {{ rjname2 }}
+          </div>
+          <div
+            v-show="value111 == '燃'"
+            style="position: absolute; top: 235px; left: 45px"
+          >
+            {{ rjvalue2 }}%
+          </div>
+          <div
+            v-show="value111 == '燃'"
+            style="position: absolute; top: 266px; left: 185px; color: #ffffff"
+          >
+            {{ rjname3 }}
+          </div>
+          <div
+            v-show="value111 == '燃'"
+            style="position: absolute; top: 288px; left: 185px"
+          >
+            {{ rjvalue3 }}%
+          </div>
+          <div
+            v-show="value111 == '燃'"
+            style="position: absolute; top: 197px; left: 285px; color: #ffffff"
+          >
+            {{ rjname4 }}
+          </div>
+          <div
+            v-show="value111 == '燃'"
+            style="position: absolute; top: 212px; left: 285px"
+          >
+            {{ rjvalue4 }}%
+          </div>
+          <div
+            v-show="value111 == '燃'"
+            style="position: absolute; top: 140px; left: 290px; color: #ffffff"
+          >
+            {{ rjname5 }}
+          </div>
+          <div
+            v-show="value111 == '燃'"
+            style="position: absolute; top: 160px; left: 290px"
+          >
+            {{ rjvalue5 }}%
+          </div>
+          <div
+            v-show="value111 == '燃'"
+            style="position: absolute; top: 72px; left: 225px; color: #ffffff"
+          >
+            {{ rjname6 }}
+          </div>
+          <div
+            v-show="value111 == '燃'"
+            style="position: absolute; top: 88px; left: 225px"
+          >
+            {{ rjvalue6 }}%
+          </div>
 
-
-
-
-          <div v-show="value111 == '2'" class="juhua1">巨化集团</div>
-          <div v-show="value111 == '2'" class="juhua">{{ juhua1 }}%</div>
-          <div v-show="value111 == '2'" class="taisu1">台塑集团</div>
-          <div v-show="value111 == '2'" class="taisu">{{ taisu1 }}%</div>
-          <div v-show="value111 == '2'" class="huarun1">华润集团</div>
-          <div v-show="value111 == '2'" class="huarun">{{ huarun1 }}%</div>
-          <div v-show="value111 == '2'" class="huadian1">华电集团</div>
-          <div v-show="value111 == '2'" class="huadian">{{ huadian1 }}%</div>
-          <div v-show="value111 == '2'" class="datang1">大唐集团</div>
-          <div v-show="value111 == '2'" class="datang">{{ datang1 }}%</div>
-          <div v-show="value111 == '2'" class="huaneng1">华能集团</div>
-          <div v-show="value111 == '2'" class="huaneng">{{ huaneng1 }}%</div>
-          <div v-show="value111 == '2'" class="guoneng1">国能集团</div>
-          <div v-show="value111 == '2'" class="guoneng">{{ guoneng1 }}%</div>
-          <div v-show="value111 == '2'" class="zheneng1">浙能集团</div>
-          <div v-show="value111 == '2'" class="zheneng">{{ zheneng1 }}%</div>
+          <div v-show="value111 == '煤'" class="juhua1">{{juhua1name}}</div>
+          <div v-show="value111 == '煤'" class="juhua">{{ juhua1 }}%</div>
+          <div v-show="value111 == '煤'" class="taisu1">{{ juhua2name }}</div>
+          <div v-show="value111 == '煤'" class="taisu">{{ juhua2 }}%</div>
+          <div v-show="value111 == '煤'" class="huarun1">{{ juhua3name }}</div>
+          <div v-show="value111 == '煤'" class="huarun">{{ juhua3 }}%</div>
+          <div v-show="value111 == '煤'" class="huadian1">{{juhua4name}}</div>
+          <div v-show="value111 == '煤'" class="huadian">{{ juhua4 }}%</div>
+          <div v-show="value111 == '煤'" class="datang1">{{juhua5name}}</div>
+          <div v-show="value111 == '煤'" class="datang">{{ juhua5 }}%</div>
+          <div v-show="value111 == '煤'" class="huaneng1">{{juhua6name}}</div>
+          <div v-show="value111 == '煤'" class="huaneng">{{ juhua6 }}%</div>
+          <div v-show="value111 == '煤'" class="guoneng1">{{juhua7name}}</div>
+          <div v-show="value111 == '煤'" class="guoneng">{{ juhua7 }}%</div>
+          <div v-show="value111 == '煤'" class="zheneng1">{{juhua8name}}</div>
+          <div v-show="value111 == '煤'" class="zheneng">{{ juhua8 }}%</div>
 
           <!-- <div class="left-one">
             <div class="left-one-img">
@@ -779,7 +975,8 @@
             </el-table>
             <div
               v-if="tableData.length <= 0"
-              style="color: #fff;font-size: 18px;
+              style="color: #fff;
+                font-size: 18px;
                 text-align: center;
                 font-weight: 700;
                 margin-top: 70px;
@@ -836,46 +1033,62 @@ export default {
   components: {},
   data() {
     return {
-      allname0: '',
-      allname1: '',
-      allname2: '',
-      allname3: '',
-      allname4: '',
-      allname5: '',
-      allname6: '',
-      allname7: '',
-      allname8: '',
-      allname9: '',
-      allname10: '',
-      allvalue0: '0',
-      allvalue1: '0',
-      allvalue2: '0',
-      allvalue3: '0',
-      allvalue4: '0',
-      allvalue5: '0',
-      allvalue6: '0',
-      allvalue7: '0',
-      allvalue8: '0',
-      allvalue9: '0',
-      allvalue10: '0',
-      rjname0: '',
-      rjname1: '',
-      rjname2: '',
-      rjname3: '',
-      rjname4: '',
-      rjname5: '',
-      rjname6: '',
-      rjvalue0: '0',
-      rjvalue1: '0',
-      rjvalue2: '0',
-      rjvalue3: '0',
-      rjvalue4: '0',
-      rjvalue5: '0',
-      rjvalue6: '0',
+      juhua1name: '',
+      juhua2name: '',
+      juhua3name: '',
+      juhua4name: '',
+      juhua5name: '',
+      juhua6name: '',
+      juhua7name: '',
+      juhua8name: '',
+      juhua1: '0',
+      juhua2: '0',
+      juhua3: '0',
+      juhua4: '0',
+      juhua5: '0',
+      juhua6: '0',
+      juhua7: '0',
+      juhua8: '0',
+      allname0: "",
+      allname1: "",
+      allname2: "",
+      allname3: "",
+      allname4: "",
+      allname5: "",
+      allname6: "",
+      allname7: "",
+      allname8: "",
+      allname9: "",
+      allname10: "",
+      allvalue0: "0",
+      allvalue1: "0",
+      allvalue2: "0",
+      allvalue3: "0",
+      allvalue4: "0",
+      allvalue5: "0",
+      allvalue6: "0",
+      allvalue7: "0",
+      allvalue8: "0",
+      allvalue9: "0",
+      allvalue10: "0",
+      rjname0: "",
+      rjname1: "",
+      rjname2: "",
+      rjname3: "",
+      rjname4: "",
+      rjname5: "",
+      rjname6: "",
+      rjvalue0: "0",
+      rjvalue1: "0",
+      rjvalue2: "0",
+      rjvalue3: "0",
+      rjvalue4: "0",
+      rjvalue5: "0",
+      rjvalue6: "0",
 
-      value111: '0',
-      allFhsir:[],
-      optionData1:[],
+      value111: "总",
+      allFhsir: [],
+      optionData1: [],
       tableData1: [
         {
           mingcheng: "#3",
@@ -1590,7 +1803,6 @@ export default {
     biao() {
       setInterval(() => {
         this.currentIndex++;
-        console.log(this.currentIndex);
       }, 2000);
     },
     getPie3D(pieData, internalDiameterRatio, opacity = 0.8) {
@@ -1901,6 +2113,11 @@ export default {
       var fqjrhl1 = [];
       var fqjrhl2 = [];
       var fnum = [];
+      var myDate = new Date();
+      let nowneryear = myDate.getFullYear()+''; //获取完整的年份(4位,1970-????)
+      let quYear = (nowneryear-1)+''
+      let yearArr = [quYear,nowneryear]
+
       // 去年厂用电率
       var cydl2 = [];
       this.$http({
@@ -1916,69 +2133,60 @@ export default {
 
         this.optionData1 = result.FHSTR;
         this.allFhsir = result.ALLFHSTR;
-          this.allname0 = this.allFhsir[0].name
-          this.allvalue0 = this.allFhsir[0].value
-          this.allname1 = this.allFhsir[1].name
-          this.allvalue1 = this.allFhsir[1].value
-          this.allname2 = this.allFhsir[2].name
-          this.allvalue2 = this.allFhsir[2].value
-          this.allname3 = this.allFhsir[3].name
-          this.allvalue3 = this.allFhsir[3].value
-          this.allname4 = this.allFhsir[4].name
-          this.allvalue4 = this.allFhsir[4].value
-          this.allname5 = this.allFhsir[5].name
-          this.allvalue5 = this.allFhsir[5].value
-          this.allname6 = this.allFhsir[6].name
-          this.allvalue6 = this.allFhsir[6].value
-          this.allname7 = this.allFhsir[7].name
-          this.allvalue7 = this.allFhsir[7].value
-          this.allname8 = this.allFhsir[8].name
-          this.allvalue8 = this.allFhsir[8].value
-          this.allname9 = this.allFhsir[9].name
-          this.allvalue9 = this.allFhsir[9].value
-          this.allname10 = this.allFhsir[10].name
-          this.allvalue10 = this.allFhsir[10].value
-          this.rjfhstr = result.RJFHSTR;
-          this.rjname0 = this.rjfhstr[0].name
-          this.rjvalue0 = this.rjfhstr[0].value
-          this.rjname1 = this.rjfhstr[1].name
-          this.rjvalue1 = this.rjfhstr[1].value
-          this.rjname2 = this.rjfhstr[2].name
-          this.rjvalue2 = this.rjfhstr[2].value
-          this.rjname3 = this.rjfhstr[3].name
-          this.rjvalue3 = this.rjfhstr[3].value
-          this.rjname4 = this.rjfhstr[4].name
-          this.rjvalue4 = this.rjfhstr[4].value
-          this.rjname5 = this.rjfhstr[5].name
-          this.rjvalue5 = this.rjfhstr[5].value
-          this.rjname6 = this.rjfhstr[6].name
-          this.rjvalue6 = this.rjfhstr[6].value
-        this.optionData1.map((item, index) => {
-          if (item.name == "巨化") {
-            this.juhua1 = item.value;
-          }
-          if (item.name == "浙能") {
-            this.zheneng1 = item.value;
-          }
-          if (item.name == "国能") {
-            this.guoneng1 = item.value;
-          }
-          if (item.name == "华能") {
-            this.huaneng1 = item.value;
-          }
-          if (item.name == "大唐") {
-            this.datang1 = item.value;
-          }
-          if (item.name == "华电") {
-            this.huadian1 = item.value;
-          }
-          if (item.name == "华润") {
-            this.huarun1 = item.value;
-          }
-          if (item.name == "台塑") {
-            this.taisu1 = item.value;
-          }
-        });
+        this.allname0 = this.allFhsir[0].name;
+        this.allvalue0 = this.allFhsir[0].value;
+        this.allname1 = this.allFhsir[1].name;
+        this.allvalue1 = this.allFhsir[1].value;
+        this.allname2 = this.allFhsir[2].name;
+        this.allvalue2 = this.allFhsir[2].value;
+        this.allname3 = this.allFhsir[3].name;
+        this.allvalue3 = this.allFhsir[3].value;
+        this.allname4 = this.allFhsir[4].name;
+        this.allvalue4 = this.allFhsir[4].value;
+        this.allname5 = this.allFhsir[5].name;
+        this.allvalue5 = this.allFhsir[5].value;
+        this.allname6 = this.allFhsir[6].name;
+        this.allvalue6 = this.allFhsir[6].value;
+        this.allname7 = this.allFhsir[7].name;
+        this.allvalue7 = this.allFhsir[7].value;
+        this.allname8 = this.allFhsir[8].name;
+        this.allvalue8 = this.allFhsir[8].value;
+        this.allname9 = this.allFhsir[9].name;
+        this.allvalue9 = this.allFhsir[9].value;
+        this.allname10 = this.allFhsir[10].name;
+        this.allvalue10 = this.allFhsir[10].value;
+        this.rjfhstr = result.RJFHSTR;
+        this.rjname0 = this.rjfhstr[0].name;
+        this.rjvalue0 = this.rjfhstr[0].value;
+        this.rjname1 = this.rjfhstr[1].name;
+        this.rjvalue1 = this.rjfhstr[1].value;
+        this.rjname2 = this.rjfhstr[2].name;
+        this.rjvalue2 = this.rjfhstr[2].value;
+        this.rjname3 = this.rjfhstr[3].name;
+        this.rjvalue3 = this.rjfhstr[3].value;
+        this.rjname4 = this.rjfhstr[4].name;
+        this.rjvalue4 = this.rjfhstr[4].value;
+        this.rjname5 = this.rjfhstr[5].name;
+        this.rjvalue5 = this.rjfhstr[5].value;
+        this.rjname6 = this.rjfhstr[6].name;
+        this.rjvalue6 = this.rjfhstr[6].value;
+        this.juhua1 = this.optionData1[0].value
+        this.juhua2 = this.optionData1[1].value
+        this.juhua3 = this.optionData1[2].value
+        this.juhua4 = this.optionData1[3].value
+        this.juhua5 = this.optionData1[4].value
+        this.juhua6 = this.optionData1[5].value
+        this.juhua7 = this.optionData1[6].value
+        this.juhua8 = this.optionData1[7].value
+        this.juhua1name = this.optionData1[0].name
+        this.juhua2name = this.optionData1[1].name
+        this.juhua3name = this.optionData1[2].name
+        this.juhua4name = this.optionData1[3].name
+        this.juhua5name = this.optionData1[4].name
+        this.juhua6name = this.optionData1[5].name
+        this.juhua7name = this.optionData1[6].name
+        this.juhua8name = this.optionData1[7].name
+        
         this.optionData = result.YMLSTR;
         this.optionData.map((item, index) => {
           if (item.name == "巨化") {
@@ -2391,7 +2599,7 @@ export default {
           },
           color: ["rgb(134,53,245)", "rgb(117,251,252)"],
           legend: {
-            data: ["2021", "2022"],
+            data: yearArr,
             x: "right", // 水平居右
             icon: "rect", // 图例icon为方块
             itemHeight: 10, // 图例icon高度
@@ -2455,7 +2663,7 @@ export default {
           ],
           series: [
             {
-              name: "2021",
+              name: quYear,
               data: qjrhl22,
               type: "line",
               lineStyle: {
@@ -2479,7 +2687,7 @@ export default {
               },
             },
             {
-              name: "2022",
+              name: nowneryear,
               data: qjrhl11,
               type: "line",
               lineStyle: {
@@ -2598,7 +2806,7 @@ export default {
           ],
           series: [
             {
-              name: "2021",
+              name: quYear,
               type: "bar",
               stack: "总量",
               barWidth: 10,
@@ -2631,7 +2839,7 @@ export default {
               },
             },
             {
-              name: "2022",
+              name: nowneryear,
               type: "bar",
               stack: "总量",
               xAxisIndex: 0, //对应左侧Y轴
@@ -3618,7 +3826,6 @@ export default {
           };
           this.option10 && myChart4.setOption(this.option10);
           // tooltip
-          console.log(aaa, date8);
           const title = {
             top: "9%",
             // left:'6%',

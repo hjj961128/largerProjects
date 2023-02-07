@@ -3,7 +3,11 @@
     <div class="top-search">
       <el-form :model="formInline" class="demo-form-inline">
         <el-form-item>
-          <div class="search-list qiehuantbn" style="cursor:pointer;" @click="changeTu">
+          <div
+            class="search-list qiehuantbn"
+            style="cursor: pointer"
+            @click="changeTu"
+          >
             <span v-if="showTu">排放浓度</span>
             <span v-else>排放量</span>
           </div>
@@ -130,33 +134,33 @@
     <div class="footer">
       <div class="footer-left" v-show="showTu">
         <div class="top1">
-          <div class="titleaa">{{TITLE1}}</div>
+          <div class="titleaa">{{ TITLE1 }}</div>
           <div id="myChart1"></div>
         </div>
         <div class="top2">
-          <div class="titleaa">{{TITLE2}}</div>
+          <div class="titleaa">{{ TITLE2 }}</div>
           <div id="myChart3"></div>
         </div>
         <div class="top3">
-          <div class="titleaa">{{TITLE3}}</div>
+          <div class="titleaa">{{ TITLE3 }}</div>
           <div id="myChart2"></div>
         </div>
         <div class="top4">
-          <div class="titleaa">{{TITLE4}}</div>
+          <div class="titleaa">{{ TITLE4 }}</div>
           <div id="myChart4"></div>
         </div>
       </div>
       <div class="footer-left" v-show="!showTu">
         <div class="top1">
-          <div class="titleaa">{{TITLE5}}</div>
+          <div class="titleaa">{{ TITLE5 }}</div>
           <div id="myChart6"></div>
         </div>
         <div class="top2">
-          <div class="titleaa">{{TITLE6}}</div>
+          <div class="titleaa">{{ TITLE6 }}</div>
           <div id="myChart5"></div>
         </div>
         <div class="top3">
-          <div class="titleaa">{{TITLE7}}</div>
+          <div class="titleaa">{{ TITLE7 }}</div>
           <div id="myChart7"></div>
         </div>
         <div class="top4">
@@ -166,7 +170,7 @@
       </div>
       <div class="footer-right">
         <div class="table">
-          <div class="titleaa">{{TABLETITLE}}</div>
+          <div class="titleaa">{{ TABLETITLE }}</div>
           <div class="tabel-body">
             <el-table
               :data="
@@ -190,7 +194,8 @@
               <el-table-column label="集团" width="120px" align="center">
                 <template slot-scope="scope">
                   <div
-                    style="width: 110px;
+                    style="
+                      width: 110px;
                       height: 26px;
                       text-align: center;
                       background: rgb(16, 42, 64);
@@ -216,7 +221,11 @@
               </el-table-column>
               <el-table-column prop="fdl" label="发电量(MWh)" align="center">
               </el-table-column>
-              <el-table-column prop="runTime" label="运行时间(h)" align="center">
+              <el-table-column
+                prop="runTime"
+                label="运行时间(h)"
+                align="center"
+              >
               </el-table-column>
               <el-table-column
                 prop="noxPfl"
@@ -230,12 +239,16 @@
                 align="center"
               >
               </el-table-column>
-              <el-table-column prop="dustPfl" label="烟尘排放量(t)" align="center">
+              <el-table-column
+                prop="dustPfl"
+                label="烟尘排放量(t)"
+                align="center"
+              >
               </el-table-column>
               <el-table-column label="二氧化硫浓度" align="center">
                 <el-table-column
                   prop="so2Nd"
-                  label="浓度(mg/m3)"
+                  label="浓度(mg/m³)"
                   align="center"
                 >
                 </el-table-column>
@@ -244,19 +257,31 @@
                   label="1倍以内超标时间(小时)"
                   align="center"
                 >
+                  <template slot-scope="scope">
+                    <div v-if="scope.row.so2Cb1byn * 1 > 0" style="color: red">
+                      {{ scope.row.so2Cb1byn }}
+                    </div>
+                    <div v-else>{{ scope.row.so2Cb1byn }}</div>
+                  </template>
                 </el-table-column>
                 <el-table-column
                   prop="so2Cb1bys"
                   label="二氧化硫超标一倍以上"
                   align="center"
                 >
+                  <template slot-scope="scope">
+                    <div v-if="scope.row.so2Cb1bys * 1 > 0" style="color: red">
+                      {{ scope.row.so2Cb1bys }}
+                    </div>
+                    <div v-else>{{ scope.row.so2Cb1bys }}</div>
+                  </template>
                 </el-table-column>
               </el-table-column>
 
               <el-table-column label="氮氧化物浓度" align="center">
                 <el-table-column
                   prop="noxNd"
-                  label="浓度(mg/m3)"
+                  label="浓度(mg/m³)"
                   align="center"
                 >
                 </el-table-column>
@@ -265,19 +290,31 @@
                   label="1倍以内超标时间(小时)"
                   align="center"
                 >
+                  <template slot-scope="scope">
+                    <div v-if="scope.row.noxCb1byn * 1 > 0" style="color: red">
+                      {{ scope.row.noxCb1byn }}
+                    </div>
+                    <div v-else>{{ scope.row.noxCb1byn }}</div>
+                  </template>
                 </el-table-column>
                 <el-table-column
                   prop="noxCb1bys"
                   label="1倍以上超标时间(小时)"
                   align="center"
                 >
+                  <template slot-scope="scope">
+                    <div v-if="scope.row.noxCb1bys * 1 > 0" style="color: red">
+                      {{ scope.row.noxCb1bys }}
+                    </div>
+                    <div v-else>{{ scope.row.noxCb1bys }}</div>
+                  </template>
                 </el-table-column>
               </el-table-column>
 
               <el-table-column label="烟尘浓度" align="center">
                 <el-table-column
                   prop="dustNd"
-                  label="浓度(mg/m3)"
+                  label="浓度(mg/m³)"
                   align="center"
                 >
                 </el-table-column>
@@ -286,12 +323,24 @@
                   label="1倍以内超标时间(小时)"
                   align="center"
                 >
+                <template slot-scope="scope">
+                    <div v-if="scope.row.dustCb1byn * 1 > 0" style="color: red">
+                      {{ scope.row.dustCb1byn }}
+                    </div>
+                    <div v-else>{{ scope.row.dustCb1byn }}</div>
+                  </template>
                 </el-table-column>
                 <el-table-column
                   prop="dustCb1bys"
                   label="1倍以上超标时间(小时)"
                   align="center"
                 >
+                <template slot-scope="scope">
+                    <div v-if="scope.row.dustCb1bys * 1 > 0" style="color: red">
+                      {{ scope.row.dustCb1bys }}
+                    </div>
+                    <div v-else>{{ scope.row.dustCb1bys }}</div>
+                  </template>
                 </el-table-column>
               </el-table-column>
             </el-table>
@@ -320,14 +369,14 @@ export default {
   data() {
     return {
       showTu: true,
-      TITLE1:'',
-      TITLE2:'',
-      TITLE3:'',
-      TITLE4:'',
-      TITLE5:'',
-      TITLE6:'',
-      TITLE7:'',
-      TABLETITLE:'',
+      TITLE1: "",
+      TITLE2: "",
+      TITLE3: "",
+      TITLE4: "",
+      TITLE5: "",
+      TITLE6: "",
+      TITLE7: "",
+      TABLETITLE: "",
       titleTime: "2022年",
       // 默认显示第几页
       currentPage: 1,
@@ -411,8 +460,8 @@ export default {
     });
   },
   methods: {
-    changeTu(){
-      this.showTu = !this.showTu
+    changeTu() {
+      this.showTu = !this.showTu;
     },
     //获取季度子组件传回的数据
     getValue(val) {
@@ -627,14 +676,14 @@ export default {
           if (res.data[0].res == "success") {
             this.coalStatList = res.data[0].data[0];
             // 右侧表格数据
-            this.TITLE1 = this.coalStatList.TITLE1
-            this.TITLE2 = this.coalStatList.TITLE2
-            this.TITLE3 = this.coalStatList.TITLE3
-            this.TITLE4 = this.coalStatList.TITLE4
-            this.TITLE5 = this.coalStatList.TITLE5
-            this.TITLE6 = this.coalStatList.TITLE6
-            this.TITLE7 = this.coalStatList.TITLE7
-            this.TABLETITLE = this.coalStatList.TABLETITLE
+            this.TITLE1 = this.coalStatList.TITLE1;
+            this.TITLE2 = this.coalStatList.TITLE2;
+            this.TITLE3 = this.coalStatList.TITLE3;
+            this.TITLE4 = this.coalStatList.TITLE4;
+            this.TITLE5 = this.coalStatList.TITLE5;
+            this.TITLE6 = this.coalStatList.TITLE6;
+            this.TITLE7 = this.coalStatList.TITLE7;
+            this.TABLETITLE = this.coalStatList.TABLETITLE;
 
             this.tableData = this.coalStatList.HBZKLIST;
             this.titleTime = this.coalStatList.TITLETIME;
@@ -677,7 +726,7 @@ export default {
               valueOld.push(item.valueOld);
               dibu.push(2);
             });
-            this.option1 = {}
+            this.option1 = {};
             this.option1 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -889,7 +938,7 @@ export default {
               valueOld2.push(item.valueOld);
               dibu2.push(2);
             });
-            this.option2 = {}
+            this.option2 = {};
             this.option2 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -1101,7 +1150,7 @@ export default {
               valueOld3.push(item.valueOld);
               dibu3.push(2);
             });
-            this.option3 = {}
+            this.option3 = {};
             this.option3 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -1313,7 +1362,7 @@ export default {
               valueOld4.push(item.valueOld);
               dibu4.push(2);
             });
-            this.option4 = {}
+            this.option4 = {};
             this.option4 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -1518,14 +1567,14 @@ export default {
                 },
               ],
             };
-            
+
             this.coalStatList.NOXNDLIST.map((item, index) => {
               jTName5.push(item.name);
               valueNew5.push(item.valueNew);
               valueOld5.push(item.valueOld);
               dibu5.push(2);
             });
-            this.option5 = {}
+            this.option5 = {};
             this.option5 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -1737,7 +1786,7 @@ export default {
               valueOld6.push(item.valueOld);
               dibu6.push(2);
             });
-            this.option6 = {}
+            this.option6 = {};
             this.option6 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -1943,14 +1992,13 @@ export default {
               ],
             };
 
-
             this.coalStatList.DUSTNDLIST.map((item, index) => {
               jTName7.push(item.name);
               valueNew7.push(item.valueNew);
               valueOld7.push(item.valueOld);
               dibu7.push(2);
             });
-            this.option7 = {}
+            this.option7 = {};
             this.option7 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
@@ -2155,10 +2203,6 @@ export default {
                 },
               ],
             };
-
-
-
-           
 
             myChart1.setOption(this.option1);
             myChart2.setOption(this.option2);

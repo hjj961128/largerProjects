@@ -119,7 +119,7 @@
             "
             style="width: 100%"
           >
-            <el-table-column label="序号" prop="num" align="center">
+            <el-table-column width="55" label="序号" prop="num" align="center">
             </el-table-column>
             <!-- <el-table-column prop="dates" label="时间" align="center">
             </el-table-column> -->

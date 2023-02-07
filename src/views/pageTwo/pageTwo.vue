@@ -962,7 +962,13 @@ export default {
                       }
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
-                    return name + " " + " " + p + "%";
+                    let  returnValue = ''
+                    if(p > 0){
+                      returnValue = name + " " + " " + p + "%"
+                    }else{
+                      returnValue =  name + " " + " "
+                    }
+                    return returnValue;
                   },
                 },
                 {
@@ -989,7 +995,13 @@ export default {
                       }
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
-                    return name + " " + " " + p + "%";
+                    let aaa = ''
+                    if(p > 0 ){
+                      aaa = name + " " + " " + p + "%"
+                    } else {
+                      aaa = name + " " + " " 
+                    }
+                    return aaa;
                   },
                 },
               ],
@@ -1060,7 +1072,13 @@ export default {
                       }
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
-                    return name + " " + " " + p + "%";
+                    let  returnValue = ''
+                    if(p > 0){
+                      returnValue = name + " " + " " + p + "%"
+                    }else{
+                      returnValue =  name + " " + " "
+                    }
+                    return returnValue;
                   },
                 },
                 {
@@ -1087,7 +1105,13 @@ export default {
                       }
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
-                    return name + " " + " " + p + "%";
+                    let aaa = ''
+                    if(p > 0 ){
+                      aaa = name + " " + " " + p + "%"
+                    } else {
+                      aaa = name + " " + " " 
+                    }
+                    return aaa;
                   },
                 },
               ],

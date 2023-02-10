@@ -157,8 +157,8 @@
                 align="center"
               >
               </el-table-column>
-              <el-table-column prop="dates" label="时间" align="center">
-              </el-table-column>
+              <!-- <el-table-column prop="dates" label="时间" align="center">
+              </el-table-column> -->
               <el-table-column label="集团名称" width="172px" align="center">
                 <template slot-scope="scope">
                   <div
@@ -195,7 +195,7 @@
               </el-table-column>
               <el-table-column prop="glrxl" label="锅炉热效率(%)" align="center">
               </el-table-column>
-              <el-table-column prop="qjrhl" label="汽机热耗率(kj/kWh)" align="center">
+              <el-table-column prop="qjrhl" width="180" label="汽机热耗率(kJ/kWh)" align="center">
               </el-table-column>
               <el-table-column prop="cydl" label="厂用电率(%)" align="center">
               </el-table-column>

@@ -22,9 +22,9 @@
         </div>
 
         <div class="left-top-left">
-          <div v-show="value111 == '总'" class="left-top-center-text">总</div>
-          <div v-show="value111 == '煤'" class="left-top-center-text">煤</div>
-          <div v-show="value111 == '燃'" class="left-top-center-text">燃</div>
+          <div v-show="value111 == '总'" class="left-top-center-text">总体</div>
+          <div v-show="value111 == '煤'" class="left-top-center-text">煤机</div>
+          <div v-show="value111 == '燃'" class="left-top-center-text">燃机</div>
 
           <img
             v-show="value111 == '总'"
@@ -263,21 +263,21 @@
             {{ rjvalue6 }}%
           </div>
 
-          <div v-show="value111 == '煤'" class="juhua1">{{juhua1name}}</div>
+          <div v-show="value111 == '煤'" class="juhua1">{{ juhua1name }}</div>
           <div v-show="value111 == '煤'" class="juhua">{{ juhua1 }}%</div>
           <div v-show="value111 == '煤'" class="taisu1">{{ juhua2name }}</div>
           <div v-show="value111 == '煤'" class="taisu">{{ juhua2 }}%</div>
           <div v-show="value111 == '煤'" class="huarun1">{{ juhua3name }}</div>
           <div v-show="value111 == '煤'" class="huarun">{{ juhua3 }}%</div>
-          <div v-show="value111 == '煤'" class="huadian1">{{juhua4name}}</div>
+          <div v-show="value111 == '煤'" class="huadian1">{{ juhua4name }}</div>
           <div v-show="value111 == '煤'" class="huadian">{{ juhua4 }}%</div>
-          <div v-show="value111 == '煤'" class="datang1">{{juhua5name}}</div>
+          <div v-show="value111 == '煤'" class="datang1">{{ juhua5name }}</div>
           <div v-show="value111 == '煤'" class="datang">{{ juhua5 }}%</div>
-          <div v-show="value111 == '煤'" class="huaneng1">{{juhua6name}}</div>
+          <div v-show="value111 == '煤'" class="huaneng1">{{ juhua6name }}</div>
           <div v-show="value111 == '煤'" class="huaneng">{{ juhua6 }}%</div>
-          <div v-show="value111 == '煤'" class="guoneng1">{{juhua7name}}</div>
+          <div v-show="value111 == '煤'" class="guoneng1">{{ juhua7name }}</div>
           <div v-show="value111 == '煤'" class="guoneng">{{ juhua7 }}%</div>
-          <div v-show="value111 == '煤'" class="zheneng1">{{juhua8name}}</div>
+          <div v-show="value111 == '煤'" class="zheneng1">{{ juhua8name }}</div>
           <div v-show="value111 == '煤'" class="zheneng">{{ juhua8 }}%</div>
 
           <!-- <div class="left-one">
@@ -298,22 +298,22 @@
         <div class="left-top-center">
           <div class="left-top-center-text">原煤量</div>
           <img src="../../assets/pie.png" alt="" />
-          <div class="juhua1">巨化集团</div>
-          <div class="juhua">{{ juhua }}%</div>
-          <div class="taisu1">台塑集团</div>
-          <div class="taisu">{{ taisu }}%</div>
-          <div class="huarun1">华润集团</div>
-          <div class="huarun">{{ huarun }}%</div>
-          <div class="huadian1">华电集团</div>
-          <div class="huadian">{{ huadian }}%</div>
-          <div class="datang1">大唐集团</div>
-          <div class="datang">{{ datang }}%</div>
-          <div class="huaneng1">华能集团</div>
-          <div class="huaneng">{{ huaneng }}%</div>
-          <div class="guoneng1">国能集团</div>
-          <div class="guoneng">{{ guoneng }}%</div>
-          <div class="zheneng1">浙能集团</div>
-          <div class="zheneng">{{ zheneng }}%</div>
+          <div class="juhua1">浙能集团</div>
+          <div class="juhua">{{ zheneng }}%</div>
+          <div class="taisu1">国能集团</div>
+          <div class="taisu">{{ guoneng }}%</div>
+          <div class="huarun1">华能集团</div>
+          <div class="huarun">{{ huaneng }}%</div>
+          <div class="huadian1">大唐集团</div>
+          <div class="huadian">{{ datang }}%</div>
+          <div class="datang1">华电集团</div>
+          <div class="datang">{{ huadian }}%</div>
+          <div class="huaneng1">华润集团</div>
+          <div class="huaneng">{{ huarun }}%</div>
+          <div class="guoneng1">台塑集团</div>
+          <div class="guoneng">{{ taisu }}%</div>
+          <div class="zheneng1">巨化集团</div>
+          <div class="zheneng">{{ juhua }}%</div>
           <!-- <div class="cityGreenLand-charts" id="cityGreenLand-charts"></div> -->
         </div>
         <div class="left-top-right">
@@ -339,8 +339,8 @@
       <div class="main-center1">{{ LJFD }}MWh</div>
       <div class="bbb">全省当日累计发电量</div>
       <div class="main-center2">{{ SSFH }}MW</div>
-      <div class="main-center3">煤机负荷{{ MJFH }}MW</div>
-      <div class="main-center4">燃机负荷{{ RJFH }}MW</div>
+      <div class="main-center3">煤机{{ MJFH }}MW</div>
+      <div class="main-center4">燃机{{ RJFH }}MW</div>
 
       <div class="imgs1" @click="showCurrentIndex('1')">
         <img src="../../assets/p5.png" alt="" />
@@ -397,6 +397,18 @@
         <img src="../../assets/p1.png" alt="" />
       </div>
       <div class="imgs19" @click="showCurrentIndex('0')">
+        <img src="../../assets/p2.png" alt="" />
+      </div>
+      <div class="imgs20" @click="showCurrentIndex('20')">
+        <img src="../../assets/p2.png" alt="" />
+      </div>
+      <div class="imgs21" @click="showCurrentIndex('21')">
+        <img src="../../assets/p2.png" alt="" />
+      </div>
+      <div class="imgs22" @click="showCurrentIndex('22')">
+        <img src="../../assets/p2.png" alt="" />
+      </div>
+      <div class="imgs23" @click="showCurrentIndex('23')">
         <img src="../../assets/p2.png" alt="" />
       </div>
       <div class="biaoge1" v-show="1 == currentIndex">
@@ -876,6 +888,102 @@
           <el-table-column prop="bianya" label="主变压器"> </el-table-column>
         </el-table>
       </div>
+      <div class="biaoge20" v-show="20 == currentIndex">
+        <div class="title">浙江浙能中煤舟山煤电有限责任公司</div>
+        <div class="title-de">
+          浙能浙能中煤舟山煤电有限责任公司规划建设4台1000MW超超临界机组，一期工程建设2台高参数、大容量1030MW超超临界燃煤机组，配套建设海水淡化设施，已经投产。电厂一期工程两台机组主机设备分别由北京巴威有限公司、东方汽轮机厂、东方电机股份有限公司提供。总投资估算78亿元。
+        </div>
+        <el-table
+          :data="tableData20"
+          style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
+        >
+          <el-table-column prop="mingcheng" label="名称" width="44">
+          </el-table-column>
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
+          </el-table-column>
+          <el-table-column prop="jizu" label="机组类型" width="68">
+          </el-table-column>
+          <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="185">
+          </el-table-column>
+          <el-table-column prop="qilun" label="汽轮机燃气轮机" width="120">
+          </el-table-column>
+          <el-table-column prop="fadian" label="发电机" width="210">
+          </el-table-column>
+          <el-table-column prop="bianya" label="主变压器"> </el-table-column>
+        </el-table>
+      </div>
+      <div class="biaoge21" v-show="21 == currentIndex">
+        <div class="title">台塑集团热电（宁波）有限公司</div>
+        <div class="title-de">
+          台塑集团热电（宁波）有限公司是台塑集团属下的子公司，成立于2011年，注册资本元100亿元。台塑集团热电（宁波）有限公司占地面积180亩，实行独立经营，自负盈亏。公司一期工程投资6亿人民币，建设2*60MW抽汽供热机组（配260t/h煤粉锅炉），实现热电联产。
+        </div>
+        <el-table
+          :data="tableData21"
+          style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
+        >
+          <el-table-column prop="mingcheng" label="名称" width="44">
+          </el-table-column>
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
+          </el-table-column>
+          <el-table-column prop="jizu" label="机组类型" width="68">
+          </el-table-column>
+          <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="130">
+          </el-table-column>
+          <el-table-column prop="qilun" label="汽轮机燃气轮机" width="130">
+          </el-table-column>
+          <el-table-column prop="fadian" label="发电机" width="170">
+          </el-table-column>
+          <el-table-column prop="bianya" label="主变压器"> </el-table-column>
+        </el-table>
+      </div>
+      <div class="biaoge22" v-show="22 == currentIndex">
+        <div class="title">浙江巨化热电有限公司</div>
+        <div class="title-de">
+          浙江巨化热电有限公司于2002年05月31日成立，注册资本25562.02万元，地址位于浙江衢州高新技术产业园区。
+        </div>
+        <el-table
+          :data="tableData22"
+          style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
+        >
+          <el-table-column prop="mingcheng" label="名称" width="44">
+          </el-table-column>
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
+          </el-table-column>
+          <el-table-column prop="jizu" label="机组类型" width="68">
+          </el-table-column>
+          <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="130">
+          </el-table-column>
+          <el-table-column prop="qilun" label="汽轮机燃气轮机" width="135">
+          </el-table-column>
+          <el-table-column prop="fadian" label="发电机" width="170">
+          </el-table-column>
+          <el-table-column prop="bianya" label="主变压器"> </el-table-column>
+        </el-table>
+      </div>
+      <div class="biaoge23" v-show="23 == currentIndex">
+        <div class="title">浙江浙能镇海发电有限责任公司</div>
+        <div class="title-de">
+          浙能镇海发电有限责任公司（简称镇电公司），前身为镇海发电厂，2000年1月1日按现代企业制度要求，改制成有限责任公司。2003年3月1日归属浙江能源集团有限公司。　　原镇海发电厂工程是国家“六五”和“七五”期间重点建设项目，由国家计委和水电部批准建设。伴随着市场经济发展的历史进程，镇海发电厂突出以经济效益为中心，加强内部经营管理，依靠科技进步，走内涵发展和外延扩展道路，不断深化企业改革，积极为企业在电力市场竞争中立于不败之地地创造有利条件。
+        </div>
+        <el-table
+          :data="tableData23"
+          style="width: 100%; color: #fff; font-weight: 200; font-size: 11px"
+        >
+          <el-table-column prop="mingcheng" label="名称" width="44">
+          </el-table-column>
+          <el-table-column prop="rongliang" label="容量(MW)" width="75">
+          </el-table-column>
+          <el-table-column prop="jizu" label="机组类型" width="68">
+          </el-table-column>
+          <el-table-column prop="shebei" label="锅炉燃气燃烧设备" width="185">
+          </el-table-column>
+          <el-table-column prop="qilun" label="汽轮机燃气轮机" width="120">
+          </el-table-column>
+          <el-table-column prop="fadian" label="发电机" width="210">
+          </el-table-column>
+          <el-table-column prop="bianya" label="主变压器"> </el-table-column>
+        </el-table>
+      </div>
     </div>
     <!-- 右边部分 -->
     <div class="main-right">
@@ -975,7 +1083,8 @@
             </el-table>
             <div
               v-if="tableData.length <= 0"
-              style="color: #fff;
+              style="
+                color: #fff;
                 font-size: 18px;
                 text-align: center;
                 font-weight: 700;
@@ -1033,22 +1142,22 @@ export default {
   components: {},
   data() {
     return {
-      juhua1name: '',
-      juhua2name: '',
-      juhua3name: '',
-      juhua4name: '',
-      juhua5name: '',
-      juhua6name: '',
-      juhua7name: '',
-      juhua8name: '',
-      juhua1: '0',
-      juhua2: '0',
-      juhua3: '0',
-      juhua4: '0',
-      juhua5: '0',
-      juhua6: '0',
-      juhua7: '0',
-      juhua8: '0',
+      juhua1name: "",
+      juhua2name: "",
+      juhua3name: "",
+      juhua4name: "",
+      juhua5name: "",
+      juhua6name: "",
+      juhua7name: "",
+      juhua8name: "",
+      juhua1: "0",
+      juhua2: "0",
+      juhua3: "0",
+      juhua4: "0",
+      juhua5: "0",
+      juhua6: "0",
+      juhua7: "0",
+      juhua8: "0",
       allname0: "",
       allname1: "",
       allname2: "",
@@ -1721,6 +1830,113 @@ export default {
           bianya: "保定天威变电气股份有限公司",
         },
       ],
+      tableData20: [
+        {
+          mingcheng: "#1",
+          rongliang: "1030",
+          jizu: "超超临界",
+          shebei: "北京巴布科克.威尔科克斯有限公司",
+          qilun: "东方汽轮机有限公司",
+          fadian: "东方电气集团东方发电机股份有限公司",
+          bianya: "常州东芝变压器有限公司",
+        },
+        {
+          mingcheng: "#2",
+          rongliang: "1030",
+          jizu: "超超临界",
+          shebei: "北京巴布科克.威尔科克斯有限公司",
+          qilun: "东方汽轮机有限公司",
+          fadian: "东方电气集团东方发电机股份有限公司",
+          bianya: "常州东芝变压器有限公司",
+        },
+      ],
+      tableData21: [
+        {
+          mingcheng: "#1",
+          rongliang: "149",
+          jizu: "超高压",
+          shebei: "上海锅炉厂有限公司",
+          qilun: "上海汽轮机有限公司",
+          fadian: "上海电气集团股份有限公司",
+          bianya: "特变电工衡阳变压器有限公司",
+        },
+        {
+          mingcheng: "#2",
+          rongliang: "149",
+          jizu: "超高压",
+          shebei: "上海锅炉厂有限公司",
+          qilun: "上海汽轮机有限公司",
+          fadian: "上海电气集团股份有限公司",
+          bianya: "特变电工衡阳变压器有限公司",
+        },
+        {
+          mingcheng: "#3",
+          rongliang: "149",
+          jizu: "超高压",
+          shebei: "上海锅炉厂有限公司",
+          qilun: "上海汽轮机有限公司",
+          fadian: "上海电气集团股份有限公司",
+          bianya: "特变电工衡阳变压器有限公司",
+        },
+      ],
+      tableData22: [
+        {
+          mingcheng: "#6",
+          rongliang: "125",
+          jizu: "超高压",
+          shebei: "上海锅炉厂有限公司",
+          qilun: "上海汽轮机有限公司",
+          fadian: "上海电气集团股份有限公司",
+          bianya: "特变电工衡阳变压器有限公司",
+        },
+        {
+          mingcheng: "#7",
+          rongliang: "125",
+          jizu: "超高压",
+          shebei: "上海锅炉厂有限公司",
+          qilun: "上海汽轮机有限公司",
+          fadian: "上海电气集团股份有限公司",
+          bianya: "特变电工衡阳变压器有限公司",
+        },
+        {
+          mingcheng: "#8",
+          rongliang: "125",
+          jizu: "超高压",
+          shebei: "上海锅炉厂有限公司",
+          qilun: "上海汽轮机有限公司",
+          fadian: "上海电气集团股份有限公司",
+          bianya: "特变电工衡阳变压器有限公司",
+        },
+        {
+          mingcheng: "#9",
+          rongliang: "125",
+          jizu: "超高压",
+          shebei: "上海锅炉厂有限公司",
+          qilun: "上海汽轮机有限公司",
+          fadian: "上海电气集团股份有限公司",
+          bianya: "特变电工衡阳变压器有限公司",
+        },
+      ],
+      tableData23: [
+        {
+          mingcheng: "#1",
+          rongliang: "38",
+          jizu: "超临界",
+          shebei: " ",
+          qilun: " ",
+          fadian: " ",
+          bianya: " ",
+        },
+        {
+          mingcheng: "#2",
+          rongliang: "38",
+          jizu: "超临界",
+          shebei: " ",
+          qilun: " ",
+          fadian: " ",
+          bianya: " ",
+        },
+      ],
       gasMachine: 0,
       gasMachineFunction: 0,
       rqjz: 0,
@@ -2114,9 +2330,9 @@ export default {
       var fqjrhl2 = [];
       var fnum = [];
       var myDate = new Date();
-      let nowneryear = myDate.getFullYear()+''; //获取完整的年份(4位,1970-????)
-      let quYear = (nowneryear-1)+''
-      let yearArr = [quYear,nowneryear]
+      let nowneryear = myDate.getFullYear() + ""; //获取完整的年份(4位,1970-????)
+      let quYear = nowneryear - 1 + "";
+      let yearArr = [quYear, nowneryear];
 
       // 去年厂用电率
       var cydl2 = [];
@@ -2170,23 +2386,23 @@ export default {
         this.rjvalue5 = this.rjfhstr[5].value;
         this.rjname6 = this.rjfhstr[6].name;
         this.rjvalue6 = this.rjfhstr[6].value;
-        this.juhua1 = this.optionData1[0].value
-        this.juhua2 = this.optionData1[1].value
-        this.juhua3 = this.optionData1[2].value
-        this.juhua4 = this.optionData1[3].value
-        this.juhua5 = this.optionData1[4].value
-        this.juhua6 = this.optionData1[5].value
-        this.juhua7 = this.optionData1[6].value
-        this.juhua8 = this.optionData1[7].value
-        this.juhua1name = this.optionData1[0].name
-        this.juhua2name = this.optionData1[1].name
-        this.juhua3name = this.optionData1[2].name
-        this.juhua4name = this.optionData1[3].name
-        this.juhua5name = this.optionData1[4].name
-        this.juhua6name = this.optionData1[5].name
-        this.juhua7name = this.optionData1[6].name
-        this.juhua8name = this.optionData1[7].name
-        
+        this.juhua1 = this.optionData1[0].value;
+        this.juhua2 = this.optionData1[1].value;
+        this.juhua3 = this.optionData1[2].value;
+        this.juhua4 = this.optionData1[3].value;
+        this.juhua5 = this.optionData1[4].value;
+        this.juhua6 = this.optionData1[5].value;
+        this.juhua7 = this.optionData1[6].value;
+        this.juhua8 = this.optionData1[7].value;
+        this.juhua1name = this.optionData1[0].name;
+        this.juhua2name = this.optionData1[1].name;
+        this.juhua3name = this.optionData1[2].name;
+        this.juhua4name = this.optionData1[3].name;
+        this.juhua5name = this.optionData1[4].name;
+        this.juhua6name = this.optionData1[5].name;
+        this.juhua7name = this.optionData1[6].name;
+        this.juhua8name = this.optionData1[7].name;
+
         this.optionData = result.YMLSTR;
         this.optionData.map((item, index) => {
           if (item.name == "巨化") {
@@ -2311,7 +2527,7 @@ export default {
         fqjrhl2 = qjrhl2.reverse();
         this.option4 = {
           title: {
-            text: " （ % ） ",
+            text: "(%)",
             textStyle: {
               //主标题的属性
               color: "#fff", //颜色
@@ -2475,7 +2691,7 @@ export default {
         };
         this.option1 = {
           title: {
-            text: " （ g/kWh ）",
+            text: " (g/kWh)",
             textStyle: {
               //主标题的属性
               color: "#fff", //颜色
@@ -2578,7 +2794,7 @@ export default {
         };
         this.option5 = {
           title: {
-            text: " （ kJ/kWh ）",
+            text: "(kJ/kWh)",
             textStyle: {
               //主标题的属性
               color: "#fff", //颜色
@@ -2714,7 +2930,7 @@ export default {
         };
         this.option6 = {
           title: {
-            text: " （ % ）",
+            text: "(%)",
             textStyle: {
               //主标题的属性
               color: "#fff", //颜色
@@ -3086,7 +3302,7 @@ export default {
             title: {
               top: "9%",
               left: "6%",
-              text: " （ 吨 ） ",
+              text: " (t) ",
               textStyle: {
                 //主标题的属性
                 color: "#fff", //颜色
@@ -3262,7 +3478,7 @@ export default {
             title: {
               top: "9%",
               left: "6%",
-              text: " （ 吨 ） ",
+              text: " (t) ",
               textStyle: {
                 //主标题的属性
                 color: "#fff", //颜色
@@ -3451,7 +3667,7 @@ export default {
             title: {
               top: "9%",
               left: "6%",
-              text: " （ 吨 ） ",
+              text: "(t) ",
               textStyle: {
                 //主标题的属性
                 color: "#fff", //颜色
@@ -3640,7 +3856,7 @@ export default {
             title: {
               top: "9%",
               left: "6%",
-              text: " （ 吨 ） ",
+              text: "(t)",
               textStyle: {
                 //主标题的属性
                 color: "#fff", //颜色
@@ -3829,7 +4045,7 @@ export default {
           const title = {
             top: "9%",
             // left:'6%',
-            text: " （ 吨 ）",
+            text: "(t)",
             textStyle: {
               //主标题的属性
               color: "#fff", //颜色

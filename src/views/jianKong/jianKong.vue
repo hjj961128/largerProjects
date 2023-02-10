@@ -3182,7 +3182,7 @@
           <div class="right5">
             <span class="right1name">汽机热耗率</span>
             <span class="rightshu"
-              >{{ shuju2 }} <span class="rightdan"> kj/kWh</span></span
+              >{{ shuju2 }} <span class="rightdan"> kJ/kWh</span></span
             >
           </div>
           <div class="right6">

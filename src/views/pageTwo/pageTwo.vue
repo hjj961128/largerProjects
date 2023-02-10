@@ -167,19 +167,23 @@
                 prop="num"
                 align="center"
               >
+                <template slot-scope="scope">
+                  <div :class="(scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'">
+                    {{ scope.row.num }}
+                  </div>
+                </template>
               </el-table-column>
               <el-table-column prop="dates" label="时间" align="center">
               </el-table-column>
               <el-table-column label="集团" width="172px" align="center">
                 <template slot-scope="scope">
                   <div
-                    style="
-                      width: 172px;
-                      height: 26px;
+                    style="width: 172px;height: 26px;
                       text-align: center;
                       background: rgb(16, 42, 64);
                       border-radius: 4.4px;
                     "
+                    :class="(scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'"
                   >
                     {{ scope.row.groupName }}
                   </div>
@@ -190,6 +194,11 @@
                 label="电厂名称"
                 align="center"
               >
+              <template slot-scope="scope">
+                  <div :class="(scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'">
+                    {{ scope.row.factoryName }}
+                  </div>
+                </template>
               </el-table-column>
               <el-table-column
                 prop="crewName"
@@ -197,14 +206,29 @@
                 label="机组名称"
                 align="center"
               >
+              <template slot-scope="scope">
+                  <div :class="(scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'">
+                    {{ scope.row.crewName }}
+                  </div>
+                </template>
               </el-table-column>
               <el-table-column prop="coal" label="原煤量(t)" align="center">
+                <template slot-scope="scope">
+                  <div :class="(scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'">
+                    {{ scope.row.coal }}
+                  </div>
+                </template>
               </el-table-column>
               <el-table-column
                 prop="terminal"
-                label="机端发电量(MWh)"
+                label="发电量(MWh)"
                 align="center"
               >
+              <template slot-scope="scope">
+                  <div :class="(scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'">
+                    {{ scope.row.terminal }}
+                  </div>
+                </template>
               </el-table-column>
             </el-table>
             <el-pagination
@@ -946,7 +970,7 @@ export default {
                   y: 20, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
-                  itemGap: 40,
+                  itemGap: 30,
                   textStyle: {
                     color: "#fff", // 图例文字颜色
                   },
@@ -979,7 +1003,7 @@ export default {
                   y: 20, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
-                  itemGap: 40,
+                  itemGap: 30,
                   textStyle: {
                     color: "#fff", // 图例文字颜色
                   },
@@ -1056,7 +1080,7 @@ export default {
                   y: 20, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
-                  itemGap: 40,
+                  itemGap: 30,
                   textStyle: {
                     color: "#fff", // 图例文字颜色
                   },
@@ -1089,7 +1113,7 @@ export default {
                   y: 20, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
-                  itemGap: 40,
+                  itemGap: 30,
                   textStyle: {
                     color: "#fff", // 图例文字颜色
                   },

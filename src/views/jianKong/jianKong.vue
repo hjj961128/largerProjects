@@ -443,10 +443,13 @@
         <div class="center1" v-show="tubiaoShow == '1'">
           <div class="text14">
             <div
-              class="text14dian"
+              class="text14dian1"
+              style="width: 150px"
               @mouseenter="showtext14 = true"
               @mouseleave="showtext14 = false"
-            ></div>
+            >
+              {{ text14 }}
+            </div>
             <div class="kuang" v-show="showtext14">
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text14desc }}</span>
@@ -464,10 +467,13 @@
           </div>
           <div class="text15">
             <div
-              class="text14dian"
+              class="text14dian1"
+              style="width: 150px"
               @mouseenter="showtext15 = true"
               @mouseleave="showtext15 = false"
-            ></div>
+            >
+              {{ text15 }}
+            </div>
             <div class="kuang" v-show="showtext15">
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text15desc }}</span>
@@ -485,11 +491,30 @@
           </div>
           <div class="text16">
             <div
-              class="text14dian"
+              class="text14dian1"
+              style="width: 250px; text-align: left"
               @mouseenter="showtext16 = true"
               @mouseleave="showtext16 = false"
-            ></div>
-            <div class="kuang" v-show="showtext16">
+            >
+              <img
+                v-if=" danwei16 <= 0"
+                style="width: 100px; display: inline-block"
+                src="../../assets/fengjirun.png"
+                alt=""
+              />
+              <img
+                v-else
+                style="width: 100px; display: inline-block"
+                src="../../assets/fengjistop.png"
+                alt=""
+              />
+              {{ text16 }}
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext16"
+              style="margin-top: -200px; margin-left: 150px"
+            >
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text16desc }}</span>
               </div> -->
@@ -506,11 +531,32 @@
           </div>
           <div class="text17">
             <div
-              class="text14dian"
+              class="text14dian1"
+              style="width: 250px; text-align: left"
               @mouseenter="showtext17 = true"
               @mouseleave="showtext17 = false"
-            ></div>
-            <div class="kuang" v-show="showtext17">
+            >
+              <img
+                v-if="
+                danwei17 <= 0
+                "
+                style="width: 100px; display: inline-block"
+                src="../../assets/fengjirun.png"
+                alt=""
+              />
+              <img
+                v-else
+                style="width: 100px; display: inline-block"
+                src="../../assets/fengjistop.png"
+                alt=""
+              />
+              {{ text17 }}
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext17"
+              style="margin-top: -200px; margin-left: 150px"
+            >
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text17desc }}</span>
               </div> -->
@@ -527,11 +573,32 @@
           </div>
           <div class="text18">
             <div
-              class="text14dian"
+              class="text14dian1"
+              style="width: 250px; text-align: left"
               @mouseenter="showtext18 = true"
               @mouseleave="showtext18 = false"
-            ></div>
-            <div class="kuang" v-show="showtext18" style="margin-top: -260px">
+            >
+              <img
+                v-if="
+                danwei18 <= 0
+                "
+                style="width: 100px; display: inline-block"
+                src="../../assets/fengjirun.png"
+                alt=""
+              />
+              <img
+                v-else
+                style="width: 100px; display: inline-block"
+                src="../../assets/fengjistop.png"
+                alt=""
+              />
+              {{ text18 }}
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext18"
+              style="margin-top: -200px; margin-left: 150px"
+            >
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text18desc }}</span>
               </div> -->
@@ -548,11 +615,32 @@
           </div>
           <div class="text19">
             <div
-              class="text14dian"
+              class="text14dian1"
+              style="width: 250px; text-align: left"
               @mouseenter="showtext19 = true"
               @mouseleave="showtext19 = false"
-            ></div>
-            <div class="kuang" v-show="showtext19" style="margin-top: -260px">
+            >
+              <img
+                v-if="
+                danwei19<=0
+                "
+                style="width: 100px; display: inline-block"
+                src="../../assets/fengjirun.png"
+                alt=""
+              />
+              <img
+                v-else
+                style="width: 100px; display: inline-block"
+                src="../../assets/fengjistop.png"
+                alt=""
+              />
+              {{ text19 }}
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext19"
+              style="margin-top: -200px; margin-left: 150px"
+            >
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text19desc }}</span>
               </div> -->
@@ -570,11 +658,32 @@
 
           <div class="text20">
             <div
-              class="text14dian"
+              class="text14dian1 text20zi"
+              style="width: 250px"
               @mouseenter="showtext20 = true"
               @mouseleave="showtext20 = false"
-            ></div>
-            <div class="kuang" v-show="showtext20">
+            >
+              {{ text20 }}
+              <img
+                v-if="
+                danwei20<=0
+                "
+                style="width: 50px; display: inline-block"
+                src="../../assets/mojirun.png"
+                alt=""
+              />
+              <img
+                v-else
+                style="width: 50px; display: inline-block"
+                src="../../assets/mojistop.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext20"
+              style="margin-top: -200px; margin-left: -150px"
+            >
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text20desc }}</span>
               </div> -->
@@ -591,11 +700,32 @@
           </div>
           <div class="text21">
             <div
-              class="text14dian"
+              class="text14dian1"
+              style="width: 250px; text-align: left"
               @mouseenter="showtext21 = true"
               @mouseleave="showtext21 = false"
-            ></div>
-            <div class="kuang" v-show="showtext21">
+            >
+              <img
+                v-if="
+                danwei21<=0
+                "
+                style="width: 50px"
+                src="../../assets/mojirun.png"
+                alt=""
+              />
+              <img
+                v-else
+                style="width: 50px"
+                src="../../assets/mojistop.png"
+                alt=""
+              />
+              {{ text21 }}
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext21"
+              style="margin-top: -200px; margin-right: -150px"
+            >
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text21desc }}</span>
               </div> -->
@@ -612,11 +742,32 @@
           </div>
           <div class="text22">
             <div
-              class="text14dian"
+              class="text14dian1"
+              style="width: 250px"
               @mouseenter="showtext22 = true"
               @mouseleave="showtext22 = false"
-            ></div>
-            <div class="kuang" v-show="showtext22">
+            >
+              {{ text22 }}
+              <img
+                v-if="
+                danwei22 <= 0
+                "
+                style="width: 50px; display: inline-block"
+                src="../../assets/mojirun.png"
+                alt=""
+              />
+              <img
+                v-else
+                style="width: 50px; display: inline-block"
+                src="../../assets/mojistop.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext22"
+              style="margin-top: -200px; margin-left: -150px"
+            >
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text22desc }}</span>
               </div> -->
@@ -633,11 +784,32 @@
           </div>
           <div class="text23">
             <div
-              class="text14dian"
+              class="text14dian1"
+              style="width: 250px; text-align: left"
               @mouseenter="showtext23 = true"
               @mouseleave="showtext23 = false"
-            ></div>
-            <div class="kuang" v-show="showtext23">
+            >
+              <img
+                v-if="
+                danwei23 <= 0
+                "
+                style="width: 50px; display: inline-block"
+                src="../../assets/mojirun.png"
+                alt=""
+              />
+              <img
+                v-else
+                style="width: 50px; display: inline-block"
+                src="../../assets/mojistop.png"
+                alt=""
+              />
+              {{ text23 }}
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext23"
+              style="margin-top: -200px; margin-right: -150px"
+            >
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text23desc }}</span>
               </div> -->
@@ -654,10 +826,27 @@
           </div>
           <div class="text24">
             <div
-              class="text14dian"
+              class="text14dian1"
+              style="width: 250px"
               @mouseenter="showtext24 = true"
               @mouseleave="showtext24 = false"
-            ></div>
+            >
+              {{ text24 }}
+              <img
+                v-if="
+                danwei24 <= 0
+                "
+                style="width: 50px; display: inline-block"
+                src="../../assets/mojirun.png"
+                alt=""
+              />
+              <img
+                v-else
+                style="width: 50px; display: inline-block"
+                src="../../assets/mojistop.png"
+                alt=""
+              />
+            </div>
             <div class="kuang" v-show="showtext24">
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text24desc }}</span>
@@ -675,10 +864,27 @@
           </div>
           <div class="text25">
             <div
-              class="text14dian"
+              class="text14dian1"
+              style="width: 250px; text-align: left"
               @mouseenter="showtext25 = true"
               @mouseleave="showtext25 = false"
-            ></div>
+            >
+              <img
+                v-if="
+                danwei25 <= 0
+                "
+                style="width: 50px; display: inline-block"
+                src="../../assets/mojirun.png"
+                alt=""
+              />
+              <img
+                v-else
+                style="width: 50px; display: inline-block"
+                src="../../assets/mojistop.png"
+                alt=""
+              />
+              {{ text25 }}
+            </div>
             <div class="kuang" v-show="showtext25">
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text25desc }}</span>
@@ -696,10 +902,13 @@
           </div>
           <div class="text00">
             <div
-              class="text00dian"
+              class="text14dian1"
+              style="width: 150px"
               @mouseenter="showtext00 = true"
               @mouseleave="showtext00 = false"
-            ></div>
+            >
+              {{ text00 }}
+            </div>
             <div class="kuang" v-show="showtext00">
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text00desc }}</span>
@@ -712,6 +921,84 @@
               </div>
               <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text00time }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="text26">
+            <div
+              class="text14dian1"
+              style="width: 250px; text-align: right"
+              @mouseenter="showtext26 = true"
+              @mouseleave="showtext26 = false"
+            >
+              {{ text26 }}
+              <img
+                v-if="
+                danwei26 < 1
+                "
+                style="width: 25px; display: inline-block"
+                src="../../assets/stop.png"
+                alt=""
+              />
+              <img
+                v-else
+                style="width: 25px; display: inline-block"
+                src="../../assets/run.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext26"
+              style="margin-top: -220px; margin-left: -150px"
+            >
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text26name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text26 }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text26time }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="text27">
+            <div
+              class="text14dian1"
+              style="width: 250px; text-align: left"
+              @mouseenter="showtext27 = true"
+              @mouseleave="showtext27 = false"
+            >
+              <img
+                v-if="
+                danwei27 < 1
+                "
+                style="width: 25px; display: inline-block"
+                src="../../assets/stop.png"
+                alt=""
+              />
+              <img
+                v-else
+                style="width: 25px; display: inline-block"
+                src="../../assets/run.png"
+                alt=""
+              />
+              {{ text27 }}
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext27"
+              style="margin-top: -220px; margin-left: -100px"
+            >
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text27name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text27 }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text27time }}</span>
               </div>
             </div>
           </div>
@@ -968,7 +1255,7 @@
           <div class="text23">
             <div
               class="text14dian1"
-              style="width: 100px"
+              style="width: 150px;text-align:right;font-size:14px"
               @mouseenter="showtext23 = true"
               @mouseleave="showtext23 = false"
             >
@@ -992,7 +1279,7 @@
           <div class="text24">
             <div
               class="text14dian1"
-              style="width: 100px"
+              style="width: 150px;text-align:right;font-size:14px"
               @mouseenter="
                 (showtext24 = true),
                   (text44show = false),
@@ -1026,7 +1313,7 @@
           <div class="text25">
             <div
               class="text14dian1"
-              style="width: 100px"
+              style="width: 150px;text-align:right;font-size:14px"
               @mouseenter="showtext25 = true"
               @mouseleave="showtext25 = false"
             >
@@ -1050,7 +1337,7 @@
           <div class="text26">
             <div
               class="text14dian1"
-              style="width: 100px"
+              style="width: 150px;text-align:right;font-size:14px"
               @mouseenter="
                 (showtext26 = true),
                   (text44show = false),
@@ -1084,7 +1371,7 @@
           <div class="text27">
             <div
               class="text14dian1"
-              style="width: 100px"
+              style="width: 150px;text-align:right;font-size:14px"
               @mouseenter="showtext27 = true"
               @mouseleave="showtext27 = false"
             >
@@ -1108,7 +1395,7 @@
           <div class="text28">
             <div
               class="text14dian1"
-              style="width: 100px"
+              style="width: 150px;text-align:right;font-size:14px"
               @mouseenter="
                 (showtext28 = true),
                   (text44show = false),
@@ -1198,7 +1485,7 @@
           <div class="text31">
             <div
               class="text14dian1"
-              style="width: 200px"
+              style="width: 150px;text-align:right;font-size:14px"
               @mouseenter="showtext31 = true"
               @mouseleave="showtext31 = false"
             >
@@ -1222,7 +1509,7 @@
           <div class="text32">
             <div
               class="text14dian1"
-              style="width: 200px"
+              style="width: 150px;text-align:right;font-size:14px"
               @mouseenter="
                 (showtext32 = true),
                   (text48show = false),
@@ -1260,7 +1547,7 @@
           <div class="text33">
             <div
               class="text14dian1"
-              style="width: 130px"
+              style="width: 150px;text-align:right;font-size:14px"
               @mouseenter="showtext33 = true"
               @mouseleave="showtext33 = false"
             >
@@ -1284,7 +1571,7 @@
           <div class="text34">
             <div
               class="text14dian1"
-              style="width: 130px"
+              style="width: 150px;text-align:right;font-size:14px"
               @mouseenter="
                 (showtext34 = true),
                   (text48show = false),
@@ -1322,7 +1609,7 @@
           <div class="text35">
             <div
               class="text14dian1"
-              style="width: 130px"
+              style="width: 150px;text-align:right;font-size:14px"
               @mouseenter="showtext35 = true"
               @mouseleave="showtext35 = false"
             >
@@ -1346,7 +1633,7 @@
           <div class="text36">
             <div
               class="text14dian1"
-              style="width: 130px"
+              style="width: 150px;text-align:right;font-size:14px"
               @mouseenter="
                 (showtext36 = true),
                   (text48show = false),
@@ -1384,7 +1671,7 @@
           <div class="text37">
             <div
               class="text14dian1"
-              style="width: 130px"
+              style="width: 150px;text-align:right;font-size:14px"
               @mouseenter="showtext37 = true"
               @mouseleave="showtext37 = false"
             >
@@ -1408,7 +1695,7 @@
           <div class="text38">
             <div
               class="text14dian1"
-              style="width: 130px"
+              style="width: 150px;text-align:right;font-size:14px"
               @mouseenter="
                 (showtext38 = true),
                   (text48show = false),
@@ -2109,11 +2396,11 @@
           <div class="text26">
             <div
               class="text14dian1"
-              style="width: 150px"
+              style="width: 250px; text-align: right"
               @mouseenter="showtext26 = true"
               @mouseleave="showtext26 = false"
             >
-              {{ text26 }}
+              <div class="zi3">{{ text26 }}</div>
             </div>
             <div
               class="kuang"
@@ -2134,10 +2421,32 @@
               </div>
             </div>
           </div>
+          <div class="text26img">
+            <img
+              v-if="danwei26 < 1"
+              style="
+                width: 25px;
+                display: inline-block;
+                transform: rotate(270deg);
+              "
+              src="../../assets/stop.png"
+              alt=""
+            />
+            <img
+              v-else
+              style="
+                width: 25px;
+                display: inline-block;
+                transform: rotate(270deg);
+              "
+              src="../../assets/run.png"
+              alt=""
+            />
+          </div>
           <div class="text27">
             <div
               class="text14dian1"
-              style="width: 200px; text-align: right"
+              style="width: 250px; text-align: right"
               @mouseenter="showtext27 = true"
               @mouseleave="showtext27 = false"
             >
@@ -2162,10 +2471,32 @@
               </div>
             </div>
           </div>
+          <div class="text27img">
+            <img
+              v-if="danwei27 < 1"
+              style="
+                width: 25px;
+                display: inline-block;
+                transform: rotate(270deg);
+              "
+              src="../../assets/stop.png"
+              alt=""
+            />
+            <img
+              v-else
+              style="
+                width: 25px;
+                display: inline-block;
+                transform: rotate(270deg);
+              "
+              src="../../assets/run.png"
+              alt=""
+            />
+          </div>
           <div class="text28">
             <div
               class="text14dian1"
-              style="height: 30px; width: 200px"
+              style="height: 30px; width: 250px"
               @mouseenter="showtext28 = true"
               @mouseleave="showtext28 = false"
             >
@@ -2190,10 +2521,32 @@
               </div>
             </div>
           </div>
+          <div class="text28img">
+            <img
+              v-if="danwei28 < 1"
+              style="
+                width: 25px;
+                display: inline-block;
+                transform: rotate(90deg);
+              "
+              src="../../assets/stop.png"
+              alt=""
+            />
+            <img
+              v-else
+              style="
+                width: 25px;
+                display: inline-block;
+                transform: rotate(270deg);
+              "
+              src="../../assets/run.png"
+              alt=""
+            />
+          </div>
           <div class="text29">
             <div
               class="text14dian1"
-              style="height: 30px; width: 200px"
+              style="height: 30px; width: 250px"
               @mouseenter="showtext29 = true"
               @mouseleave="showtext29 = false"
             >
@@ -2218,10 +2571,32 @@
               </div>
             </div>
           </div>
+          <div class="text29img">
+            <img
+              v-if="danwei29 < 1"
+              style="
+                width: 25px;
+                display: inline-block;
+                transform: rotate(90deg);
+              "
+              src="../../assets/stop.png"
+              alt=""
+            />
+            <img
+              v-else
+              style="
+                width: 25px;
+                display: inline-block;
+                transform: rotate(270deg);
+              "
+              src="../../assets/run.png"
+              alt=""
+            />
+          </div>
           <div class="text30">
             <div
               class="text14dian1"
-              style="height: 30px; width: 200px"
+              style="height: 30px; width: 250px"
               @mouseenter="showtext30 = true"
               @mouseleave="showtext30 = false"
             >
@@ -2246,10 +2621,32 @@
               </div>
             </div>
           </div>
+          <div class="text30img">
+            <img
+              v-if="danwei30 < 1"
+              style="
+                width: 25px;
+                display: inline-block;
+                transform: rotate(90deg);
+              "
+              src="../../assets/stop.png"
+              alt=""
+            />
+            <img
+              v-else
+              style="
+                width: 25px;
+                display: inline-block;
+                transform: rotate(270deg);
+              "
+              src="../../assets/run.png"
+              alt=""
+            />
+          </div>
           <div class="text31">
             <div
               class="text14dian1"
-              style="height: 30px; width: 200px"
+              style="height: 30px; width: 250px"
               @mouseenter="showtext31 = true"
               @mouseleave="showtext31 = false"
             >
@@ -2273,6 +2670,28 @@
                 时间: <span style="color: #00faf9"> {{ text31time }}</span>
               </div>
             </div>
+          </div>
+          <div class="text31img">
+            <img
+              v-if="danwei31 < 1"
+              style="
+                width: 25px;
+                display: inline-block;
+                transform: rotate(90deg);
+              "
+              src="../../assets/stop.png"
+              alt=""
+            />
+            <img
+              v-else
+              style="
+                width: 25px;
+                display: inline-block;
+                transform: rotate(270deg);
+              "
+              src="../../assets/run.png"
+              alt=""
+            />
           </div>
           <div class="text32">
             <div
@@ -2302,10 +2721,24 @@
               </div>
             </div>
           </div>
+          <div class="text32img">
+            <img
+              v-if="danwei32 > 0"
+              style="width: 50px; display: inline-block"
+              src="../../assets/mojistop.png"
+              alt=""
+            />
+            <img
+              v-else
+              style="width: 50px; display: inline-block"
+              src="../../assets/mojirun.png"
+              alt=""
+            />
+          </div>
           <div class="text33">
             <div
               class="text14dian1"
-              style="width: 200px; text-align: right"
+              style="width: 200px; text-align: left"
               @mouseenter="showtext33 = true"
               @mouseleave="showtext33 = false"
             >
@@ -2314,7 +2747,7 @@
             <div
               class="kuang"
               v-show="showtext33"
-              style="margin-top: -250px; margin-left: -200px"
+              style="margin-left: -200px; margin-top: -220px"
             >
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text33desc }}</span>
@@ -2330,10 +2763,24 @@
               </div>
             </div>
           </div>
+          <div class="text33img">
+            <img
+              v-if="danwei33 > 0"
+              style="width: 50px; display: inline-block"
+              src="../../assets/mojistop.png"
+              alt=""
+            />
+            <img
+              v-else
+              style="width: 50px; display: inline-block"
+              src="../../assets/mojirun.png"
+              alt=""
+            />
+          </div>
           <div class="text34">
             <div
               class="text14dian1"
-              style="width: 200px; text-align: right"
+              style="width: 200px; text-align: left"
               @mouseenter="showtext34 = true"
               @mouseleave="showtext34 = false"
             >
@@ -2358,10 +2805,24 @@
               </div>
             </div>
           </div>
+          <div class="text34img">
+            <img
+              v-if="danwei34 > 0"
+              style="width: 50px; display: inline-block"
+              src="../../assets/mojistop.png"
+              alt=""
+            />
+            <img
+              v-else
+              style="width: 50px; display: inline-block"
+              src="../../assets/mojirun.png"
+              alt=""
+            />
+          </div>
           <div class="text35">
             <div
               class="text14dian1"
-              style="width: 200px; text-align: left"
+              style="width: 200px; text-align: right"
               @mouseenter="(showtext35 = true), text22show"
               @mouseleave="showtext35 = false"
             >
@@ -2386,10 +2847,24 @@
               </div>
             </div>
           </div>
+          <div class="text35img">
+            <img
+              v-if="danwei35 > 0"
+              style="width: 50px; display: inline-block"
+              src="../../assets/mojistop.png"
+              alt=""
+            />
+            <img
+              v-else
+              style="width: 50px; display: inline-block"
+              src="../../assets/mojirun.png"
+              alt=""
+            />
+          </div>
           <div class="text36">
             <div
               class="text14dian1"
-              style="width: 200px; text-align: left"
+              style="width: 200px; text-align: center"
               @mouseenter="showtext36 = true"
               @mouseleave="showtext36 = false"
             >
@@ -2413,6 +2888,20 @@
                 时间: <span style="color: #00faf9"> {{ text36time }}</span>
               </div>
             </div>
+          </div>
+          <div class="text36img">
+            <img
+              v-if="danwei36 > 0"
+              style="width: 50px; display: inline-block"
+              src="../../assets/mojistop.png"
+              alt=""
+            />
+            <img
+              v-else
+              style="width: 50px; display: inline-block"
+              src="../../assets/mojirun.png"
+              alt=""
+            />
           </div>
           <div class="text37">
             <div
@@ -2442,18 +2931,32 @@
               </div>
             </div>
           </div>
+          <div class="text37img">
+            <img
+              v-if="danwei37 > 0"
+              style="width: 50px; display: inline-block"
+              src="../../assets/mojistop.png"
+              alt=""
+            />
+            <img
+              v-else
+              style="width: 50px; display: inline-block"
+              src="../../assets/mojirun.png"
+              alt=""
+            />
+          </div>
         </div>
         <div class="center4" v-show="tubiaoShow == '4'">
           <div class="text14">
             <div
               class="text14dian1"
-              style="width: 200px; text-align: center"
+              style="width: 200px; text-align: right"
               @mouseenter="showtext14 = true"
               @mouseleave="showtext14 = false"
             >
               {{ text14 }}
             </div>
-            <div class="kuang" v-show="showtext14">
+            <div class="kuang" v-show="showtext14" style="margin-top:20px">
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text14desc }}</span>
               </div> -->
@@ -2471,7 +2974,7 @@
           <div class="text15">
             <div
               class="text14dian1"
-              style="width: 200px; text-align: center"
+              style="width: 200px; text-align: right"
               @mouseenter="showtext15 = true"
               @mouseleave="showtext15 = false"
             >
@@ -2495,13 +2998,13 @@
           <div class="text16">
             <div
               class="text14dian1"
-              style="width: 200px; text-align: center"
+              style="width: 200px; text-align: right"
               @mouseenter="showtext16 = true"
               @mouseleave="showtext16 = false"
             >
               {{ text16 }}
             </div>
-            <div class="kuang" v-show="showtext16">
+            <div class="kuang" v-show="showtext16" style="margin-left:-40px">
               <!-- <div class="kuang1" style="padding-left: 25px">
                 备注: <span style="color: #00faf9"> {{ text16desc }}</span>
               </div> -->
@@ -2519,7 +3022,7 @@
           <div class="text17">
             <div
               class="text14dian1"
-              style="width: 200px; text-align: center"
+              style="width: 200px; text-align: right"
               @mouseenter="showtext17 = true"
               @mouseleave="showtext17 = false"
             >
@@ -2543,7 +3046,7 @@
           <div class="text18">
             <div
               class="text14dian1"
-              style="width: 200px; text-align: center"
+              style="width: 200px; text-align: right"
               @mouseenter="showtext18 = true"
               @mouseleave="showtext18 = false"
             >
@@ -2625,7 +3128,7 @@
               class="kuang"
               v-show="showtext21"
               style="
-                margin-right: 100px;
+              margin-right: 100px;
                 margin-left: -350px;
                 margin-top: -250px;
               "
@@ -2929,6 +3432,118 @@
               </div>
               <div class="kuang1" style="padding-left: 25px">
                 时间: <span style="color: #00faf9"> {{ text31time }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="text32">
+            <div
+              class="text14dian1"
+              style="height: 30px; width: 180px;text-align:left"
+              @mouseenter="showtext32 = true"
+              @mouseleave="showtext32 = false"
+            >
+              {{ text32 }}
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext32"
+              style="margin-top: -240px; margin-left: -450px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text31desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text32name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text32 }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text32time }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="text33">
+            <div
+              class="text14dian1"
+              style="height: 30px; width: 200px;text-align:left"
+              @mouseenter="showtext33 = true"
+              @mouseleave="showtext33 = false"
+            >
+              {{ text33 }}
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext33"
+              style="margin-top: -240px; margin-left: -450px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text31desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text33name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text33 }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text33time }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="text34">
+            <div
+              class="text14dian1"
+              style="height: 30px; width: 180px;text-align:left"
+              @mouseenter="showtext34 = true"
+              @mouseleave="showtext34 = false"
+            >
+              {{ text34 }}
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext34"
+              style="margin-top: -240px; margin-left: -450px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text31desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text34name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text34 }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text34time }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="text35">
+            <div
+              class="text14dian1"
+              style="height: 30px; width: 200px;text-align:left"
+              @mouseenter="showtext35 = true"
+              @mouseleave="showtext35 = false"
+            >
+              {{ text35 }}
+            </div>
+            <div
+              class="kuang"
+              v-show="showtext35"
+              style="margin-top: -240px; margin-left: -450px"
+            >
+              <!-- <div class="kuang1" style="padding-left: 25px">
+                备注: <span style="color: #00faf9"> {{ text31desc }}</span>
+              </div> -->
+              <div class="kuang1">
+                测点名: <span style="color: #00faf9"> {{ text35name }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                数值: <span style="color: #00faf9"> {{ text35 }}</span>
+              </div>
+              <div class="kuang1" style="padding-left: 25px">
+                时间: <span style="color: #00faf9"> {{ text35time }}</span>
               </div>
             </div>
           </div>
@@ -3369,125 +3984,150 @@ export default {
 
       text16: 0,
       text16name: "",
+      danwei16: "",
       text16time: "",
       text16desc: "",
 
       text17name: "",
       text17time: "",
       text17: 0,
+      danwei17: "",
       text17desc: "",
 
       text18name: "",
       text18time: "",
       text18: 0,
+      danwei18: "",
       text18desc: "",
 
       text19name: "",
       text19time: "",
+      danwei19: "",
       text19: 0,
       text19desc: "",
 
       text20name: "",
       text20time: "",
+      danwei20: "",
       text20: 0,
       text20desc: "",
 
       text21name: "",
       text21time: "",
+      danwei21: "",
       text21: 0,
       text21desc: "",
 
       text22name: "",
       text22time: "",
+      danwei22: "",
       text22: 0,
       text22desc: "",
 
       text23name: "",
       text23time: "",
+      danwei23: "",
       text23: 0,
       text23desc: "",
 
       text24name: "",
       text24time: "",
+      danwei24: "",
       text24: 0,
       text24desc: "",
 
       text25name: "",
       text25time: "",
+      danwei25: "",
       text25: 0,
       text25desc: "",
 
       text26name: "",
       text26time: "",
+      danwei26: "",
       text26: 0,
       text26desc: "",
 
       text27name: "",
       text27time: "",
+      danwei27: "",
       text27: 0,
       text27desc: "",
 
       text28name: "",
       text28time: "",
+      danwei28: "",
       text28: 0,
       text28desc: "",
 
       text29name: "",
       text29time: "",
+      danwei29: "",
       text29: 0,
       text29desc: "",
 
       text30name: "",
       text30time: "",
+      danwei30: "",
       text30: 0,
       text30desc: "",
 
       text31name: "",
       text31time: "",
+      danwei31: "",
       text31: 0,
       text31desc: "",
 
       text32name: "",
       text32time: "",
+      danwei32: "",
       text32: 0,
       text32desc: "",
 
       text33name: "",
       text33time: "",
+      danwei33: "",
       text33: 0,
       text33desc: "",
 
       text34name: "",
       text34time: "",
+      danwei34: "",
       text34: 0,
       text34desc: "",
 
       text35name: "",
       text35time: "",
+      danwei35: "",
       text35: 0,
       text35desc: "",
 
       text36name: "",
       text36time: "",
+      danwei36: "",
       text36: 0,
       text36desc: "",
 
       text37name: "",
       text37time: "",
+      danwei37: "",
       text37: 0,
       text37desc: "",
 
       text38name: "",
       text38time: "",
+      danwei38: "",
       text38: 0,
       text38desc: "",
 
       text39name: "",
       text39time: "",
+      danwei39: "",
       text39: 0,
       text39desc: "",
 
       text40name: "",
+      danwei40: "",
       text40time: "",
       text40: 0,
       text40desc: "",
@@ -3692,6 +4332,7 @@ export default {
       this.text16name = "";
       this.text16time = "";
       this.text16desc = "";
+      this.danwei16 = "";
 
       this.text17name = "";
       this.text17time = "";
@@ -3897,45 +4538,27 @@ export default {
           this.titlec = res.data[0].data[0].TITLE;
           changdu = result.length;
           this.shuju1 = result[changdu - 1].value;
-          this.shuju1name = result[changdu - 1].name.substring(
-            result[changdu - 1].name.lastIndexOf("U1_") + 3,
-            result[changdu - 1].name.length
-          );
+          this.shuju1name = result[changdu - 1]
           this.shuju1dan = result[changdu - 1].unit;
 
           this.shuju2 = result[changdu - 2].value;
-          this.shuju2name = result[changdu - 2].name.substring(
-            result[changdu - 2].name.lastIndexOf("U1_") + 3,
-            result[changdu - 2].name.length
-          );
+          this.shuju2name = result[changdu - 2]
           this.shuju2dan = result[changdu - 2].unit;
 
           this.shuju3 = result[changdu - 3].value;
-          this.shuju3name = result[changdu - 3].name.substring(
-            result[changdu - 3].name.lastIndexOf("U1_") + 3,
-            result[changdu - 3].name.length
-          );
+          this.shuju3name = result[changdu - 3]
           this.shuju3dan = result[changdu - 3].unit;
 
           this.shuju4 = result[changdu - 4].value;
-          this.shuju4name = result[changdu - 4].name.substring(
-            result[changdu - 4].name.lastIndexOf("U1_") + 3,
-            result[changdu - 4].name.length
-          );
+          this.shuju4name = result[changdu - 4]
           this.shuju4dan = result[changdu - 4].unit;
 
           this.shuju5 = result[changdu - 5].value;
-          this.shuju5name = result[changdu - 5].name.substring(
-            result[changdu - 5].name.lastIndexOf("U1_") + 3,
-            result[changdu - 5].name.length
-          );
+          this.shuju5name = result[changdu - 5]
           this.shuju5dan = result[changdu - 5].unit;
 
           this.shuju6 = result[changdu - 6].value;
-          this.shuju6name = result[changdu - 6].name.substring(
-            result[changdu - 6].name.lastIndexOf("U1_") + 3,
-            result[changdu - 6].name.length
-          );
+          this.shuju6name = result[changdu - 6]
           this.shuju6dan = result[changdu - 6].unit;
           this.text1 = result[0].value;
           this.text1name = result[0].name;
@@ -4018,48 +4641,57 @@ export default {
           this.text15desc = result[14].desc;
 
           this.text16 = result[15].value + " " + result[15].unit;
+          this.danwei16 = result[15].value;
           this.text16name = result[15].name;
           this.text16time = result[15].time;
           this.text16desc = result[15].desc;
 
           this.text17 = result[16].value + " " + result[16].unit;
           this.text17name = result[16].name;
+          this.danwei17 = result[16].value;
           this.text17time = result[16].time;
           this.text17desc = result[16].desc;
 
           this.text18 = result[17].value + " " + result[17].unit;
           this.text18name = result[17].name;
+          this.danwei18 = result[17].value;
           this.text18time = result[17].time;
           this.text18desc = result[17].desc;
 
           this.text19 = result[18].value + " " + result[18].unit;
           this.text19name = result[18].name;
+          this.danwei19 = result[18].value
           this.text19time = result[18].time;
           this.text19desc = result[18].desc;
 
           this.text20 = result[19].value + " " + result[19].unit;
           this.text20name = result[19].name;
           this.text20time = result[19].time;
+          this.danwei20 = result[19].value
           this.text20desc = result[19].desc;
 
           this.text21 = result[20].value + " " + result[20].unit;
           this.text21name = result[20].name;
           this.text21time = result[20].time;
+          this.danwei21 = result[20].value
           this.text21desc = result[20].desc;
 
           this.text22 = result[21].value + " " + result[21].unit;
           this.text22name = result[21].name;
           this.text22time = result[21].time;
+          this.danwei22 = result[21].value
           this.text22desc = result[21].desc;
 
           this.text23 = result[22].value + " " + result[22].unit;
           this.text23name = result[22].name;
+          this.danwei23 = result[22].value
           this.text23time = result[22].time;
           this.text23desc = result[22].desc;
 
           if (result[23]) {
             this.text24 = result[23].value + " " + result[23].unit;
             this.text24name = result[23].name;
+            this.danwei24 = result[23].value
             this.text24time = result[23].time;
             this.text24desc = result[23].desc;
           }
@@ -4067,12 +4699,14 @@ export default {
           if (result[24]) {
             this.text25 = result[24].value + " " + result[24].unit;
             this.text25name = result[24].name;
+            this.danwei25 = result[24].value
             this.text25time = result[24].time;
             this.text25desc = result[24].desc;
           }
 
           if (result[25]) {
             this.text26 = result[25].value + " " + result[25].unit;
+            this.danwei26 = result[25].value
             this.text26name = result[25].name;
             this.text26time = result[25].time;
             this.text26desc = result[25].desc;
@@ -4081,6 +4715,7 @@ export default {
           if (result[26]) {
             this.text27 = result[26].value + " " + result[26].unit;
             this.text27name = result[26].name;
+            this.danwei27 = result[26].value
             this.text27time = result[26].time;
             this.text27desc = result[26].desc;
           }
@@ -4088,12 +4723,14 @@ export default {
           if (result[27]) {
             this.text28 = result[27].value + " " + result[27].unit;
             this.text28name = result[27].name;
+            this.danwei28 = result[27].value
             this.text28time = result[27].time;
             this.text28desc = result[27].desc;
           }
 
           if (result[28]) {
             this.text29 = result[28].value + " " + result[28].unit;
+            this.danwei29 = result[28].value
             this.text29name = result[28].name;
             this.text29time = result[28].time;
             this.text29desc = result[28].desc;
@@ -4101,6 +4738,7 @@ export default {
 
           if (result[29]) {
             this.text30 = result[29].value + " " + result[29].unit;
+            this.danwei30 = result[29].value
             this.text30name = result[29].name;
             this.text30time = result[29].time;
             this.text30desc = result[29].desc;
@@ -4108,6 +4746,7 @@ export default {
 
           if (result[30]) {
             this.text31 = result[30].value + " " + result[30].unit;
+            this.danwei31 = result[30].value
             this.text31name = result[30].name;
             this.text31time = result[30].time;
             this.text31desc = result[30].desc;
@@ -4115,6 +4754,7 @@ export default {
 
           if (result[31]) {
             this.text32 = result[31].value + " " + result[31].unit;
+            this.danwei32 = result[31].value
             this.text32name = result[31].name;
             this.text32time = result[31].time;
             this.text32desc = result[31].desc;
@@ -4122,6 +4762,7 @@ export default {
 
           if (result[32]) {
             this.text33 = result[32].value + " " + result[32].unit;
+            this.danwei33 = result[32].value
             this.text33name = result[32].name;
             this.text33time = result[32].time;
             this.text33desc = result[32].desc;
@@ -4130,6 +4771,7 @@ export default {
           if (result[33]) {
             this.text34 = result[33].value + " " + result[33].unit;
             this.text34name = result[33].name;
+            this.danwei34 = result[33].value
             this.text34time = result[33].time;
             this.text34desc = result[33].desc;
           }
@@ -4137,6 +4779,7 @@ export default {
           if (result[34]) {
             this.text35 = result[34].value + " " + result[34].unit;
             this.text35name = result[34].name;
+            this.danwei35 = result[34].value
             this.text35time = result[34].time;
             this.text35desc = result[34].desc;
           }
@@ -4144,6 +4787,7 @@ export default {
           if (result[35]) {
             this.text36 = result[35].value + " " + result[35].unit;
             this.text36name = result[35].name;
+            this.danwei36 = result[35].value
             this.text36time = result[35].time;
             this.text36desc = result[35].desc;
           }
@@ -4151,6 +4795,7 @@ export default {
           if (result[36]) {
             this.text37 = result[36].value + " " + result[36].unit;
             this.text37name = result[36].name;
+            this.danwei37 = result[36].value
             this.text37time = result[36].time;
             this.text37desc = result[36].desc;
           }
@@ -4159,6 +4804,7 @@ export default {
             this.text38 = result[37].value + " " + result[37].unit;
             this.text38name = result[37].name;
             this.text38time = result[37].time;
+            this.danwei38 = result[37].value
             this.text38desc = result[37].desc;
           }
 
@@ -4166,6 +4812,7 @@ export default {
             this.text39 = result[38].value + " " + result[38].unit;
             this.text39name = result[38].name;
             this.text39time = result[38].time;
+            this.danwei39 = result[38].value
             this.text39desc = result[38].desc;
           }
 
@@ -4173,6 +4820,7 @@ export default {
             this.text40 = result[39].value + " " + result[39].unit;
             this.text40name = result[39].name;
             this.text40time = result[39].time;
+            this.danwei40 = result[39].value
             this.text40desc = result[39].desc;
           }
 

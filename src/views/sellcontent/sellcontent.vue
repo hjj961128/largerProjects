@@ -5,9 +5,9 @@
         <div class="search-list">
           <div>
             <el-radio-group v-model="value111" size="mini">
-              <el-radio-button label="总"></el-radio-button>
-              <el-radio-button label="煤"></el-radio-button>
-              <el-radio-button label="燃"></el-radio-button>
+              <el-radio-button label="总体"></el-radio-button>
+              <el-radio-button label="煤机"></el-radio-button>
+              <el-radio-button label="燃机"></el-radio-button>
             </el-radio-group>
           </div>
           <!-- <el-select
@@ -22,12 +22,18 @@
         </div>
 
         <div class="left-top-left">
-          <div v-show="value111 == '总'" class="left-top-center-text">总体</div>
-          <div v-show="value111 == '煤'" class="left-top-center-text">煤机</div>
-          <div v-show="value111 == '燃'" class="left-top-center-text">燃机</div>
+          <div v-show="value111 == '总体'" class="left-top-center-text1">
+            总体
+          </div>
+          <div v-show="value111 == '煤机'" class="left-top-center-text2">
+            煤机
+          </div>
+          <div v-show="value111 == '燃机'" class="left-top-center-text3">
+            燃机
+          </div>
 
           <img
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             src="../../assets/pie2.png"
             style="
               width: 60%;
@@ -38,247 +44,259 @@
             alt=""
           />
           <img
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             src="../../assets/pie1.png"
             style="width: 60%; margin-left: 20%; margin-top: 30px"
             alt=""
           />
-          <img v-show="value111 == '煤'" src="../../assets/pie.png" alt="" />
+          <img v-show="value111 == '煤机'" src="../../assets/pie.png" alt="" />
 
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 66px; left: 74px; color: #ffffff"
           >
             {{ allname0 }}
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 88px; left: 74px"
           >
             {{ allvalue0 }}%
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 125px; left: 45px; color: #ffffff"
           >
             {{ allname1 }}
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 147px; left: 45px"
           >
             {{ allvalue1 }}%
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 210px; left: 50px; color: #ffffff"
           >
             {{ allname2 }}
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 230px; left: 50px"
           >
             {{ allvalue2 }}%
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 270px; left: 150px; color: #ffffff"
           >
             {{ allname3 }}
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 290px; left: 150px"
           >
             {{ allvalue3 }}%
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 293px; left: 206px; color: #ffffff"
           >
             {{ allname4 }}
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 310px; left: 206px"
           >
             {{ allvalue4 }}%
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 255px; left: 256px; color: #ffffff"
           >
             {{ allname5 }}
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 270px; left: 256px"
           >
             {{ allvalue5 }}%
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 197px; left: 295px; color: #ffffff"
           >
             {{ allname6 }}
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 216px; left: 295px"
           >
             {{ allvalue6 }}%
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 160px; left: 295px; color: #ffffff"
           >
             {{ allname7 }}
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 180px; left: 295px"
           >
             {{ allvalue7 }}%
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 122px; left: 292px; color: #ffffff"
           >
             {{ allname8 }}
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 138px; left: 292px"
           >
             {{ allvalue8 }}%
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 91px; left: 254px; color: #ffffff"
           >
             {{ allname9 }}
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 108px; left: 254px"
           >
             {{ allvalue9 }}%
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 60px; left: 205px; color: #ffffff"
           >
             {{ allname10 }}
           </div>
           <div
-            v-show="value111 == '总'"
+            v-show="value111 == '总体'"
             style="position: absolute; top: 80px; left: 205px"
           >
             {{ allvalue10 }}%
           </div>
 
           <div
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             style="position: absolute; top: 66px; left: 85px; color: #ffffff"
           >
             {{ rjname0 }}
           </div>
           <div
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             style="position: absolute; top: 88px; left: 85px"
           >
             {{ rjvalue0 }}%
           </div>
           <div
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             style="position: absolute; top: 123px; left: 40px; color: #ffffff"
           >
             {{ rjname1 }}
           </div>
           <div
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             style="position: absolute; top: 140px; left: 40px"
           >
             {{ rjvalue1 }}%
           </div>
           <div
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             style="position: absolute; top: 215px; left: 45px; color: #ffffff"
           >
             {{ rjname2 }}
           </div>
           <div
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             style="position: absolute; top: 235px; left: 45px"
           >
             {{ rjvalue2 }}%
           </div>
           <div
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             style="position: absolute; top: 266px; left: 185px; color: #ffffff"
           >
             {{ rjname3 }}
           </div>
           <div
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             style="position: absolute; top: 288px; left: 185px"
           >
             {{ rjvalue3 }}%
           </div>
           <div
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             style="position: absolute; top: 197px; left: 285px; color: #ffffff"
           >
             {{ rjname4 }}
           </div>
           <div
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             style="position: absolute; top: 212px; left: 285px"
           >
             {{ rjvalue4 }}%
           </div>
           <div
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             style="position: absolute; top: 140px; left: 290px; color: #ffffff"
           >
             {{ rjname5 }}
           </div>
           <div
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             style="position: absolute; top: 160px; left: 290px"
           >
             {{ rjvalue5 }}%
           </div>
           <div
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             style="position: absolute; top: 72px; left: 225px; color: #ffffff"
           >
             {{ rjname6 }}
           </div>
           <div
-            v-show="value111 == '燃'"
+            v-show="value111 == '燃机'"
             style="position: absolute; top: 88px; left: 225px"
           >
             {{ rjvalue6 }}%
           </div>
 
-          <div v-show="value111 == '煤'" class="juhua1">{{ juhua1name }}</div>
-          <div v-show="value111 == '煤'" class="juhua">{{ juhua1 }}%</div>
-          <div v-show="value111 == '煤'" class="taisu1">{{ juhua2name }}</div>
-          <div v-show="value111 == '煤'" class="taisu">{{ juhua2 }}%</div>
-          <div v-show="value111 == '煤'" class="huarun1">{{ juhua3name }}</div>
-          <div v-show="value111 == '煤'" class="huarun">{{ juhua3 }}%</div>
-          <div v-show="value111 == '煤'" class="huadian1">{{ juhua4name }}</div>
-          <div v-show="value111 == '煤'" class="huadian">{{ juhua4 }}%</div>
-          <div v-show="value111 == '煤'" class="datang1">{{ juhua5name }}</div>
-          <div v-show="value111 == '煤'" class="datang">{{ juhua5 }}%</div>
-          <div v-show="value111 == '煤'" class="huaneng1">{{ juhua6name }}</div>
-          <div v-show="value111 == '煤'" class="huaneng">{{ juhua6 }}%</div>
-          <div v-show="value111 == '煤'" class="guoneng1">{{ juhua7name }}</div>
-          <div v-show="value111 == '煤'" class="guoneng">{{ juhua7 }}%</div>
-          <div v-show="value111 == '煤'" class="zheneng1">{{ juhua8name }}</div>
-          <div v-show="value111 == '煤'" class="zheneng">{{ juhua8 }}%</div>
+          <div v-show="value111 == '煤机'" class="juhua1">{{ juhua1name }}</div>
+          <div v-show="value111 == '煤机'" class="juhua">{{ juhua1 }}%</div>
+          <div v-show="value111 == '煤机'" class="taisu1">{{ juhua2name }}</div>
+          <div v-show="value111 == '煤机'" class="taisu">{{ juhua2 }}%</div>
+          <div v-show="value111 == '煤机'" class="huarun1">
+            {{ juhua3name }}
+          </div>
+          <div v-show="value111 == '煤机'" class="huarun">{{ juhua3 }}%</div>
+          <div v-show="value111 == '煤机'" class="huadian1">
+            {{ juhua4name }}
+          </div>
+          <div v-show="value111 == '煤机'" class="huadian">{{ juhua4 }}%</div>
+          <div v-show="value111 == '煤机'" class="datang1">
+            {{ juhua5name }}
+          </div>
+          <div v-show="value111 == '煤机'" class="datang">{{ juhua5 }}%</div>
+          <div v-show="value111 == '煤机'" class="huaneng1">
+            {{ juhua6name }}
+          </div>
+          <div v-show="value111 == '煤机'" class="huaneng">{{ juhua6 }}%</div>
+          <div v-show="value111 == '煤机'" class="guoneng1">
+            {{ juhua7name }}
+          </div>
+          <div v-show="value111 == '煤机'" class="guoneng">{{ juhua7 }}%</div>
+          <div v-show="value111 == '煤机'" class="zheneng1">
+            {{ juhua8name }}
+          </div>
+          <div v-show="value111 == '煤机'" class="zheneng">{{ juhua8 }}%</div>
 
           <!-- <div class="left-one">
             <div class="left-one-img">
@@ -335,7 +353,7 @@
     </div>
     <!-- 中间部分 -->
     <div class="main-center">
-      <div class="aaa">全省当日实时负荷</div>
+      <div class="aaa">全省火电当日实时负荷</div>
       <div class="main-center1">{{ LJFD }}MWh</div>
       <div class="bbb">全省当日累计发电量</div>
       <div class="main-center2">{{ SSFH }}MW</div>
@@ -989,44 +1007,61 @@
     <div class="main-right">
       <div class="main-right-left">
         <div class="main-right-left-top">
-          <div class="main-right-left-text1">
+          <div class="main-right-left-text1" @click="changebgc('1')">
             <span style="color: #fff; font-size: 14px">煤机 </span>
             {{ coalMachine }}
             <!-- <span style="color: #fff">运行 </span> {{ coalMachineFunction }} -->
           </div>
-          <div class="main-right-left-text7">
+          <div class="main-right-left-text7" @click="changebgc('2')">
             <span style="color: #fff; font-size: 14px">运行 </span>
             {{ coalMachineFunction }}
           </div>
+          <div class="main-right-left-one">
+            <img
+              v-show="whichbgc == '1'"
+              src="../../assets/meijizuz.png"
+              alt=""
+            />
+            <img
+              v-show="whichbgc == '2'"
+              src="../../assets/meijiyunx.png"
+              alt=""
+            />
+          </div>
           <div class="main-right-left-text2">
-            {{ hpressure }}
+            <span v-show="whichbgc == '1'">{{ hpressure }}</span>
+            <span v-show="whichbgc == '2'">{{ yxhpressure }}</span>
           </div>
           <div class="zi2">
             <span class="wan" style="color: #f7f388">台 </span><span>高压</span>
           </div>
           <div class="main-right-left-text3">
-            {{ chpressure }}
+            <span v-show="whichbgc == '1'">{{ chpressure }}</span>
+            <span v-show="whichbgc == '2'">{{ yxchpressure }}</span>
           </div>
           <div class="zi3">
             <span class="wan" style="color: #f7f388">台 </span
             ><span>超高压</span>
           </div>
           <div class="main-right-left-text4">
-            {{ cCritical }}
+            <span v-show="whichbgc == '1'">{{ yCritical }}</span>
+            <span v-show="whichbgc == '2'">{{ yxyCritical }}</span>
           </div>
           <div class="zi4">
             <span class="wan" style="color: #f7f388">台 </span
             ><span>亚临界</span>
           </div>
           <div class="main-right-left-text5">
-            {{ yCritical }}
+            <span v-show="whichbgc == '1'">{{ cCritical }}</span>
+            <span v-show="whichbgc == '2'">{{ yxcCritical }}</span>
           </div>
           <div class="zi5">
             <span class="wan" style="color: #f7f388">台 </span
             ><span>超临界</span>
           </div>
           <div class="main-right-left-text6">
-            {{ ccCritical }}
+            <span v-show="whichbgc == '1'">{{ ccCritical }}</span>
+            <span v-show="whichbgc == '2'">{{ yxccCritical }}</span>
           </div>
           <div class="zi6">
             <span class="wan" style="color: #f7f388">台 </span
@@ -1142,6 +1177,8 @@ export default {
   components: {},
   data() {
     return {
+      btnNum: 0,
+      whichbgc: "1",
       juhua1name: "",
       juhua2name: "",
       juhua3name: "",
@@ -1195,7 +1232,7 @@ export default {
       rjvalue5: "0",
       rjvalue6: "0",
 
-      value111: "总",
+      value111: "总体",
       allFhsir: [],
       optionData1: [],
       tableData1: [
@@ -1955,6 +1992,11 @@ export default {
       yCritical: 0,
       cCritical: 0,
       ccCritical: 0,
+      yxhpressure: 0,
+      yxchpressure: 0,
+      yxyCritical: 0,
+      yxcCritical: 0,
+      yxccCritical: 0,
       hpressure: 0,
       chpressure: 0,
       optionData: [],
@@ -2013,8 +2055,18 @@ export default {
     },
   },
   methods: {
+    changebgc(val) {
+      console.log(val);
+      this.whichbgc = val;
+    },
     showCurrentIndex(val) {
-      this.currentIndex = val;
+      this.btnNum = this.btnNum + 1;
+      if (this.btnNum == 1) {
+        this.currentIndex = val;
+      } else {
+        this.currentIndex = 999;
+        this.btnNum = 0;
+      }
     },
     biao() {
       setInterval(() => {
@@ -3179,7 +3231,9 @@ export default {
           // 煤机运行数目
           this.coalMachineFunction = resultRight.JZLX[0].coalMachineFunction;
           this.hpressure = resultRight.JZLX[0].hpressure;
+          this.yxhpressure = resultRight.JZLX[0].yxhpressure;
           this.chpressure = resultRight.JZLX[0].chpressure;
+          this.yxchpressure = resultRight.JZLX[0].yxchpressure;
           this.rqjz = resultRight.JZLX[0].rqjz;
           this.wnswzjz = resultRight.JZLX[0].wnswzjz;
           this.yrlyjz = resultRight.JZLX[0].yrlyjz;
@@ -3189,10 +3243,14 @@ export default {
           this.critical = resultRight.JZLX[0].critical;
           // 亚临界
           this.yCritical = resultRight.JZLX[0].yCritical;
+          this.yxyCritical = resultRight.JZLX[0].yxyCritical;
           // 超临界
           this.cCritical = resultRight.JZLX[0].cCritical;
+          this.yxyCritical = resultRight.JZLX[0].yxyCritical;
           // 超超临界
           this.ccCritical = resultRight.JZLX[0].ccCritical;
+          this.yxccCritical = resultRight.JZLX[0].yxccCritical;
+          this.yxcCritical = resultRight.JZLX[0].yxcCritical;
           resultRight.WRWPFLIST.map((item, index) => {
             date7.push(item.dates);
             noxpfl.push(Number(item.noxpfl));
@@ -3301,7 +3359,7 @@ export default {
           this.option7 = {
             title: {
               top: "9%",
-              left: "6%",
+              left: "10%",
               text: " (t) ",
               textStyle: {
                 //主标题的属性
@@ -3477,7 +3535,7 @@ export default {
           this.option8 = {
             title: {
               top: "9%",
-              left: "6%",
+              left: "10%",
               text: " (t) ",
               textStyle: {
                 //主标题的属性
@@ -3666,7 +3724,7 @@ export default {
           this.option9 = {
             title: {
               top: "9%",
-              left: "6%",
+              left: "12.5%",
               text: "(t) ",
               textStyle: {
                 //主标题的属性
@@ -3855,7 +3913,7 @@ export default {
           this.option10 = {
             title: {
               top: "9%",
-              left: "6%",
+              left: "12.5%",
               text: "(t)",
               textStyle: {
                 //主标题的属性

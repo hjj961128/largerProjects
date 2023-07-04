@@ -279,7 +279,7 @@ export default {
         groupName: "所有集团",
         factoryName: "所有电厂",
         jzName: "所有机组",
-        baobiaoName: "1",
+        baobiaoName: "3",
         choiceyear: "",
         jidu: "第一季度",
         months: "",
@@ -295,8 +295,102 @@ export default {
     });
   },
   methods: {
-    // jndpportal/wbjk/getNhStat.xhtml
-    getNhStat() {
+        //获取季度子组件传回的数据
+        getValue(val) {
+      console.log(val);
+      this.formInline.jidu = val;
+    },
+  
+
+    // 显示第几页
+    handleCurrentChange(val) {
+      // 改变默认的页数
+      this.currentPage = val;
+    },
+    // 重置
+    clickBtn2() {
+      this.formInline.groupName = "所有集团";
+      this.formInline.factoryName = "所有电厂";
+      this.formInline.jzName = "所有机组";
+      this.formInline.baobiaoName = "年报";
+      this.formInline.choiceyear = "";
+      this.formInline.jidu = "第一季度";
+      this.formInline.months = "";
+    },
+    getGroupList() {
+      this.$http({
+        method: "get",
+        url: `/jndpportal/wbjk/getGroupList.xhtml`,
+      })
+        .then((res) => {
+          if (res.data[0].res == "success") {
+            this.formInline.groupList = res.data[0].data;
+          }
+        })
+        .catch((err) => {
+          this.$message("查询集团列表接口报错");
+        });
+    },
+    getFactoryList(val) {
+      this.formInline.checked =
+        this.formInline.groupName == "所有集团" ? true : false;
+      this.formInline.factoryName = "所有电厂";
+      this.factoryList = [];
+      this.formInline.jzName = "所有机组";
+      this.formInline.jzList = [];
+
+      let param = {
+        groupid: this.formInline.groupName == "所有集团" ? "" : val,
+      };
+      this.$http({
+        method: "get",
+        url: `jndpportal/wbjk/getFactoryList.xhtml`,
+        params: param,
+      })
+        .then((res) => {
+          if (res.data[0].res == "success") {
+            this.formInline.factoryList = res.data[0].data;
+            if (this.formInline.factoryList.length == 1) {
+              this.formInline.factoryName = this.formInline.factoryList[0].id;
+            }
+          }
+        })
+        .catch((err) => {
+          this.$message("查询集团列表接口报错");
+        });
+    },
+    getJzList(val) {
+      if (this.formInline.factoryName == "所有电厂") {
+        if (this.formInline.groupName == "所有集团") {
+          this.formInline.checked = true;
+        }
+      }
+      //   this.formInline.checked =
+      //     this.formInline.factoryName == "所有电厂" ? true : false;
+      this.formInline.jzName = "所有机组";
+      this.formInline.jzList = [];
+      let param = {
+        factoryid: this.formInline.factoryName == "所有电厂" ? "" : val,
+      };
+      this.$http({
+        method: "get",
+        url: `jndpportal/wbjk/getJzList.xhtml`,
+        params: param,
+      })
+        .then((res) => {
+          if (res.data[0].res == "success") {
+            this.formInline.jzList = res.data[0].data;
+            if (this.formInline.jzList.length == 1) {
+              this.formInline.jzName = this.formInline.jzList[0].id;
+            }
+          }
+        })
+        .catch((err) => {
+          this.$message("查询集团列表接口报错");
+        });
+    },
+      // jndpportal/wbjk/getNhStat.xhtml
+      getNhStat() {
       this.currentPage = 1;
       this.tableData = [];
 
@@ -390,12 +484,24 @@ export default {
             let qiannian = resDate.LASTYEARTAG.toString();
             let dangnian = resDate.YEARTAG.toString();
             let legendDate = [];
-            legendDate.push(qiannian, dangnian);
 
             let dibu = [];
             let jTName = [];
             let valueNew = [];
             let valueOld = [];
+            let dibu2 = [];
+            let jTName2 = [];
+            let valueNew2 = [];
+            let valueOld2 = [];
+            let dibu3 = [];
+            let jTName3 = [];
+            let valueNew3 = [];
+            let valueOld3 = [];
+            let dibu4 = [];
+            let jTName4 = [];
+            let valueNew4 = [];
+            let valueOld4 = [];
+            legendDate.push(qiannian, dangnian);
             // 表1数据
             resDate.gdmhList.map((item, index) => {
               jTName.push(item.name);
@@ -609,10 +715,6 @@ export default {
               ],
             };
 
-            let dibu2 = [];
-            let jTName2 = [];
-            let valueNew2 = [];
-            let valueOld2 = [];
             // 表2数据
             resDate.glrxlList.map((item, index) => {
               jTName2.push(item.name);
@@ -826,11 +928,6 @@ export default {
               ],
             };
 
-            let dibu3 = [];
-            let jTName3 = [];
-            let valueNew3 = [];
-            let valueOld3 = [];
-
             resDate.qjrhlList.map((item, index) => {
               jTName3.push(item.name);
               valueNew3.push(item.valueNew);
@@ -1043,11 +1140,6 @@ export default {
                 },
               ],
             };
-
-            let dibu4 = [];
-            let jTName4 = [];
-            let valueNew4 = [];
-            let valueOld4 = [];
 
             resDate.cydlList.map((item, index) => {
               jTName4.push(item.name);
@@ -1269,98 +1361,6 @@ export default {
         })
         .catch((err) => {
           this.$message("能耗展示查询接口报错");
-        });
-    },
-    //获取季度子组件传回的数据
-    getValue(val) {
-      console.log(val);
-      this.formInline.jidu = val;
-    },
-    // 显示第几页
-    handleCurrentChange(val) {
-      // 改变默认的页数
-      this.currentPage = val;
-    },
-    // 重置
-    clickBtn2() {
-      this.formInline.groupName = "所有集团";
-      this.formInline.factoryName = "所有电厂";
-      this.formInline.jzName = "所有机组";
-      this.formInline.baobiaoName = "年报";
-      this.formInline.choiceyear = "";
-      this.formInline.jidu = "第一季度";
-      this.formInline.months = "";
-    },
-    getGroupList() {
-      this.$http({
-        method: "get",
-        url: `/jndpportal/wbjk/getGroupList.xhtml`,
-      })
-        .then((res) => {
-          if (res.data[0].res == "success") {
-            this.formInline.groupList = res.data[0].data;
-          }
-        })
-        .catch((err) => {
-          this.$message("查询集团列表接口报错");
-        });
-    },
-    getFactoryList(val) {
-      this.formInline.checked =
-        this.formInline.groupName == "所有集团" ? true : false;
-      this.formInline.factoryName = "所有电厂";
-      this.factoryList = [];
-      this.formInline.jzName = "所有机组";
-      this.formInline.jzList = [];
-
-      let param = {
-        groupid: this.formInline.groupName == "所有集团" ? "" : val,
-      };
-      this.$http({
-        method: "get",
-        url: `jndpportal/wbjk/getFactoryList.xhtml`,
-        params: param,
-      })
-        .then((res) => {
-          if (res.data[0].res == "success") {
-            this.formInline.factoryList = res.data[0].data;
-            if (this.formInline.factoryList.length == 1) {
-              this.formInline.factoryName = this.formInline.factoryList[0].id;
-            }
-          }
-        })
-        .catch((err) => {
-          this.$message("查询集团列表接口报错");
-        });
-    },
-    getJzList(val) {
-      if (this.formInline.factoryName == "所有电厂") {
-        if (this.formInline.groupName == "所有集团") {
-          this.formInline.checked = true;
-        }
-      }
-      //   this.formInline.checked =
-      //     this.formInline.factoryName == "所有电厂" ? true : false;
-      this.formInline.jzName = "所有机组";
-      this.formInline.jzList = [];
-      let param = {
-        factoryid: this.formInline.factoryName == "所有电厂" ? "" : val,
-      };
-      this.$http({
-        method: "get",
-        url: `jndpportal/wbjk/getJzList.xhtml`,
-        params: param,
-      })
-        .then((res) => {
-          if (res.data[0].res == "success") {
-            this.formInline.jzList = res.data[0].data;
-            if (this.formInline.jzList.length == 1) {
-              this.formInline.jzName = this.formInline.jzList[0].id;
-            }
-          }
-        })
-        .catch((err) => {
-          this.$message("查询集团列表接口报错");
         });
     },
   },

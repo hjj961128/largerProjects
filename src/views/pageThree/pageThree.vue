@@ -76,39 +76,8 @@
       </el-form>
     </div>
     <div class="footer">
-      <div class="top1">
-        <div class="titleaa">{{ TITLE1 }}</div>
-        <div id="myChart1"></div>
-      </div>
-      <div class="top2">
-        <div class="titleaa">{{ TITLE2 }}</div>
-        <div id="myChart2"></div>
-      </div>
-      <div class="top3">
-        <div class="titleaa">{{ TITLE3 }}</div>
-        <div id="myChart3"></div>
-      </div>
-      <div class="top4">
-        <div class="titleaa">{{ TITLE4 }}</div>
-        <div id="myChart4"></div>
-      </div>
-      <div class="footer1">
-        <div class="titleaa">{{ TITLE5 }}</div>
-        <div class="title">{{ PIETITLE1 }}</div>
-        <div id="myChart5"></div>
-      </div>
-      <div class="footer2">
-        <div class="titleaa">{{ TITLE6 }}</div>
-        <div class="title">{{ PIETITLE2 }}</div>
-        <div id="myChart6"></div>
-      </div>
-      <div class="footer3">
-        <div class="titleaa">{{ TITLE7 }}</div>
-        <div class="title">{{ PIETITLE3 }}</div>
-        <div id="myChart7"></div>
-      </div>
-      <div class="footer4">
-        <div class="titleaa" style="margin-bottom: 10px">{{ TABLETITLE }}</div>
+      <div class="left">
+        <div class="titleaa">{{ TABLETITLE }}</div>
         <div class="table">
           <el-table
             :data="
@@ -121,8 +90,6 @@
           >
             <el-table-column width="55" label="序号" prop="num" align="center">
             </el-table-column>
-            <!-- <el-table-column prop="dates" label="时间" align="center">
-            </el-table-column> -->
             <el-table-column label="集团名称" width="88" align="center">
               <template slot-scope="scope">
                 <div
@@ -175,6 +142,39 @@
           </el-pagination>
         </div>
       </div>
+      <div class="center">
+        <div class="titleaa">{{ TITLE4 }}</div>
+        <div id="myChart4"></div>
+      </div>
+      <div class="right">
+        <div class="top11">
+          <div class="titleaa">{{ TITLE1 }}</div>
+          <div id="myChart1"></div>
+        </div>
+        <div class="top22">
+          <div class="titleaa">{{ TITLE2 }}</div>
+          <div id="myChart2"></div>
+        </div>
+        <div class="top33">
+          <div class="titleaa">{{ TITLE3 }}</div>
+          <div id="myChart3"></div>
+        </div>
+        <div class="footer11">
+          <div class="titleaa">{{ TITLE5 }}</div>
+          <div class="title">{{ PIETITLE1 }}</div>
+          <div id="myChart5"></div>
+        </div>
+        <div class="footer22">
+          <div class="titleaa">{{ TITLE6 }}</div>
+          <div class="title">{{ PIETITLE2 }}</div>
+          <div id="myChart6"></div>
+        </div>
+        <div class="footer33">
+          <div class="titleaa">{{ TITLE7 }}</div>
+          <div class="title">{{ PIETITLE3 }}</div>
+          <div id="myChart7"></div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -199,7 +199,7 @@ export default {
       // 总条数，根据接口获取数据长度(注意：这里不能为空)
       totalCount: 1,
       // 个数选择器（可修改）
-      pageSize: 5,
+      pageSize: 13,
       // 默认每页显示的条数（可修改）
       tableData: [],
       coalStatList: [], // 接口返回数据
@@ -310,6 +310,9 @@ export default {
       this.currentPage = 1;
       this.tableData = [];
       //初始化echarts
+      let myChart4 = echarts.init(document.getElementById("myChart4"), "dark", {
+        devicePixelRatio: 2.5,
+      });
       let myChart1 = echarts.init(document.getElementById("myChart1"), "dark", {
         devicePixelRatio: 2.5,
       });
@@ -319,9 +322,7 @@ export default {
       let myChart3 = echarts.init(document.getElementById("myChart3"), "dark", {
         devicePixelRatio: 2.5,
       });
-      let myChart4 = echarts.init(document.getElementById("myChart4"), "dark", {
-        devicePixelRatio: 2.5,
-      });
+
       let myChart5 = echarts.init(document.getElementById("myChart5"), "dark", {
         devicePixelRatio: 2.5,
       });
@@ -401,8 +402,8 @@ export default {
                 data: legendDate,
                 x: "right", // 水平居右
                 icon: "rect", // 图例icon为方块
-                itemHeight: 10, // 图例icon高度
-                itemWidth: 10, // 图例icon宽度
+                itemHeight: 8, // 图例icon高度
+                itemWidth: 8, // 图例icon宽度
                 textStyle: {
                   color: "#fff", // 图例文字颜色
                 },
@@ -468,7 +469,7 @@ export default {
                 {
                   name: legendDate[0],
                   type: "bar",
-                  barWidth: 20,
+                  barWidth: 16,
                   label: {
                     show: false,
                     position: "top",
@@ -491,7 +492,7 @@ export default {
                 {
                   name: legendDate[1],
                   type: "bar",
-                  barWidth: 20,
+                  barWidth: 16,
                   label: {
                     show: false,
                     position: "top",
@@ -514,11 +515,11 @@ export default {
                 {
                   name: legendDate[0],
                   type: "pictorialBar",
-                  barWidth: 20,
+                  barWidth: 16,
                   symbol: "diamond",
                   symbolPosition: "start",
                   symbolOffset: ["-65%", "50%"],
-                  symbolSize: [20, 10],
+                  symbolSize: [16, 8],
                   zlevel: 2,
                   itemStyle: {
                     normal: {
@@ -534,11 +535,11 @@ export default {
                 {
                   name: legendDate[0],
                   type: "pictorialBar",
-                  barWidth: 20,
+                  barWidth: 16,
                   symbol: "diamond",
                   symbolOffset: ["-65%", "-50%"],
                   symbolPosition: "end",
-                  symbolSize: [20, 10],
+                  symbolSize: [16, 8],
                   zlevel: 2,
                   itemStyle: {
                     normal: {
@@ -554,11 +555,11 @@ export default {
                 {
                   name: legendDate[1],
                   type: "pictorialBar",
-                  barWidth: 20,
+                  barWidth: 16,
                   symbol: "diamond",
                   symbolPosition: "start",
                   symbolOffset: ["65%", "50%"],
-                  symbolSize: [20, 10],
+                  symbolSize: [16, 8],
                   zlevel: 2,
                   itemStyle: {
                     normal: {
@@ -574,11 +575,11 @@ export default {
                 {
                   name: legendDate[1],
                   type: "pictorialBar",
-                  barWidth: 20,
+                  barWidth: 16,
                   symbol: "diamond",
                   symbolOffset: ["65%", "-50%"],
                   symbolPosition: "end",
-                  symbolSize: [20, 10],
+                  symbolSize: [16, 8],
                   zlevel: 2,
                   itemStyle: {
                     normal: {
@@ -607,11 +608,11 @@ export default {
                   x: "right", // 水平居右
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
-                  x: 500, //水平位置
-                  y: 40, //竖直位置
+                  x: 320, //水平位置
+                  y: 20, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
-                  itemGap: 40,
+                  itemGap: 30,
                   textStyle: {
                     color: "#fff", // 图例文字颜色
                   },
@@ -627,18 +628,25 @@ export default {
                       }
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
-                    return name + " " + " " + p + "%";
+                    let returnValue = "";
+                    if (total > 0) {
+                      returnValue = name + " " + " " + p + "%";
+                    } else {
+                      returnValue = name + " " + " ";
+                    }
+                    return returnValue;
+                    // return name + " " + " " + p + "%";
                   },
                 },
                 {
                   x: "right", // 水平居右
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
-                  x: 650, //水平位置
-                  y: 40, //竖直位置
+                  x: 450, //水平位置
+                  y: 20, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
-                  itemGap: 40,
+                  itemGap: 30,
                   textStyle: {
                     color: "#fff", // 图例文字颜色
                   },
@@ -654,7 +662,14 @@ export default {
                       }
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
-                    return name + " " + " " + p + "%";
+                    let aaa = "";
+                    if (total > 0) {
+                      aaa = name + " " + " " + p + "%";
+                    } else {
+                      aaa = name + " " + " ";
+                    }
+                    return aaa;
+                    // return name + " " + " " + p + "%";
                   },
                 },
               ],
@@ -662,8 +677,8 @@ export default {
                 {
                   name: "Access From",
                   type: "pie",
-                  radius: ["40%", "60%"],
-                  center: ["35%", "50%"],
+                  radius: ["30%", "50%"],
+                  center: ["30%", "45%"],
                   data: data4,
                   itemStyle: {
                     normal: {
@@ -719,8 +734,8 @@ export default {
                 data: legendDate,
                 x: "right", // 水平居右
                 icon: "rect", // 图例icon为方块
-                itemHeight: 10, // 图例icon高度
-                itemWidth: 10, // 图例icon宽度
+                itemHeight: 8, // 图例icon高度
+                itemWidth: 8, // 图例icon宽度
                 textStyle: {
                   color: "#fff", // 图例文字颜色
                 },
@@ -786,7 +801,7 @@ export default {
                 {
                   name: legendDate[0],
                   type: "bar",
-                  barWidth: 20,
+                  barWidth: 16,
                   label: {
                     show: false,
                     position: "top",
@@ -809,7 +824,7 @@ export default {
                 {
                   name: legendDate[1],
                   type: "bar",
-                  barWidth: 20,
+                  barWidth: 16,
                   label: {
                     show: false,
                     position: "top",
@@ -832,11 +847,11 @@ export default {
                 {
                   name: legendDate[0], //底部
                   type: "pictorialBar",
-                  barWidth: 20,
+                  barWidth: 16,
                   symbol: "diamond",
                   symbolPosition: "start",
                   symbolOffset: ["-65%", "50%"],
-                  symbolSize: [20, 10],
+                  symbolSize: [16, 8],
                   zlevel: 2,
                   itemStyle: {
                     normal: {
@@ -852,11 +867,11 @@ export default {
                 {
                   name: legendDate[0],
                   type: "pictorialBar",
-                  barWidth: 20,
+                  barWidth: 16,
                   symbol: "diamond",
                   symbolOffset: ["-65%", "-50%"],
                   symbolPosition: "end",
-                  symbolSize: [20, 10],
+                  symbolSize: [16, 8],
                   zlevel: 2,
                   itemStyle: {
                     normal: {
@@ -872,11 +887,11 @@ export default {
                 {
                   name: legendDate[1],
                   type: "pictorialBar",
-                  barWidth: 20,
+                  barWidth: 16,
                   symbol: "diamond",
                   symbolPosition: "start",
                   symbolOffset: ["65%", "50%"],
-                  symbolSize: [20, 10],
+                  symbolSize: [16, 8],
                   zlevel: 2,
                   itemStyle: {
                     normal: {
@@ -892,11 +907,11 @@ export default {
                 {
                   name: legendDate[1],
                   type: "pictorialBar",
-                  barWidth: 20,
+                  barWidth: 16,
                   symbol: "diamond",
                   symbolOffset: ["65%", "-50%"],
                   symbolPosition: "end",
-                  symbolSize: [20, 10],
+                  symbolSize: [16, 8],
                   zlevel: 2,
                   itemStyle: {
                     normal: {
@@ -925,11 +940,11 @@ export default {
                   x: "right", // 水平居右
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
-                  x: 500, //水平位置
-                  y: 40, //竖直位置
+                  x: 320, //水平位置
+                  y: 20, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
-                  itemGap: 40,
+                  itemGap: 30,
                   textStyle: {
                     color: "#fff", // 图例文字颜色
                   },
@@ -945,18 +960,25 @@ export default {
                       }
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
-                    return name + " " + " " + p + "%";
+                    // return name + " " + " " + p + "%";
+                    let returnValue = "";
+                    if (total > 0) {
+                      returnValue = name + " " + " " + p + "%";
+                    } else {
+                      returnValue = name + " " + " ";
+                    }
+                    return returnValue;
                   },
                 },
                 {
                   x: "right", // 水平居右
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
-                  x: 650, //水平位置
-                  y: 40, //竖直位置
+                  x: 450, //水平位置
+                  y: 20, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
-                  itemGap: 40,
+                  itemGap: 30,
                   textStyle: {
                     color: "#fff", // 图例文字颜色
                   },
@@ -972,7 +994,14 @@ export default {
                       }
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
-                    return name + " " + " " + p + "%";
+                    // return name + " " + " " + p + "%";
+                    let aaa = "";
+                    if (total > 0) {
+                      aaa = name + " " + " " + p + "%";
+                    } else {
+                      aaa = name + " " + " ";
+                    }
+                    return aaa;
                   },
                 },
               ],
@@ -980,8 +1009,8 @@ export default {
                 {
                   name: "Access From",
                   type: "pie",
-                  radius: ["40%", "60%"],
-                  center: ["35%", "50%"],
+                  radius: ["30%", "50%"],
+                  center: ["30%", "45%"],
                   data: data5,
                   itemStyle: {
                     normal: {
@@ -1038,8 +1067,8 @@ export default {
                 data: legendDate,
                 x: "right", // 水平居右
                 icon: "rect", // 图例icon为方块
-                itemHeight: 10, // 图例icon高度
-                itemWidth: 10, // 图例icon宽度
+                itemHeight: 8, // 图例icon高度
+                itemWidth: 8, // 图例icon宽度
                 textStyle: {
                   color: "#fff", // 图例文字颜色
                 },
@@ -1105,7 +1134,7 @@ export default {
                 {
                   name: legendDate[0],
                   type: "bar",
-                  barWidth: 20,
+                  barWidth: 16,
                   label: {
                     show: false,
                     position: "top",
@@ -1128,7 +1157,7 @@ export default {
                 {
                   name: legendDate[1],
                   type: "bar",
-                  barWidth: 20,
+                  barWidth: 16,
                   label: {
                     show: false,
                     position: "top",
@@ -1151,11 +1180,11 @@ export default {
                 {
                   name: legendDate[0], //底部
                   type: "pictorialBar",
-                  barWidth: 20,
+                  barWidth: 16,
                   symbol: "diamond",
                   symbolPosition: "start",
                   symbolOffset: ["-65%", "50%"],
-                  symbolSize: [20, 10],
+                  symbolSize: [16, 8],
                   zlevel: 2,
                   itemStyle: {
                     normal: {
@@ -1171,11 +1200,11 @@ export default {
                 {
                   name: legendDate[0],
                   type: "pictorialBar",
-                  barWidth: 20,
+                  barWidth: 16,
                   symbol: "diamond",
                   symbolOffset: ["-65%", "-50%"],
                   symbolPosition: "end",
-                  symbolSize: [20, 10],
+                  symbolSize: [16, 8],
                   zlevel: 2,
                   itemStyle: {
                     normal: {
@@ -1191,11 +1220,11 @@ export default {
                 {
                   name: legendDate[1],
                   type: "pictorialBar",
-                  barWidth: 20,
+                  barWidth: 16,
                   symbol: "diamond",
                   symbolPosition: "start",
                   symbolOffset: ["65%", "50%"],
-                  symbolSize: [20, 10],
+                  symbolSize: [16, 8],
                   zlevel: 2,
                   itemStyle: {
                     normal: {
@@ -1211,11 +1240,11 @@ export default {
                 {
                   name: legendDate[1],
                   type: "pictorialBar",
-                  barWidth: 20,
+                  barWidth: 16,
                   symbol: "diamond",
                   symbolOffset: ["65%", "-50%"],
                   symbolPosition: "end",
-                  symbolSize: [20, 10],
+                  symbolSize: [16, 8],
                   zlevel: 2,
                   itemStyle: {
                     normal: {
@@ -1244,11 +1273,11 @@ export default {
                   x: "right", // 水平居右
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
-                  x: 500, //水平位置
-                  y: 40, //竖直位置
+                  x: 320, //水平位置
+                  y: 20, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
-                  itemGap: 40,
+                  itemGap: 30,
                   textStyle: {
                     color: "#fff", // 图例文字颜色
                   },
@@ -1264,18 +1293,25 @@ export default {
                       }
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
-                    return name + " " + " " + p + "%";
+                    // return name + " " + " " + p + "%";
+                    let returnValue = "";
+                    if (total > 0) {
+                      returnValue = name + " " + " " + p + "%";
+                    } else {
+                      returnValue = name + " " + " ";
+                    }
+                    return returnValue;
                   },
                 },
                 {
                   x: "right", // 水平居右
                   icon: "rect", // 图例icon为方块
                   orient: "vertical",
-                  x: 650, //水平位置
-                  y: 40, //竖直位置
+                  x: 450, //水平位置
+                  y: 20, //竖直位置
                   itemHeight: 10, // 图例icon高度
                   itemWidth: 10, // 图例icon宽度
-                  itemGap: 40,
+                  itemGap: 30,
                   textStyle: {
                     color: "#fff", // 图例文字颜色
                   },
@@ -1291,7 +1327,14 @@ export default {
                       }
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
-                    return name + " " + " " + p + "%";
+                    // return name + " " + " " + p + "%";
+                    let aaa = "";
+                    if (total > 0) {
+                      aaa = name + " " + " " + p + "%";
+                    } else {
+                      aaa = name + " " + " ";
+                    }
+                    return aaa;
                   },
                 },
               ],
@@ -1299,8 +1342,8 @@ export default {
                 {
                   name: "Access From",
                   type: "pie",
-                  radius: ["40%", "60%"],
-                  center: ["35%", "50%"],
+                  radius: ["30%", "50%"],
+                  center: ["30%", "45%"],
                   data: data7,
                   itemStyle: {
                     normal: {
@@ -1350,7 +1393,7 @@ export default {
             var data2 = clxx4;
             var data3 = sscl4;
 
-            var legends = ["出力上限", "实时出力", "出力下限"];
+            var legends = ["出力上限", "出力下限", "实时出力"];
 
             var color = [
               {
@@ -1517,7 +1560,7 @@ export default {
                 left: "3%", //图表距边框的距离
                 right: "4%",
                 top: "10%",
-                bottom: "10%",
+                bottom: "1%",
                 containLabel: true,
               },
               xAxis: {
@@ -1633,158 +1676,13 @@ export default {
                 },
               ],
             };
-            // aaa.push(
-            //     {
-            //       name: "出力上限",
-            //       data: clsx4,
-            //     },
-            //     {
-            //       name: "实时出力",
-            //       data: sscl4,
-            //     },
-            //     {
-            //       name: "出力下限",
-            //       data: clxx4,
-            //     }
-            //   );
-            // const dataArr = {
-            //   xdata: jTName4,
-            //   result: aaa
-            // };
-            // // tooltip
-            // const tooltip = { trigger: "axis" };
-
-            // // legend
-            // const legend = {
-            //   data: dataArr.result.map((item) => item.name),
-            //   textStyle: { color: "#fff" },
-            //   itemWidth: 10,
-            //   itemHeight: 10,
-            //   itemGap: 15,
-            //   top: "3%",
-            //   x: "right", // 水平居右
-            //   // 禁止点击
-            //   selectedMode: false,
-            // };
-            // // grid
-            // const grid = {
-            //   left: "3%",
-            //   right: "4%",
-            //   top: "10%",
-            //   bottom: "10%",
-            //   containLabel: true,
-            // };
-
-            // // xAxis
-            // const xAxis = {
-            //   axisTick: { show: true },
-            //   axisLine: { lineStyle: { color: "rgba(255,255,255, .2)" } },
-            //   axisLabel: { textStyle: { fontSize: 9, color: "#fff" } },
-            //   data: dataArr.xdata,
-            // };
-
-            // // yAxis
-            // const yAxis = [
-            //   {
-            //     splitLine: { lineStyle: { color: "rgba(255,255,255, .05)" } },
-            //     axisLine: { show: false },
-            //     axisLabel: { textStyle: { fontSize: 16, color: "#fff" } },
-            //   },
-            // ];
-            // // 循环生成每个头部菱形
-            // const diamondData = dataArr.result.reduce((pre, cur, index) => {
-            //   pre[index] = cur.data.map(
-            //     (el, id) => el + (pre[index - 1] ? pre[index - 1][id] : 0)
-            //   );
-            //   return pre;
-            // }, []);
-
-            // // 定义好颜色 color
-            // const color = [
-            //   [
-            //     { offset: 0, color: "rgb(121,186,249)" },
-            //     { offset: 0.5, color: "rgb(121,186,249)" },
-            //     { offset: 0.5, color: "rgb(72,153,239)" },
-            //     { offset: 1, color: "rgb(72,153,239)" },
-            //   ],
-            //   [
-            //     { offset: 0, color: "#B87BFC" },
-            //     { offset: 0.5, color: "#B87BFC" },
-            //     { offset: 0.5, color: "#482CFB" },
-            //     { offset: 1, color: "#482CFB" },
-            //   ],
-            //   [
-            //     { offset: 0, color: "rgb(130,249,172)" },
-            //     { offset: 0.5, color: "rgb(130,249,172)" },
-            //     { offset: 0.5, color: "rgb(80,158,125)" },
-            //     { offset: 1, color: "rgb(80,158,125)" },
-            //   ],
-            // ];
-
-            // // 循环生成series配置
-            // let series = dataArr.result.reduce((p, c, i, array) => {
-            //   p.push(
-            //     {
-            //       z: i + 1,
-            //       type: "bar",
-            //       name: c.name,
-            //       barGap: "-100%",
-            //       barWidth: 20,
-            //       data: c.data,
-            //       itemStyle: {
-            //         color: {
-            //           type: "linear",
-            //           x: 0,
-            //           x2: 1,
-            //           y: 0,
-            //           y2: 0,
-            //           colorStops: color[i],
-            //         },
-            //       },
-            //     },
-            //     {
-            //       z: i + 10,
-            //       type: "pictorialBar",
-            //       symbolPosition: "end",
-            //       symbol: "diamond",
-            //       symbolOffset: [0, "-50%"],
-            //       symbolSize: [20, 10],
-            //       data: diamondData[i],
-            //       itemStyle: {
-            //         color: {
-            //           type: "linear",
-            //           x: 0,
-            //           x2: 1,
-            //           y: 0,
-            //           y2: 0,
-            //           colorStops: color[i],
-            //         },
-            //       },
-            //       tooltip: { show: false },
-            //     }
-            //   );
-
-            //   return p;
-            // }, []);
-
-            // // 渲染
-            // this.option4 = {
-            //   tooltip,
-            //   xAxis,
-            //   yAxis,
-            //   series,
-            //   grid,
-            //   legend,
-            //   backgroundColor: "",
-            // };
-
+            myChart4.setOption(this.option4);
             myChart1.setOption(this.option1);
             myChart2.setOption(this.option2);
             myChart3.setOption(this.option3);
             myChart5.setOption(this.option5);
             myChart6.setOption(this.option6);
             myChart7.setOption(this.option7);
-            myChart4.setOption(this.option4);
           }
         })
         .catch((err) => {

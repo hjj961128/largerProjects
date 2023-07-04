@@ -1,7 +1,7 @@
 <template>
   <div class="main-body">
     <iframe
-      src="http://10.136.211.105:8080/jndpportal/browseTdrmjzjnjpybb.xhtml"
+      src="http://10.136.211.125:8080/jndpportal/browseTdrmjzjnjpybb.xhtml"
       id="frames"
       frameborder="0"
       sandbox="allow-forms allow-scripts allow-same-origin allow-popups"
@@ -16,7 +16,7 @@
 export default {
   data() {
     return {
-      url_: "http://10.136.211.105:8080/jndpportal/browseTdrmjzjnjpybb.xhtml",
+      url_: "http://10.136.211.125:8080/jndpportal/browseTdrmjzjnjpybb.xhtml",
     };
   },
 

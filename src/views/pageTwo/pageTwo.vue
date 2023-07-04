@@ -312,7 +312,7 @@ export default {
         groupName: "所有集团",
         factoryName: "所有电厂",
         jzName: "所有机组",
-        baobiaoName: "1",
+        baobiaoName: "3",
         choiceyear: "",
         jidu: "第一季度",
         months: "",
@@ -599,10 +599,11 @@ export default {
                 },
               },
               grid: {
-                left: "10%",
+                left: "3%",
                 right: "4%",
                 top: "10%",
-                bottom: "25%",
+                bottom: "10%",
+                containLabel: true,
               },
               xAxis: [
                 {
@@ -987,7 +988,7 @@ export default {
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
                     let  returnValue = ''
-                    if(p > 0){
+                    if( total > 0){
                       returnValue = name + " " + " " + p + "%"
                     }else{
                       returnValue =  name + " " + " "
@@ -1020,7 +1021,7 @@ export default {
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
                     let aaa = ''
-                    if(p > 0 ){
+                    if( total > 0 ){
                       aaa = name + " " + " " + p + "%"
                     } else {
                       aaa = name + " " + " " 
@@ -1069,7 +1070,7 @@ export default {
             this.option4 = {
               backgroundColor: "", //设置无背景色
               tooltip: {
-                trigger: "item",
+                show: false,
               },
               legend: [
                 {
@@ -1097,7 +1098,7 @@ export default {
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
                     let  returnValue = ''
-                    if(p > 0){
+                    if( total > 0){
                       returnValue = name + " " + " " + p + "%"
                     }else{
                       returnValue =  name + " " + " "
@@ -1130,7 +1131,7 @@ export default {
                     }
                     var p = ((tarValue / total) * 100).toFixed(2);
                     let aaa = ''
-                    if(p > 0 ){
+                    if( total > 0 ){
                       aaa = name + " " + " " + p + "%"
                     } else {
                       aaa = name + " " + " " 

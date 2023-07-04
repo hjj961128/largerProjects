@@ -122,6 +122,22 @@
             >
             </el-date-picker>
           </div>
+          超标情况：
+          <div class="search-list">
+            <el-select
+              v-model="formInline.overStandard"
+              placeholder="请选择"
+              :popper-append-to-body="false"
+            >
+              <el-option
+                v-for="item in formInline.overStandardList"
+                :key="item.id"
+                :label="item.name"
+                :value="item.id"
+              >
+              </el-option>
+            </el-select>
+          </div>
           <div class="btn1" @click="getCoalStat">
             <img src="../../assets/btn1.png" alt="" />
           </div>
@@ -191,7 +207,10 @@
                 <template slot-scope="scope">
                   <div
                     :class="
-                      (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'
+                      scope.row.groupName.indexOf('汇总') != -1 ||
+                      scope.row.factoryName.indexOf('汇总') != -1
+                        ? 'aaa'
+                        : 'bbb'
                     "
                   >
                     {{ scope.row.num }}
@@ -203,13 +222,18 @@
               <el-table-column label="集团" width="110px" align="center">
                 <template slot-scope="scope">
                   <div
-                    style=" width: 100px;height: 26px;
+                    style="
+                      width: 100px;
+                      height: 26px;
                       text-align: center;
                       background: rgb(16, 42, 64);
                       border-radius: 4.4px;
                     "
                     :class="
-                    (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'
+                      scope.row.groupName.indexOf('汇总') != -1 ||
+                      scope.row.factoryName.indexOf('汇总') != -1
+                        ? 'aaa'
+                        : 'bbb'
                     "
                   >
                     {{ scope.row.groupName }}
@@ -220,11 +244,15 @@
                 prop="factoryName"
                 label="电厂名称"
                 align="center"
+                width="150"
               >
                 <template slot-scope="scope">
                   <div
                     :class="
-                      (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'
+                      scope.row.groupName.indexOf('汇总') != -1 ||
+                      scope.row.factoryName.indexOf('汇总') != -1
+                        ? 'aaa'
+                        : 'bbb'
                     "
                   >
                     {{ scope.row.factoryName }}
@@ -233,14 +261,17 @@
               </el-table-column>
               <el-table-column
                 prop="crewName"
-                width="100"
+                width="60"
                 label="机组名称"
                 align="center"
               >
                 <template slot-scope="scope">
                   <div
                     :class="
-                      (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'
+                      scope.row.groupName.indexOf('汇总') != -1 ||
+                      scope.row.factoryName.indexOf('汇总') != -1
+                        ? 'aaa'
+                        : 'bbb'
                     "
                   >
                     {{ scope.row.crewName }}
@@ -250,13 +281,17 @@
               <el-table-column
                 prop="fdl"
                 width="119"
-                label="发电量(MWh)"
+                :render-header="renderHeader"
+                label="发电量 (MWh)"
                 align="center"
               >
                 <template slot-scope="scope">
                   <div
                     :class="
-                      (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'
+                      scope.row.groupName.indexOf('汇总') != -1 ||
+                      scope.row.factoryName.indexOf('汇总') != -1
+                        ? 'aaa'
+                        : 'bbb'
                     "
                   >
                     {{ scope.row.fdl }}
@@ -265,32 +300,21 @@
               </el-table-column>
               <el-table-column
                 prop="runTime"
-                label="运行时间(h)"
+                label="运行时间 (h)"
+                :render-header="renderHeader"
                 width="99"
                 align="center"
               >
                 <template slot-scope="scope">
                   <div
                     :class="
-                      (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'
+                      scope.row.groupName.indexOf('汇总') != -1 ||
+                      scope.row.factoryName.indexOf('汇总') != -1
+                        ? 'aaa'
+                        : 'bbb'
                     "
                   >
                     {{ scope.row.runTime }}
-                  </div>
-                </template>
-              </el-table-column>
-              <el-table-column
-                prop="noxPfl"
-                label="氮氧化物排放量(t)"
-                align="center"
-              >
-                <template slot-scope="scope">
-                  <div
-                    :class="
-                      (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'
-                    "
-                  >
-                    {{ scope.row.noxPfl }}
                   </div>
                 </template>
               </el-table-column>
@@ -302,7 +326,10 @@
                 <template slot-scope="scope">
                   <div
                     :class="
-                      (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'
+                      scope.row.groupName.indexOf('汇总') != -1 ||
+                      scope.row.factoryName.indexOf('汇总') != -1
+                        ? 'aaa'
+                        : 'bbb'
                     "
                   >
                     {{ scope.row.so2Pfl }}
@@ -310,14 +337,35 @@
                 </template>
               </el-table-column>
               <el-table-column
-                prop="dustPfl"
-                label="烟尘排放量(t)"
+                prop="noxPfl"
+                label="氮氧化物排放量(t)"
                 align="center"
               >
                 <template slot-scope="scope">
                   <div
                     :class="
-                      (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1) ? 'aaa' : 'bbb'
+                      scope.row.groupName.indexOf('汇总') != -1 ||
+                      scope.row.factoryName.indexOf('汇总') != -1
+                        ? 'aaa'
+                        : 'bbb'
+                    "
+                  >
+                    {{ scope.row.noxPfl }}
+                  </div>
+                </template>
+              </el-table-column>
+              <el-table-column
+                prop="dustPfl"
+                label="烟尘排放量 (t)"
+                align="center"
+              >
+                <template slot-scope="scope">
+                  <div
+                    :class="
+                      scope.row.groupName.indexOf('汇总') != -1 ||
+                      scope.row.factoryName.indexOf('汇总') != -1
+                        ? 'aaa'
+                        : 'bbb'
                     "
                   >
                     {{ scope.row.dustPfl }}
@@ -327,14 +375,22 @@
               <el-table-column label="二氧化硫浓度" align="center">
                 <el-table-column
                   prop="so2Nd"
-                  label="浓度(mg/m³)"
+                  :render-header="renderHeader"
+                  label="浓度 (mg/m³)"
                   align="center"
-                  width="114"
+                  width="100"
                 >
                   <template slot-scope="scope">
                     <div
+                      :style="
+                        scope.row.so2Cb1byn * 1 > 0 ||
+                        scope.row.so2Cb1bys * 1 > 0
+                          ? 'color: red'
+                          : ''
+                      "
                       :class="
-                        (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1)
+                        scope.row.groupName.indexOf('汇总') != -1 ||
+                        scope.row.factoryName.indexOf('汇总') != -1
                           ? 'aaa'
                           : 'bbb'
                       "
@@ -353,7 +409,8 @@
                       v-if="scope.row.so2Cb1byn * 1 > 0"
                       style="color: red"
                       :class="
-                        (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1)
+                        scope.row.groupName.indexOf('汇总') != -1 ||
+                        scope.row.factoryName.indexOf('汇总') != -1
                           ? 'aaa'
                           : 'bbb'
                       "
@@ -365,7 +422,7 @@
                 </el-table-column>
                 <el-table-column
                   prop="so2Cb1bys"
-                  label="二氧化硫超标一倍以上"
+                  label="1倍以上超标时间(h)"
                   align="center"
                 >
                   <template slot-scope="scope">
@@ -373,7 +430,8 @@
                       v-if="scope.row.so2Cb1bys * 1 > 0"
                       style="color: red"
                       :class="
-                        (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1)
+                        scope.row.groupName.indexOf('汇总') != -1 ||
+                        scope.row.factoryName.indexOf('汇总') != -1
                           ? 'aaa'
                           : 'bbb'
                       "
@@ -388,14 +446,22 @@
               <el-table-column label="氮氧化物浓度" align="center">
                 <el-table-column
                   prop="noxNd"
-                  label="浓度(mg/m³)"
+                  :render-header="renderHeader"
+                  label="浓度 (mg/m³)"
                   align="center"
-                  width="114"
+                  width="100"
                 >
                   <template slot-scope="scope">
                     <div
+                      :style="
+                        scope.row.noxCb1byn * 1 > 0 ||
+                        scope.row.noxCb1bys * 1 > 0
+                          ? 'color: red'
+                          : ''
+                      "
                       :class="
-                        (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1)
+                        scope.row.groupName.indexOf('汇总') != -1 ||
+                        scope.row.factoryName.indexOf('汇总') != -1
                           ? 'aaa'
                           : 'bbb'
                       "
@@ -414,7 +480,8 @@
                       v-if="scope.row.noxCb1byn * 1 > 0"
                       style="color: red"
                       :class="
-                        (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1)
+                        scope.row.groupName.indexOf('汇总') != -1 ||
+                        scope.row.factoryName.indexOf('汇总') != -1
                           ? 'aaa'
                           : 'bbb'
                       "
@@ -434,7 +501,8 @@
                       v-if="scope.row.noxCb1bys * 1 > 0"
                       style="color: red"
                       :class="
-                        (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1)
+                        scope.row.groupName.indexOf('汇总') != -1 ||
+                        scope.row.factoryName.indexOf('汇总') != -1
                           ? 'aaa'
                           : 'bbb'
                       "
@@ -449,14 +517,22 @@
               <el-table-column label="烟尘浓度" align="center">
                 <el-table-column
                   prop="dustNd"
-                  label="浓度(mg/m³)"
+                  :render-header="renderHeader"
+                  label="浓度 (mg/m³)"
                   align="center"
-                  width="114"
+                  width="100"
                 >
                   <template slot-scope="scope">
                     <div
+                      :style="
+                        scope.row.dustCb1byn * 1 > 0 ||
+                        scope.row.dustCb1bys * 1 > 0
+                          ? 'color: red'
+                          : ''
+                      "
                       :class="
-                        (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1)
+                        scope.row.groupName.indexOf('汇总') != -1 ||
+                        scope.row.factoryName.indexOf('汇总') != -1
                           ? 'aaa'
                           : 'bbb'
                       "
@@ -475,7 +551,8 @@
                       v-if="scope.row.dustCb1byn * 1 > 0"
                       style="color: red"
                       :class="
-                        (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1)
+                        scope.row.groupName.indexOf('汇总') != -1 ||
+                        scope.row.factoryName.indexOf('汇总') != -1
                           ? 'aaa'
                           : 'bbb'
                       "
@@ -495,7 +572,8 @@
                       v-if="scope.row.dustCb1bys * 1 > 0"
                       style="color: red"
                       :class="
-                        (scope.row.groupName.indexOf('汇总') != -1 || scope.row.factoryName.indexOf('汇总') != -1)
+                        scope.row.groupName.indexOf('汇总') != -1 ||
+                        scope.row.factoryName.indexOf('汇总') != -1
                           ? 'aaa'
                           : 'bbb'
                       "
@@ -588,9 +666,24 @@ export default {
             label: "月报",
           },
         ],
+        overStandardList: [
+          {
+            id: "0",
+            name: "全部",
+          },
+          {
+            id: "1",
+            name: "已超标",
+          },
+          {
+            id: "2",
+            name: "未超标",
+          },
+        ],
         groupName: "所有集团",
         factoryName: "所有电厂",
         jzName: "所有机组",
+        overStandard: '全部',
         baobiaoName: "3",
         choiceyear: "",
         jidu: "第一季度",
@@ -624,6 +717,15 @@ export default {
     });
   },
   methods: {
+    renderHeader(h, { column, $index }) {
+      console.log(column);
+      return h("span", {}, [
+        h("span", {}, column.label.split(" ")[0]),
+        h("br"),
+        h("span", {}, column.label.split(" ")[1]),
+      ]);
+    },
+
     changeTu() {
       this.showTu = !this.showTu;
     },
@@ -830,6 +932,7 @@ export default {
         year: year,
         quarter: quarter,
         month: months,
+        overStandard:this.formInline.overStandard
       };
       this.$http({
         method: "get",
